@@ -57,7 +57,7 @@ export default function ContactPage() {
             Get In Touch
           </h1>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            Let's discuss your next project or collaboration
+            Let&apos;s discuss your next project or collaboration
           </p>
         </div>
 

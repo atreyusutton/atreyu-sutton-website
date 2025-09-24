@@ -132,7 +132,7 @@ export default function AboutPage() {
         <div className="mt-12">
           <div className="prose prose-lg prose-gray mx-auto dark:prose-invert">
             <p>
-              I'm a creative technologist who ships. I pair an engineer's systems mindset with a designer's sensitivity to interaction, accessibility, and craft. My background spans product strategy, full‑stack web, and hands‑on prototyping — from image pipelines and dashboards to physical builds and design research.
+              I&apos;m a creative technologist who ships. I pair an engineer&apos;s systems mindset with a designer&apos;s sensitivity to interaction, accessibility, and craft. My background spans product strategy, full‑stack web, and hands‑on prototyping — from image pipelines and dashboards to physical builds and design research.
             </p>
           </div>
         </div>
