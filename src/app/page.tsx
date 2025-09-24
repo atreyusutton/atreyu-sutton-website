@@ -1,103 +1,121 @@
-import Image from "next/image";
+import Image from 'next/image'
+import { Button } from '@/components/Button'
+import { ProjectCard } from '@/components/ProjectCard'
+import { ArrowRight, Download, Mail } from 'lucide-react'
+
+const featuredProjects = [
+  {
+    title: 'Fuelfed Motor Market',
+    description: 'An online marketplace for vintage 4x4s and enthusiast vehicles.',
+    image: '/fuelfed-motor-market/fuelfed-1-hero.png',
+    href: 'https://rileyshucks.com',
+    external: true,
+    tags: ['Web', 'Work'],
+    date: 'Jan 2025'
+  },
+  {
+    title: 'Nest Messages',
+    description: 'A platform sending uplifting daily messages to support youth mental health.',
+    image: '/nest-messages/nest-messages-1-hero.png',
+    href: 'https://nest-messages.pages.dev/',
+    external: true,
+    tags: ['Web', 'Social Impact'],
+    date: 'Mar 2024'
+  },
+  {
+    title: 'Toyota 4Runner Build',
+    description: 'Restoring and upgrading a classic \'85 Toyota 4Runner.',
+    image: '/1985-toyota-4runner/hero.png',
+    href: '/projects/toyota-4runner-build',
+    tags: ['Fabrication'],
+    date: 'May 2024'
+  }
+]
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+            {/* Left side - Text content */}
+            <div className="flex flex-col justify-center">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
+                Engineering the{' '}
+                <span className="text-indigo-600 dark:text-indigo-400">
+                  creative edge
+                </span>
+              </h1>
+              
+              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                M.S. in Engineering – Creative Technology & Design (CU Boulder, ATLAS). 
+                I pair systems thinking with hands‑on prototyping to ship fast, accessible products.
+              </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+              {/* CTA Buttons */}
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Button href="/projects" size="lg">
+                  View Projects
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button href="/contact" variant="secondary" size="lg">
+                  <Mail className="mr-2 h-5 w-5" />
+                  Contact
+                </Button>
+                <Button href="/resume.pdf" variant="outline" size="lg" external>
+                  <Download className="mr-2 h-5 w-5" />
+                  Download Resume
+                </Button>
+              </div>
+            </div>
+
+            {/* Right side - Image */}
+            <div className="flex items-center justify-center">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 opacity-20 blur-3xl"></div>
+                <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-gray-800">
+                  <Image
+                    src="/home.jpeg"
+                    alt="Atreyu Sutton"
+                    width={500}
+                    height={600}
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Featured Projects Section */}
+      <section className="bg-gray-50 px-4 py-16 dark:bg-gray-800/50 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+              Featured Projects
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+              A selection of recent work spanning web development, fabrication, and creative technology
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button href="/projects" size="lg">
+              View All Projects
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
