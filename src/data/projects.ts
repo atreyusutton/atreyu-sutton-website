@@ -22,6 +22,9 @@ export const projects: Project[] = [
     image: '/1985-toyota-4runner/hero.jpeg',
     images: [
       '/1985-toyota-4runner/hero.jpeg',
+      '/1985-toyota-4runner/4567.jpeg',
+      '/1985-toyota-4runner/toyota-build-0.jpeg',
+      '/1985-toyota-4runner/toyota-build-01.jpeg',
       '/1985-toyota-4runner/toyota-build-1.jpeg',
       '/1985-toyota-4runner/toyota-build-2.jpeg',
       '/1985-toyota-4runner/toyota-build-3.jpeg',
