@@ -1,0 +1,78 @@
+{
+  "slug": "land-finder",
+  "title": "Land Finder (\"something\")",
+  "lane": "software",
+  "tier": "swap",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Correct my sentence.",
+      "draft": "A land discovery tool for Bonner and Boundary counties in North Idaho that scores rural parcels on how private, beautiful, buildable and recreation-adjacent they are, so a buyer can find good land nobody else noticed. Your own README line is the tagline: find land nobody else noticed.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Active, parked, or being shown to investors?",
+      "draft": "Solo. 1 commit, 8 May 2026, but the commit count is misleading: 25 source files and about 2,700 lines. NEEDS YOU: is this active, parked, or something you are showing to the land investors you have been talking to?",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "The scoring weights or the GIS pipeline. Which.",
+      "draft": "The interesting hard part is visible in scoring.ts: turning subjective ideas like privacy and beauty into numbers a computer can rank, from public GIS layers. Every weight in that file is a judgment call you had to defend to yourself. Second candidate is the geospatial pipeline, going from county shapefiles to PostGIS polygons to enrichment from USGS DEM, NLCD canopy and PAD-US.",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Why graceful degradation, and why MapLibre over Mapbox.",
+      "draft": "Two good ones are already in the code. First, everything degrades: no Supabase and it runs on curated local parcels, no OpenAI key and a deterministic regex parser handles natural-language search, and every parcel ships a baked-in summary so the drawer is never empty. That is a deliberate design stance and most people do not build that way. Second, MapLibre with OSM and Esri tiles instead of Mapbox, which means no key and no per-load cost. Say why on both.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Real parcel count once you import. That is the unlock.",
+      "draft": "From the repo: about 2,700 lines across 25 files, 4 scoring dimensions with documented weights, roughly 50 curated parcels, 2 counties, PostGIS schema with spatial indexes. NEEDS YOU, and this is the number that changes everything: how many real parcels once you run the importer against the actual Bonner and Boundary GIS data?",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "A parcel the model scored badly wrong.",
+      "draft": "NEEDS YOU. Anything in the shapefile import or the scoring that produced obviously wrong answers is a great story, because a scoring model that ranked a swamp as beautiful is the kind of failure people remember.",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Record the map.",
+      "draft": "NEEDS YOU: a screen recording of the map with the drawer open on a high-scoring parcel. Geospatial work photographs better than any other kind of software, and this is the one project where a screenshot genuinely sells it.",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

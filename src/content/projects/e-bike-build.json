@@ -1,0 +1,48 @@
+{
+  "slug": "e-bike-build",
+  "title": "E-Bike Build",
+  "lane": "hardware",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "shelved",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/e-bike-build/e-bike-1-hero.png",
+    "alt": "",
+    "width": 1024,
+    "height": 1024
+  },
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "First person, plain. Nothing publishes until this is written.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Anything measured.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "What else exists.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

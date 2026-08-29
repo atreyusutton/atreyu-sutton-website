@@ -1,0 +1,54 @@
+{
+  "slug": "resume-maker",
+  "title": "Resume Maker",
+  "lane": "software",
+  "tier": "index",
+  "order": null,
+  "published": true,
+  "featured": false,
+  "status": "running",
+  "oneLine": "Web application with PDF generation and template rendering engine.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/resume-maker/resume-1-hero.png",
+    "alt": "The resume maker interface, an editor form on the left and a live paginated resume preview on the right",
+    "width": 1915,
+    "height": 1038
+  },
+  "gallery": [],
+  "video": null,
+  "links": [
+    {
+      "label": "Live site",
+      "href": "https://resume-maker-dlc.pages.dev/"
+    }
+  ],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "A drag-and-drop resume builder with live preview and PDF export. Is this the ancestor of LandedTheJob? If so, say that, because a project that turned into a better project is a good story.",
+      "draft": "Web application with PDF generation and template rendering engine.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "4 commits, September 2025. Anything else.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "Screenshot or a live link.",
+      "draft": "",
+      "answer": ""
+    }
+  ],
+  "carriedOver": true
+}

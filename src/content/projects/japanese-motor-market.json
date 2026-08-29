@@ -1,0 +1,85 @@
+{
+  "slug": "japanese-motor-market",
+  "title": "Japanese Motor Market",
+  "lane": "software",
+  "tier": "featured",
+  "order": 5,
+  "published": false,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [
+    {
+      "src": "/fuelfed-motor-market/fuelfed-1-hero.png",
+      "alt": "",
+      "width": 3024,
+      "height": 1554
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Correct my sentence if I got the product wrong.",
+      "draft": "A marketplace for Japanese cars, backed by a Python scraper that pulls completed Bring a Trailer auctions through the same public WordPress REST endpoint the site itself calls when you click Show More.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Dates, and is it deployed.",
+      "draft": "Solo. NOT A GIT REPO, so I could not read dates. Tell me when you built it and whether it is live anywhere. Scope in the folder: Next.js App Router, 12 Prisma models, admin dashboard, listings, sell flow, blog, ad placements, Clerk auth, account settings.",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Pick one of my candidates or replace them.",
+      "draft": "Candidates I can see from the code: your scraper has random delays, certifi handling and retry logic, which means Bring a Trailer fought you. Or it is the data model, since you carry 12 models including ads, events and blog posts. Or pulling comparable pricing out of unstructured listing text. Which one actually cost you nights?",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Why the REST endpoint over HTML parsing.",
+      "draft": "You went after the WP REST endpoint instead of parsing rendered HTML. That is the decision, and HTML scraping is the alternative you rejected. Say why in your own words, because the reasoning is the interesting part.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Add anything I could not see: users, traffic, cars listed by real people.",
+      "draft": "From the repo: 20,245 listings scraped, 27 fields per listing, 50 image sets pulled, 12 data models, plus a separate dataset from a year earlier for comparison. Twenty thousand listings is a genuinely strong number. Lead with it.",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "The scraper failure that made you write the retry logic.",
+      "draft": "Rate limits, SSL, a schema change on their side, or bad rows. That retry logic in scrape.py exists for a reason. What was it?",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "What you have, and whether you will make the chart.",
+      "draft": "NEEDS YOU: screenshots of the listings page and the admin dashboard, and the scraper running. But the real opportunity is a chart. You have 20k listings and a year-over-year set. One good chart of Japanese car values over time would be the most interesting single object on your entire site.",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

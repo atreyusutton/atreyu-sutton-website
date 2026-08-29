@@ -1,0 +1,78 @@
+{
+  "slug": "echopilot",
+  "title": "EchoPilot",
+  "lane": "software",
+  "tier": "swap",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Confirm or correct.",
+      "draft": "A product that lets small business owners manage their Google Business Profile entirely over SMS: respond to reviews, update hours, post updates, request reviews from customers, without ever opening a dashboard.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Confirm.",
+      "draft": "Solo. First commit 6 December 2025, last 20 January 2026, 5 commits. Built: marketing site. Not built: the product. Planned stack was Next.js on Vercel, Fastify on Railway, Supabase, Twilio, Google Business Profile API, Stripe.",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Was Google verification really the blocker?",
+      "draft": "From your own docs, the blocker was not code: a 60 day Google Business Profile verification requirement and the Google API approval process, plus Twilio approval. That is a genuinely interesting constraint and it is the honest story of this project.",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Confirm the SMS-first call.",
+      "draft": "The decision documented across your files is SMS as the primary interface with AI as an optional helper and the dashboard secondary. That is a real and slightly contrarian product call. The rejected alternative is the dashboard-first SaaS everyone else builds.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "How many businesses did you actually talk to?",
+      "draft": "12 planning documents, echopilot.me registered. NEEDS YOU: how far did the Google verification actually get, and did you talk to any Boulder businesses? You have a boulder-business-outreach.md, so presumably yes. How many?",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "What stopped it.",
+      "draft": "NEEDS YOU: what stopped it. Google approval, time, or losing interest? Any of those is a fine answer and the third one is the most common.",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "What is worth showing.",
+      "draft": "The marketing site, the brand guide, and the architecture from stack.md.",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

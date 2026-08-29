@@ -1,0 +1,78 @@
+{
+  "slug": "coleman-frame",
+  "title": "Coleman Frame",
+  "lane": "fab",
+  "tier": "featured",
+  "order": 8,
+  "published": false,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "What it is and what it holds. A frame for what, mounted to what.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Solo, how long it took, is it on the vehicle now, how many trips it has done.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Load, weight, packaging around the vehicle, welding thin wall, or working without a proper jig.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Material and process. Why that tube size and wall thickness. Steel versus aluminum. MIG versus TIG. What you rejected and why.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Frame weight, load carried, tube OD and wall, number of welds, cost, miles traveled on it.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "A weld that cracked, a fitment problem, something that worked loose on the highway.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Tacked up in the jig, the finished welds close enough to see the beads, and it loaded in the field. Close-up weld photos are the proof and most people forget to take them.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

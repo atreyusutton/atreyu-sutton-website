@@ -1,0 +1,78 @@
+{
+  "slug": "engine-rebuild",
+  "title": "Engine Rebuild",
+  "lane": "mechanical",
+  "tier": "featured",
+  "order": 2,
+  "published": false,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Which engine, which vehicle, and why it had to come apart. Example: 22R out of an 85 pickup at 240k, burning oil and down on compression in two cylinders.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Solo or with someone. How many months of weekends. Does it run now, and how many miles since it went back together.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Money, tools, space, or parts. Machine shop budget, no hoist, seized head bolts, measuring clearances without the right gauges, sourcing parts for an 80s Toyota.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Rebuild versus a junkyard replacement. Bore oversize versus standard. New head versus reman. Which rings and bearings and why. Give me one thing you rejected.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Bore clearance, ring end gap, main and rod bearing clearance, compression before and after in psi, total cost, miles since. Compression before and after is the single most persuasive pair of numbers you own.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "Did it fire on the first crank? Oil pressure? A leak that made you pull it back apart? Anything you had to redo counts and helps.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Bare block on the stand, crank and bearings, head, timing marks, and the first start. If you have the first start on video, that is the hero clip for the entire site.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

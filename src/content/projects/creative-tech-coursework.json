@@ -1,0 +1,43 @@
+{
+  "slug": "creative-tech-coursework",
+  "title": "Creative Tech Coursework",
+  "lane": "hardware",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "You have a whole documentation site for this: IDC1 ideation, IDC1 project, an enclosures mini project. Tell me in one line what the course was and which of your hardware projects came out of it.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Semester, number of projects, your grade if it flatters you.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "The site is already built. Is it deployed? If so it links straight from your index.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

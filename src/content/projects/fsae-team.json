@@ -1,0 +1,78 @@
+{
+  "slug": "fsae-team",
+  "title": "FSAE Team",
+  "lane": "mechanical",
+  "tier": "featured",
+  "order": 4,
+  "published": false,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Which subsystem you owned and what it does on the car. Suspension, chassis, drivetrain, aero, electronics. The site is about your part.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Team size, your title, which season, hours a week. Did the car pass tech and finish the event, and where did you place.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "A rules constraint, the cost cap, what your shop could actually manufacture, the schedule, or a teammate leaving. The rulebook is usually the interesting constraint, so name the rule.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "A material, geometry, or process choice and the one you rejected. Steel tube versus bonded aluminum, that damper over another, welded versus machined.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Mass in kg, stiffness, deflection under load, lap time, cost per unit, FEA safety factor, placing at comp.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "What failed in testing or at the event and what you did about it. FSAE always breaks something. This will be the best paragraph on the page.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "CAD screenshots, FEA plots, the part on the car, the car running. A photo of your part installed beats any render.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "slug": "computer-case",
+  "title": "Computer Case",
+  "lane": "hardware",
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "Custom machined chassis with CAD design and CNC fabrication.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/computer-case-build/computer-case-1-hero.png",
+    "alt": "Open frame computer chassis holding a motherboard, graphics card and closed loop cooler, lit against a dark background",
+    "width": 1024,
+    "height": 1024
+  },
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "What you built and why the off-the-shelf option did not work.",
+      "draft": "Custom machined chassis with CAD design and CNC fabrication.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Solo, when, in use now?",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Thermals, packaging, material, or tooling.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Material and process choice, and what you rejected.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Volume in liters, temps under load before and after, weight, cost, dB.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "What broke or did not fit.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "CAD, in progress, finished, and a thermal comparison chart if you measured.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ],
+  "carriedOver": true
+}

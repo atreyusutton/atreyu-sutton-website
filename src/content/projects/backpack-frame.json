@@ -1,0 +1,78 @@
+{
+  "slug": "backpack-frame",
+  "title": "Backpack Frame",
+  "lane": "fab",
+  "tier": "swap",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "What it is and what it carries.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Solo, when, have you actually hiked with it.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Weight, comfort, load path, or welding thin tube.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Material and geometry choice, and the rejected option.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Frame weight, load carried, miles hiked with it, cost.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "What failed or hurt.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Welds, the frame, and it loaded on your back on a trail.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

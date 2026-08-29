@@ -1,0 +1,43 @@
+{
+  "slug": "3d-printed-car-parts",
+  "title": "3D Printed Car Parts",
+  "lane": "hardware",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "What parts, for what cars, and which ones are still in service.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "How many parts, print hours, material, cost versus OEM.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "A grid of the parts, and any of them installed.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "slug": "ducati-s2r",
+  "title": "Ducati",
+  "lane": "mechanical",
+  "tier": "index",
+  "order": null,
+  "published": true,
+  "featured": false,
+  "status": "shipped",
+  "oneLine": "Custom motorcycle build with electrical system redesign and fabrication work.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/2006-ducati-s2r/ducati-2-hero.jpeg",
+    "alt": "The 2006 Ducati S2R after the rebuild, trellis frame and exposed belt covers visible",
+    "width": 1106,
+    "height": 622
+  },
+  "gallery": [
+    {
+      "src": "/2006-ducati-s2r/ducati-1.jpeg",
+      "alt": "",
+      "width": 1106,
+      "height": 830
+    },
+    {
+      "src": "/2006-ducati-s2r/ducati-3.jpeg",
+      "alt": "",
+      "width": 1106,
+      "height": 830
+    },
+    {
+      "src": "/2006-ducati-s2r/ducati-4.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "src": "/2006-ducati-s2r/ducati-5.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "src": "/2006-ducati-s2r/ducati-6.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "src": "/2006-ducati-s2r/ducati-7.jpeg",
+      "alt": "",
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "src": "/2006-ducati-s2r/ducati-8.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 1960
+    },
+    {
+      "src": "/2006-ducati-s2r/ducati-9.jpeg",
+      "alt": "",
+      "width": 1440,
+      "height": 1920
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Which bike and what you did to it.",
+      "draft": "Custom motorcycle build with electrical system redesign and fabrication work.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Year, miles, what you have replaced, cost.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "The bike, and anything you took apart.",
+      "draft": "",
+      "answer": ""
+    }
+  ],
+  "carriedOver": true
+}

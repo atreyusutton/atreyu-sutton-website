@@ -1,0 +1,43 @@
+{
+  "slug": "plasma-gun",
+  "title": "Plasma Gun",
+  "lane": "hardware",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "What it is and what it actually does. Same rule: lead with the electrical safety design.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Voltage, current, arc length, duty cycle, cost.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "Internals and a short video.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

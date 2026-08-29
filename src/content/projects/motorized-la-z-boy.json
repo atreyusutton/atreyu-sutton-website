@@ -1,0 +1,43 @@
+{
+  "slug": "motorized-la-z-boy",
+  "title": "Motorized La-Z-Boy",
+  "lane": "hardware",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "One line, and let it be funny. This one earns its place by being funny.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Top speed, range, battery, weight, motor size.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "Video of someone riding it. Nothing else will do.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "slug": "green-burial-pitch",
+  "title": "Green Burial Pitch",
+  "lane": "writing",
+  "tier": "index",
+  "order": null,
+  "published": true,
+  "carriedOver": true,
+  "featured": false,
+  "status": "shipped",
+  "oneLine": "Proposal for eco-friendly burial and land stewardship.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/green-burial-pitch/burial-pitch-1-hero.png",
+    "alt": "A plain wooden casket covered in flowers and greenery on a hillside meadow, two people standing beside it, wooded ridge behind",
+    "width": 1920,
+    "height": 1440
+  },
+  "gallery": [
+    {
+      "src": "/green-burial-pitch/burial-pitch-2.png",
+      "alt": "",
+      "width": 2550,
+      "height": 3300
+    },
+    {
+      "src": "/green-burial-pitch/burial-pitch-3.png",
+      "alt": "",
+      "width": 2550,
+      "height": 3300
+    },
+    {
+      "src": "/green-burial-pitch/burial-pitch-4.png",
+      "alt": "",
+      "width": 2548,
+      "height": 3300
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Carried over from the old site. Rewrite it in first person and cut the resume voice.",
+      "draft": "Proposal for eco-friendly burial and land stewardship.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Anything measured. Without one this stays a row rather than a card.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "What else exists that is not already in public/.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

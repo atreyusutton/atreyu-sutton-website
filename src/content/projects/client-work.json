@@ -1,0 +1,110 @@
+{
+  "slug": "client-work",
+  "title": "Client Work (Sutton Web Solutions, Ute Pass)",
+  "lane": "software",
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
+  "status": "running",
+  "oneLine": "Software engineering consultancy specializing in full-stack development and AI integration.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/sutton-web-solutions/sutton-web-1-hero.png",
+    "alt": "The Sutton Web Solutions home page, the headline web development that actually ships above a row of client names",
+    "width": 2584,
+    "height": 1536
+  },
+  "gallery": [
+    {
+      "src": "/ute-pass-vacation-rentals/ute-pass-1-hero.png",
+      "alt": "",
+      "width": 1480,
+      "height": 1029
+    },
+    {
+      "src": "/the-real-estate-collaborative/real-estate-1-hero.png",
+      "alt": "",
+      "width": 2552,
+      "height": 1516
+    }
+  ],
+  "video": null,
+  "links": [
+    {
+      "label": "Sutton Web Solutions",
+      "href": "https://suttonwebsolutions.com"
+    },
+    {
+      "label": "Ute Pass Vacation Rentals",
+      "href": "https://utepassvacationrentals.com"
+    },
+    {
+      "label": "The Real Estate Collaborative",
+      "href": "https://trecprojects.com"
+    }
+  ],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "What Sutton Web Solutions is, and which clients you actually shipped for.",
+      "draft": "Software engineering consultancy specializing in full-stack development and AI integration.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "When, how many clients, were you paid, is it still going.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Scope, clients changing their minds, or deadlines.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "One technical or process decision you made across projects.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Clients, sites shipped, revenue, Lighthouse scores.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "A project that went sideways and what you learned.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Live URLs for the client sites.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ],
+  "carriedOver": true
+}

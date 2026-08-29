@@ -1,0 +1,43 @@
+{
+  "slug": "bird-cage",
+  "title": "Bird Cage",
+  "lane": "fab",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "What you built and for what bird.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Dimensions, material, cost versus buying one.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "Finished photo, ideally occupied.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "slug": "4runners-and-the-pickup",
+  "title": "4Runners and the Pickup",
+  "lane": "mechanical",
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
+  "status": "running",
+  "oneLine": "Complete vehicle restoration featuring engine swap, custom fabrication, and suspension engineering.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/1985-toyota-4runner/hero.jpeg",
+    "alt": "The 1985 Toyota 4Runner on a dirt driveway, white with the red and yellow factory stripe, lifted on knobby tires with the front bumper removed",
+    "width": 4032,
+    "height": 3024
+  },
+  "gallery": [
+    {
+      "src": "/1985-toyota-4runner/4567.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-0.jpeg",
+      "alt": "",
+      "width": 5712,
+      "height": 4284
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-01.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-1.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-2.jpeg",
+      "alt": "",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-3.jpeg",
+      "alt": "",
+      "width": 360,
+      "height": 480
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-4.jpeg",
+      "alt": "",
+      "width": 480,
+      "height": 360
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-5.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-6.jpeg",
+      "alt": "",
+      "width": 480,
+      "height": 360
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-7.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-8.jpeg",
+      "alt": "",
+      "width": 480,
+      "height": 360
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-9.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-10.jpeg",
+      "alt": "",
+      "width": 360,
+      "height": 480
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-11.jpeg",
+      "alt": "",
+      "width": 665,
+      "height": 1182
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-12.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-13.jpeg",
+      "alt": "",
+      "width": 1182,
+      "height": 665
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-14.jpeg",
+      "alt": "",
+      "width": 360,
+      "height": 480
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-15.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-16.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-17.jpeg",
+      "alt": "",
+      "width": 480,
+      "height": 360
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-18.jpeg",
+      "alt": "",
+      "width": 665,
+      "height": 1182
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-19.jpeg",
+      "alt": "",
+      "width": 360,
+      "height": 480
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-20.jpeg",
+      "alt": "",
+      "width": 360,
+      "height": 480
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "The four vehicles, years and models, and what you have done to each in one line apiece.",
+      "draft": "Complete vehicle restoration featuring engine swap, custom fabrication, and suspension engineering.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "How long you have been running them, and how many are on the road right now.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Parts availability, rust, budget, working outside, or diagnosing without a scan tool.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "One repair where you chose the harder correct fix over the quick one.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Combined mileage, years owned, money spent, longest single repair.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "The worst breakdown and how you got home.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "All four together if you can manage it. That single photo does more than any paragraph.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ],
+  "carriedOver": true
+}

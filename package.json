@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "npm run content:bundle && next dev --turbopack",
+    "build": "npm run content:bundle && next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "content:bundle": "node scripts/build-content-bundle.mjs",
+    "content:apply": "node scripts/apply-content-bundle.mjs",
+    "content:import": "node scripts/intake-to-content.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.23.19",

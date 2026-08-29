@@ -1,0 +1,320 @@
+{
+  "slug": "photography-highlights",
+  "title": "Photography",
+  "lane": "writing",
+  "tier": "index",
+  "order": null,
+  "published": true,
+  "carriedOver": true,
+  "featured": false,
+  "status": "running",
+  "oneLine": "Selected shots of cars, landscapes, and lifestyle work.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/photography-highlights/africa-1-hero.jpeg",
+    "alt": "A male lion lying in dry grass, head up and facing the camera",
+    "width": 1067,
+    "height": 737
+  },
+  "gallery": [
+    {
+      "src": "/photography-highlights/africa-2.jpeg",
+      "alt": "",
+      "width": 1055,
+      "height": 744
+    },
+    {
+      "src": "/photography-highlights/africa-3.jpeg",
+      "alt": "",
+      "width": 725,
+      "height": 1086
+    },
+    {
+      "src": "/photography-highlights/africa-4.jpeg",
+      "alt": "",
+      "width": 1078,
+      "height": 729
+    },
+    {
+      "src": "/photography-highlights/africa-5.jpeg",
+      "alt": "",
+      "width": 923,
+      "height": 853
+    },
+    {
+      "src": "/photography-highlights/africa-6.jpeg",
+      "alt": "",
+      "width": 952,
+      "height": 826
+    },
+    {
+      "src": "/photography-highlights/africa-7.jpeg",
+      "alt": "",
+      "width": 942,
+      "height": 833
+    },
+    {
+      "src": "/photography-highlights/africa-8.jpeg",
+      "alt": "",
+      "width": 895,
+      "height": 877
+    },
+    {
+      "src": "/photography-highlights/africa-9.jpeg",
+      "alt": "",
+      "width": 985,
+      "height": 797
+    },
+    {
+      "src": "/photography-highlights/africa-10.jpeg",
+      "alt": "",
+      "width": 823,
+      "height": 955
+    },
+    {
+      "src": "/photography-highlights/africa-11.jpeg",
+      "alt": "",
+      "width": 1086,
+      "height": 725
+    },
+    {
+      "src": "/photography-highlights/africa-12.jpeg",
+      "alt": "",
+      "width": 1041,
+      "height": 755
+    },
+    {
+      "src": "/photography-highlights/africa-13.jpeg",
+      "alt": "",
+      "width": 969,
+      "height": 811
+    },
+    {
+      "src": "/photography-highlights/africa-14.jpeg",
+      "alt": "",
+      "width": 785,
+      "height": 1003
+    },
+    {
+      "src": "/photography-highlights/africa-15.jpeg",
+      "alt": "",
+      "width": 877,
+      "height": 895
+    },
+    {
+      "src": "/photography-highlights/africa-16.jpeg",
+      "alt": "",
+      "width": 966,
+      "height": 814
+    },
+    {
+      "src": "/photography-highlights/africa-17.jpeg",
+      "alt": "",
+      "width": 1138,
+      "height": 690
+    },
+    {
+      "src": "/photography-highlights/africa-18.jpeg",
+      "alt": "",
+      "width": 806,
+      "height": 974
+    },
+    {
+      "src": "/photography-highlights/africa-19.jpeg",
+      "alt": "",
+      "width": 815,
+      "height": 964
+    },
+    {
+      "src": "/photography-highlights/africa-20.jpeg",
+      "alt": "",
+      "width": 929,
+      "height": 846
+    },
+    {
+      "src": "/photography-highlights/africa-21.jpeg",
+      "alt": "",
+      "width": 1017,
+      "height": 772
+    },
+    {
+      "src": "/photography-highlights/africa-22.jpeg",
+      "alt": "",
+      "width": 978,
+      "height": 804
+    },
+    {
+      "src": "/photography-highlights/africa-23.jpeg",
+      "alt": "",
+      "width": 746,
+      "height": 1054
+    },
+    {
+      "src": "/photography-highlights/africa-24.jpeg",
+      "alt": "",
+      "width": 950,
+      "height": 827
+    },
+    {
+      "src": "/photography-highlights/africa-25.jpeg",
+      "alt": "",
+      "width": 892,
+      "height": 880
+    },
+    {
+      "src": "/photography-highlights/africa-26.jpeg",
+      "alt": "",
+      "width": 1074,
+      "height": 732
+    },
+    {
+      "src": "/photography-highlights/africa-27.jpeg",
+      "alt": "",
+      "width": 718,
+      "height": 1095
+    },
+    {
+      "src": "/photography-highlights/africa-28.jpeg",
+      "alt": "",
+      "width": 1026,
+      "height": 766
+    },
+    {
+      "src": "/photography-highlights/africa-29.jpeg",
+      "alt": "",
+      "width": 1800,
+      "height": 1373
+    },
+    {
+      "src": "/photography-highlights/africa-30.jpeg",
+      "alt": "",
+      "width": 1037,
+      "height": 757
+    },
+    {
+      "src": "/photography-highlights/africa-31.jpeg",
+      "alt": "",
+      "width": 1800,
+      "height": 1743
+    },
+    {
+      "src": "/photography-highlights/africa-32.jpeg",
+      "alt": "",
+      "width": 966,
+      "height": 813
+    },
+    {
+      "src": "/photography-highlights/africa-33.jpeg",
+      "alt": "",
+      "width": 1062,
+      "height": 739
+    },
+    {
+      "src": "/photography-highlights/africa-34.jpeg",
+      "alt": "",
+      "width": 753,
+      "height": 1044
+    },
+    {
+      "src": "/photography-highlights/africa-35.jpeg",
+      "alt": "",
+      "width": 856,
+      "height": 918
+    },
+    {
+      "src": "/photography-highlights/africa-36.jpeg",
+      "alt": "",
+      "width": 1065,
+      "height": 737
+    },
+    {
+      "src": "/photography-highlights/africa-37.jpeg",
+      "alt": "",
+      "width": 1800,
+      "height": 1598
+    },
+    {
+      "src": "/photography-highlights/africa-38.jpeg",
+      "alt": "",
+      "width": 631,
+      "height": 1246
+    },
+    {
+      "src": "/photography-highlights/africa-39.jpeg",
+      "alt": "",
+      "width": 984,
+      "height": 799
+    },
+    {
+      "src": "/photography-highlights/africa-40.jpeg",
+      "alt": "",
+      "width": 760,
+      "height": 1033
+    },
+    {
+      "src": "/photography-highlights/africa-41.jpeg",
+      "alt": "",
+      "width": 712,
+      "height": 1102
+    },
+    {
+      "src": "/photography-highlights/africa-42.jpeg",
+      "alt": "",
+      "width": 1096,
+      "height": 717
+    },
+    {
+      "src": "/photography-highlights/africa-43.jpeg",
+      "alt": "",
+      "width": 1061,
+      "height": 740
+    },
+    {
+      "src": "/photography-highlights/africa-44.jpeg",
+      "alt": "",
+      "width": 819,
+      "height": 959
+    },
+    {
+      "src": "/photography-highlights/africa-45.jpeg",
+      "alt": "",
+      "width": 978,
+      "height": 804
+    },
+    {
+      "src": "/photography-highlights/africa-46.jpeg",
+      "alt": "",
+      "width": 978,
+      "height": 804
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Carried over from the old site. Rewrite it in first person and cut the resume voice.",
+      "draft": "Selected shots of cars, landscapes, and lifestyle work.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Anything measured. Without one this stays a row rather than a card.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "What else exists that is not already in public/.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

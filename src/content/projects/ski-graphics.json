@@ -1,0 +1,74 @@
+{
+  "slug": "ski-graphics",
+  "title": "Ski Graphics",
+  "lane": "fab",
+  "tier": "index",
+  "order": null,
+  "published": true,
+  "carriedOver": true,
+  "featured": false,
+  "status": "shipped",
+  "oneLine": "Bold experimental ski design project.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/ski-graphics/skis-build-1-hero.jpeg",
+    "alt": "Ski topsheet graphics open in Photoshop, two black skis with repeated type running the length of the ski",
+    "width": 2346,
+    "height": 1678
+  },
+  "gallery": [
+    {
+      "src": "/ski-graphics/skis-build-2.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/ski-graphics/skis-build-3.jpeg",
+      "alt": "",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "src": "/ski-graphics/skis-build-4.jpeg",
+      "alt": "",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "src": "/ski-graphics/skis-build-5.jpeg",
+      "alt": "",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Carried over from the old site. Rewrite it in first person and cut the resume voice.",
+      "draft": "Bold experimental ski design project.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Anything measured. Without one this stays a row rather than a card.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "What else exists that is not already in public/.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

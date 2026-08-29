@@ -1,0 +1,79 @@
+{
+  "slug": "brown-creek-designs",
+  "title": "Brown Creek Designs",
+  "lane": "fab",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "shelved",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/brown-creek-designs/brown-creek-1-hero.png",
+    "alt": "",
+    "width": 1024,
+    "height": 1024
+  },
+  "gallery": [
+    {
+      "src": "/brown-creek-designs/brown-creek-2.png",
+      "alt": "",
+      "width": 1892,
+      "height": 1336
+    },
+    {
+      "src": "/brown-creek-designs/brown-creek-3.png",
+      "alt": "",
+      "width": 2074,
+      "height": 1220
+    },
+    {
+      "src": "/brown-creek-designs/brown-creek-4.png",
+      "alt": "",
+      "width": 1952,
+      "height": 1138
+    },
+    {
+      "src": "/brown-creek-designs/brown-creek-5.png",
+      "alt": "",
+      "width": 1662,
+      "height": 1094
+    },
+    {
+      "src": "/brown-creek-designs/brown-creek-6.png",
+      "alt": "",
+      "width": 2122,
+      "height": 1262
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "First person, plain. Nothing publishes until this is written.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Anything measured.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "What else exists.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

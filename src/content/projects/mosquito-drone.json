@@ -1,0 +1,78 @@
+{
+  "slug": "mosquito-drone",
+  "title": "Mosquito Drone",
+  "lane": "hardware",
+  "tier": "swap",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "What it is supposed to do, precisely. Detect and kill mosquitoes how, in what space.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Solo? When are you starting? What is the realistic finish date.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Detection at that size, tracking something that moves erratically, flight time, or doing anything lethal safely indoors. Which one worries you most.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "CV on board versus off board. Which platform. What the actuator is. Name what you have already ruled out.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Target detection range, frame rate, flight time, weight budget, parts budget.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "Nothing yet. Keep this box open and fill it in the day something fails, because you will not remember it later.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Photograph the build as you go, especially the parts that fail. That folder is what makes this case study writable.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

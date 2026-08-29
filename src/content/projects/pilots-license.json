@@ -1,0 +1,68 @@
+{
+  "slug": "pilots-license",
+  "title": "Pilot's License",
+  "lane": "mechanical",
+  "tier": "index",
+  "order": null,
+  "published": true,
+  "carriedOver": true,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "FAA pilot certification demonstrating systems thinking and technical precision.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/pilots-license/pilots-license-1-hero.jpeg",
+    "alt": "A high wing training aircraft parked on the ramp at sunrise, sun on the horizon behind it",
+    "width": 4032,
+    "height": 3024
+  },
+  "gallery": [
+    {
+      "src": "/pilots-license/pilots-license-2.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "src": "/pilots-license/pilots-license-3.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    },
+    {
+      "src": "/pilots-license/pilots-license-4.jpeg",
+      "alt": "",
+      "width": 4032,
+      "height": 3024
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Carried over from the old site. Rewrite it in first person and cut the resume voice.",
+      "draft": "FAA pilot certification demonstrating systems thinking and technical precision.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Anything measured. Without one this stays a row rather than a card.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "What else exists that is not already in public/.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

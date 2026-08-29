@@ -1,0 +1,78 @@
+{
+  "slug": "phantom-typewriter",
+  "title": "Phantom Typewriter",
+  "lane": "hardware",
+  "tier": "featured",
+  "order": 7,
+  "published": false,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Tell me what it is. A real typewriter that does something unexpected? One that types by itself? One that writes to a screen? It is the best name on your list and I have no idea what it does.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Solo, when, and does it work.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Mechanical, electrical, or software. What fought you.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "The key decision. Sensing the existing keys versus replacing the mechanism, actuating versus reading, restoring versus gutting.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Words per minute, key travel, latency, number of keys wired, cost, hours in it.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "What broke, and whether you had to redesign around it.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Video, and it is not optional. Nobody will understand this from a still. Ten seconds of it doing the thing.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

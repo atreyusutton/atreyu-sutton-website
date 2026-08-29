@@ -1,0 +1,83 @@
+{
+  "slug": "nest-messages",
+  "title": "NEST Messages",
+  "lane": "software",
+  "tier": "swap",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/nest-messages/nest-messages-1-hero.png",
+    "alt": "",
+    "width": 2404,
+    "height": 1466
+  },
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Correct me if there is more to it.",
+      "draft": "A landing page for a concept: positive micro-interventions delivered by text to young people, in a mix of tones, positioned as built with clinicians and educators.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Confirm.",
+      "draft": "Solo. 3 commits, all on 23 September 2025. Static marketing page only, no backend.",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Anything?",
+      "draft": "Honest answer is probably nothing was hard, because it is a landing page. If there is more to this that is not in the repo, tell me and I will reconsider.",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Class, competition, org, or your own idea?",
+      "draft": "NEEDS YOU: was this for a class, a competition, an organization, or your own idea?",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Anything measured.",
+      "draft": "None available.",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "Anything.",
+      "draft": "n/a",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Answer the clinician question.",
+      "draft": "The page itself. NEEDS YOU: is the clinician and educator claim on the page real? If it is not, it has to come off before this goes anywhere public.",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

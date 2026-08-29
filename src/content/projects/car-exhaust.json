@@ -1,0 +1,43 @@
+{
+  "slug": "car-exhaust",
+  "title": "Car Exhaust",
+  "lane": "fab",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Which car, what you built, and why.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Pipe diameter, length, dB before and after, dyno numbers if you have them.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "Welds and the finished system under the car.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

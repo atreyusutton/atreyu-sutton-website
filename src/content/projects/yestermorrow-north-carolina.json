@@ -1,0 +1,71 @@
+{
+  "slug": "yestermorrow-north-carolina",
+  "title": "Yestermorrow + North Carolina (essay)",
+  "lane": "writing",
+  "tier": "writing",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "What you went to Yestermorrow to build, and what you built in North Carolina. Plainly, no reflection yet.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "When each was, how long, who you went with, and whether Archie was on both.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "What you did not expect. What building by hand taught you that a CAD screen does not.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "One thing you believe about building now that you did not believe before those trips.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Dates, days on site, square footage, what got finished.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "Something that went wrong on site, ideally funny.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Archie's Mad River Valley photos, which need a link and a credit line with his name on it. Plus anything you shot yourself.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

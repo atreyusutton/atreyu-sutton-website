@@ -1,0 +1,43 @@
+{
+  "slug": "flame-thrower",
+  "title": "Flame Thrower",
+  "lane": "hardware",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "What it is, and lead with the safety interlock rather than the flame.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Range, fuel type and capacity, burn time, ignition reliability.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "A photo that shows the valve and interlock hardware, not just fire.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

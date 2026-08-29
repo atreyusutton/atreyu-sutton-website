@@ -1,0 +1,56 @@
+{
+  "slug": "net-zero-home",
+  "title": "Net Zero Home",
+  "lane": "mechanical",
+  "tier": "index",
+  "order": null,
+  "published": true,
+  "carriedOver": true,
+  "featured": false,
+  "status": "shipped",
+  "oneLine": "Sustainable energy system design with renewable integration and power management.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/net-zero-home/zero-home-1-hero.jpeg",
+    "alt": "The finished net zero house, two cedar clad volumes raised on piers above a cleared site with autumn woods behind",
+    "width": 1284,
+    "height": 949
+  },
+  "gallery": [
+    {
+      "src": "/net-zero-home/zero-home-2.jpeg",
+      "alt": "",
+      "width": 1086,
+      "height": 724
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Carried over from the old site. Rewrite it in first person and cut the resume voice.",
+      "draft": "Sustainable energy system design with renewable integration and power management.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Anything measured. Without one this stays a row rather than a card.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "What else exists that is not already in public/.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

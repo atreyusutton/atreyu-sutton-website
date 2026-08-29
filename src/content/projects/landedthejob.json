@@ -1,0 +1,78 @@
+{
+  "slug": "landedthejob",
+  "title": "LandedTheJob",
+  "lane": "software",
+  "tier": "featured",
+  "order": 1,
+  "published": false,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Fix my sentence if it undersells it.",
+      "draft": "Paste a job listing and get back a resume rewritten to mirror its language, plus a cover letter pitched at that company's tone. Your own line in the README is better than anything I would write: your resume, rewritten to win.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "The deployment and users question. Answer it plainly, whichever way it goes.",
+      "draft": "Solo. First commit 16 April 2026, last commit 17 April 2026, 10 commits total. 58 TypeScript files, 11 Prisma models, Clerk auth, Stripe billing, Anthropic Claude, Neon Postgres, Next.js 15 App Router. THE THING I CANNOT ANSWER: is it deployed, does anyone use it, does it earn? Nothing in the repo tells me. This one answer changes how the whole page gets written.",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Pick one of the three, or tell me I missed it.",
+      "draft": "Candidates from your own code: LLM-based parsing of job listings pasted in any format (src/lib/parseJobListing.ts and parseJobText.ts), the credits and daily-cap billing model, or the user identity problem you fixed twice. That second one is the best story: you have a commit fixing a race in requireUser with an upsert, and another reclaiming a user row by email when the Clerk ID did not match. That is a real distributed-identity bug and most people never hit it.",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Why the billing model changed on day two.",
+      "draft": "Straight from your commit log: you switched from a plain subscription to a Pack plus Pro model with a daily cap, one day into the build. That is a genuine product decision with the rejected alternative built right into it. Why? Anthropic cost control? Also worth naming: Clerk over NextAuth, Neon over Supabase, and templates as reference HTML instead of a PDF library.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Anything real, even ten users and eleven dollars.",
+      "draft": "From the repo: 58 TypeScript files, 11 data models, 3 price points ($9/mo, $19/mo, $29 one-time), 10 commits, 2 days. NEEDS YOU: signups, revenue, generation time per resume, Anthropic spend per resume.",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "The Clerk ID mismatch, from the user's side.",
+      "draft": "Two auth bugs are already sitting in your commit log, described above. Pick the Clerk ID mismatch one and tell me what a real user actually experienced when it happened.",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "Live URL, public repo, screen recording.",
+      "draft": "In the repo: templates/ holds reference HTML for the resume and cover letter, and docs-spec.md. NEEDS YOU: a live URL, whether the GitHub repo is public, and a screen recording of paste-to-resume. For this project the recording matters more than any screenshot.",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

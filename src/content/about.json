@@ -1,0 +1,15 @@
+{
+  "bio": [],
+  "portrait": {
+    "src": "/home.jpeg",
+    "alt": "Atreyu in a welding helmet and jacket in the shop, smoke still rising from the work in front of him",
+    "width": 1170,
+    "height": 1560
+  },
+  "skills": {
+    "Software": "JavaScript, TypeScript, React, Node.js, Python, SQL, Git, AWS",
+    "Design": "Industrial design, product design, UI/UX, brand identity, technical drawing, sketching and rendering",
+    "Fabrication": "Welding, CNC machining, 3D printing, woodworking, metal fabrication, automotive repair, electronics assembly",
+    "Tools": "CAD, 3D modelling, Figma, Adobe CC"
+  }
+}

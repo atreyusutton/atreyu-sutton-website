@@ -1,0 +1,89 @@
+{
+  "slug": "valdra-outside",
+  "title": "Valdra Outside",
+  "lane": "software",
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
+  "status": "running",
+  "oneLine": "Outdoor gear brand with a first-aid line launching in 2026.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/valdra-outside/valdra-outside-1-hero.png",
+    "alt": "The Valdra Outside home page, a three panel banner of trail runners under the brand wordmark",
+    "width": 2584,
+    "height": 1626
+  },
+  "gallery": [],
+  "video": null,
+  "links": [
+    {
+      "label": "Live site",
+      "href": "https://valdraoutside.com"
+    }
+  ],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "Confirm.",
+      "draft": "The website and online presence for VALDRA Outside, an outdoor gear company making first-aid products for adventurers. React 18, React Router, custom CSS, deployed to valdraoutside.com.",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "Confirm.",
+      "draft": "Solo build. First commit 21 August 2025, last 3 August 2026, 62 commits. Almost exactly a year of ongoing work, which is the most interesting fact about it.",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "What was actually hard.",
+      "draft": "NEEDS YOU: was it the design, the ecommerce side, or working with a client who is also your girlfriend? The last one is a real answer and an interesting one.",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "Why not Shopify.",
+      "draft": "NEEDS YOU: why plain React and custom CSS rather than Shopify or Squarespace for a product company? There is a good answer here and it is probably about control or cost.",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Traffic or orders if you have them.",
+      "draft": "62 commits over 12 months, 5 pages, a hero carousel. NEEDS YOU: traffic, orders, or launch date.",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "Anything.",
+      "draft": "NEEDS YOU.",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "URL and screenshots.",
+      "draft": "Live URL, screenshots, and the adventure photography the site is built around.",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ],
+  "carriedOver": true
+}

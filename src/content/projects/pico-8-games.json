@@ -1,0 +1,43 @@
+{
+  "slug": "pico-8-games",
+  "title": "PICO-8 Games",
+  "lane": "software",
+  "tier": "index",
+  "order": null,
+  "published": false,
+  "featured": false,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "One line for the index",
+      "hint": "Names of both games and what you play in each. I could not find them in your GitHub folder, so tell me where they live.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "One number or spec",
+      "hint": "Lines of code, token count, hours, players.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "Best photo or video you have",
+      "hint": "Playable links and animated GIFs. GIFs are the whole pitch here.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}

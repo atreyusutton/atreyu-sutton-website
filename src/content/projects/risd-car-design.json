@@ -1,0 +1,102 @@
+{
+  "slug": "risd-car-design",
+  "title": "RISD Car Design",
+  "lane": "mechanical",
+  "tier": "featured",
+  "order": 6,
+  "published": false,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/risd-project-car/risd-car-1-hero.jpeg",
+    "alt": "",
+    "width": 1224,
+    "height": 792
+  },
+  "gallery": [
+    {
+      "src": "/risd-project-car/risd-car-2.jpeg",
+      "alt": "",
+      "width": 1224,
+      "height": 792
+    },
+    {
+      "src": "/risd-project-car/risd-car-3.jpeg",
+      "alt": "",
+      "width": 1224,
+      "height": 792
+    },
+    {
+      "src": "/risd-project-car/risd-car-4.jpeg",
+      "alt": "",
+      "width": 1224,
+      "height": 792
+    }
+  ],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "oneLine",
+      "question": "What is it, in one sentence?",
+      "hint": "What the brief was and what you designed. Class of car, who it is for, what it is supposed to feel like.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "meta",
+      "question": "Role, timeline, status",
+      "hint": "A course, a workshop, or self-directed. How long. Roughly how many sketches exist.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "constraint",
+      "question": "What made it hard?",
+      "hint": "Design constraints are real constraints: package, occupant position, wheelbase, powertrain layout, regulations. Or plainly, learning to draw a wheel that sits right on the ground.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "A proportion or surfacing decision you made and the direction you abandoned. If you kept the earlier sketch, we show both.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "Harder here but not impossible: wheelbase, track, overall length, seating position, drag target, number of iterations.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "broke",
+      "question": "What broke, and what did you do?",
+      "hint": "The version that did not work and why you scrapped it.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "media",
+      "question": "What media do you have?",
+      "hint": "This page is carried entirely by images. Scan the sketches flat in even light, not photographed at an angle on a desk. Include the rough ones. Process sells harder than one clean render.",
+      "draft": "",
+      "answer": ""
+    },
+    {
+      "role": "differently",
+      "question": "What would you do differently?",
+      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "draft": "",
+      "answer": ""
+    }
+  ]
+}
