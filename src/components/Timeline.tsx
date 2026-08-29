@@ -1,61 +1,55 @@
-import { GraduationCap, Briefcase } from 'lucide-react'
+import Image from 'next/image'
+import type { TimelineEntry } from '@/content/education'
 
-interface TimelineItem {
-  date: string
-  title: string
-  institution: string
-  location: string
-  type: 'education' | 'experience'
-  description?: string[]
-}
-
-interface TimelineProps {
-  items: TimelineItem[]
-}
-
-export function Timeline({ items }: TimelineProps) {
+/**
+ * Education and experience as a dated list on a rule, with each institution's
+ * mark next to it. Schools with no usable mark get a typeset monogram tile,
+ * which is a deliberate treatment rather than a broken image.
+ */
+export function Timeline({ items }: { items: TimelineEntry[] }) {
   return (
-    <div className="relative">
-      {/* Timeline line */}
-      <div className="absolute left-8 top-0 h-full w-px bg-gray-300 dark:bg-gray-600"></div>
-      
-      <div className="space-y-8">
-        {items.map((item, index) => (
-          <div key={index} className="relative flex items-start space-x-6">
-            {/* Timeline icon */}
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-lg ring-8 ring-gray-50 dark:bg-gray-800 dark:ring-gray-900">
-              {item.type === 'education' ? (
-                <GraduationCap className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-              ) : (
-                <Briefcase className="h-8 w-8 text-purple-600 dark:text-purple-400" />
-              )}
-            </div>
-            
-            {/* Content */}
-            <div className="min-w-0 flex-1">
-              <div className="text-sm text-gray-500 dark:text-gray-400">
-                {item.date}
-              </div>
-              <h3 className="mt-1 text-lg font-semibold text-gray-900 dark:text-white">
-                {item.title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                {item.institution} • {item.location}
-              </p>
-              {item.description && (
-                <ul className="mt-2 space-y-1 text-sm text-gray-600 dark:text-gray-300">
-                  {item.description.map((desc, i) => (
-                    <li key={i} className="flex items-start">
-                      <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gray-400"></span>
-                      {desc}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+    <ol className="border-t border-rule">
+      {items.map((item) => (
+        <li
+          key={`${item.institution}-${item.start}`}
+          className="grid grid-cols-[3rem_1fr] items-start gap-4 border-b border-rule py-5 sm:grid-cols-[3rem_9rem_1fr] sm:gap-6"
+        >
+          <div className="flex h-12 w-12 items-center justify-center border border-rule bg-ground-raised">
+            {item.logo ? (
+              <Image
+                src={item.logo}
+                alt={`${item.institution} logo`}
+                width={128}
+                height={128}
+                sizes="48px"
+                className="h-8 w-8 object-contain"
+              />
+            ) : (
+              <span
+                className="num text-[0.7rem] font-medium tracking-wider text-ink-muted"
+                aria-hidden="true"
+              >
+                {item.monogram}
+              </span>
+            )}
           </div>
-        ))}
-      </div>
-    </div>
+
+          <p className="label col-start-2 self-center sm:self-start sm:pt-1">
+            {item.start}
+            <span className="mx-1.5 opacity-50">to</span>
+            {item.end}
+          </p>
+
+          <div className="col-span-2 min-w-0 sm:col-span-1 sm:col-start-3">
+            <h3 className="text-[1.15rem] leading-snug">{item.title}</h3>
+            <p className="mt-1 text-sm text-ink-muted">
+              {item.institution}
+              {item.location ? `, ${item.location}` : ''}
+            </p>
+            {item.note ? <p className="num mt-1 text-sm text-accent">{item.note}</p> : null}
+          </div>
+        </li>
+      ))}
+    </ol>
   )
 }

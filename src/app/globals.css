@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
+/* Every color is declared once, here. The dark block below overrides only the
+   tokens that actually change. No color is ever declared for the first time
+   inside a media query or a [data-theme] block. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ground: #edeee9;
+  --ground-raised: #f5f6f2;
+  --ground-sunken: #e3e5de;
+  --ink: #161a17;
+  --ink-muted: #4c534d;
+  --ink-faint: #6f7770;
+  --rule: #cbcec5;
+  --rule-strong: #adb2a6;
+  --accent: #2b3ea6;
+  --accent-ink: #ffffff;
+  --warning: #a62b1e;
+
+  --measure: 65ch;
+  --rail: 8.5rem;
+  --page-max: 84rem;
+
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root[data-theme="dark"] {
+  --ground: #12150f;
+  --ground-raised: #1a1e18;
+  --ground-sunken: #0c0e0a;
+  --ink: #e8eae2;
+  --ink-muted: #a7aca2;
+  --ink-faint: #7d837a;
+  --rule: #2e332c;
+  --rule-strong: #454b42;
+  --accent: #93a1f5;
+  --accent-ink: #10131c;
+  --warning: #e08476;
+
+  color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --ground: #12150f;
+    --ground-raised: #1a1e18;
+    --ground-sunken: #0c0e0a;
+    --ink: #e8eae2;
+    --ink-muted: #a7aca2;
+    --ink-faint: #7d837a;
+    --rule: #2e332c;
+    --rule-strong: #454b42;
+    --accent: #93a1f5;
+    --accent-ink: #10131c;
+    --warning: #e08476;
+
+    color-scheme: dark;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-ground: var(--ground);
+  --color-ground-raised: var(--ground-raised);
+  --color-ground-sunken: var(--ground-sunken);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-warning: var(--warning);
+
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-source-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Type scale. Display for headings, serif for argument, mono for fact. */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body), ui-serif, Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    line-height: 1.08;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 7vw, 4.75rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.6vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  /* Small uppercase mono label. Section numbers, spec keys, lane tags. */
+  .label {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .num {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .prose-measure {
+    max-width: var(--measure);
+  }
+
+  .prose-measure p + p {
+    margin-top: 1.1em;
+  }
+
+  .rule-top {
+    border-top: 1px solid var(--rule);
+  }
+
+  .link-underline {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: var(--rule-strong);
+    transition: text-decoration-color 120ms ease;
+  }
+
+  .link-underline:hover {
+    text-decoration-color: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

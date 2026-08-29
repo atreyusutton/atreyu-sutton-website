@@ -1,121 +1,62 @@
 import Image from 'next/image'
-import { Button } from '@/components/Button'
-import { ProjectCard } from '@/components/ProjectCard'
-import { ArrowRight, Download, Mail } from 'lucide-react'
+import Link from 'next/link'
+import { essays, featuredProjects, indexProjects } from '@/content/loader'
+import { WorkBrowser } from '@/components/WorkBrowser'
+import { Section } from '@/components/Section'
 
-const featuredProjects = [
-  {
-    title: 'Fuelfed Motor Market',
-    description: 'An online marketplace for vintage 4x4s and enthusiast vehicles.',
-    image: '/fuelfed-motor-market/fuelfed-1-hero.png',
-    href: 'https://rileyshucks.com',
-    external: true,
-    tags: ['Web', 'Work'],
-    date: 'Jan 2025'
-  },
-  {
-    title: 'Nest Messages',
-    description: 'A platform sending uplifting daily messages to support youth mental health.',
-    image: '/nest-messages/nest-messages-1-hero.png',
-    href: 'https://nest-messages.pages.dev/',
-    external: true,
-    tags: ['Web', 'Social Impact'],
-    date: 'Mar 2024'
-  },
-  {
-    title: 'Toyota 4Runner Build',
-    description: 'Restoring and upgrading a classic \'85 Toyota 4Runner.',
-    image: '/1985-toyota-4runner/hero.png',
-    href: '/projects/toyota-4runner-build',
-    tags: ['Fabrication'],
-    date: 'May 2024'
-  }
-]
+export default function HomePage() {
+  const featured = featuredProjects()
+  const index = indexProjects()
+  const writing = essays()
 
-export default function Home() {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left side - Text content */}
-            <div className="flex flex-col justify-center">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
-                Engineering the{' '}
-                <span className="text-indigo-600 dark:text-indigo-400">
-                  creative edge
-                </span>
+    <>
+      <section className="mx-auto max-w-[var(--page-max)] px-5 pb-14 pt-10 md:px-8 md:pb-20 md:pt-16">
+        <div className="grid gap-10 md:grid-cols-[var(--rail)_1fr] md:gap-10">
+          <p className="label">01 / Thesis</p>
+
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-end lg:gap-14">
+            <div>
+              <h1>
+                I design the part, machine it, and write the firmware that runs it.
               </h1>
-              
-              <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                M.S. in Engineering – Creative Technology & Design (CU Boulder, ATLAS). 
-                I pair systems thinking with hands‑on prototyping to ship fast, accessible products.
+              <p className="prose-measure mt-8 text-lg text-ink-muted">
+                Atreyu Sutton. Engineering graduate student at the ATLAS Institute in Boulder,
+                Colorado, working across mechanical design, software and hardware.
               </p>
-
-              {/* CTA Buttons */}
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button href="/projects" size="lg">
-                  View Projects
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button href="/contact" variant="secondary" size="lg">
-                  <Mail className="mr-2 h-5 w-5" />
-                  Contact
-                </Button>
-                <Button href="/resume.pdf" variant="outline" size="lg" external>
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Resume
-                </Button>
-              </div>
             </div>
 
-            {/* Right side - Image */}
-            <div className="flex items-center justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 opacity-20 blur-3xl"></div>
-                <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-gray-800">
-                  <Image
-                    src="/home.jpeg"
-                    alt="Atreyu Sutton"
-                    width={500}
-                    height={600}
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
+            <figure className="relative">
+              <Image
+                src="/home.jpeg"
+                alt="Atreyu in a welding helmet and jacket in the shop, smoke still rising from the work in front of him"
+                width={1170}
+                height={1560}
+                priority
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                className="w-full object-cover"
+              />
+            </figure>
           </div>
         </div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section className="bg-gray-50 px-4 py-16 dark:bg-gray-800/50 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-              Featured Projects
-            </h2>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-              A selection of recent work spanning web development, fabrication, and creative technology
-            </p>
-          </div>
+      <WorkBrowser featured={featured} index={index} />
 
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Button href="/projects" size="lg">
-              View All Projects
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section>
-    </div>
+      {writing.length > 0 ? (
+        <Section
+          number={featured.length > 0 ? '04' : '03'}
+          label="Writing"
+          title={writing[0].title}
+        >
+          <p className="prose-measure text-ink-muted">{writing[0].oneLine}</p>
+          <p className="mt-6">
+            <Link href={`/writing/${writing[0].slug}/`} className="link-underline">
+              Read it
+            </Link>
+          </p>
+        </Section>
+      ) : null}
+    </>
   )
 }
