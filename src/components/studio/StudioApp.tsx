@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Lane, Media, Project, Status, Tier } from '@/content/types'
 import { PasscodeGate } from './PasscodeGate'
 import { ProjectEditor } from './ProjectEditor'
+import { NewProject } from './NewProject'
 import { readiness } from './readiness'
 
 const STORAGE_KEY = 'atreyu-studio-v1'
@@ -28,6 +29,7 @@ export function StudioApp() {
   const [error, setError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
+  const [adding, setAdding] = useState(false)
   const fileInput = useRef<HTMLInputElement>(null)
 
   // The published bundle is always fetched, so "discard local edits" has
@@ -86,6 +88,25 @@ export function StudioApp() {
     })
   }, [])
 
+  const addProject = useCallback((project: Project) => {
+    setBundle((current) => {
+      if (!current) return current
+      return { ...current, projects: [...current.projects, project] }
+    })
+    setSelected(project.slug)
+    setAdding(false)
+  }, [])
+
+  // Only projects that do not exist in the repo yet can be removed here. Anything
+  // already published is deleted by removing its file, not by a button in a browser.
+  const removeProject = useCallback((slug: string) => {
+    setBundle((current) => {
+      if (!current) return current
+      return { ...current, projects: current.projects.filter((p) => p.slug !== slug) }
+    })
+    setSelected(null)
+  }, [])
+
   const projects = useMemo(() => {
     if (!bundle) return []
     return [...bundle.projects].sort((a, b) => {
@@ -97,6 +118,10 @@ export function StudioApp() {
   }, [bundle])
 
   const active = projects.find((p) => p.slug === selected) ?? projects[0] ?? null
+  const publishedSlugs = useMemo(
+    () => new Set((published?.projects ?? []).map((p) => p.slug)),
+    [published],
+  )
 
   const download = () => {
     if (!bundle) return
@@ -160,6 +185,14 @@ export function StudioApp() {
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setAdding((open) => !open)}
+            aria-expanded={adding}
+            className="label border border-rule px-3 py-1.5 hover:!text-ink"
+          >
+            New project
+          </button>
           <button type="button" onClick={download} className="label border border-accent bg-accent px-3 py-1.5 !text-accent-ink">
             Download bundle.json
           </button>
@@ -201,6 +234,14 @@ export function StudioApp() {
 
       {error ? <p className="mt-4 text-sm text-warning">{error}</p> : null}
 
+      {adding ? (
+        <NewProject
+          existing={bundle.projects}
+          onCreate={addProject}
+          onCancel={() => setAdding(false)}
+        />
+      ) : null}
+
       <p className="label mt-4 border border-rule bg-ground-raised px-3 py-2 !normal-case !tracking-normal">
         Edits live in this browser only. To put them on the site: Download bundle.json, then run
         <code className="mx-1 text-ink">npm run content:apply ~/Downloads/bundle.json</code>
@@ -236,6 +277,9 @@ export function StudioApp() {
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-[0.95rem]">{project.title}</span>
                       <span className="label block">
+                        {publishedSlugs.has(project.slug) ? null : (
+                          <span className="!text-accent">new / </span>
+                        )}
                         {project.tier}
                         {state.missing.length > 0 ? ` / ${state.missing.length} to do` : ' / ready'}
                       </span>
@@ -247,11 +291,26 @@ export function StudioApp() {
           </ul>
         </nav>
 
-        <ProjectEditor
-          key={active.slug}
-          project={active}
-          onChange={(patch) => updateProject(active.slug, patch)}
-        />
+        <div>
+          <ProjectEditor
+            key={active.slug}
+            project={active}
+            onChange={(patch) => updateProject(active.slug, patch)}
+          />
+
+          {publishedSlugs.has(active.slug) ? null : (
+            <button
+              type="button"
+              onClick={() => {
+                if (!window.confirm(`Remove ${active.title}? It has never been applied to the repo.`)) return
+                removeProject(active.slug)
+              }}
+              className="label mt-8 border border-rule px-3 py-1.5 hover:!text-warning"
+            >
+              Remove this draft project
+            </button>
+          )}
+        </div>
       </div>
     </div>
   )

@@ -237,7 +237,7 @@ export function ProjectEditor({
   )
 }
 
-const inputClass =
+export const inputClass =
   'w-full border border-rule bg-ground-raised px-3 py-2 text-[0.95rem] text-ink placeholder:text-ink-faint'
 
 function Fieldset({
