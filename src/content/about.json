@@ -1,15 +1,20 @@
 {
-  "bio": [],
+  "bio": [
+    "I am an engineering graduate student at the ATLAS Institute at CU Boulder, working across mechanical design, software and hardware. Before this I took a B.A. in Computer Science at Rollins College, and I have run Sutton Web Solutions, my own web and software practice, since 2023.",
+    "Most of what I build crosses between the physical and the digital, because I have never found a good reason to treat those as two jobs. I draw the part, machine or weld it, and then write the software that makes it do something. A turntable that streams, a car marketplace built on a scraper I wrote, a pack frame I bent in the shop: they all come from wanting to know how the whole thing works rather than one end of it.",
+    "I am in Boulder, Colorado, finishing the masters in 2027. I am looking for work where the mechanical and the software sides are the same job."
+  ],
   "portrait": {
     "src": "/home.jpeg",
     "alt": "Atreyu in a welding helmet and jacket in the shop, smoke still rising from the work in front of him",
-    "width": 1170,
-    "height": 1560
+    "width": 666,
+    "height": 1000
   },
   "skills": {
     "Software": "JavaScript, TypeScript, React, Node.js, Python, SQL, Git, AWS",
     "Design": "Industrial design, product design, UI/UX, brand identity, technical drawing, sketching and rendering",
     "Fabrication": "Welding, CNC machining, 3D printing, woodworking, metal fabrication, automotive repair, electronics assembly",
     "Tools": "CAD, 3D modelling, Figma, Adobe CC"
-  }
+  },
+  "mock": true
 }

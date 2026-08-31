@@ -4,16 +4,21 @@
   "lane": "hardware",
   "tier": "index",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A recliner I motorised so it drives, because the idea would not leave me alone.",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/motorized-la-z-boy.jpg",
+    "alt": "Generated stand-in image for Motorized La-Z-Boy. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -39,5 +44,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

@@ -8,7 +8,7 @@
   "carriedOver": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "FAA pilot certification demonstrating systems thinking and technical precision.",
+  "oneLine": "I am working toward my FAA pilot certificate, on the ground and in the air.",
   "headlineNumber": {
     "value": "",
     "unit": ""
@@ -23,19 +23,19 @@
   "gallery": [
     {
       "src": "/pilots-license/pilots-license-2.jpeg",
-      "alt": "",
+      "alt": "Yellow biplane parked on the grass beside the ramp under a clear sky",
       "width": 4032,
       "height": 3024
     },
     {
       "src": "/pilots-license/pilots-license-3.jpeg",
-      "alt": "",
+      "alt": "Two people standing in front of the yellow biplane inside an open hangar",
       "width": 4032,
       "height": 3024
     },
     {
       "src": "/pilots-license/pilots-license-4.jpeg",
-      "alt": "",
+      "alt": "View from the left seat of a small aircraft at sunset, headset on, thumbs up to the camera",
       "width": 4032,
       "height": 3024
     }

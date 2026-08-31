@@ -4,16 +4,21 @@
   "lane": "writing",
   "tier": "writing",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "An essay about building by hand at Yestermorrow, and what it changed about how I design things I have to make myself.",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/yestermorrow-north-carolina.jpg",
+    "alt": "Generated stand-in image for Yestermorrow + North Carolina (essay). Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -67,5 +72,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

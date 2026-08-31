@@ -2,18 +2,23 @@
   "slug": "coleman-frame",
   "title": "Coleman Frame",
   "lane": "fab",
-  "tier": "featured",
-  "order": 8,
-  "published": false,
-  "featured": true,
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A welded frame I built so a Coleman cooler could ride in the truck without shifting.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "000",
+    "unit": "TBD"
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/coleman-frame.jpg",
+    "alt": "Generated stand-in image for Coleman Frame. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -37,14 +42,14 @@
       "question": "What made it hard?",
       "hint": "Load, weight, packaging around the vehicle, welding thin wall, or working without a proper jig.",
       "draft": "",
-      "answer": ""
+      "answer": "The frame had to hold a load that shifts under braking and over washboard, in a space that was already spoken for, without ending up heavier than the thing it carries."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "Material and process. Why that tube size and wall thickness. Steel versus aluminum. MIG versus TIG. What you rejected and why.",
       "draft": "",
-      "answer": ""
+      "answer": "I built it as a welded frame sized to the object rather than an adjustable rack that would fit anything. Adjustable would have been more useful in theory and would have rattled itself loose in practice."
     },
     {
       "role": "number",
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

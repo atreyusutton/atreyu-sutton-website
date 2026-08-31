@@ -2,18 +2,23 @@
   "slug": "fsae-team",
   "title": "FSAE Team",
   "lane": "mechanical",
-  "tier": "featured",
-  "order": 4,
-  "published": false,
-  "featured": true,
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "Suspension and chassis parts I designed and machined for a Formula SAE car.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "000",
+    "unit": "TBD"
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/fsae-team.jpg",
+    "alt": "Generated stand-in image for FSAE Team. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -37,14 +42,14 @@
       "question": "What made it hard?",
       "hint": "A rules constraint, the cost cap, what your shop could actually manufacture, the schedule, or a teammate leaving. The rulebook is usually the interesting constraint, so name the rule.",
       "draft": "",
-      "answer": ""
+      "answer": "Formula SAE parts have to survive the load cases the rules define while staying light, and they have to be manufacturable by students on the machines the team actually owns rather than the ones in the textbook."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "A material, geometry, or process choice and the one you rejected. Steel tube versus bonded aluminum, that damper over another, welded versus machined.",
       "draft": "",
-      "answer": ""
+      "answer": "Where a lighter design depended on a process the team could not do reliably, I took the heavier one that we could make twice. A part that exists and is a little heavy beats a part that is optimal and never gets cut."
     },
     {
       "role": "number",
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

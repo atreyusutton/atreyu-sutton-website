@@ -7,7 +7,7 @@
   "published": true,
   "featured": false,
   "status": "running",
-  "oneLine": "Web application with PDF generation and template rendering engine.",
+  "oneLine": "A web app I built that turns a short form into a formatted resume.",
   "headlineNumber": {
     "value": "",
     "unit": ""

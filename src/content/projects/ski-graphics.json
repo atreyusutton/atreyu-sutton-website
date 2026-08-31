@@ -2,16 +2,16 @@
   "slug": "ski-graphics",
   "title": "Ski Graphics",
   "lane": "fab",
-  "tier": "index",
-  "order": null,
+  "tier": "featured",
+  "order": 7,
   "published": true,
   "carriedOver": true,
-  "featured": false,
+  "featured": true,
   "status": "shipped",
-  "oneLine": "Bold experimental ski design project.",
+  "oneLine": "An experimental ski project, where I worked on both the construction and the graphics.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "2023",
+    "unit": "built and painted"
   },
   "specs": {},
   "hero": {
@@ -23,25 +23,25 @@
   "gallery": [
     {
       "src": "/ski-graphics/skis-build-2.jpeg",
-      "alt": "",
+      "alt": "Skis with hand lettered topsheets lying in the bed of a pickup on a snowy day",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/ski-graphics/skis-build-3.jpeg",
-      "alt": "",
+      "alt": "A pair of skis with painted topsheets and bindings fitted, propped in a truck bed against a mountain sky",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/ski-graphics/skis-build-4.jpeg",
-      "alt": "",
+      "alt": "Skis resting across the open tailgate of a pickup, painted topsheets facing up",
       "width": 1024,
       "height": 768
     },
     {
       "src": "/ski-graphics/skis-build-5.jpeg",
-      "alt": "",
+      "alt": "Skis with repeating hand lettered graphics laid across an open tailgate, an orange bucket in the truck bed behind them",
       "width": 1024,
       "height": 768
     }

@@ -4,16 +4,21 @@
   "lane": "hardware",
   "tier": "swap",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A small drone I built to be light enough to be a nuisance and cheap enough to crash.",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/mosquito-drone.jpg",
+    "alt": "Generated stand-in image for Mosquito Drone. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

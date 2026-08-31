@@ -3,17 +3,22 @@
   "title": "Digital Record Player",
   "lane": "hardware",
   "tier": "featured",
-  "order": 3,
-  "published": false,
+  "order": 1,
+  "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "I put a Raspberry Pi inside a 1byone turntable so it streams Spotify while the platter still spins real vinyl, with a round screen in the middle showing the album art turning at 33 1/3.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "97",
+    "unit": "commits"
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/digital-record-player.jpg",
+    "alt": "Generated stand-in image for Digital Record Player. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -37,14 +42,14 @@
       "question": "What made it hard?",
       "hint": "Pick one: power, display, or audio.",
       "draft": "Candidates from your own notes: sharing one 12V supply between the motor circuit and the Pi while keeping the motor completely independent of it; driving a 720x720 round display under Wayland and labwc in kiosk mode; and the audio path through the PCM5122 DAC HAT. You have both a diagnose-audio.sh and a boot-optimize.sh sitting in the repo, which tells me audio and boot time each cost you real time. Which was worse?",
-      "answer": ""
+      "answer": "The turntable motor and the Pi had to share one 12V supply, and the motor could never depend on the computer to run. On top of that the 720x720 round display had to come up under Wayland in kiosk mode, and the audio had to stay clean through the PCM5122 DAC."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "Confirm the motor decision and add anything I missed.",
       "draft": "This one is documented and it is good: you hardwired the motor to the original OEM switches off the 12V rail rather than putting it under Pi control, and your notes list a 400W dual MOSFET trigger switch as purchased but not used for exactly that reason. A decision and its rejected alternative, with the leftover part as evidence. Second decision worth naming: Raspotify and librespot for the audio path with a separate Flask app on the Spotify Web API for control, instead of one program doing both.",
-      "answer": ""
+      "answer": "I hardwired the motor to the original OEM switches off the 12V rail instead of putting it under Pi control. I had bought a 400W dual MOSFET trigger switch and deliberately did not use it. If the Pi hangs, the platter still spins and the record player is still a record player."
     },
     {
       "role": "number",
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

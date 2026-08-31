@@ -3,17 +3,22 @@
   "title": "LandedTheJob",
   "lane": "software",
   "tier": "featured",
-  "order": 1,
-  "published": false,
+  "order": 5,
+  "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "Paste a job listing and get back a resume rewritten to mirror its language, with a cover letter pitched at that company's tone.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "58",
+    "unit": "TypeScript files"
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/landedthejob.jpg",
+    "alt": "Generated stand-in image for LandedTheJob. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -37,14 +42,14 @@
       "question": "What made it hard?",
       "hint": "Pick one of the three, or tell me I missed it.",
       "draft": "Candidates from your own code: LLM-based parsing of job listings pasted in any format (src/lib/parseJobListing.ts and parseJobText.ts), the credits and daily-cap billing model, or the user identity problem you fixed twice. That second one is the best story: you have a commit fixing a race in requireUser with an upsert, and another reclaiming a user row by email when the Clerk ID did not match. That is a real distributed-identity bug and most people never hit it.",
-      "answer": ""
+      "answer": "A rewritten resume is only useful if it mirrors the language of one specific listing, and it has to come back fast enough that somebody will use it while they are actually applying."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "Why the billing model changed on day two.",
       "draft": "Straight from your commit log: you switched from a plain subscription to a Pack plus Pro model with a daily cap, one day into the build. That is a genuine product decision with the rejected alternative built right into it. Why? Anthropic cost control? Also worth naming: Clerk over NextAuth, Neon over Supabase, and templates as reference HTML instead of a PDF library.",
-      "answer": ""
+      "answer": "I made the job listing the input rather than a profile the user fills in first. The listing is the part that changes with every application, and asking somebody to maintain a profile is the step where they give up and close the tab."
     },
     {
       "role": "number",
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

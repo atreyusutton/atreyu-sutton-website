@@ -4,10 +4,10 @@
   "lane": "fab",
   "tier": "index",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "shelved",
-  "oneLine": "",
+  "oneLine": "Architectural design under the Brown Creek Designs name: drawing sets, elevations and renders for houses.",
   "headlineNumber": {
     "value": "",
     "unit": ""
@@ -15,38 +15,38 @@
   "specs": {},
   "hero": {
     "src": "/brown-creek-designs/brown-creek-1-hero.png",
-    "alt": "",
+    "alt": "Architectural render of two Mediterranean style houses standing in still water at sunset, reflected in the surface",
     "width": 1024,
     "height": 1024
   },
   "gallery": [
     {
       "src": "/brown-creek-designs/brown-creek-2.png",
-      "alt": "",
+      "alt": "CAD sheet of a house, floor plans beside front and side elevations",
       "width": 1892,
       "height": 1336
     },
     {
       "src": "/brown-creek-designs/brown-creek-3.png",
-      "alt": "",
+      "alt": "CAD sheet with plans, elevations and sections of the same house",
       "width": 2074,
       "height": 1220
     },
     {
       "src": "/brown-creek-designs/brown-creek-4.png",
-      "alt": "",
+      "alt": "CAD sheet of elevations and plan details, drawn in white line work",
       "width": 1952,
       "height": 1138
     },
     {
       "src": "/brown-creek-designs/brown-creek-5.png",
-      "alt": "",
+      "alt": "CAD sheet of fixture and assembly details, picked out in red over white line work",
       "width": 1662,
       "height": 1094
     },
     {
       "src": "/brown-creek-designs/brown-creek-6.png",
-      "alt": "",
+      "alt": "Site plan with contour lines and the building footprint marked in red",
       "width": 2122,
       "height": 1262
     }
@@ -75,5 +75,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

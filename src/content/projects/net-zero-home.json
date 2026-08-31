@@ -8,7 +8,7 @@
   "carriedOver": true,
   "featured": false,
   "status": "shipped",
-  "oneLine": "Sustainable energy system design with renewable integration and power management.",
+  "oneLine": "A home energy system I designed to generate as much power as the house uses.",
   "headlineNumber": {
     "value": "",
     "unit": ""
@@ -23,7 +23,7 @@
   "gallery": [
     {
       "src": "/net-zero-home/zero-home-2.jpeg",
-      "alt": "",
+      "alt": "Aerial photograph of a timber framed house part way through construction in autumn woodland, roof deck open and materials stacked around the site",
       "width": 1086,
       "height": 724
     }

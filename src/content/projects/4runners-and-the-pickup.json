@@ -2,15 +2,15 @@
   "slug": "4runners-and-the-pickup",
   "title": "4Runners and the Pickup",
   "lane": "mechanical",
-  "tier": "swap",
-  "order": null,
+  "tier": "featured",
+  "order": 2,
   "published": true,
-  "featured": false,
+  "featured": true,
   "status": "running",
-  "oneLine": "Complete vehicle restoration featuring engine swap, custom fabrication, and suspension engineering.",
+  "oneLine": "I restored my 1985 4Runner and the pickup beside it, doing the engine swap, the fabrication and the suspension work myself.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "1985",
+    "unit": "4Runner, bare metal up"
   },
   "specs": {},
   "hero": {
@@ -22,139 +22,139 @@
   "gallery": [
     {
       "src": "/1985-toyota-4runner/4567.jpeg",
-      "alt": "",
+      "alt": "The V6 engine and radiator loaded in a truck bed, ready to move",
       "width": 4032,
       "height": 3024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-0.jpeg",
-      "alt": "",
+      "alt": "The engine hanging from an orange hoist in the garage, someone working underneath it",
       "width": 5712,
       "height": 4284
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-01.jpeg",
-      "alt": "",
+      "alt": "The engine on its hoist parked in the garage among shelves and tools",
       "width": 4032,
       "height": 3024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-1.jpeg",
-      "alt": "",
+      "alt": "The driver's seat before the rebuild, upholstery worn through and stained",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-2.jpeg",
-      "alt": "",
+      "alt": "The cab with seats and carpet pulled out, bare floor pan and debris left behind",
       "width": 1024,
       "height": 768
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-3.jpeg",
-      "alt": "",
+      "alt": "Old bumper and brush guard steel laid out on the driveway on a mat",
       "width": 360,
       "height": 480
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-4.jpeg",
-      "alt": "",
+      "alt": "The rear bench seat in tan upholstery, seen through the back door",
       "width": 480,
       "height": 360
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-5.jpeg",
-      "alt": "",
+      "alt": "Close view of a worn seat back, the tan fabric marked and faded",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-6.jpeg",
-      "alt": "",
+      "alt": "Someone standing beside the white 4Runner with its red and orange stripes at a street corner",
       "width": 480,
       "height": 360
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-7.jpeg",
-      "alt": "",
+      "alt": "The interior stripped to bare floor, steering wheel and shifter still in place",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-8.jpeg",
-      "alt": "",
+      "alt": "A seat tipped forward to show the floor pan and rubber mat underneath",
       "width": 480,
       "height": 360
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-9.jpeg",
-      "alt": "",
+      "alt": "A piece of old carpet pulled out and laid on the driveway, backing torn away",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-10.jpeg",
-      "alt": "",
+      "alt": "The cab stripped out, floor pan exposed with the steering column and shifter remaining",
       "width": 360,
       "height": 480
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-11.jpeg",
-      "alt": "",
+      "alt": "Close view of fresh dark carpet laid into the footwell",
       "width": 665,
       "height": 1182
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-12.jpeg",
-      "alt": "",
+      "alt": "Carpet underlay laid flat on the driveway",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-13.jpeg",
-      "alt": "",
+      "alt": "The rear bench refitted in the cab, clean and back in place",
       "width": 1182,
       "height": 665
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-14.jpeg",
-      "alt": "",
+      "alt": "A bumper bracket lying on the driveway",
       "width": 360,
       "height": 480
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-15.jpeg",
-      "alt": "",
+      "alt": "The front seats in tan upholstery seen from the passenger door, worn from use",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-16.jpeg",
-      "alt": "",
+      "alt": "The white 4Runner and a red pickup parked together on a forest road",
       "width": 768,
       "height": 1024
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-17.jpeg",
-      "alt": "",
+      "alt": "The stripped interior seen from outside through the open door, kerbside",
       "width": 480,
       "height": 360
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-18.jpeg",
-      "alt": "",
+      "alt": "The front seats refitted and clean, steering wheel in frame",
       "width": 665,
       "height": 1182
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-19.jpeg",
-      "alt": "",
+      "alt": "The interior part way through the strip out, trim and parts piled on the floor",
       "width": 360,
       "height": 480
     },
     {
       "src": "/1985-toyota-4runner/toyota-build-20.jpeg",
-      "alt": "",
+      "alt": "Close view of rusted suspension and steering components under the truck",
       "width": 360,
       "height": 480
     }

@@ -4,10 +4,10 @@
   "lane": "hardware",
   "tier": "index",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "shelved",
-  "oneLine": "",
+  "oneLine": "A fat tire electric bike I am building to handle Colorado snow, sand and pavement on one frame.",
   "headlineNumber": {
     "value": "",
     "unit": ""
@@ -15,7 +15,7 @@
   "specs": {},
   "hero": {
     "src": "/e-bike-build/e-bike-1-hero.png",
-    "alt": "",
+    "alt": "White line drawing of an electric dirt bike on black, side view plus three front elevations showing the battery box",
     "width": 1024,
     "height": 1024
   },
@@ -44,5 +44,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

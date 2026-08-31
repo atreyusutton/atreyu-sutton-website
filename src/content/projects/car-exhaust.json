@@ -4,16 +4,21 @@
   "lane": "fab",
   "tier": "index",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A custom exhaust I bent, welded and fitted myself instead of buying an off the shelf system.",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/car-exhaust.jpg",
+    "alt": "Generated stand-in image for Car Exhaust. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -39,5 +44,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

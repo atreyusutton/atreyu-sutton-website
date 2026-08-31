@@ -2,18 +2,23 @@
   "slug": "engine-rebuild",
   "title": "Engine Rebuild",
   "lane": "mechanical",
-  "tier": "featured",
-  "order": 2,
-  "published": false,
-  "featured": true,
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A full teardown and rebuild of an engine, down to the bare block and back together running.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "000",
+    "unit": "TBD"
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/engine-rebuild.jpg",
+    "alt": "Generated stand-in image for Engine Rebuild. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -37,14 +42,14 @@
       "question": "What made it hard?",
       "hint": "Money, tools, space, or parts. Machine shop budget, no hoist, seized head bolts, measuring clearances without the right gauges, sourcing parts for an 80s Toyota.",
       "draft": "",
-      "answer": ""
+      "answer": "Clearances on a rebuild are measured, not assumed. A bearing that is close enough goes back together fine and fails a thousand miles later, so every tolerance had to be checked against spec before anything was torqued."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "Rebuild versus a junkyard replacement. Bore oversize versus standard. New head versus reman. Which rings and bearings and why. Give me one thing you rejected.",
       "draft": "",
-      "answer": ""
+      "answer": "I did the assembly myself and sent out only the work that needs a machine I do not have. Measuring, checking and reassembling is where the understanding is, and paying somebody else for that part would have left me with a running engine I did not know anything about."
     },
     {
       "role": "number",
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

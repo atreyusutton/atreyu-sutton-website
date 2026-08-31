@@ -8,7 +8,7 @@
   "carriedOver": true,
   "featured": false,
   "status": "shipped",
-  "oneLine": "Proposal for eco-friendly burial and land stewardship.",
+  "oneLine": "A proposal I put together for eco friendly burial and land stewardship.",
   "headlineNumber": {
     "value": "",
     "unit": ""
@@ -23,19 +23,19 @@
   "gallery": [
     {
       "src": "/green-burial-pitch/burial-pitch-2.png",
-      "alt": "",
+      "alt": "Pitch slide listing current conservation cemeteries in a table, beside cost of green burial figures for Boulder, Colorado",
       "width": 2550,
       "height": 3300
     },
     {
       "src": "/green-burial-pitch/burial-pitch-3.png",
-      "alt": "",
+      "alt": "Pitch slide of Colorado foothills population by county beside current passing market figures, with a small county location map",
       "width": 2550,
       "height": 3300
     },
     {
       "src": "/green-burial-pitch/burial-pitch-4.png",
-      "alt": "",
+      "alt": "Pitch slide explaining green burial and the hidden environmental costs of conventional burial, beside a photograph of yellow wildflowers",
       "width": 2548,
       "height": 3300
     }

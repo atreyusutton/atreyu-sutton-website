@@ -4,16 +4,21 @@
   "lane": "hardware",
   "tier": "index",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A handheld plasma device I built, mostly to understand the high voltage side properly.",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/plasma-gun.jpg",
+    "alt": "Generated stand-in image for Plasma Gun. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -39,5 +44,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

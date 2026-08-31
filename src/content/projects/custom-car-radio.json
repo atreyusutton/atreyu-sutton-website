@@ -4,16 +4,21 @@
   "lane": "hardware",
   "tier": "swap",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A head unit housing I modelled and printed so a modern radio would fit an older dashboard.",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/custom-car-radio.jpg",
+    "alt": "Generated stand-in image for Custom Car Radio (3D print). Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

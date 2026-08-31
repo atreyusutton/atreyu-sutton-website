@@ -4,10 +4,10 @@
   "lane": "software",
   "tier": "swap",
   "order": null,
-  "published": false,
+  "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A landing page for a concept: short supportive messages sent by text to young people, written with clinicians and educators.",
   "headlineNumber": {
     "value": "",
     "unit": ""
@@ -15,7 +15,7 @@
   "specs": {},
   "hero": {
     "src": "/nest-messages/nest-messages-1-hero.png",
-    "alt": "",
+    "alt": "NEST Messages landing page, a headline about timely messages beside a phone feed of three sample check in messages",
     "width": 2404,
     "height": 1466
   },
@@ -79,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

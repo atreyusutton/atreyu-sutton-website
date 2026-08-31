@@ -7,7 +7,7 @@
   "published": true,
   "featured": false,
   "status": "running",
-  "oneLine": "Software engineering consultancy specializing in full-stack development and AI integration.",
+  "oneLine": "The consultancy I run, doing full stack development and AI integration for clients.",
   "headlineNumber": {
     "value": "",
     "unit": ""
@@ -22,13 +22,13 @@
   "gallery": [
     {
       "src": "/ute-pass-vacation-rentals/ute-pass-1-hero.png",
-      "alt": "",
+      "alt": "Ute Pass Vacation Rentals property management page, showing a mountain cabin lit at dusk",
       "width": 1480,
       "height": 1029
     },
     {
       "src": "/the-real-estate-collaborative/real-estate-1-hero.png",
-      "alt": "",
+      "alt": "The Real Estate Collaborative home page, an aerial photograph of a harbour with the company name set over it",
       "width": 2552,
       "height": 1516
     }

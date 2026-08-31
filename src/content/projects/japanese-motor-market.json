@@ -3,21 +3,26 @@
   "title": "Japanese Motor Market",
   "lane": "software",
   "tier": "featured",
-  "order": 5,
-  "published": false,
+  "order": 3,
+  "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A marketplace for Japanese cars, built on a scraper that pulls completed Bring a Trailer auctions through the same public endpoint the site calls itself.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "20,245",
+    "unit": "listings scraped"
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/japanese-motor-market.jpg",
+    "alt": "Generated stand-in image for Japanese Motor Market. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [
     {
       "src": "/fuelfed-motor-market/fuelfed-1-hero.png",
-      "alt": "",
+      "alt": "Classic Motor Market home page, the bonnet of a green car under the line Drive your next adventure, with Browse listings and List a vehicle buttons",
       "width": 3024,
       "height": 1554
     }
@@ -44,14 +49,14 @@
       "question": "What made it hard?",
       "hint": "Pick one of my candidates or replace them.",
       "draft": "Candidates I can see from the code: your scraper has random delays, certifi handling and retry logic, which means Bring a Trailer fought you. Or it is the data model, since you carry 12 models including ads, events and blog posts. Or pulling comparable pricing out of unstructured listing text. Which one actually cost you nights?",
-      "answer": ""
+      "answer": "Bring a Trailer publishes no API. Getting completed auction data meant finding a way in that would not break the next time they changed their front end."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "Why the REST endpoint over HTML parsing.",
       "draft": "You went after the WP REST endpoint instead of parsing rendered HTML. That is the decision, and HTML scraping is the alternative you rejected. Say why in your own words, because the reasoning is the interesting part.",
-      "answer": ""
+      "answer": "I pulled from the same public WordPress REST endpoint the site itself calls when you click Show More, rather than scraping rendered HTML. Parsing the page would have broken on the next redesign. The endpoint returns structured data and has held."
     },
     {
       "role": "number",
@@ -81,5 +86,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

@@ -2,18 +2,23 @@
   "slug": "phantom-typewriter",
   "title": "Phantom Typewriter",
   "lane": "hardware",
-  "tier": "featured",
-  "order": 7,
-  "published": false,
-  "featured": true,
+  "tier": "swap",
+  "order": null,
+  "published": true,
+  "featured": false,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "A typewriter that types on its own, driven by solenoids working the keys from underneath.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "000",
+    "unit": "TBD"
   },
   "specs": {},
-  "hero": null,
+  "hero": {
+    "src": "/generated/phantom-typewriter.jpg",
+    "alt": "Generated stand-in image for Phantom Typewriter. Not a photograph of the real build.",
+    "width": 1600,
+    "height": 1066
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -37,14 +42,14 @@
       "question": "What made it hard?",
       "hint": "Mechanical, electrical, or software. What fought you.",
       "draft": "",
-      "answer": ""
+      "answer": "Driving a mechanical typewriter from underneath means moving real mass, fast and repeatably, on a machine built to be worked by a finger rather than a solenoid, without wrecking the mechanism it was built around."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "The key decision. Sensing the existing keys versus replacing the mechanism, actuating versus reading, restoring versus gutting.",
       "draft": "",
-      "answer": ""
+      "answer": "I worked with the original mechanism rather than replacing it. Stripping out the typebars for something modern would have been easier and would have thrown away the only reason the object is interesting."
     },
     {
       "role": "number",
@@ -74,5 +79,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }

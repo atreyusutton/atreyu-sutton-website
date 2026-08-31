@@ -2,15 +2,15 @@
   "slug": "ducati-s2r",
   "title": "Ducati",
   "lane": "mechanical",
-  "tier": "index",
-  "order": null,
+  "tier": "featured",
+  "order": 4,
   "published": true,
-  "featured": false,
+  "featured": true,
   "status": "shipped",
-  "oneLine": "Custom motorcycle build with electrical system redesign and fabrication work.",
+  "oneLine": "A Ducati Monster S2R I rebuilt as a streetfighter, including a full rewire of the electrical system.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "2006",
+    "unit": "Monster S2R, rebuilt"
   },
   "specs": {},
   "hero": {
@@ -22,49 +22,49 @@
   "gallery": [
     {
       "src": "/2006-ducati-s2r/ducati-1.jpeg",
-      "alt": "",
+      "alt": "The Ducati Monster S2R parked on gravel beside a lake in winter, side on",
       "width": 1106,
       "height": 830
     },
     {
       "src": "/2006-ducati-s2r/ducati-3.jpeg",
-      "alt": "",
+      "alt": "Close view of the black fuel tank with the Ducati script, front forks and clip on bars behind it",
       "width": 1106,
       "height": 830
     },
     {
       "src": "/2006-ducati-s2r/ducati-4.jpeg",
-      "alt": "",
+      "alt": "The Ducati on a driveway in side view, red trellis frame and twin underseat exhausts visible",
       "width": 4032,
       "height": 3024
     },
     {
       "src": "/2006-ducati-s2r/ducati-5.jpeg",
-      "alt": "",
+      "alt": "Front three quarter view of the Ducati on concrete, showing the trellis frame and front end",
       "width": 4032,
       "height": 3024
     },
     {
       "src": "/2006-ducati-s2r/ducati-6.jpeg",
-      "alt": "",
+      "alt": "The bike part way through the build, sitting on boards in a yard with a hose run out to it",
       "width": 4032,
       "height": 3024
     },
     {
       "src": "/2006-ducati-s2r/ducati-7.jpeg",
-      "alt": "",
+      "alt": "The engine out of the frame and up on a bench, cases and cylinder visible",
       "width": 1600,
       "height": 1067
     },
     {
       "src": "/2006-ducati-s2r/ducati-8.jpeg",
-      "alt": "",
+      "alt": "Engine cases and cylinder barrels laid out across a bench after teardown",
       "width": 4032,
       "height": 1960
     },
     {
       "src": "/2006-ducati-s2r/ducati-9.jpeg",
-      "alt": "",
+      "alt": "Close view of an engine case component with red and black leads run into it",
       "width": 1440,
       "height": 1920
     }

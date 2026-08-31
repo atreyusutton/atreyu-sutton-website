@@ -4,37 +4,37 @@
   "lane": "mechanical",
   "tier": "featured",
   "order": 6,
-  "published": false,
+  "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "",
+  "oneLine": "Automotive concept sketches and renderings I drew at RISD, working in pencil before I ever opened CAD.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "4",
+    "unit": "sheets"
   },
   "specs": {},
   "hero": {
     "src": "/risd-project-car/risd-car-1-hero.jpeg",
-    "alt": "",
+    "alt": "Pencil concept sketches of a mid engine sports car, front, rear, side and three quarter views with wheel studies",
     "width": 1224,
     "height": 792
   },
   "gallery": [
     {
       "src": "/risd-project-car/risd-car-2.jpeg",
-      "alt": "",
+      "alt": "Perspective construction drawing of a sailboat and rectangular volumes, with the vanishing lines left visible",
       "width": 1224,
       "height": 792
     },
     {
       "src": "/risd-project-car/risd-car-3.jpeg",
-      "alt": "",
+      "alt": "Perspective studies of geometric solids, cubes, a cylinder and a cone, drawn over construction lines to two vanishing points",
       "width": 1224,
       "height": 792
     },
     {
       "src": "/risd-project-car/risd-car-4.jpeg",
-      "alt": "",
+      "alt": "Pencil sketches of a concept sports car, a three quarter view above a side profile, with wheel and detail studies alongside",
       "width": 1224,
       "height": 792
     }
@@ -61,14 +61,14 @@
       "question": "What made it hard?",
       "hint": "Design constraints are real constraints: package, occupant position, wheelbase, powertrain layout, regulations. Or plainly, learning to draw a wheel that sits right on the ground.",
       "draft": "",
-      "answer": ""
+      "answer": "Drawing a car that reads as a real object means the proportions have to hold from every view. A form that looks right in three quarter can fall apart in plan, and the sketch has to survive being seen from all sides."
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "A proportion or surfacing decision you made and the direction you abandoned. If you kept the earlier sketch, we show both.",
       "draft": "",
-      "answer": ""
+      "answer": "I drew the same car repeatedly from fixed views rather than chasing a new idea on every sheet. Working one form through front, side and three quarter is what exposes whether the proportions are real, and it is slower and less fun than starting over."
     },
     {
       "role": "number",
@@ -98,5 +98,6 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "mock": true
 }
