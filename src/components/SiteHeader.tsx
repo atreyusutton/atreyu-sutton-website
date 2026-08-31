@@ -37,6 +37,12 @@ export function SiteHeader({ hasWriting }: { hasWriting: boolean }) {
               </Link>
             )
           })}
+          <a
+            href="/resume.pdf"
+            className="label hidden px-2 py-1 transition-colors hover:!text-ink sm:inline-block"
+          >
+            Resume
+          </a>
           <ThemeToggle />
         </nav>
       </div>
