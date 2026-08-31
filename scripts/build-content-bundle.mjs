@@ -26,3 +26,13 @@ fs.writeFileSync(
 )
 
 console.log(`bundle: ${projects.length} projects written to public/content/bundle.json`)
+
+// Placeholder copy must never reach a hiring manager by accident.
+const mock = projects.filter((p) => p.mock).map((p) => p.slug)
+if (mock.length > 0) {
+  console.log('')
+  console.log(`  !!  ${mock.length} projects carry PLACEHOLDER content and are set to published.`)
+  console.log('  !!  Do not deploy this. Answer them in /studio, then clear the mock flag.')
+  console.log(`  !!  ${mock.join(', ')}`)
+  console.log('')
+}

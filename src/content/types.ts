@@ -40,6 +40,8 @@ export interface Project {
   published: boolean
   featured: boolean
   carriedOver?: boolean
+  /** Set by scripts/fill-mock-content.mjs. Placeholder copy, never shippable. */
+  mock?: boolean
   status: Status
   oneLine: string
   headlineNumber: { value: string; unit: string }
