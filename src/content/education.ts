@@ -30,6 +30,7 @@ export const education: TimelineEntry[] = [
     title: 'Student Pilot',
     institution: "FTP and Journey's Aviation",
     location: 'Winter Park, FL and Boulder, CO',
+    logo: '/logos/journeys-aviation.png',
     monogram: 'JA',
   },
   {
@@ -66,6 +67,7 @@ export const education: TimelineEntry[] = [
     title: 'Driving School',
     institution: 'Radford Racing School',
     location: 'Chandler, AZ',
+    logo: '/logos/radford-racing.png',
     monogram: 'RR',
   },
   {
