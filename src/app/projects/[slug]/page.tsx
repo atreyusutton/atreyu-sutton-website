@@ -60,17 +60,21 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <article>
       {project.hero ? (
-        <figure className="border-b border-rule">
-          <Image
-            src={project.hero.src}
-            alt={project.hero.alt}
-            width={project.hero.width}
-            height={project.hero.height}
-            priority
-            sizes="100vw"
-            className="max-h-[70vh] w-full object-cover"
-          />
-        </figure>
+        <div className="mx-auto max-w-[var(--page-max)] px-5 pt-8 md:px-8 md:pt-10">
+          <figure>
+            {/* Scaled by height with width auto, so the whole frame stays intact
+                rather than being cropped to fill the column. */}
+            <Image
+              src={project.hero.src}
+              alt={project.hero.alt}
+              width={project.hero.width}
+              height={project.hero.height}
+              priority
+              sizes="(max-width: 84rem) 100vw, 84rem"
+              className="mx-auto max-h-[68vh] w-auto border border-rule"
+            />
+          </figure>
+        </div>
       ) : null}
 
       <div className="mx-auto max-w-[var(--page-max)] px-5 py-12 md:px-8 md:py-16">
