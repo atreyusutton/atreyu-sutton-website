@@ -12,6 +12,20 @@
   `npm run content:apply <file>`.
 - 12 projects published as index rows, carried over from the old site.
 
+## Current state, 31 Aug 2026
+
+The site is fully populated for review, but it is NOT shippable. 28 projects
+carry PLACEHOLDER copy and 24 carry generated stand-in images. `npm run build`
+prints the list every time. Nothing here is evidence of real work.
+
+- Mock copy: `grep -rl '"mock": true' src/content/`
+- Generated images: everything under `public/generated/`
+- Regenerate an image: `npm run images:generate -- --only <slug> --force`
+- Review them all: `node scripts/contact-sheet.mjs`
+
+Replacing a generated image with a real photograph is the single highest value
+edit available, and it is one file plus one line of JSON.
+
 ## Next, in order
 
 1. Answer the featured eight in `/studio`. A project needs a one line, a
