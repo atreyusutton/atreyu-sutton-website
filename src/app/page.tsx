@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { essays, featuredProjects, indexProjects } from '@/content/loader'
+import { featuredProjects, indexProjects } from '@/content/loader'
 import { WorkBrowser } from '@/components/WorkBrowser'
-import { Section } from '@/components/Section'
 
 export default function HomePage() {
   const featured = featuredProjects()
   const index = indexProjects()
-  const writing = essays()
 
   return (
     <>
@@ -58,20 +56,6 @@ export default function HomePage() {
 
       <WorkBrowser featured={featured} index={index} />
 
-      {writing.length > 0 ? (
-        <Section
-          number={featured.length > 0 ? '04' : '03'}
-          label="Writing"
-          title={writing[0].title}
-        >
-          <p className="prose-measure text-ink-muted">{writing[0].oneLine}</p>
-          <p className="mt-6">
-            <Link href={`/writing/${writing[0].slug}/`} className="link-underline">
-              Read it
-            </Link>
-          </p>
-        </Section>
-      ) : null}
     </>
   )
 }

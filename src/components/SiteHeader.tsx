@@ -4,13 +4,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ThemeToggle } from './ThemeToggle'
 
-// Writing only appears once an essay is actually published.
-export function SiteHeader({ hasWriting }: { hasWriting: boolean }) {
+export function SiteHeader() {
   const pathname = usePathname()
 
   const links = [
     { href: '/projects/', label: 'Work' },
-    ...(hasWriting ? [{ href: '/writing/', label: 'Writing' }] : []),
     { href: '/about/', label: 'About' },
   ]
 

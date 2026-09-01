@@ -4,7 +4,6 @@ import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { SiteHeader } from '@/components/SiteHeader'
 import { SiteFooter } from '@/components/SiteFooter'
-import { essays } from '@/content/loader'
 
 const archivo = Archivo({
   subsets: ['latin'],
@@ -60,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             Skip to content
           </a>
-          <SiteHeader hasWriting={essays().length > 0} />
+          <SiteHeader />
           <main id="main">{children}</main>
           <SiteFooter />
         </ThemeProvider>
