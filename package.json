@@ -10,7 +10,8 @@
     "content:bundle": "node scripts/build-content-bundle.mjs",
     "content:apply": "node scripts/apply-content-bundle.mjs",
     "content:import": "node scripts/intake-to-content.mjs",
-    "images:generate": "node scripts/generate-images.mjs"
+    "images:generate": "node scripts/generate-images.mjs",
+    "image:add": "node scripts/add-image.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.23.19",
