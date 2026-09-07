@@ -77,6 +77,13 @@ function promptFor(project) {
     'no signage, no watermarks. Realistic and understated, not a render and not an advertisement.'
   const light = 'Plain natural light, muted colours, shallow depth of field.'
 
+  // An imagePrompt on the project describes the subject in Atreyu's words and
+  // wins over the lane heuristic below. The lane rules guess from a title, which
+  // is wrong whenever the title is a product name rather than a description.
+  if (project.imagePrompt) {
+    return `Still life photograph of ${project.imagePrompt} ${light} ${noPeople}`
+  }
+
   // Naming a software product makes the model render the name as a sign, in
   // garbled lettering. Physical projects are the opposite: the title is the
   // single most useful thing in the prompt.

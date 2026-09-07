@@ -130,6 +130,8 @@ export interface Project {
   video: { src: string; poster: string } | null
   links: { label: string; href: string }[]
   intake: IntakeQuestion[]
+  /** Overrides the lane heuristic in scripts/generate-images.mjs. Subject only. */
+  imagePrompt?: string
   /** Present only on projects argued for rather than reported on. */
   proposal?: Proposal
 }
