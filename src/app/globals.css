@@ -16,6 +16,12 @@
   --accent-ink: #ffffff;
   --warning: #a62b1e;
 
+  /* Disclosure bar for synthetic images. Deliberately identical in light and
+     dark: it sits on a photograph, not on the page ground, so it takes its
+     contrast from the image rather than from the theme. */
+  --notice: #161a17;
+  --notice-ink: #ffffff;
+
   --measure: 65ch;
   --rail: 8.5rem;
   --page-max: 84rem;
@@ -69,6 +75,8 @@
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
   --color-warning: var(--warning);
+  --color-notice: var(--notice);
+  --color-notice-ink: var(--notice-ink);
 
   --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-source-serif), ui-serif, Georgia, serif;

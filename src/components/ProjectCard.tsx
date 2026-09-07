@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { LANE_LABELS, type Project } from '@/content/types'
+import { GeneratedNotice, isGenerated } from './GeneratedNotice'
 
 /**
  * One photograph, the name, one line, a lane tag, one hard number.
@@ -22,6 +23,8 @@ export function ProjectCard({ project, size = 'regular' }: { project: Project; s
       </div>
 
       {project.hero ? (
+        <>
+        {isGenerated(project.hero) ? <GeneratedNotice short /> : null}
         <div
           className={`relative w-full overflow-hidden bg-ground-sunken ${
             size === 'wide' ? 'aspect-[16/10]' : 'aspect-[4/3]'
@@ -36,6 +39,7 @@ export function ProjectCard({ project, size = 'regular' }: { project: Project; s
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         </div>
+        </>
       ) : null}
 
       <h3 className="mt-5 text-[1.35rem]">

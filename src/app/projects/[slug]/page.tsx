@@ -11,6 +11,7 @@ import {
 } from '@/content/loader'
 import { answerFor, describedImages, LANE_LABELS, STATUS_LABELS } from '@/content/types'
 import { SpecTable } from '@/components/SpecTable'
+import { GeneratedNotice, isGenerated } from '@/components/GeneratedNotice'
 import {
   ProposalCapabilities,
   ProposalOriginBlock,
@@ -73,7 +74,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <article>
       {project.hero ? (
         <div className="mx-auto max-w-[var(--page-max)] px-5 pt-8 md:px-8 md:pt-10">
-          <figure>
+          <figure className="mx-auto w-fit">
+            {isGenerated(project.hero) ? <GeneratedNotice /> : null}
             {/* Scaled by height with width auto, so the whole frame stays intact
                 rather than being cropped to fill the column. */}
             <Image
