@@ -1,6 +1,6 @@
 export type Lane = 'mechanical' | 'software' | 'hardware' | 'fab' | 'writing'
 export type Status = 'running' | 'shipped' | 'shelved' | 'in-progress'
-export type Tier = 'featured' | 'swap' | 'index' | 'writing'
+export type Tier = 'featured' | 'swap' | 'index' | 'future' | 'writing'
 
 /** Maps an intake answer onto the part of the case study it renders as. */
 export type QuestionRole =
@@ -31,6 +31,85 @@ export interface IntakeQuestion {
   answer: string
 }
 
+/* A proposal is a different shape of page from a case study. A case study is
+   written backwards from a finished thing. A proposal argues for one that does
+   not exist yet, so it needs mechanism, plan and a closing ask instead of a
+   failure and a hindsight note. Optional, so every existing project is
+   unaffected. */
+
+export interface ProposalPipeline {
+  label: string
+  steps: string[]
+  note?: string
+}
+
+export interface ProposalTable {
+  head: string[]
+  rows: string[][]
+  /** Row indices to lift with the accent. Use sparingly. */
+  emphasize?: number[]
+}
+
+export interface ProposalColumn {
+  label: string
+  items: string[]
+}
+
+export interface ProposalTier {
+  when: string
+  status: string
+  title: string
+  body: string
+}
+
+export interface ProposalCapability {
+  lead: string
+  note: string
+}
+
+export interface ProposalCapabilityGroup {
+  label: string
+  items: ProposalCapability[]
+}
+
+export interface ProposalSection {
+  label: string
+  title?: string
+  body?: string[]
+  callout?: string
+  pipelines?: ProposalPipeline[]
+  table?: ProposalTable
+  columns?: ProposalColumn[]
+  tiers?: ProposalTier[]
+  after?: string[]
+}
+
+/** The idea being replaced, stated fairly, then the case against it. */
+export interface ProposalOrigin {
+  label: string
+  title: string
+  was: string[]
+  liked: string
+  problems: ProposalCapability[]
+  verdict: string
+}
+
+export interface Proposal {
+  /** Who this is written for. Rendered as a standing note at the top. */
+  audience: string
+  summary: string[]
+  /** The range the hardware affords. Sells by being specific, not loud. */
+  origin?: ProposalOrigin
+  capabilities?: { intro: string; groups: ProposalCapabilityGroup[]; caveat: string }
+  sections: ProposalSection[]
+  closing: {
+    label: string
+    lead: string
+    body: string[]
+    bar: { intro: string; items: string[]; outro: string }
+  }
+}
+
 export interface Project {
   slug: string
   title: string
@@ -51,6 +130,8 @@ export interface Project {
   video: { src: string; poster: string } | null
   links: { label: string; href: string }[]
   intake: IntakeQuestion[]
+  /** Present only on projects argued for rather than reported on. */
+  proposal?: Proposal
 }
 
 export const LANE_LABELS: Record<Lane, string> = {

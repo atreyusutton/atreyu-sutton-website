@@ -2,9 +2,21 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { featuredProjects, indexProjects, projectBySlug, publishedProjects } from '@/content/loader'
+import {
+  featuredProjects,
+  futureProjects,
+  indexProjects,
+  projectBySlug,
+  publishedProjects,
+} from '@/content/loader'
 import { answerFor, describedImages, LANE_LABELS, STATUS_LABELS } from '@/content/types'
 import { SpecTable } from '@/components/SpecTable'
+import {
+  ProposalCapabilities,
+  ProposalOriginBlock,
+  ProposalClosing,
+  ProposalSections,
+} from '@/components/Proposal'
 import { Section } from '@/components/Section'
 
 export function generateStaticParams() {
@@ -53,7 +65,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   let n = 1
   const next = () => String(n++).padStart(2, '0')
 
-  const ordered = [...featuredProjects(), ...indexProjects()]
+  const ordered = [...featuredProjects(), ...indexProjects(), ...futureProjects()]
   const position = ordered.findIndex((p) => p.slug === project.slug)
   const nextProject = position >= 0 ? ordered[(position + 1) % ordered.length] : null
 
@@ -83,6 +95,29 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div>
             <h1 className="text-[clamp(2rem,5vw,3.25rem)]">{project.title}</h1>
             <p className="prose-measure mt-6 text-xl text-ink-muted">{project.oneLine}</p>
+
+            {project.proposal ? (
+              <div className="prose-measure mt-8">
+                <p className="label border-t border-rule pt-4">{project.proposal.audience}</p>
+                <div className="mt-4 text-lg">
+                  {project.proposal.summary.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            {project.proposal?.origin ? (
+              <ProposalOriginBlock origin={project.proposal.origin} />
+            ) : null}
+
+            {project.proposal?.capabilities ? (
+              <ProposalCapabilities
+                intro={project.proposal.capabilities.intro}
+                groups={project.proposal.capabilities.groups}
+                caveat={project.proposal.capabilities.caveat}
+              />
+            ) : null}
           </div>
         </div>
       </div>
@@ -114,6 +149,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </ul>
         ) : null}
       </Section>
+
+      {project.proposal ? (
+        <ProposalSections
+          sections={project.proposal.sections}
+          numbers={project.proposal.sections.map(() => next())}
+        />
+      ) : null}
 
       {constraint ? (
         <Section number={next()} label="Constraint" title="What made it hard">
@@ -186,6 +228,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <Section number={next()} label="Hindsight" title="What I would do differently">
           <p className="prose-measure text-lg">{differently}</p>
         </Section>
+      ) : null}
+
+      {project.proposal ? (
+        <ProposalClosing closing={project.proposal.closing} number={next()} />
       ) : null}
 
       {nextProject ? (
