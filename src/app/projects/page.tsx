@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { featuredProjects, indexProjects } from '@/content/loader'
+import { featuredProjects, futureProjects, indexProjects } from '@/content/loader'
 import { WorkBrowser } from '@/components/WorkBrowser'
 
 export const metadata: Metadata = {
@@ -22,7 +22,11 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <WorkBrowser featured={featuredProjects()} index={indexProjects()} />
+      <WorkBrowser
+        featured={featuredProjects()}
+        index={indexProjects()}
+        future={futureProjects()}
+      />
     </>
   )
 }

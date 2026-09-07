@@ -2,7 +2,7 @@
   "slug": "phantom-typewriter",
   "title": "Phantom Typewriter",
   "lane": "hardware",
-  "tier": "swap",
+  "tier": "index",
   "order": null,
   "published": true,
   "featured": false,

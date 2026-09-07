@@ -2,7 +2,7 @@
   "slug": "computer-case",
   "title": "Computer Case",
   "lane": "hardware",
-  "tier": "swap",
+  "tier": "index",
   "order": null,
   "published": true,
   "featured": false,

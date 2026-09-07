@@ -1,9 +1,9 @@
 {
-  "slug": "4runners-and-the-pickup",
-  "title": "4Runners and the Pickup",
+  "slug": "1988-toyota-4runner",
+  "title": "1988 Toyota 4Runner",
   "lane": "mechanical",
   "tier": "featured",
-  "order": 2,
+  "order": 3,
   "published": true,
   "featured": true,
   "status": "running",
@@ -14,12 +14,18 @@
   },
   "specs": {},
   "hero": {
-    "src": "/1985-toyota-4runner/hero.jpeg",
-    "alt": "The 1985 Toyota 4Runner on a dirt driveway, white with the red and yellow factory stripe, lifted on knobby tires with the front bumper removed",
-    "width": 4032,
-    "height": 3024
+    "src": "/1985-toyota-4runner/toyota-build-21.jpeg",
+    "alt": "The 4Runner front three quarter in a workshop, matte black with the weathered Mount Fuji and rising sun livery down the side, on a lift and BFGoodrich all terrains",
+    "width": 1536,
+    "height": 1024
   },
   "gallery": [
+    {
+      "src": "/1985-toyota-4runner/hero.jpeg",
+      "alt": "The 1985 Toyota 4Runner on a dirt driveway, white with the red and yellow factory stripe, lifted on knobby tires with the front bumper removed",
+      "width": 4032,
+      "height": 3024
+    },
     {
       "src": "/1985-toyota-4runner/4567.jpeg",
       "alt": "The V6 engine and radiator loaded in a truck bed, ready to move",
@@ -157,6 +163,12 @@
       "alt": "Close view of rusted suspension and steering components under the truck",
       "width": 360,
       "height": 480
+    },
+    {
+      "src": "/1985-toyota-4runner/toyota-build-22.jpeg",
+      "alt": "The 4Runner from the rear three quarter, showing the Fuji stripe wrapping the rear quarter, katakana lettering and the steel rear bumper with recovery shackles",
+      "width": 1536,
+      "height": 1024
     }
   ],
   "video": null,

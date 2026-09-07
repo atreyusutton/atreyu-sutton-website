@@ -69,10 +69,17 @@ export function featuredProjects(): Project[] {
     .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
 }
 
-/** Everything published that is not in the featured grid, essays excluded. */
+/** Everything published that is not featured, not an essay and not still ahead. */
 export function indexProjects(): Project[] {
   return publishedProjects()
-    .filter((p) => !p.featured && p.tier !== 'writing')
+    .filter((p) => !p.featured && p.tier !== 'writing' && p.tier !== 'future')
+    .sort((a, b) => a.title.localeCompare(b.title))
+}
+
+/** Work that is planned but not built. Listed, never presented as finished. */
+export function futureProjects(): Project[] {
+  return publishedProjects()
+    .filter((p) => p.tier === 'future')
     .sort((a, b) => a.title.localeCompare(b.title))
 }
 

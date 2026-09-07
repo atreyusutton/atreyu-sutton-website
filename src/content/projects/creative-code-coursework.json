@@ -1,24 +1,19 @@
 {
-  "slug": "custom-car-radio",
-  "title": "Custom Car Radio (3D print)",
-  "lane": "hardware",
+  "slug": "creative-code-coursework",
+  "title": "Creative Code Coursework",
+  "lane": "software",
   "tier": "index",
   "order": null,
-  "published": true,
+  "published": false,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "A head unit housing I modelled and printed so a modern radio would fit an older dashboard.",
+  "oneLine": "",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {},
-  "hero": {
-    "src": "/generated/custom-car-radio.jpg",
-    "alt": "Generated stand-in image for Custom Car Radio (3D print). Not a photograph of the real build.",
-    "width": 1600,
-    "height": 1066
-  },
+  "hero": null,
   "gallery": [],
   "video": null,
   "links": [],
@@ -26,59 +21,58 @@
     {
       "role": "oneLine",
       "question": "What is it, in one sentence?",
-      "hint": "What it is and which vehicle it goes in.",
+      "hint": "Plain description of the thing, not the pitch.",
       "draft": "",
       "answer": ""
     },
     {
       "role": "meta",
       "question": "Role, timeline, status",
-      "hint": "Solo, when, installed and working?",
+      "hint": "What you did on it, over what period, and where it stands now.",
       "draft": "",
       "answer": ""
     },
     {
       "role": "constraint",
       "question": "What made it hard?",
-      "hint": "Fitting an unknown cavity, tolerance, heat, or the electronics.",
+      "hint": "The real constraint: budget, tooling, physics, time, a dependency you did not control.",
       "draft": "",
       "answer": ""
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
-      "hint": "How you captured the dash geometry, material choice, and what you rejected.",
+      "hint": "One decision where you chose the harder correct route over the quick one.",
       "draft": "",
       "answer": ""
     },
     {
       "role": "number",
       "question": "What number can you put on it?",
-      "hint": "Number of print revisions, tolerance achieved in mm, print time, filament cost, gap at the trim edge.",
+      "hint": "A measured quantity. Never estimated.",
       "draft": "",
       "answer": ""
     },
     {
       "role": "broke",
       "question": "What broke, and what did you do?",
-      "hint": "The revisions that did not fit and what you measured differently.",
+      "hint": "The failure and the fix.",
       "draft": "",
       "answer": ""
     },
     {
       "role": "media",
       "question": "What media do you have?",
-      "hint": "CAD, the print iterations lined up in a row, and it installed in the dash. A row of failed revisions is a great photo.",
+      "hint": "Photos, video, screenshots, drawings.",
       "draft": "",
       "answer": ""
     },
     {
       "role": "differently",
       "question": "What would you do differently?",
-      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "hint": "Two sentences. A design judgement, not self criticism.",
       "draft": "",
       "answer": ""
     }
-  ],
-  "mock": true
+  ]
 }

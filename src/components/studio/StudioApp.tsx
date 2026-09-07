@@ -19,7 +19,7 @@ export interface Bundle {
   }
 }
 
-const TIER_ORDER: Record<Tier, number> = { featured: 0, swap: 1, index: 2, writing: 3 }
+const TIER_ORDER: Record<Tier, number> = { featured: 0, swap: 1, index: 2, future: 3, writing: 4 }
 
 export function StudioApp() {
   const [unlocked, setUnlocked] = useState(false)

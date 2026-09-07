@@ -2,10 +2,10 @@
   "slug": "fsae-team",
   "title": "FSAE Team",
   "lane": "mechanical",
-  "tier": "swap",
-  "order": null,
+  "tier": "featured",
+  "order": 8,
   "published": true,
-  "featured": false,
+  "featured": true,
   "status": "in-progress",
   "oneLine": "Suspension and chassis parts I designed and machined for a Formula SAE car.",
   "headlineNumber": {

@@ -1,9 +1,9 @@
 {
   "slug": "land-finder",
-  "title": "Land Finder (\"something\")",
+  "title": "Land Finder",
   "lane": "software",
   "tier": "featured",
-  "order": 8,
+  "order": 7,
   "published": true,
   "featured": true,
   "status": "in-progress",

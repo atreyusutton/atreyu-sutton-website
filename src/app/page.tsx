@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { featuredProjects, indexProjects } from '@/content/loader'
+import { featuredProjects, futureProjects, indexProjects } from '@/content/loader'
 import { WorkBrowser } from '@/components/WorkBrowser'
 
 export default function HomePage() {
   const featured = featuredProjects()
   const index = indexProjects()
+  const future = futureProjects()
 
   return (
     <>
@@ -54,7 +55,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <WorkBrowser featured={featured} index={index} />
+      <WorkBrowser featured={featured} index={index} future={future} />
 
     </>
   )

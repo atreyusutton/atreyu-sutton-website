@@ -1,11 +1,11 @@
 {
   "slug": "ducati-s2r",
-  "title": "Ducati",
+  "title": "2006 Ducati Monster S2R",
   "lane": "mechanical",
-  "tier": "featured",
-  "order": 4,
+  "tier": "index",
+  "order": null,
   "published": true,
-  "featured": true,
+  "featured": false,
   "status": "shipped",
   "oneLine": "A Ducati Monster S2R I rebuilt as a streetfighter, including a full rewire of the electrical system.",
   "headlineNumber": {

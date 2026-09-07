@@ -2,7 +2,7 @@
   "slug": "yosemite-sam-alarm-clock",
   "title": "Yosemite Sam Alarm Clock",
   "lane": "hardware",
-  "tier": "swap",
+  "tier": "index",
   "order": null,
   "published": true,
   "featured": false,

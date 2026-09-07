@@ -2,7 +2,7 @@
   "slug": "engine-rebuild",
   "title": "Engine Rebuild",
   "lane": "mechanical",
-  "tier": "swap",
+  "tier": "index",
   "order": null,
   "published": true,
   "featured": false,
