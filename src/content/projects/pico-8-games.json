@@ -12,7 +12,13 @@
     "value": "",
     "unit": ""
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "31 August 2026",
+    "Commits": "3",
+    "Cart": "orbit.p8, 1,491 lines of Lua in one PICO-8 cart",
+    "Extra": "Hand written browser runtime so the cart plays without PICO-8",
+    "Repo": "github.com/atreyusutton/orbit-game, private"
+  },
   "hero": {
     "src": "/generated/pico-8-games.jpg",
     "alt": "Generated stand-in image for PICO-8 Games. Not a photograph of the real build.",
@@ -34,7 +40,7 @@
       "role": "number",
       "question": "One number or spec",
       "hint": "Lines of code, token count, hours, players.",
-      "draft": "",
+      "draft": "Correction needed in the one line. The repo holds one game, not several: orbit.p8, 1,491 lines, a slingshot-between-planets game about rescuing stranded crew. Either say one game or point me at the other carts. The more interesting half is not the cart. web/build.mjs, engine.js, host.js and runtime.js are a browser runtime you wrote so the cart runs on a page with no PICO-8 installed. Writing a host for someone else's VM is a better story than the game, and it is the part that would make me want to read the code. The repo is private, so nobody can check any of this. NEEDS YOU: make it public or drop the claim to a line. Candidate numbers: 1,491 lines in one cart, or PICO-8's own limits, which are the thing the one line says is the whole point.",
       "answer": ""
     },
     {

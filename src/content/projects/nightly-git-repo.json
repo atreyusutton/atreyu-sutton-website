@@ -12,7 +12,12 @@
     "value": "",
     "unit": ""
   },
-  "specs": {},
+  "specs": {
+    "Started": "17 September 2026",
+    "Built": "Shell pipeline over the Claude CLI, 10 files",
+    "Stages": "Scout, build, verify, publish, report",
+    "Repo": "github.com/atreyusutton/git-builder, private"
+  },
   "hero": null,
   "gallery": [],
   "video": null,
@@ -22,14 +27,14 @@
       "role": "oneLine",
       "question": "What is it, in one sentence?",
       "hint": "Plain description of the thing, not the pitch.",
-      "draft": "",
+      "draft": "From the README: every night at 02:30 it searches for what just shipped in AI, invents a small project that only makes sense because of that release, builds it, verifies it runs, pushes it to GitHub, and leaves a report to read with coffee.",
       "answer": ""
     },
     {
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "What you did on it, over what period, and where it stands now.",
-      "draft": "",
+      "draft": "Started 17 September 2026, so it is days old and still one commit. Ten files, a shell pipeline driving the Claude CLI. Five stages: scout, build, verify, publish, report.",
       "answer": ""
     },
     {
@@ -43,14 +48,14 @@
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "One decision where you chose the harder correct route over the quick one.",
-      "draft": "",
+      "draft": "The design decision worth writing up is the verify gate. The README says it in four words, \"Failed builds are never pushed\", and that is the difference between a pipeline and a machine for generating plausible looking repositories nobody has run. The smoke test from the spec has to pass against the real build before anything reaches GitHub. Second one: the scout is shown the last 60 ideas and told not to repeat them, so the output stays distinct as the history grows. That is the obvious failure mode of the whole idea, handled on purpose.",
       "answer": ""
     },
     {
       "role": "number",
       "question": "What number can you put on it?",
       "hint": "A measured quantity. Never estimated.",
-      "draft": "",
+      "draft": "Nothing measured yet, it is too new. The number this wants once it has run for a while is the pass rate: how many nights produced a build that passed its own smoke test. Honest and unflattering is fine here, and more persuasive than a total. NEEDS YOU: it is unpublished on the site. I would publish it once it has two weeks of reports behind it, and lead with the pass rate.",
       "answer": ""
     },
     {

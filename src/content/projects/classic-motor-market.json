@@ -45,7 +45,7 @@
       "role": "number",
       "question": "One number or spec",
       "hint": "Anything measured. Without one this stays a row rather than a card.",
-      "draft": "From the repo: 36 commits from 28 November 2025 to 14 April 2026, so about five months, and 104 TypeScript files. 17 of the 36 carry a Claude co-author trailer. This is the larger and longer of your two marketplaces and it is currently an index row while the fork of it holds a featured slot. See the note on japanese-motor-market before you decide which one to feature.",
+      "draft": "From the repo: 36 commits from 28 November 2025 to 14 April 2026, so about five months, and 104 TypeScript files. 17 of the 36 carry a Claude co-author trailer. This is the larger and longer of your two marketplaces and it is currently an index row while the fork of it holds a featured slot. See the note on japanese-motor-market before you decide which one to feature. LINEAGE: fuelfed-motor-market came first, 17 commits from 21 July to 26 August 2025, built on Supabase and react-router rather than Next and Prisma. So the marketplace has three generations across a year: FuelFed, then Classic Motor Market in November, then Japanese Motor Market forked off it in May 2026. That progression is the argument. One rebrand on its own is not.",
       "answer": ""
     },
     {
