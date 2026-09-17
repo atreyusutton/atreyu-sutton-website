@@ -1,47 +1,59 @@
 {
   "slug": "pico-8-games",
-  "title": "PICO-8 Games",
+  "title": "Orbit",
   "lane": "software",
   "tier": "index",
   "order": null,
   "published": true,
   "featured": false,
   "status": "in-progress",
-  "oneLine": "Small games I wrote in PICO-8, where the hard limits are the whole point.",
+  "oneLine": "A PICO-8 game where you never thrust: you tether to a planet, swing around it, and let go at the right moment. Then I wrote the browser runtime it plays in, the cart's real Lua against a PICO-8 API I implemented by hand.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "24",
+    "unit": "PICO-8 API functions rebuilt"
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "31 August 2026",
+    "Commits": "3",
+    "Game": "orbit.p8, 1,491 lines of Lua, 8 levels, black holes and a limited shield",
+    "Runtime": "1,689 lines across engine, runtime, host and build",
+    "Approach": "Cart Lua through fengari, hand written PICO-8 API, 128x128 indexed framebuffer",
+    "Output": "One self contained HTML file, no server and no install"
+  },
   "hero": {
     "src": "/generated/pico-8-games.jpg",
-    "alt": "Generated stand-in image for PICO-8 Games. Not a photograph of the real build.",
+    "alt": "Generated stand-in image for Orbit. Not a photograph of the real build.",
     "width": 1600,
     "height": 1066
   },
   "gallery": [],
   "video": null,
-  "links": [],
+  "links": [
+    {
+      "label": "Repo",
+      "href": "https://github.com/atreyusutton/orbit-game"
+    }
+  ],
   "intake": [
     {
       "role": "oneLine",
       "question": "One line for the index",
-      "hint": "Names of both games and what you play in each. I could not find them in your GitHub folder, so tell me where they live.",
-      "draft": "",
+      "hint": "I rewrote this from the repo. Correct anything I got wrong about the game.",
+      "draft": "The line above is mine, written from your README, so read it before it stays up. What I took from the repo: orbit.p8 is one cart, 1,491 lines, eight levels, gravity only. Tether to the nearest planet within 45 units, swing, release. Two buttons, Z to tether and X for an 18 frame shield on a 45 frame cooldown. No thrust and no steering, so the only control is when you grab and when you let go. The old line said \"small games\", plural. There is one cart here. If there are others, say where.",
       "answer": ""
     },
     {
       "role": "number",
       "question": "One number or spec",
       "hint": "Lines of code, token count, hours, players.",
-      "draft": "",
+      "draft": "The number on the card is yours: your README says \"The 24 API functions this cart calls\", and lists them. The figure I would actually put in the prose is the ratio. The game is 1,491 lines. The runtime that plays it is 1,689, across engine.js, runtime.js, host.js and build.mjs. You wrote more code to host the cart than to be the cart, which is the whole point of the row. What makes it worth reading is the honesty in the README. It says plainly that it is not an emulator: no peek and poke, no memory model, JS doubles instead of PICO-8's 16.16 fixed point, and sprites, map and music are no-ops because this cart draws only with primitives. Naming the limits of your own implementation is the thing most people leave out, and an engineer reading it will notice. Keep that in the case study if this ever gets one.",
       "answer": ""
     },
     {
       "role": "media",
       "question": "Best photo or video you have",
       "hint": "Playable links and animated GIFs. GIFs are the whole pitch here.",
-      "draft": "",
+      "draft": "Cheap and high value: dist/orbit.html is one self contained file, so record 6 to 10 seconds of a tether, a swing and a release as a GIF. A gravity game is unreadable as a still and obvious in motion. The repo also builds dist/orbit.artifact.html, a body only fragment, so the game could be embedded and actually played on the page rather than watched.",
       "answer": ""
     }
   ],

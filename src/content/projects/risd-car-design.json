@@ -61,14 +61,16 @@
       "question": "What made it hard?",
       "hint": "Design constraints are real constraints: package, occupant position, wheelbase, powertrain layout, regulations. Or plainly, learning to draw a wheel that sits right on the ground.",
       "draft": "",
-      "answer": "Drawing a car that reads as a real object means the proportions have to hold from every view. A form that looks right in three quarter can fall apart in plan, and the sketch has to survive being seen from all sides."
+      "answer": "Drawing a car that reads as a real object means the proportions have to hold from every view. A form that looks right in three quarter can fall apart in plan, and the sketch has to survive being seen from all sides.",
+      "unverified": true
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "A proportion or surfacing decision you made and the direction you abandoned. If you kept the earlier sketch, we show both.",
       "draft": "",
-      "answer": "I drew the same car repeatedly from fixed views rather than chasing a new idea on every sheet. Working one form through front, side and three quarter is what exposes whether the proportions are real, and it is slower and less fun than starting over."
+      "answer": "I drew the same car repeatedly from fixed views rather than chasing a new idea on every sheet. Working one form through front, side and three quarter is what exposes whether the proportions are real, and it is slower and less fun than starting over.",
+      "unverified": true
     },
     {
       "role": "number",

@@ -2,15 +2,15 @@
   "slug": "fsae-team",
   "title": "FSAE Team",
   "lane": "mechanical",
-  "tier": "featured",
-  "order": 8,
+  "tier": "index",
+  "order": null,
   "published": true,
-  "featured": true,
+  "featured": false,
   "status": "in-progress",
   "oneLine": "Suspension and chassis parts I designed and machined for a Formula SAE car.",
   "headlineNumber": {
-    "value": "000",
-    "unit": "TBD"
+    "value": "",
+    "unit": ""
   },
   "specs": {},
   "hero": {
@@ -41,15 +41,17 @@
       "role": "constraint",
       "question": "What made it hard?",
       "hint": "A rules constraint, the cost cap, what your shop could actually manufacture, the schedule, or a teammate leaving. The rulebook is usually the interesting constraint, so name the rule.",
-      "draft": "",
-      "answer": "Formula SAE parts have to survive the load cases the rules define while staying light, and they have to be manufacturable by students on the machines the team actually owns rather than the ones in the textbook."
+      "draft": "Formula SAE parts have to survive the load cases the rules define while staying light, and they have to be manufacturable by students on the machines the team actually owns rather than the ones in the textbook.",
+      "answer": "",
+      "unverified": true
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "A material, geometry, or process choice and the one you rejected. Steel tube versus bonded aluminum, that damper over another, welded versus machined.",
-      "draft": "",
-      "answer": "Where a lighter design depended on a process the team could not do reliably, I took the heavier one that we could make twice. A part that exists and is a little heavy beats a part that is optimal and never gets cut."
+      "draft": "Where a lighter design depended on a process the team could not do reliably, I took the heavier one that we could make twice. A part that exists and is a little heavy beats a part that is optimal and never gets cut.",
+      "answer": "",
+      "unverified": true
     },
     {
       "role": "number",

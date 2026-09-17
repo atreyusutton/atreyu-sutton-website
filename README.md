@@ -11,6 +11,8 @@ Cloudflare Pages. Design rules live in `docs/DESIGN-BRIEF.md` and `CLAUDE.md`.
 - Copy is never written in JSX. A page renders an answer or omits the section.
 - `/studio` is an unlisted editor for those JSON files. Edits stay in the
   browser until you download the bundle and run `npm run content:apply`.
+- `npm run content:report` lists which projects still carry placeholder copy,
+  which images are generated stand-ins, and what each one needs to be featured.
 - `npm run dev`, `npm run build`. Node 20 or newer.
 
 ## Adding or swapping a project

@@ -29,6 +29,11 @@ export interface IntakeQuestion {
   /** Written from reading the repos. Not publishable until Atreyu confirms it. */
   draft: string
   answer: string
+  /* Set when an answer was written by an agent rather than by Atreyu, with no
+     repo or intake sheet behind it. It renders as his words either way, so the
+     flag is the only thing that can tell them apart. The studio clears it the
+     moment he edits the answer. */
+  unverified?: boolean
 }
 
 /* A proposal is a different shape of page from a case study. A case study is
