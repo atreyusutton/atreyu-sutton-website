@@ -42,14 +42,16 @@
       "question": "What made it hard?",
       "hint": "Mechanical, electrical, or software. What fought you.",
       "draft": "",
-      "answer": "Driving a mechanical typewriter from underneath means moving real mass, fast and repeatably, on a machine built to be worked by a finger rather than a solenoid, without wrecking the mechanism it was built around."
+      "answer": "Driving a mechanical typewriter from underneath means moving real mass, fast and repeatably, on a machine built to be worked by a finger rather than a solenoid, without wrecking the mechanism it was built around.",
+      "unverified": true
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "The key decision. Sensing the existing keys versus replacing the mechanism, actuating versus reading, restoring versus gutting.",
       "draft": "",
-      "answer": "I worked with the original mechanism rather than replacing it. Stripping out the typebars for something modern would have been easier and would have thrown away the only reason the object is interesting."
+      "answer": "I worked with the original mechanism rather than replacing it. Stripping out the typebars for something modern would have been easier and would have thrown away the only reason the object is interesting.",
+      "unverified": true
     },
     {
       "role": "number",

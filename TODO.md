@@ -12,16 +12,21 @@
   `npm run content:apply <file>`.
 - 12 projects published as index rows, carried over from the old site.
 
-## Current state, 31 Aug 2026
+## Current state, 17 Sep 2026
 
-The site is fully populated for review, but it is NOT shippable. 28 projects
-carry PLACEHOLDER copy and 24 carry generated stand-in images. `npm run build`
-prints the list every time. Nothing here is evidence of real work.
+The site is fully populated for review, but it is NOT shippable. Most of it is
+scaffolding: copy the fill script wrote, and photographs an image model drew.
+Nothing in either is evidence of real work.
 
-- Mock copy: `grep -rl '"mock": true' src/content/`
-- Generated images: everything under `public/generated/`
+`npm run content:report` says exactly where it stands. It reads the content
+rather than the `mock` flag, because the flag is set by two different scripts
+for two different reasons and cannot tell fake copy from a fake photograph.
+The build prints its three headline counts and stops there.
+
+- Full report: `npm run content:report`
+- One project: `npm run content:report -- --only <slug>`
 - Regenerate an image: `npm run images:generate -- --only <slug> --force`
-- Review them all: `node scripts/contact-sheet.mjs`
+- Review the generated set: `node scripts/contact-sheet.mjs`
 
 Replacing a generated image with a real photograph is the single highest value
 edit available, and it is one file plus one line of JSON.
@@ -42,6 +47,22 @@ edit available, and it is one file plus one line of JSON.
 
 ## Open
 
+- BLOCKED, needs Atreyu. Five repos are linked from the site and are still
+  private, so every one of those links 404s for a visitor. The agent account
+  `artaxlives` has read access but not admin, and a visibility change needs
+  admin. Run this yourself:
+
+  ```sh
+  for r in recordplayer landed-the-job TorQ orbit-game git-builder; do
+    gh repo edit "atreyusutton/$r" --visibility public \
+      --accept-visibility-change-consequences
+  done
+  ```
+
+  All five were scanned first: no secret filenames and no credential patterns
+  anywhere in their history. Do NOT add `fuelfed-motor-market` to that list. It
+  has a `.env` in its history from 18 August 2025, still reachable after the
+  untrack, so those keys need rotating before it could ever go public.
 - Radford Racing and Journey's Aviation have no usable logo file. Both render
   a monogram tile. Drop a PNG in `public/logos/` and add `logo` to the entry in
   `src/content/education.ts` if you want the real mark.

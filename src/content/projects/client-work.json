@@ -12,7 +12,12 @@
     "value": "",
     "unit": ""
   },
-  "specs": {},
+  "specs": {
+    "Sutton Web Solutions": "Next.js, 37 files, September 2025",
+    "Ute Pass Vacation Rentals": "Next.js and Prisma, 557 files, October 2025",
+    "The Real Estate Collaborative": "Live, no repo shared",
+    "Stack": "Next.js, React, Prisma, Google Maps, React Email"
+  },
   "hero": {
     "src": "/sutton-web-solutions/sutton-web-1-hero.png",
     "alt": "The Sutton Web Solutions home page, the headline web development that actually ships above a row of client names",
@@ -60,7 +65,7 @@
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "When, how many clients, were you paid, is it still going.",
-      "draft": "",
+      "draft": "From the repos. Sutton Web Solutions: 8 commits on 16 September 2025, 37 files, 23 of them tsx, Next.js with framer-motion. Ute Pass Vacation Rentals: 557 files and 34 tsx components, with Prisma, the Google Maps loader, react-hook-form and React Email, so it is a real booking application and much the largest of the three. The Real Estate Collaborative is live but its repo is not among the ones shared. Two things to know before this page argues anything. Ute Pass is a single commit, so there is no history to tell a story from, only the finished thing. And the Sutton Web Solutions history is mostly one bad afternoon of deploy debugging: \"Force new deployment\", \"Debug deployment\", \"Test cache-busting build command\". It is public. If a hiring manager opens one of your repos it will probably be that one, because it is the one named after you. NEEDS YOU: client count, what you were paid, or anything the sites do for the people who own them. A consultancy page with no outcome on it is a list of links.",
       "answer": ""
     },
     {

@@ -28,7 +28,12 @@
   },
   "gallery": [],
   "video": null,
-  "links": [],
+  "links": [
+    {
+      "label": "Repo",
+      "href": "https://github.com/atreyusutton/TorQ"
+    }
+  ],
   "intake": [
     {
       "role": "oneLine",
