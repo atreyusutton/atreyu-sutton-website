@@ -12,16 +12,21 @@
   `npm run content:apply <file>`.
 - 12 projects published as index rows, carried over from the old site.
 
-## Current state, 31 Aug 2026
+## Current state, 17 Sep 2026
 
-The site is fully populated for review, but it is NOT shippable. 28 projects
-carry PLACEHOLDER copy and 24 carry generated stand-in images. `npm run build`
-prints the list every time. Nothing here is evidence of real work.
+The site is fully populated for review, but it is NOT shippable. Most of it is
+scaffolding: copy the fill script wrote, and photographs an image model drew.
+Nothing in either is evidence of real work.
 
-- Mock copy: `grep -rl '"mock": true' src/content/`
-- Generated images: everything under `public/generated/`
+`npm run content:report` says exactly where it stands. It reads the content
+rather than the `mock` flag, because the flag is set by two different scripts
+for two different reasons and cannot tell fake copy from a fake photograph.
+The build prints its three headline counts and stops there.
+
+- Full report: `npm run content:report`
+- One project: `npm run content:report -- --only <slug>`
 - Regenerate an image: `npm run images:generate -- --only <slug> --force`
-- Review them all: `node scripts/contact-sheet.mjs`
+- Review the generated set: `node scripts/contact-sheet.mjs`
 
 Replacing a generated image with a real photograph is the single highest value
 edit available, and it is one file plus one line of JSON.
