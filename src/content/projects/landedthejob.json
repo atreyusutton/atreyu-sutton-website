@@ -9,10 +9,17 @@
   "status": "in-progress",
   "oneLine": "Paste a job listing and get back a resume rewritten to mirror its language, with a cover letter pitched at that company's tone.",
   "headlineNumber": {
-    "value": "58",
-    "unit": "TypeScript files"
+    "value": "59",
+    "unit": "TypeScript files in 2 days"
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "16 to 17 April 2026",
+    "Commits": "10",
+    "Stack": "Next.js 15 App Router, React 19, Prisma 6, Postgres on Neon, Tailwind 3",
+    "Services": "Clerk for auth, Stripe for billing, Anthropic Claude for generation",
+    "Scale": "59 TypeScript files, 10 Prisma models",
+    "Pricing": "$9 a month, $19 a month, $29 one time"
+  },
   "hero": {
     "src": "/generated/landedthejob.jpg",
     "alt": "Generated stand-in image for LandedTheJob. Not a photograph of the real build.",
@@ -34,7 +41,7 @@
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "The deployment and users question. Answer it plainly, whichever way it goes.",
-      "draft": "Solo. First commit 16 April 2026, last commit 17 April 2026, 10 commits total. 58 TypeScript files, 11 Prisma models, Clerk auth, Stripe billing, Anthropic Claude, Neon Postgres, Next.js 15 App Router. THE THING I CANNOT ANSWER: is it deployed, does anyone use it, does it earn? Nothing in the repo tells me. This one answer changes how the whole page gets written.",
+      "draft": "From the repo: 10 commits across 16 and 17 April 2026, so two days. 59 TypeScript files, 10 Prisma models. The site previously said 58 files and 11 models, both slightly off, and I have corrected them to what the repo counts today. All 10 commits carry a Claude co-author trailer. NEEDS YOU: signups, revenue, generation time per resume, and Anthropic spend per resume. Any one of those beats a file count as the headline.",
       "answer": ""
     },
     {
@@ -62,7 +69,7 @@
       "role": "broke",
       "question": "What broke, and what did you do?",
       "hint": "The Clerk ID mismatch, from the user's side.",
-      "draft": "Two auth bugs are already sitting in your commit log, described above. Pick the Clerk ID mismatch one and tell me what a real user actually experienced when it happened.",
+      "draft": "Three fix commits in the history, and two are the same class of bug, which is the honest shape of an auth story. requireUser hit a race and needed an upsert. Then a user row could not be found when the Clerk id did not match, so it had to be reclaimed by email. The third was the Stripe client initialising at module load and breaking the build, fixed by making it lazy. NEEDS YOU: did the Clerk id mismatch show up as real users locked out of their own accounts? If so, say that, because the consequence is what makes it a story.",
       "answer": ""
     },
     {
