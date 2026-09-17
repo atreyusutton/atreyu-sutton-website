@@ -28,7 +28,12 @@
   },
   "gallery": [],
   "video": null,
-  "links": [],
+  "links": [
+    {
+      "label": "Repo",
+      "href": "https://github.com/atreyusutton/landed-the-job"
+    }
+  ],
   "intake": [
     {
       "role": "oneLine",
@@ -41,7 +46,7 @@
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "The deployment and users question. Answer it plainly, whichever way it goes.",
-      "draft": "From the repo: 10 commits across 16 and 17 April 2026, so two days. 59 TypeScript files, 10 Prisma models. The site previously said 58 files and 11 models, both slightly off, and I have corrected them to what the repo counts today. All 10 commits carry a Claude co-author trailer. NEEDS YOU: signups, revenue, generation time per resume, and Anthropic spend per resume. Any one of those beats a file count as the headline. LINEAGE, and it is worth a line on the page: resume-maker, 4 commits in September 2025, is this idea built plain. Express, jsPDF and html2canvas, no framework, and by 30 September it had grown a cover letter maker and a job optimiser. LandedTheJob is the same idea rebuilt seven months later on Next.js, Prisma, Clerk and Stripe with an LLM doing the rewriting. Building a thing, living with it, and rebuilding it properly is a better argument than either version alone. resume-maker is public and landed-the-job is private, which is the wrong way round.",
+      "draft": "From the repo: 10 commits across 16 and 17 April 2026, so two days. 59 TypeScript files, 10 Prisma models. The site previously said 58 files and 11 models, both slightly off, and I have corrected them to what the repo counts today. All 10 commits carry a Claude co-author trailer. NEEDS YOU: signups, revenue, generation time per resume, and Anthropic spend per resume. Any one of those beats a file count as the headline. LINEAGE, and it is worth a line on the page: resume-maker, 4 commits in September 2025, is this idea built plain. Express, jsPDF and html2canvas, no framework, and by 30 September it had grown a cover letter maker and a job optimiser. LandedTheJob is the same idea rebuilt seven months later on Next.js, Prisma, Clerk and Stripe with an LLM doing the rewriting. Building a thing, living with it, and rebuilding it properly is a better argument than either version alone. Both repos are public, so the comparison is one a reader can actually make.",
       "answer": ""
     },
     {

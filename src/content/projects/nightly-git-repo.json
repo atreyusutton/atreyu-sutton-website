@@ -16,12 +16,17 @@
     "Started": "17 September 2026",
     "Built": "Shell pipeline over the Claude CLI, 10 files",
     "Stages": "Scout, build, verify, publish, report",
-    "Repo": "github.com/atreyusutton/git-builder, private"
+    "Repo": "github.com/atreyusutton/git-builder"
   },
   "hero": null,
   "gallery": [],
   "video": null,
-  "links": [],
+  "links": [
+    {
+      "label": "Repo",
+      "href": "https://github.com/atreyusutton/git-builder"
+    }
+  ],
   "intake": [
     {
       "role": "oneLine",

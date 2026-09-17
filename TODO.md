@@ -47,6 +47,22 @@ edit available, and it is one file plus one line of JSON.
 
 ## Open
 
+- BLOCKED, needs Atreyu. Five repos are linked from the site and are still
+  private, so every one of those links 404s for a visitor. The agent account
+  `artaxlives` has read access but not admin, and a visibility change needs
+  admin. Run this yourself:
+
+  ```sh
+  for r in recordplayer landed-the-job TorQ orbit-game git-builder; do
+    gh repo edit "atreyusutton/$r" --visibility public \
+      --accept-visibility-change-consequences
+  done
+  ```
+
+  All five were scanned first: no secret filenames and no credential patterns
+  anywhere in their history. Do NOT add `fuelfed-motor-market` to that list. It
+  has a `.env` in its history from 18 August 2025, still reachable after the
+  untrack, so those keys need rotating before it could ever go public.
 - Radford Racing and Journey's Aviation have no usable logo file. Both render
   a monogram tile. Drop a PNG in `public/logos/` and add `logo` to the entry in
   `src/content/education.ts` if you want the real mark.
