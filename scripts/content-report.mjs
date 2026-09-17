@@ -156,6 +156,16 @@ function voiceWarnings(project) {
   return warnings
 }
 
+/* Answers an agent wrote with no repo and no intake sheet behind them. They
+   read as Atreyu's own words on the page, which is worse than a blank section:
+   a blank section is honest, and this is a paragraph he has to defend in an
+   interview without having written it. */
+function unverifiedCopy(project) {
+  return project.intake
+    .filter((q) => q.unverified && q.answer.trim())
+    .map((q) => ({ role: q.role, text: q.answer.trim() }))
+}
+
 /** The sections a case study wants and this project cannot fill yet. */
 function caseStudyGaps(project) {
   const gaps = []
@@ -189,6 +199,7 @@ export function report() {
       missingFiles: missingFiles(project),
       featureBlockers: blockers,
       voiceWarnings: voiceWarnings(project),
+      unverifiedCopy: unverifiedCopy(project),
       caseStudyGaps: caseStudyGaps(project),
       featurable: blockers.length === 0,
     }
@@ -207,6 +218,7 @@ export function report() {
       featurable: projects.filter((p) => p.featurable).length,
       staleMockFlags: projects.filter((p) => p.mockFlag && p.placeholderCopy.length === 0).length,
       missingFiles: projects.reduce((n, p) => n + p.missingFiles.length, 0),
+      unverifiedCopy: live.filter((p) => p.unverifiedCopy.length > 0).length,
     },
     projects,
   }
@@ -217,6 +229,7 @@ export function summaryLines(data) {
   return [
     `placeholder copy:   ${t.placeholderCopy} published projects`,
     `synthetic imagery:  ${t.syntheticHeroes} of ${t.published} published heroes`,
+    `unverified copy:    ${t.unverifiedCopy} published projects`,
     `ready to feature:   ${t.featurable} of ${t.projects} projects`,
   ]
 }
@@ -266,6 +279,20 @@ function print(data, { only } = {}) {
       const flag = p.published ? (p.featured ? `FEATURED, slot ${p.order}` : 'live') : 'held back'
       console.log(`  ${p.slug.padEnd(w)}${flag}`)
       for (const item of p.placeholderCopy) console.log(`  ${' '.repeat(w)}${item.note}`)
+    }
+  }
+
+  const unverified = all.filter((p) => p.unverifiedCopy.length > 0)
+  if (unverified.length > 0) {
+    console.log('')
+    console.log(`  Copy with no source behind it (${unverified.length}).`)
+    console.log('  Written by an agent, not from a repo and not from the intake sheet.')
+    console.log('  It renders as Atreyu\'s own words. Confirm it in /studio or cut it.')
+    console.log('')
+    for (const p of unverified) {
+      const flag = p.published ? (p.featured ? `FEATURED, slot ${p.order}` : 'live') : 'held back'
+      console.log(`    ${p.slug.padEnd(w)}${flag}`)
+      for (const item of p.unverifiedCopy) console.log(`    ${' '.repeat(w)}the ${item.role} answer`)
     }
   }
 
