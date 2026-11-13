@@ -101,7 +101,7 @@ Software needs recording, not photographing.
 
 - Screen recording of the full paste-to-resume flow
 - Screenshots of the JMM listings page and the admin dashboard
-- One chart built from the 20,245 scraped listings. This is the most
+- One chart built from the 100 scraped listings. This is the most
   interesting single object either project could produce and the data is
   already on disk.
 

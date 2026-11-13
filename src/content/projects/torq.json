@@ -7,28 +7,31 @@
   "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "The voice assistant for a tracked garage robot that helps with car repair: local Whisper transcription, Claude answers and spoken replies you can interrupt.",
+  "oneLine": "A tracked garage robot that listens, answers car-repair questions out loud with Claude, and keeps its safety logic off the network.",
   "headlineNumber": {
-    "value": "18",
-    "unit": "integration tests"
+    "value": "",
+    "unit": ""
   },
   "specs": {
-    "Timeline": "September 2026 to present",
-    "Compute": "Raspberry Pi 5, Arduino",
-    "Stack": "Python, Claude API, faster-whisper, Piper TTS"
+    "Role": "The software: Claude tool loop, speech in and out, body service, drive firmware, dashboard and tests",
+    "Started": "September 2026",
+    "Models": "Claude Haiku 5.5 at low effort and Claude Sonnet 5.5 at medium effort, through the Anthropic API",
+    "Stack": "Python, asyncio, aiohttp, WebSockets, Anthropic SDK, faster-whisper, Piper, C++ firmware, pytest",
+    "Hardware": "Raspberry Pi 5, Arduino Uno R3 with Motor Shield Rev3, two 12 V gearmotors on tracks, Logitech C920, USB speaker, 3S battery pack"
   },
   "hero": {
-    "src": "/generated/torq.jpg",
-    "alt": "Generated stand-in image for TorQ. Not a photograph of the real build.",
+    "src": "/torq/dashboard-conversation.png",
+    "alt": "The Talk to TorQ panel of the dashboard. A header line reads \"Vehicle: 2015 Honda Civic, 1.8 liter, 2 note(s)\". Three typed questions and three answers follow: a lug nut torque answer of about eighty foot-pounds that ends by saying to confirm it in the owner's manual, a diagnosis of a cold-start squeal as a likely serpentine belt, and a confirmation that a note was saved. Below are a text box, Send, Hold to talk, Quiet and New conversation buttons.",
     "width": 1600,
-    "height": 1066
+    "height": 1049,
+    "caption": "The dashboard after a real three-question conversation. The Claude answers are real. Running against the simulated drive controller, not the robot."
   },
   "gallery": [],
   "video": null,
   "links": [
     {
-      "label": "Repo",
-      "href": "https://github.com/atreyusutton/TorQ"
+      "label": "Code on GitHub (feat/voice branch)",
+      "href": "https://github.com/atreyusutton/TorQ/tree/feat/voice"
     }
   ],
   "intake": [
@@ -58,14 +61,14 @@
       "question": "What did you decide, and what did you reject?",
       "hint": "One decision where you chose the harder correct route over the quick one.",
       "draft": "I moved the project into a domain I already work in, and swapped the hard problem from handling things to knowing things. The option I rejected was keeping the sorting robot and scoping it down, to place items by hand rather than have it find them. I rejected it because at that point the person is already holding the item and could just put it in the bin, so the version that saves anyone anything is the version that is much harder. Swapping the job removed the arm, the gripper and the inverse kinematics in one move, taking the design from nine moving joints to four.",
-      "answer": "The assistant runs a streaming tool-use loop over the vehicle record, job notes and a motor stop. It routes between a fast model and a stronger one, and uses prompt caching and persistent job memory."
+      "answer": ""
     },
     {
       "role": "number",
       "question": "What number can you put on it?",
       "hint": "A measured quantity. Never estimated.",
       "draft": "Nothing measured yet, the build has not started. Candidates once it runs: lookup latency, offline hit rate against a manual, or battery life under load. Design figures that exist now are 4 servos and a 495 dollar parts list, but neither is measured.",
-      "answer": "Drive firmware with a watchdog and an emergency stop, plus 18 integration tests against simulated hardware and model responses."
+      "answer": ""
     },
     {
       "role": "broke",
@@ -90,6 +93,328 @@
     }
   ],
   "mock": false,
+  "caseStudy": {
+    "tags": [
+      "Python",
+      "Anthropic API",
+      "Tool use",
+      "Prompt caching",
+      "Whisper",
+      "Piper",
+      "Raspberry Pi",
+      "Arduino",
+      "asyncio",
+      "WebSockets"
+    ],
+    "stats": [
+      {
+        "value": "20",
+        "label": "integration tests, all passing"
+      },
+      {
+        "value": "4",
+        "label": "tools the model can call"
+      },
+      {
+        "value": "300 ms",
+        "label": "motor watchdog, in firmware"
+      },
+      {
+        "value": "6 of 7",
+        "label": "Claude calls served from the prompt cache"
+      }
+    ],
+    "statsNote": "Cache figure is from the one three-question session shown on this page.",
+    "intro": [
+      "TorQ is a small tracked robot for a home garage. You ask it a question while your hands are on a wrench, like \"what's the lug nut torque on my Civic?\", and it answers through a speaker. It remembers which vehicle you are working on and keeps job notes. You can also drive it from a browser dashboard.",
+      "The part I want an AI/ML reader to look at is the voice assistant. I built it end to end: speech in, a streaming tool-use loop written directly against the Anthropic SDK, and speech out. It is a work in progress. This page uses present tense only for what exists in the repo, and everything else sits under \"What is next\".",
+      "The screenshot at the top is the real dashboard and the answers in it are real Claude answers. The robot was offline when I captured it, so the body code was running on my laptop against the simulated drive controller from the test suite. Photos and video of the robot itself are still to come."
+    ],
+    "sections": [
+      {
+        "label": "Architecture",
+        "title": "A body and a brain",
+        "body": [
+          "The robot is split in two on purpose. Anything slow or expensive, meaning the speech models and the language model, runs on the laptop. Anything that has to keep working when the network drops, meaning stopping the motors, runs on the robot."
+        ],
+        "flow": {
+          "summary": "Three computers in a chain. A Mac, the brain, runs the brain server, Whisper speech-to-text, the Claude tool loop, Piper text-to-speech, job memory and the browser dashboard. It talks over a WebSocket, carrying JSON and binary audio frames in both directions, to a Raspberry Pi 5, the body, which runs motor control with clamps and trim, microphone capture, speaker playback, telemetry and the camera stream. The Pi talks over USB serial, in both directions, to an Arduino Uno with a motor shield running the drive firmware: a 300 ms watchdog, a latched E-stop, an overcurrent cutoff, ramping and active braking.",
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "title": "Mac, the brain",
+                  "note": "Brain server (aiohttp). Whisper speech-to-text, the Claude tool loop, Piper text-to-speech, job memory, browser dashboard."
+                }
+              ],
+              "aside": "Slow and expensive work lives here."
+            },
+            {
+              "label": "WebSocket, both ways: JSON and binary audio frames",
+              "boxes": [
+                {
+                  "title": "Raspberry Pi 5, the body",
+                  "note": "Body service (Python, asyncio). Motor control, clamps and trim. Mic capture, speaker playback, telemetry, camera stream (MJPEG)."
+                }
+              ],
+              "aside": "Runs headless. Starts on boot under systemd."
+            },
+            {
+              "label": "USB serial, both ways",
+              "boxes": [
+                {
+                  "title": "Arduino Uno and motor shield",
+                  "note": "Drive firmware (C++). 300 ms watchdog, latched E-stop, overcurrent cutoff, ramping, active braking."
+                }
+              ],
+              "aside": "Keeps working with no network at all."
+            }
+          ]
+        }
+      },
+      {
+        "label": "LLM loop",
+        "title": "How the AI part works",
+        "body": [
+          "The loop is written directly against the Anthropic SDK, with no agent framework. Each question is routed first. Everyday questions go to Claude Haiku 5.5 at low effort, for speed. Questions that look diagnostic, containing words like \"why\", \"noise\", \"leak\" or \"misfire\", go to Claude Sonnet 5.5 at medium effort.",
+          "The model has four tools: get_vehicle_info, set_vehicle, save_note and stop. Every tool input is validated in code before anything runs. A bad input goes back to the model as an error result instead of executing. The loop is capped at 6 tool rounds per question.",
+          "Reply text streams from the model into a sentence chunker. Each complete sentence is synthesized and sent to the robot while the model is still writing the rest, so the robot starts talking before the answer is finished. A new question, or the Quiet button, cancels the answer in flight and the audio already queued on the robot."
+        ],
+        "flow": {
+          "summary": "One question, start to finish. A question arrives by push-to-talk or typed. Whisper transcribes it on the laptop. A router picks Haiku or Sonnet. Claude streams a turn, and if it calls a tool the input is validated, the tool runs and the result goes back, for up to 6 rounds. Reply text goes through a sentence chunker, each sentence is synthesized by Piper, and the audio plays on the speaker on the Pi.",
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "title": "Question",
+                  "note": "Hold T on the dashboard to talk, or type it."
+                }
+              ]
+            },
+            {
+              "label": "microphone audio from the Pi",
+              "boxes": [
+                {
+                  "step": "1",
+                  "title": "Transcribe",
+                  "note": "faster-whisper (small.en), local on the laptop, primed with shop vocabulary."
+                }
+              ]
+            },
+            {
+              "label": "text",
+              "boxes": [
+                {
+                  "step": "2",
+                  "title": "Route",
+                  "note": "Haiku at low effort, or Sonnet at medium effort for diagnosis."
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "step": "3",
+                  "title": "Claude, streaming",
+                  "note": "System prompt, tool definitions and the growing conversation are all cached."
+                }
+              ],
+              "aside": "Tool call? Validate the input, run it, send the result back. Up to 6 rounds."
+            },
+            {
+              "label": "reply text, as it streams",
+              "boxes": [
+                {
+                  "step": "4",
+                  "title": "Sentence chunker",
+                  "note": "Waits for a whole sentence, then hands it on."
+                }
+              ]
+            },
+            {
+              "label": "one sentence at a time",
+              "boxes": [
+                {
+                  "step": "5",
+                  "title": "Speak",
+                  "note": "Piper text-to-speech on the laptop, played on the speaker on the Pi."
+                }
+              ],
+              "aside": "A new question or Quiet cancels everything queued."
+            }
+          ]
+        },
+        "after": [
+          "The system prompt is written for speech: no markdown, units spelled out (\"eighty foot-pounds\"), answer first. It tells the model to say so plainly when it is not confident in a number, and to point to the service manual.",
+          "Failure handling is written for a voice interface. Every API failure, whether a bad key, a rate limit, no network, a refusal or a truncated tool call, maps to a short sentence TorQ can say aloud. The user is never left with silence.",
+          "Prompt caching covers the system prompt, the tool definitions and the growing conversation. The system prompt is frozen and the tool order is fixed, so the cached prefix stays valid."
+        ]
+      },
+      {
+        "label": "Session",
+        "title": "One real conversation, and its log",
+        "body": [
+          "This is the same conversation as the screenshot at the top: a spec question, a diagnostic question and a request to save a note. The log below is the brain's own log for it. The first question goes to Haiku, which calls set_vehicle and save_note before answering. The second contains \"why\", so it goes to Sonnet."
+        ],
+        "images": [
+          {
+            "src": "/torq/dashboard-conversation.png",
+            "alt": "The Talk to TorQ panel of the dashboard. A header line reads \"Vehicle: 2015 Honda Civic, 1.8 liter, 2 note(s)\". Three typed questions and three answers follow: a lug nut torque answer of about eighty foot-pounds that ends by saying to confirm it in the owner's manual, a diagnosis of a cold-start squeal as a likely serpentine belt, and a confirmation that a note was saved. Below are a text box, Send, Hold to talk, Quiet and New conversation buttons.",
+            "width": 1600,
+            "height": 1049,
+            "caption": "The dashboard after a real three-question conversation. The Claude answers are real. The robot was offline, so this is running against the simulated drive controller."
+          }
+        ],
+        "code": {
+          "file": "Brain log for the first two questions (claude-session-log.txt)",
+          "text": "2026-11-13 14:26:49,621 INFO torq.claude: asking claude-haiku-5-5 (effort low): \"I'm working on a 2015 Honda Civic with the 1.8. What's the lug nut torque?\"\n2026-11-13 14:26:51,163 INFO torq.claude: claude-haiku-5-5 done: stop=tool_use in=4 cache_read=1225 cache_write=0 out=124\n2026-11-13 14:26:51,163 INFO torq.claude: tool set_vehicle -> {\"ok\": true, \"vehicle\": {\"year\": 2015, \"make\": \"Honda\", \"model\": \"Civic\", \"engine\": \"1.8 liter\"}}\n2026-11-13 14:26:52,897 INFO torq.claude: claude-haiku-5-5 done: stop=tool_use in=2 cache_read=1225 cache_write=182 out=256\n2026-11-13 14:26:52,898 INFO torq.claude: tool save_note -> {\"ok\": true, \"notes\": 1}\n2026-11-13 14:26:53,762 INFO torq.claude: claude-haiku-5-5 done: stop=end_turn in=2 cache_read=1407 cache_write=275 out=68\n2026-11-13 14:26:54,051 INFO torq.claude: asking claude-sonnet-5-5 (effort medium): 'It squeals for a few seconds on a cold start, then goes quiet. Why?'\n2026-11-13 14:26:56,070 INFO torq.claude: claude-sonnet-5-5 done: stop=end_turn in=4 cache_read=0 cache_write=1778 out=160"
+        },
+        "facts": {
+          "Prompt cache": "6 of the 7 Claude calls in this session read their prefix from the cache: 1,225 to 1,960 cached input tokens per call",
+          "The exception": "The one Sonnet call, which wrote a new cache because caches are per model",
+          "Typed answers": "2.1 to 4.3 seconds from question to finished text, including tool calls",
+          "How to read that": "A measured sample from one session on a laptop with no robot attached. Not a benchmark."
+        }
+      },
+      {
+        "label": "Safety",
+        "title": "Safety does not depend on the model",
+        "body": [
+          "A runaway robot breaks ankles, so stopping is handled in three independent layers. The language model sits at the top of the stack and the lower layers do not trust it. The model's only motor tool is stop."
+        ],
+        "callout": "The model can stop the robot. It cannot drive it.",
+        "table": {
+          "head": [
+            "Layer",
+            "Where it runs",
+            "What it enforces"
+          ],
+          "rows": [
+            [
+              "Firmware",
+              "Arduino",
+              "Stops the motors if a drive command is not repeated within 300 ms. Latched E-stop. Current-sense cutoff at 1.9 A sustained for 300 ms. Speed ramping and active braking."
+            ],
+            [
+              "Body",
+              "Raspberry Pi",
+              "Speed clamps and a command timeout, so a bad command from anywhere upstream cannot exceed them."
+            ],
+            [
+              "Brain and dashboard",
+              "Laptop and browser",
+              "Driving is hold-to-drive. Closing the dashboard tab stops the robot. An E-stop locks out all driving until it is explicitly reset."
+            ]
+          ]
+        },
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/torq/dashboard-driving.png",
+            "alt": "The Drive, Robot and Events panels of the dashboard during manual driving. The W and D keys are lit, the Manual button reads \"Manual: on\", and Motor PWM reads L 144 R 101. The Pi address reads 127.0.0.1 and the CPU temp, Supply and Wi-Fi rows are blank. The event log shows \"manual override ON\".",
+            "width": 970,
+            "height": 1290,
+            "caption": "Manual drive with W and D held. Running against the simulated drive controller, not the robot. That is why the Pi rows are blank and the address is 127.0.0.1."
+          },
+          {
+            "src": "/torq/dashboard-estop.png",
+            "alt": "The same Drive, Robot and Events panels after an emergency stop. No drive keys are lit, a \"Reset E-stop\" button has appeared beside the red E-STOP button, Motor PWM reads L 0 R 0, and the event log shows \"E-STOP\" as its newest line.",
+            "width": 970,
+            "height": 1330,
+            "caption": "After an E-stop: motors at zero and a reset button. Running against the simulated drive controller, not the robot."
+          }
+        ],
+        "code": {
+          "file": "brain/tools.py: every tool input is validated before anything runs",
+          "text": "async def run_tool(name: str, args: object, ctx: ToolContext) -> tuple[str, bool]:\n    \"\"\"Returns (result text, is_error).\"\"\"\n    try:\n        clean = _validate(name, args)\n    except ToolInputError as exc:\n        return json.dumps({\"error\": f\"INVALID_INPUT: {exc}\"}), True\n\n    if name == \"get_vehicle_info\":\n        return json.dumps(ctx.memory.summary()), False\n    if name == \"set_vehicle\":\n        v = ctx.memory.set_vehicle(**clean)\n        return json.dumps({\"ok\": True, \"vehicle\": v}), False\n    if name == \"save_note\":\n        count = ctx.memory.add_note(clean[\"text\"])\n        return json.dumps({\"ok\": True, \"notes\": count}), False\n    if name == \"stop\":\n        await ctx.stop_robot()\n        return json.dumps({\"ok\": True, \"motors\": \"stopped\"}), False\n    return json.dumps({\"error\": \"unknown tool\"}), True"
+        }
+      },
+      {
+        "label": "Numbers",
+        "title": "Why the model is not trusted with numbers",
+        "body": [
+          "A wrong torque spec strips a thread or loses a wheel. Today TorQ answers from the model's own knowledge, so the current build handles that risk with prompting: hedge, and point to the manual. You can see it working in the screenshot, where the lug nut answer ends with \"Confirm it in the owner's manual before you finish.\"",
+          "That is a prompt, not a guarantee, and I do not claim the problem is solved. The planned build handles it structurally, with retrieval and citations. It is described under \"What is next\"."
+        ]
+      },
+      {
+        "label": "Pivot",
+        "title": "The project I dropped first",
+        "body": [
+          "The project began as a robot that collects and composts trash. I dropped it for reasons I could state. Hot composting needs roughly a cubic yard of material to sustain its own heat, which a small robot cannot carry. One compost cycle takes 4 to 8 weeks, which leaves almost no room to iterate. And collection depends on grasping, which is where hobby robots usually fail.",
+          "TorQ inverts each of these. The hard part is knowing things, the feedback loop is one second, and a half-finished TorQ is still a useful rolling screen.",
+          "The line from my notes: \"Don't build a robot that solves a problem you'd have to research. Build one that solves a problem you have.\""
+        ]
+      },
+      {
+        "label": "Bench",
+        "title": "What went wrong on the bench",
+        "body": [
+          "On the first bench test the left track ran slower than the right. The motor shield's current-sense pins showed the left motor drawing about 1.5 to 2 times the current of the right at the same PWM, and stalling at 30% power. That pointed at mechanical drag and away from software. The cause turned out to be a stripped gearbox in the left motor. A replacement motor is the next hardware task.",
+          "Loud replies made the USB speaker brown out and reset on battery power, which showed up in the kernel log as USB disconnects. The fix for now is a software volume cap that is re-applied before every reply. A separate 5 V supply is the real fix and is on the list."
+        ],
+        "pending": [
+          "Photos of the robot: the tracked chassis, the Pi and the Arduino with its motor shield.",
+          "A short demo video: a spoken question and the spoken answer, on the real robot.",
+          "A dashboard screenshot with the Pi connected, showing the live camera feed and real telemetry."
+        ]
+      },
+      {
+        "label": "Next",
+        "title": "What is next",
+        "body": [
+          "None of this section is built yet. Today TorQ answers from the model's own knowledge and is prompted to hedge. Cited service-manual lookup is what will replace that hedge with a page you can read. It is the feature the project is ultimately for.",
+          "The design: service-manual PDFs will be ingested on the laptop into per-page images and embeddings. Pages will be retrieved locally on the robot, and the page itself will be shown next to any answer. Online, Claude will answer from the retrieved pages using the API's native citations, which return the page number as a structured field. Offline, the robot will fall back to a spec table extracted at ingest time.",
+          "The governing rule will be that TorQ never shows a number without showing where it came from, so a wrong answer is visible instead of silent. The design docs are docs/CONCEPT.md and docs/LLM.md in the repo."
+        ],
+        "cards": [
+          {
+            "title": "Cited manual lookup",
+            "meta": "Designed, not built",
+            "body": "Retrieval over ingested service manuals, with the cited page shown beside every answer."
+          },
+          {
+            "title": "Vision",
+            "meta": "Designed, not built",
+            "body": "A take_photo tool, so you will be able to ask \"is this belt cracked?\""
+          },
+          {
+            "title": "Drive tools for Claude",
+            "meta": "Designed, not built",
+            "body": "drive and turn tools, which will be clamped on the Pi and locked out during manual override."
+          },
+          {
+            "title": "Wake word",
+            "meta": "Designed, not built",
+            "body": "\"Hey TorQ\" will replace push-to-talk."
+          },
+          {
+            "title": "Status LEDs",
+            "meta": "Designed, not built",
+            "body": "LEDs that will be driven from the brain's state machine."
+          }
+        ]
+      },
+      {
+        "label": "Tests",
+        "title": "Tests, and where the code is",
+        "body": [
+          "There are 20 integration tests and all of them pass. They run the real brain server and the real body code over real sockets, against a simulated Arduino that speaks the firmware's serial protocol, plus stand-ins for Claude, Whisper and Piper.",
+          "They cover the behaviours that matter. The watchdog stops the motors when the brain disappears. E-stop locks out driving. Invalid tool input is reported and not run. A new question interrupts the current answer. A missing API key produces a spoken explanation instead of a crash."
+        ],
+        "code": {
+          "file": "pytest output, the voice half of the run (test-run.txt)",
+          "text": "tests/test_voice.py::test_sentence_chunker_waits_for_whole_sentences PASSED [ 50%]\ntests/test_voice.py::test_diagnostic_questions_route_to_smart_model PASSED [ 55%]\ntests/test_voice.py::test_typed_question_is_answered_and_spoken_on_the_pi PASSED [ 60%]\ntests/test_voice.py::test_smart_model_gets_server_side_fallback PASSED   [ 65%]\ntests/test_voice.py::test_tool_call_sets_vehicle_then_answers PASSED     [ 70%]\ntests/test_voice.py::test_invalid_tool_input_is_reported_not_run PASSED  [ 75%]\ntests/test_voice.py::test_stop_tool_stops_the_motors PASSED              [ 80%]\ntests/test_voice.py::test_push_to_talk_transcribes_and_answers PASSED    [ 85%]\ntests/test_voice.py::test_empty_transcript_does_not_call_claude PASSED   [ 90%]\ntests/test_voice.py::test_new_question_interrupts_the_current_answer PASSED [ 95%]\ntests/test_voice.py::test_missing_api_key_is_explained_not_crashed PASSED [100%]\n\n============================== 20 passed in 7.35s =============================="
+        },
+        "facts": {
+          "Tests": "20 integration tests, all passing",
+          "Code": "About 3,200 lines across Python, firmware and the dashboard",
+          "Deploy": "The body service and camera stream start on boot under systemd, and one script deploys from the laptop",
+          "Repo": "github.com/atreyusutton/TorQ. The application code is on the feat/voice branch until it is merged into master"
+        }
+      }
+    ]
+  },
   "imagePrompt": "a small boxy tracked robot with a compact cube shaped body riding on black rubber treads, having no arms at all and no limbs of any kind. On a short jointed neck it carries a binocular head built from two large cylindrical eyes set side by side: the left eye is a camera lens with visible glass elements, the right eye is a lamp with a clear reflector, switched on. A hinged flat display panel folds down out of a bay in the front of the body and tilts up toward the viewer, its screen a blank flat grey. Weathered matte machined aluminium and black plastic, workshop worn. Standing on a concrete floor with a workbench and a few hand tools out of focus behind it.",
   "proposalArchived": {
     "audience": "Written for the group. Read it, then tell me what you think.",
@@ -726,5 +1051,10 @@
       ],
       "verdict": "TorQ inverts the risk. The essential part, finding the right page and putting it on screen, is a laptop program we can build in week 2 before a single part arrives, so if it is going to fail it fails while we still have ten weeks. And when something does go wrong it degrades into something useful instead of into nothing: no model, still a manual page; no retrieval, still a screen on wheels you can drive. The belly even survived the change. It still opens, it just holds a display instead of a bin."
     }
-  }
+  },
+  "chips": [
+    "Streaming tool-use loop",
+    "20 integration tests",
+    "300 ms firmware watchdog"
+  ]
 }

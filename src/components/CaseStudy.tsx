@@ -22,14 +22,16 @@ function Prose({ paragraphs }: { paragraphs: string[] }) {
   )
 }
 
-function Stage({ stage }: { stage: FlowStage }) {
+function Stage({ stage, first }: { stage: FlowStage; first: boolean }) {
   const parallel = stage.boxes.length > 1
 
   return (
     <li>
-      <p className="label py-2 text-center" aria-hidden="true">
-        ↓{stage.label ? ` ${stage.label}` : ''}
-      </p>
+      {first ? null : (
+        <p className="label py-2 text-center" aria-hidden="true">
+          ↓{stage.label ? ` ${stage.label}` : ''}
+        </p>
+      )}
       {stage.label ? <p className="sr-only">Then, {stage.label}:</p> : null}
 
       <div className={`grid gap-3 ${stage.aside ? 'sm:grid-cols-[1fr_15rem]' : ''}`}>
@@ -84,8 +86,12 @@ function Flow({ flow }: { flow: CaseStudyFlow }) {
       ) : null}
 
       <ol>
-        {flow.stages.map((stage) => (
-          <Stage key={stage.boxes.map((box) => box.title).join()} stage={stage} />
+        {flow.stages.map((stage, i) => (
+          <Stage
+            key={stage.boxes.map((box) => box.title).join()}
+            stage={stage}
+            first={i === 0 && !flow.offline}
+          />
         ))}
       </ol>
     </figure>

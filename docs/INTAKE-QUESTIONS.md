@@ -264,7 +264,7 @@ You went after the WP REST endpoint instead of parsing rendered HTML. That is th
 > Add anything I could not see: users, traffic, cars listed by real people.
 
 **DRAFTED FROM YOUR REPO — check this:**
-From the repo: 20,245 listings scraped, 27 fields per listing, 50 image sets pulled, 12 data models, plus a separate dataset from a year earlier for comparison. Twenty thousand listings is a genuinely strong number. Lead with it.
+From the repo: 100 listings scraped (an earlier note said 20,245, which was the line count of the CSV, not the listing count), 27 fields per listing, 50 image sets pulled, 12 data models, plus a separate dataset from a year earlier for comparison. Twenty thousand listings is a genuinely strong number. Lead with it.
 
 ### Q6. What broke, and what did you do?
 

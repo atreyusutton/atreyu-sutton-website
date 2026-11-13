@@ -89,6 +89,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               sizes="(max-width: 84rem) 100vw, 84rem"
               className="mx-auto max-h-[68vh] w-auto border border-rule"
             />
+            {project.hero.caption ? (
+              <figcaption className="label mt-2">{project.hero.caption}</figcaption>
+            ) : null}
           </figure>
         </div>
       ) : null}
