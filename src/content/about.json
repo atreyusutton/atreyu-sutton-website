@@ -15,6 +15,13 @@
     "Most of what I build now is agentic. I give an LLM the right context and a way to check its own work, then point it at something real: a factory service manual, a physics textbook, a job listing. Alongside that I am building a demand forecasting model for a bakery. It is gradient boosted trees, a walk-forward backtest and a test that fails if a feature uses future data.",
     "I also build physical things, which is why half of these projects have a robot, a truck or a turntable attached. I play chess, and that is why this is the internship I am applying for. I am in Boulder, Colorado, and I can work anywhere in the USA."
   ],
+  "work": [
+    { "name": "Renaud's Bakery", "what": "Prediction model", "href": "/projects/renauds-bakery/" },
+    { "name": "FuelFed", "what": "Online motor market", "href": "/projects/classic-motor-market/" },
+    { "name": "Valdra Outside", "what": "Brand apparel", "href": "/projects/valdra-outside/" },
+    { "name": "Ute Pass Vacation Rentals", "what": "Real estate", "href": "https://utepassvacationrentals.com" },
+    { "name": "TREC, The Real Estate Collaborative", "what": "Real estate", "href": "https://trecprojects.com" }
+  ],
   "portrait": {
     "src": "/headshot.jpg",
     "alt": "Atreyu smiling at the camera in a dark green linen shirt, with a plant and a framed photograph behind him",

@@ -75,7 +75,7 @@ export default function HomePage() {
       {sustainable.length > 0 ? (
         <Section number="03" label="Sustainable interests" title="Sustainable interests">
           <p className="prose-measure mb-8 text-ink-muted">{about.sustainableIntro}</p>
-          <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {sustainable.map((project) => (
               <li key={project.slug}>
                 <ProjectCard project={project} />

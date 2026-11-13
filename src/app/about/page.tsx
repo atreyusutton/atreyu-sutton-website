@@ -51,8 +51,38 @@ export default function AboutPage() {
         <Timeline items={education} />
       </Section>
 
-      <Section number="03" label="Experience" title="Experience">
+      <Section number="03" label="Work" title="Work">
         <Timeline items={experience} />
+
+        {about.work.length > 0 ? (
+          <>
+            <h3 className="label mb-3 mt-12 font-normal">Clients and businesses</h3>
+            <table className="w-full border-collapse border-t border-rule text-left">
+              <tbody>
+                {about.work.map((item) => (
+                  <tr key={item.name} className="border-b border-rule align-baseline">
+                    <th scope="row" className="py-2.5 pr-6 text-[1.05rem] font-normal">
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="link-underline"
+                          {...(item.href.startsWith('http')
+                            ? { target: '_blank', rel: 'noreferrer' }
+                            : {})}
+                        >
+                          {item.name}
+                        </a>
+                      ) : (
+                        item.name
+                      )}
+                    </th>
+                    <td className="label py-2.5 text-right">{item.what}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
+        ) : null}
       </Section>
 
       <Section number="04" label="Skills">

@@ -1,14 +1,14 @@
 {
   "slug": "classic-motor-market",
-  "title": "Classic Motor Market",
+  "title": "FuelFed",
   "lane": "software",
-  "tier": "index",
-  "order": null,
-  "published": false,
+  "tier": "featured",
+  "order": 8,
+  "published": true,
   "carriedOver": true,
-  "featured": false,
+  "featured": true,
   "status": "running",
-  "oneLine": "An e-commerce platform I built, with a custom backend and database behind it.",
+  "oneLine": "An online motor market for European enthusiast cars, which I built with a custom backend and database behind it.",
   "headlineNumber": {
     "value": "",
     "unit": ""
