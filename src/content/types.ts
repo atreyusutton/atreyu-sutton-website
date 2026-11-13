@@ -148,21 +148,53 @@ export interface CaseStudyCode {
   text: string
 }
 
+export interface CaseStudyStat {
+  value: string
+  label: string
+}
+
+/** One item in a grid: a build, a feature, a planned piece of work. */
+export interface CaseStudyCard {
+  title: string
+  /** A short mono line under the title, such as a score or a date. */
+  meta?: string
+  body?: string
+  image?: Media
+  links?: { label: string; href: string }[]
+}
+
+export interface CaseStudyVideo {
+  src: string
+  poster?: string
+  caption?: string
+}
+
 export interface CaseStudySection {
   label: string
   title?: string
   body?: string[]
+  /** One sentence set apart from the prose. Use once per page at most. */
+  callout?: string
   flow?: CaseStudyFlow
+  table?: ProposalTable
   images?: Media[]
-  /** `two` sets images side by side. Default is one per row. */
-  imageLayout?: 'one' | 'two'
+  /** `two` and `three` set images side by side. Default is one per row. */
+  imageLayout?: 'one' | 'two' | 'three'
+  video?: CaseStudyVideo
   code?: CaseStudyCode
   facts?: Record<string, string>
+  cards?: CaseStudyCard[]
+  /** Media that is owed and not yet captured. Rendered as marked empty slots. */
+  pending?: string[]
   after?: string[]
 }
 
 export interface CaseStudy {
   tags: string[]
+  /** Up to four headline numbers, shown above the intro. */
+  stats?: CaseStudyStat[]
+  /** The date or source the stats are good for. */
+  statsNote?: string
   intro: string[]
   sections: CaseStudySection[]
 }
