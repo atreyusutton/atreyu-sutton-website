@@ -103,6 +103,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <h1 className="text-[clamp(2rem,5vw,3.25rem)]">{project.title}</h1>
             <p className="prose-measure mt-6 text-xl text-ink-muted">{project.oneLine}</p>
 
+            {project.site ? (
+              <p className="mt-6">
+                <a
+                  href={project.site.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-underline num"
+                >
+                  {project.site.label}
+                </a>
+                <span className="label ml-2">Live site</span>
+              </p>
+            ) : null}
+
             {project.proposal ? (
               <div className="prose-measure mt-8">
                 <p className="label border-t border-rule pt-4">{project.proposal.audience}</p>

@@ -67,6 +67,21 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
       ) : null}
+
+      {/* Sits above the card-wide link so it stays clickable on its own. */}
+      {project.site ? (
+        <p className="relative z-10 mt-4">
+          <a
+            href={project.site.href}
+            target="_blank"
+            rel="noreferrer"
+            className="link-underline num text-sm"
+          >
+            {project.site.label}
+          </a>
+          <span className="label ml-2">Live site</span>
+        </p>
+      ) : null}
     </article>
   )
 }

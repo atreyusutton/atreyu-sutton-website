@@ -42,6 +42,10 @@
       "href": "https://github.com/atreyusutton/japanese-motor-market"
     }
   ],
+  "site": {
+    "label": "japanesemotormarket.com",
+    "href": "https://japanesemotormarket.com"
+  },
   "intake": [
     {
       "role": "oneLine",
