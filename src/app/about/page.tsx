@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Section } from '@/components/Section'
 import { SpecTable } from '@/components/SpecTable'
 import { Timeline } from '@/components/Timeline'
-import { education, experience } from '@/content/education'
+import { education } from '@/content/education'
 import { about } from '@/content/about'
 
 export const metadata: Metadata = {
@@ -52,11 +52,9 @@ export default function AboutPage() {
       </Section>
 
       <Section number="03" label="Work" title="Work">
-        <Timeline items={experience} />
-
         {about.work.length > 0 ? (
           <>
-            <h3 className="label mb-3 mt-12 font-normal">Clients and businesses</h3>
+            <h3 className="label mb-3 font-normal">Clients and businesses</h3>
             <table className="w-full border-collapse border-t border-rule text-left">
               <tbody>
                 {about.work.map((item) => (
