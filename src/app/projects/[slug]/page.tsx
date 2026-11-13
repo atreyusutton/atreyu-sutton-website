@@ -120,6 +120,21 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     </li>
                   ))}
                 </ul>
+                {project.caseStudy.stats && project.caseStudy.stats.length > 0 ? (
+                  <div className="mt-8">
+                    <dl className="grid max-w-[52rem] grid-cols-2 gap-x-8 gap-y-6 border-y border-rule py-5 sm:grid-cols-4">
+                      {project.caseStudy.stats.map((stat) => (
+                        <div key={stat.label} className="flex flex-col-reverse">
+                          <dt className="label mt-1">{stat.label}</dt>
+                          <dd className="num text-3xl">{stat.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    {project.caseStudy.statsNote ? (
+                      <p className="label mt-2">{project.caseStudy.statsNote}</p>
+                    ) : null}
+                  </div>
+                ) : null}
                 <div className="prose-measure mt-8 text-lg">
                   {project.caseStudy.intro.map((paragraph, i) => (
                     <p key={i}>{paragraph}</p>
