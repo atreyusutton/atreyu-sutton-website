@@ -9,10 +9,18 @@
   "status": "in-progress",
   "oneLine": "I put a Raspberry Pi inside a 1byone turntable so it streams Spotify while the platter still spins real vinyl, with a round screen in the middle showing the album art turning at 33 1/3.",
   "headlineNumber": {
-    "value": "97",
-    "unit": "commits"
+    "value": "6x",
+    "unit": "faster boot, 2m 14s to 22s"
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "27 February to 23 April 2026",
+    "Commits": "97 across all branches, 93 on main",
+    "Compute": "Raspberry Pi 4 8GB, Raspberry Pi OS Bookworm, Wayland and labwc",
+    "Display": "Waveshare 4 inch 720x720 round IPS HDMI panel",
+    "Audio": "InnoMaker HiFi DAC HAT, PCM5122, 384 kHz 32-bit",
+    "Power": "12V 5A supply, 5A blade fuse, 12V to 5V buck converter",
+    "Software": "Raspotify and librespot, Python, pygame, Flask, 6 systemd units"
+  },
   "hero": {
     "src": "/generated/digital-record-player.jpg",
     "alt": "Generated stand-in image for Digital Record Player. Not a photograph of the real build.",
@@ -21,7 +29,12 @@
   },
   "gallery": [],
   "video": null,
-  "links": [],
+  "links": [
+    {
+      "label": "Repo",
+      "href": "https://github.com/atreyusutton/recordplayer"
+    }
+  ],
   "intake": [
     {
       "role": "oneLine",
@@ -34,7 +47,7 @@
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "Is it running now, and did the knob get finished.",
-      "draft": "Solo. First commit 27 February 2026, last 23 April 2026, 97 commits, so about two months. Four systemd services in the repo (raspotify, display, control, knob) plus a git post-receive auto-deploy hook to the Pi. NEEDS YOU: is it running in your house right now, and did the physical volume knob get finished or is it still a future feature?",
+      "draft": "From the repo: first commit 27 February 2026, last 23 April 2026. 97 commits across all branches, 93 on main. 6 systemd units: record-display, control, control-kiosk, knob, nav-knob and labwc. Deploys by git push to a post-receive hook on the Pi. NEEDS YOU: 87 of the 97 commits carry a Claude co-author trailer, and a hiring manager who clones the repo sees that. Decide how you want to say it, but do not let the page say Solo while the history says otherwise. Directing the boot work below is real engineering and reads better owned than hidden.",
       "answer": ""
     },
     {
@@ -55,28 +68,28 @@
       "role": "number",
       "question": "What number can you put on it?",
       "hint": "Parts cost, and boot time before and after.",
-      "draft": "From the repo: 97 commits, Raspberry Pi 4 8GB, 720x720 round IPS touch display, PCM5122 DAC at 384 kHz / 32-bit with 112 dB SNR, 320 kbps stream, 12V 5A supply through a 5A blade fuse stepped down to 5V, 4 systemd services, Flask on port 8080. NEEDS YOU: total parts cost, and boot time before and after boot-optimize.sh. That before-and-after pair is the number this page wants.",
+      "draft": "Boot to a working UI went from 2 minutes 14 seconds to 22 seconds, six times faster, measured on the Pi and recorded in your own commit body on 15 April 2026. This is a much stronger headline than the commit count, so I have put it on the card. Supporting figures if you want them in the prose: 720x720 display, PCM5122 at 384 kHz and 32-bit, 320 kbps stream, 12V 5A through a 5A fuse, 6 systemd units, Flask on port 8080.",
       "answer": ""
     },
     {
       "role": "broke",
       "question": "What broke, and what did you do?",
       "hint": "The slow boot and the silent audio. What actually happened.",
-      "draft": "boot-optimize.sh and diagnose-audio.sh both exist, which means something was slow and something was silent. Tell me what happened and what fixed it.",
+      "draft": "The thing that broke was boot time, and the diagnosis is the best story on this page. Cold boot to a usable UI took 2 minutes 14 seconds. Two causes, both invisible until measured. Raspberry Pi OS ships display_auto_detect=1, and with the round Waveshare panel labwc blocked for over 40 seconds negotiating EDID during wlroots DRM backend init. Separately, stale DAC overlays left in config.txt each cost around 60 seconds while udev probed for a chip that was no longer attached. The fix was explicit 720x720 at 60Hz timings via hdmi_cvt with auto-detect off, commenting out the dead overlays, disabling fbcon so labwc owned DRM from the start, and replacing lightdm with a getty autologin. Result: 22 seconds. NEEDS YOU: say whether the 40 seconds was the part that took longest to find. That is the sentence an interviewer will ask about.",
       "answer": ""
     },
     {
       "role": "media",
       "question": "What media do you have?",
       "hint": "Shoot the internals and the video. Tell me when it is done.",
-      "draft": "NEEDS YOU, and this is the highest priority photo shoot on the whole site: the internals with the Pi and DAC HAT stacked, the 12V wiring and fuse, and above all a video of the platter spinning with the album art rotating on the round screen. That clip is the best piece of media you could possibly have. Your README already contains two ASCII architecture diagrams that should be redrawn properly for the page.",
+      "draft": "Unchanged and still the highest value shoot on the site: the internals with the Pi and DAC HAT stacked, the 12V wiring and fuse, and a video of the platter spinning with the album art turning on the round screen. The README holds two ASCII diagrams, one signal flow and one wiring tree, that are worth redrawing properly for the page.",
       "answer": ""
     },
     {
       "role": "differently",
       "question": "What would you do differently?",
       "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
-      "draft": "",
+      "draft": "Candidate, and it is already in the repo: feat/motor-auto-spin, four commits from 23 April 2026, adds PWM motor speed, auto-spin while playing with a UI toggle, and freezes the album art when playback pauses. That is the decision above being revisited, because it puts the motor under Pi control after you deliberately kept it off. The branch is unmerged. NEEDS YOU: did you leave it unmerged because it broke the independence you wanted, or did you just not get back to it? Either answer is a good two sentences.",
       "answer": ""
     }
   ],

@@ -12,7 +12,12 @@
     "value": "",
     "unit": ""
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "23 September 2025",
+    "Commits": "3",
+    "Built": "Vite, React and Tailwind landing page, 11 files",
+    "Repo": "github.com/atreyusutton/nest-messages, public"
+  },
   "hero": {
     "src": "/nest-messages/nest-messages-1-hero.png",
     "alt": "NEST Messages landing page, a headline about timely messages beside a phone feed of three sample check in messages",
@@ -34,7 +39,7 @@
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "Confirm.",
-      "draft": "Solo. 3 commits, all on 23 September 2025. Static marketing page only, no backend.",
+      "draft": "From the repo: 3 commits, all on 23 September 2025, 11 files, a Vite and React landing page with Tailwind. That matches what the one line already says it is, a page for a concept, so nothing here is overstated. NEEDS YOU: the clinicians and educators in the one line are the part a repo cannot show. Who did you actually talk to, and did anything come of it.",
       "answer": ""
     },
     {
