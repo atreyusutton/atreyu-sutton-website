@@ -236,7 +236,7 @@ function Pending({ items }: { items: string[] }) {
 function Code({ code }: { code: CaseStudyCode }) {
   return (
     <figure className="mt-8 max-w-[60rem]">
-      <figcaption className="label mb-2">{code.file}</figcaption>
+      <figcaption className="label mb-2 [overflow-wrap:anywhere]">{code.file}</figcaption>
       {/* Focusable so a keyboard user can scroll a long line sideways. */}
       <pre
         tabIndex={0}
