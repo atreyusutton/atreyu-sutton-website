@@ -160,16 +160,61 @@
       },
       {
         "label": "Photos",
-        "title": "Photos still to come",
-        "body": [
-          "I have not photographed the finished build yet. These slots stay empty until I do, rather than being filled with stand-ins."
+        "title": "The build",
+        "imageLayout": "three",
+        "images": [
+          {
+            "src": "/digital-record-player/photos/IMG_1060.jpg",
+            "alt": "The turntable on a desk between two studio monitors, cover art lit in the centre of the platter and the touchscreen lit at the front, next to a laptop with Spotify open",
+            "width": 1600,
+            "height": 780,
+            "caption": "Playing, with Spotify open on the laptop"
+          },
+          {
+            "src": "/digital-record-player/photos/IMG_1056.jpg",
+            "alt": "The turntable on a wooden desk under a wall mounted monitor and speakers, cover art showing in the centre of the platter and the small touchscreen lit beside the tonearm",
+            "width": 1200,
+            "height": 1600,
+            "caption": "On the desk, both screens lit"
+          },
+          {
+            "src": "/digital-record-player/photos/IMG_1055.jpg",
+            "alt": "The finished turntable from above on a glass table: a black plinth, a record with the round display in its centre, a silver tonearm, and the touchscreen with a knob on either side",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The finished turntable, screens off"
+          },
+          {
+            "src": "/digital-record-player/photos/IMG_0584.jpg",
+            "alt": "The electronics laid out on a plywood board: a Raspberry Pi, the round display, the rectangular touchscreen, two rotary knobs and a joystick, joined by jumper wires",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The electronics on a board before they went in the chassis"
+          },
+          {
+            "src": "/digital-record-player/photos/IMG_0608.jpg",
+            "alt": "A hand holding a small DC motor with two white wires running to a small circuit board on a metal plate, on a black bench mat",
+            "width": 1200,
+            "height": 1600,
+            "caption": "A motor and its wiring on the bench"
+          }
         ],
-        "pending": [
-          "The finished turntable from a 3/4 angle, both screens lit, art visible on the platter",
-          "Top-down shot of the round display in the centre of the platter",
-          "Close-up of the touchscreen and the two knobs",
-          "Inside the chassis: Pi, buck converter, fuse, MOSFET, wiring",
-          "A 10 to 15 s video: select the device in Spotify, the platter starts, the art fades in, then a knob turn with the on-screen slider tracking it"
+        "videos": [
+          {
+            "src": "/digital-record-player/photos/clip-1057.mp4",
+            "poster": "/digital-record-player/photos/clip-1057.jpg",
+            "caption": "The cover art turning in the platter. Filmed on the device."
+          },
+          {
+            "src": "/digital-record-player/photos/clip-1058.mp4",
+            "poster": "/digital-record-player/photos/clip-1058.jpg",
+            "caption": "A different cover, from above. Filmed on the device."
+          },
+          {
+            "src": "/digital-record-player/photos/clip-1059.mp4",
+            "poster": "/digital-record-player/photos/clip-1059.jpg",
+            "caption": "A walk around the turntable while it plays. Filmed on the device."
+          }
         ]
       },
       {
