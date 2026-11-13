@@ -26,10 +26,10 @@
     "Hosting": "Cloudflare Pages, with a Pages Function and KV for the checklist state"
   },
   "hero": {
-    "src": "/1985-toyota-4runner/toyota-build-21.jpeg",
-    "alt": "The 4Runner front three quarter in a workshop, matte black with the weathered Mount Fuji and rising sun livery down the side, on a lift and BFGoodrich all terrains",
-    "width": 1536,
-    "height": 1024
+    "src": "/4runner-agent/photos/main.jpg",
+    "alt": "A grey first generation Toyota 4Runner with the top off, parked on a rocky hilltop under a blue sky, with a roll cage and yellow seats visible",
+    "width": 1600,
+    "height": 900
   },
   "gallery": [],
   "video": null,
@@ -47,6 +47,10 @@
       "href": "https://5vz-swap.pages.dev/wiring/"
     }
   ],
+  "site": {
+    "label": "5vz-swap.pages.dev",
+    "href": "https://5vz-swap.pages.dev/"
+  },
   "intake": [],
   "caseStudy": {
     "tags": [
@@ -310,6 +314,76 @@
             "width": 1600,
             "height": 1081,
             "caption": "The live build checklist, 23 of 65 done"
+          }
+        ]
+      },
+      {
+        "label": "Photos",
+        "title": "The truck and the engine",
+        "imageLayout": "three",
+        "images": [
+          {
+            "src": "/4runner-agent/photos/IMG_3688.jpg",
+            "alt": "The grey 4Runner parked in a driveway, seen from the front corner, on black steel wheels and all terrain tyres with a sunshade in the windscreen",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The truck in the driveway"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_3687.jpg",
+            "alt": "The 4Runner from the rear corner in the driveway, striped graphics down the side, tools on the concrete and an engine on a stand in the open garage behind",
+            "width": 1600,
+            "height": 1200,
+            "caption": "Rear three quarter, with the garage behind"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_3677.jpg",
+            "alt": "Atreyu standing beside the 4Runner with its bonnet off and a V6 engine hanging from a red engine hoist in front of the grille",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The engine out of the truck on the hoist"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_3939.jpg",
+            "alt": "A bare V6 engine block upside down on a stand, showing the crankshaft and main bearing caps, with a laptop open on a camp chair behind it",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The block on the stand with the crankshaft in"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_3936.jpg",
+            "alt": "The side of an engine block freshly painted black on a red engine stand, with brass core plugs along it",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The painted block on the engine stand"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_4245.jpg",
+            "alt": "An assembled V6 engine on a stand over a drip tray in the driveway, in front of the 4Runner with its bonnet off",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The engine on its stand in front of the truck"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_4293.jpg",
+            "alt": "The front of the engine with the timing covers off, showing the timing belt, both cam pulleys, the power steering pump and the alternator",
+            "width": 1200,
+            "height": 1600,
+            "caption": "Timing belt and cam pulleys on, covers off"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_4294.jpg",
+            "alt": "The engine on its stand in the garage with a supercharger bolted on top, a fan clutch on the front and a loose belt hanging down",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The supercharger fitted"
+          },
+          {
+            "src": "/4runner-agent/photos/IMG_0166.jpg",
+            "alt": "An engine wiring harness spread out on a concrete floor, with branches tagged in blue tape and a bundle of loose connectors at one end",
+            "width": 1200,
+            "height": 1600,
+            "caption": "The engine harness laid out, branches tagged with tape"
           }
         ]
       },

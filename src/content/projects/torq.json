@@ -347,6 +347,22 @@
         ]
       },
       {
+        "label": "Robot",
+        "title": "The robot, filmed",
+        "videos": [
+          {
+            "src": "/torq/clips/clip-3713.mp4",
+            "poster": "/torq/clips/clip-3713.jpg",
+            "caption": "The robot driving on a cutting mat in the lab."
+          },
+          {
+            "src": "/torq/clips/clip-4177.mp4",
+            "poster": "/torq/clips/clip-4177.jpg",
+            "caption": "The robot on a table, with its camera feed on the laptop."
+          }
+        ]
+      },
+      {
         "label": "Bench",
         "title": "What went wrong on the bench",
         "body": [
@@ -354,7 +370,6 @@
           "Loud replies made the USB speaker brown out and reset on battery power, which showed up in the kernel log as USB disconnects. The fix for now is a software volume cap that is re-applied before every reply. A separate 5 V supply is the real fix and is on the list."
         ],
         "pending": [
-          "Photos of the robot: the tracked chassis, the Pi and the Arduino with its motor shield.",
           "A short demo video: a spoken question and the spoken answer, on the real robot.",
           "A dashboard screenshot with the Pi connected, showing the live camera feed and real telemetry."
         ]
