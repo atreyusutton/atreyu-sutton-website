@@ -1,0 +1,39 @@
+{
+  "slug": "lesson-desk",
+  "title": "Lesson Desk",
+  "lane": "software",
+  "tier": "featured",
+  "order": 2,
+  "published": true,
+  "featured": true,
+  "status": "running",
+  "oneLine": "An AI lesson builder for a physics professor. A one-line request comes back as a 90-minute lesson grounded in the course textbook: slides, a group activity, a worksheet with a page-cited answer key, and two shuffled test versions.",
+  "headlineNumber": {
+    "value": "1,119",
+    "unit": "textbook figures indexed"
+  },
+  "specs": {
+    "Timeline": "November 2026",
+    "Stack": "TypeScript, Next.js, Claude API, Zod, Python (PyMuPDF), Cloudflare Workers, D1"
+  },
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "",
+      "draft": "",
+      "answer": "A Python pipeline splits the textbook PDFs by chapter, then extracts and indexes 1,119 figures, with pixel-level verification."
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "",
+      "draft": "",
+      "answer": "Generation runs in stages: route, plan, then parallel generation. Outputs are structured and schema-validated, a sanitization step rejects invented figure references, and student names never reach the model."
+    }
+  ]
+}
