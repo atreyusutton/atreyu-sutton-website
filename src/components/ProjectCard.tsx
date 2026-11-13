@@ -4,11 +4,13 @@ import { LANE_LABELS, type Project } from '@/content/types'
 import { GeneratedNotice, isGenerated } from './GeneratedNotice'
 
 /**
- * One photograph, the name, one line, a lane tag, one hard number.
- * `size` drives the asymmetric grid: wide cards get the taller crop.
+ * One photograph, the name, one line, a lane tag and a number if there is a
+ * real one. A project with no photograph yet says so in the image slot. A stub
+ * is the title alone, with no link, because there is no page behind it.
  */
-export function ProjectCard({ project, size = 'regular' }: { project: Project; size?: 'wide' | 'regular' }) {
+export function ProjectCard({ project }: { project: Project }) {
   const number = project.headlineNumber.value.trim()
+  const stub = project.stub === true
 
   return (
     <article className="group relative flex h-full flex-col border-t border-rule pt-4">
@@ -24,31 +26,37 @@ export function ProjectCard({ project, size = 'regular' }: { project: Project; s
 
       {project.hero ? (
         <>
-        {isGenerated(project.hero) ? <GeneratedNotice short /> : null}
-        <div
-          className={`relative w-full overflow-hidden bg-ground-sunken ${
-            size === 'wide' ? 'aspect-[16/10]' : 'aspect-[4/3]'
-          }`}
-        >
-          <Image
-            src={project.hero.src}
-            alt={project.hero.alt}
-            width={project.hero.width}
-            height={project.hero.height}
-            sizes={size === 'wide' ? '(max-width: 768px) 100vw, 60vw' : '(max-width: 768px) 100vw, 33vw'}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          />
-        </div>
+          {isGenerated(project.hero) ? <GeneratedNotice short /> : null}
+          <div className="relative aspect-[4/3] w-full overflow-hidden bg-ground-sunken">
+            <Image
+              src={project.hero.src}
+              alt={project.hero.alt}
+              width={project.hero.width}
+              height={project.hero.height}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            />
+          </div>
         </>
-      ) : null}
+      ) : (
+        <div className="flex aspect-[4/3] w-full items-center justify-center bg-ground-sunken">
+          <p className="label">{stub ? 'Details to come' : 'Image to come'}</p>
+        </div>
+      )}
 
       <h3 className="mt-5 text-[1.35rem]">
-        <Link href={`/projects/${project.slug}/`} className="after:absolute after:inset-0">
-          {project.title}
-        </Link>
+        {stub ? (
+          project.title
+        ) : (
+          <Link href={`/projects/${project.slug}/`} className="after:absolute after:inset-0">
+            {project.title}
+          </Link>
+        )}
       </h3>
 
-      <p className="prose-measure mt-2 text-[0.98rem] text-ink-muted">{project.oneLine}</p>
+      {project.oneLine.trim() ? (
+        <p className="prose-measure mt-2 text-[0.98rem] text-ink-muted">{project.oneLine}</p>
+      ) : null}
     </article>
   )
 }

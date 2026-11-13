@@ -1,0 +1,26 @@
+{
+  "slug": "renauds-bakery",
+  "title": "Renaud's Bakery",
+  "lane": "software",
+  "tier": "featured",
+  "order": 2,
+  "published": true,
+  "featured": true,
+  "mock": true,
+  "status": "in-progress",
+  "oneLine": "A demand forecasting model I am building for a bakery with several shops. It predicts how many breakfast pastries each shop will sell two to three days ahead, and a bake sheet turns the forecast into what to make.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {
+    "Model": "LightGBM quantile regression",
+    "Validation": "Walk-forward backtest, with a test that fails if a feature uses future data",
+    "Stack": "Python, pandas, Next.js"
+  },
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": []
+}

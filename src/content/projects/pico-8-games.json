@@ -4,7 +4,7 @@
   "lane": "software",
   "tier": "index",
   "order": null,
-  "published": true,
+  "published": false,
   "featured": false,
   "status": "in-progress",
   "oneLine": "Small games I wrote in PICO-8, where the hard limits are the whole point.",

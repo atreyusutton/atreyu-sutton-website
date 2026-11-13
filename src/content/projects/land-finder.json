@@ -2,10 +2,10 @@
   "slug": "land-finder",
   "title": "Land Finder",
   "lane": "software",
-  "tier": "featured",
-  "order": 7,
+  "tier": "sustainable",
+  "order": 1,
   "published": true,
-  "featured": true,
+  "featured": false,
   "status": "in-progress",
   "oneLine": "A tool that scores rural parcels in two North Idaho counties on privacy, beauty, buildability and access, so a buyer can find good land nobody else noticed.",
   "headlineNumber": {

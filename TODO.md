@@ -26,6 +26,23 @@ prints the list every time. Nothing here is evidence of real work.
 Replacing a generated image with a real photograph is the single highest value
 edit available, and it is one file plus one line of JSON.
 
+## AI/ML version, 13 Nov 2026 (branch `feat/chess-ai-ml`)
+
+The site is cut down to a home page and an about page, written for the AI/ML
+engineering internship at Chess.com. 28 projects are set to `published: false`,
+not removed. The old work index and lane filter are parked in `_archive/`.
+
+- Home and about copy is in `src/content/about.json`. Drafted, still flagged
+  `mock`. Read every line before it ships.
+- Selected work: TorQ, Renaud's Bakery, Digital Record Player, 4Runner Agent,
+  Japanese Motor Market, LandedTheJob, Dad's Physics Build, Fantasia.build.
+- Sustainable interests: Land Finder, Net Zero Home, Green Burial Pitch,
+  Valdra Outside. Ordered by the `order` field.
+- Still needed: real copy and images for Renaud's Bakery, 4Runner Agent and
+  Dad's Physics Build, everything for Fantasia.build (a title-only stub), and
+  the project pages rewritten for this role.
+- `public/resume.pdf` has not been changed for this role.
+
 ## Next, in order
 
 1. Answer the featured eight in `/studio`. A project needs a one line, a

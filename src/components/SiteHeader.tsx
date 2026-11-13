@@ -8,8 +8,8 @@ export function SiteHeader() {
   const pathname = usePathname()
 
   const links = [
-    { href: '/projects/', label: 'Work' },
-    { href: '/about/', label: 'About' },
+    { href: '/#work', label: 'Work', match: '/projects/' },
+    { href: '/about/', label: 'About', match: '/about/' },
   ]
 
   return (
@@ -21,7 +21,7 @@ export function SiteHeader() {
 
         <nav aria-label="Primary" className="flex items-center gap-1 sm:gap-2">
           {links.map((link) => {
-            const active = pathname.startsWith(link.href)
+            const active = pathname.startsWith(link.match)
             return (
               <Link
                 key={link.href}

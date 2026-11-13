@@ -4,7 +4,7 @@
   "lane": "hardware",
   "tier": "index",
   "order": null,
-  "published": true,
+  "published": false,
   "featured": false,
   "status": "in-progress",
   "oneLine": "A Yosemite Sam alarm clock I rebuilt with new electronics so it goes off again.",

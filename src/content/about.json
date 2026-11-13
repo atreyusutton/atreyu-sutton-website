@@ -1,8 +1,20 @@
 {
+  "applyingFor": "For the AI/ML engineering internship at Chess.com",
+  "headline": "I build AI agents and ML models, and I test them on real problems.",
+  "intro": "Atreyu Sutton. Engineering graduate student at the ATLAS Institute at CU Boulder, with a B.A. in Computer Science. Most of my work now is agentic: LLM systems that read service manuals, write lessons and rewrite resumes. I am also building a demand forecasting model for a bakery. And I play chess.",
+  "atAGlance": {
+    "Now": "M.S. Engineering, ATLAS Institute, CU Boulder, finishing May 2027",
+    "Before": "B.A. Computer Science, Rollins College, 4.0 GPA",
+    "Focus": "Agentic LLM systems, context engineering, forecasting models",
+    "Stack": "Python, TypeScript, SQL, LightGBM, Claude API",
+    "Chess": "Player",
+    "Based": "Boulder, Colorado"
+  },
+  "sustainableIntro": "Projects about land, energy and the outdoors, which is the other thing I keep coming back to.",
   "bio": [
-    "I am an engineering graduate student at the ATLAS Institute at CU Boulder, working across mechanical design, software and hardware. Before this I took a B.A. in Computer Science at Rollins College, and I have run Sutton Web Solutions, my own web and software practice, since 2023.",
-    "Most of what I build crosses between the physical and the digital, because I have never found a good reason to treat those as two jobs. I draw the part, machine or weld it, and then write the software that makes it do something. A turntable that streams, a car marketplace built on a scraper I wrote, a pack frame I bent in the shop: they all come from wanting to know how the whole thing works rather than one end of it.",
-    "I am in Boulder, Colorado, finishing the masters in 2027. I am looking for work where the mechanical and the software sides are the same job."
+    "I am an engineering graduate student at the ATLAS Institute at CU Boulder, finishing the M.S. in May 2027. Before this I took a B.A. in Computer Science at Rollins College, and I have run Sutton Web Solutions, my own software practice, since 2023.",
+    "Most of what I build now is agentic. I give an LLM the right context and a way to check its own work, then point it at something real: a factory service manual, a physics textbook, a job listing. Alongside that I am building a demand forecasting model for a bakery. It is gradient boosted trees, a walk-forward backtest and a test that fails if a feature uses future data.",
+    "I also build physical things, which is why half of these projects have a robot, a truck or a turntable attached. I play chess, and that is why this is the internship I am applying for. I am in Boulder, Colorado, and I can work anywhere in the USA."
   ],
   "portrait": {
     "src": "/home.jpeg",
@@ -11,10 +23,10 @@
     "height": 1000
   },
   "skills": {
-    "Software": "JavaScript, TypeScript, React, Node.js, Python, SQL, Git, AWS",
-    "Design": "Industrial design, product design, UI/UX, brand identity, technical drawing, sketching and rendering",
-    "Fabrication": "Welding, CNC machining, 3D printing, woodworking, metal fabrication, automotive repair, electronics assembly",
-    "Tools": "CAD, 3D modelling, Figma, Adobe CC"
+    "AI and agents": "LLM applications on the Claude API, agentic workflows, context engineering, prompt design",
+    "ML and data": "Python, pandas, LightGBM, quantile forecasting, walk-forward backtesting, scrapers and data pipelines",
+    "Software": "TypeScript, JavaScript, React, Next.js, Node.js, SQL (Postgres), Git, AWS, Cloudflare",
+    "Hardware and making": "Raspberry Pi, electronics assembly, CAD, 3D printing, CNC machining, welding"
   },
   "mock": true
 }

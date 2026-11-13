@@ -17,16 +17,22 @@ function validate(project: Project, file: string) {
   if (!project.title) fail('missing title')
   if (!project.published) return
 
-  if (!project.oneLine.trim()) fail('published with no oneLine')
-  if (!project.hero) fail('published with no hero image')
-  if (!project.hero.alt.trim()) fail('published hero image has no alt text')
-  if (!project.hero.width || !project.hero.height) fail('hero image has no dimensions')
+  if (project.featured && project.order === null) fail('featured project needs an order')
+  if (project.tier === 'sustainable' && project.order === null) {
+    fail('sustainable project needs an order')
+  }
 
-  if (project.featured) {
-    if (!project.headlineNumber.value.trim()) {
-      fail('featured card needs a headlineNumber. Every featured card carries a measured number.')
-    }
-    if (project.order === null) fail('featured project needs an order')
+  // A stub is a title-only card with nothing behind it yet.
+  if (project.stub) return
+
+  if (!project.oneLine.trim()) fail('published with no oneLine')
+
+  // A card may ship without a photograph and say so, but an image that is
+  // present must be described. Headline numbers are optional: none is better
+  // than an invented one.
+  if (project.hero) {
+    if (!project.hero.alt.trim()) fail('published hero image has no alt text')
+    if (!project.hero.width || !project.hero.height) fail('hero image has no dimensions')
   }
 }
 
@@ -62,7 +68,7 @@ export function publishedProjects(): Project[] {
   return allProjects().filter((p) => p.published)
 }
 
-/** The eight, in slot order. Only the ones that are actually ready. */
+/** Selected work, in slot order. */
 export function featuredProjects(): Project[] {
   return publishedProjects()
     .filter((p) => p.featured)
@@ -72,8 +78,17 @@ export function featuredProjects(): Project[] {
 /** Everything published that is not featured, not an essay and not still ahead. */
 export function indexProjects(): Project[] {
   return publishedProjects()
-    .filter((p) => !p.featured && p.tier !== 'writing' && p.tier !== 'future')
+    .filter(
+      (p) => !p.featured && p.tier !== 'writing' && p.tier !== 'future' && p.tier !== 'sustainable',
+    )
     .sort((a, b) => a.title.localeCompare(b.title))
+}
+
+/** The sustainability projects, in the order Atreyu listed them. */
+export function sustainableProjects(): Project[] {
+  return publishedProjects()
+    .filter((p) => p.tier === 'sustainable')
+    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
 }
 
 /** Work that is planned but not built. Listed, never presented as finished. */
@@ -89,7 +104,7 @@ export function essays(): Project[] {
 }
 
 export function projectBySlug(slug: string): Project | undefined {
-  return publishedProjects().find((p) => p.slug === slug)
+  return publishedProjects().find((p) => p.slug === slug && !p.stub)
 }
 
 /** A published project earns a case study page once it has answers to write one from. */

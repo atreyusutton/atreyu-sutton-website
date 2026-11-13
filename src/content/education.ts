@@ -25,15 +25,6 @@ export const education: TimelineEntry[] = [
     monogram: 'CU',
   },
   {
-    start: 'Aug 2023',
-    end: 'Present',
-    title: 'Student Pilot',
-    institution: "FTP and Journey's Aviation",
-    location: 'Winter Park, FL and Boulder, CO',
-    logo: '/logos/journeys-aviation.png',
-    monogram: 'JA',
-  },
-  {
     start: 'Aug 2020',
     end: 'May 2023',
     title: 'B.A. Computer Science',
@@ -60,6 +51,20 @@ export const education: TimelineEntry[] = [
     location: 'Boulder, CO',
     logo: '/logos/cu-boulder.png',
     monogram: 'CU',
+  },
+]
+
+// Not shown on the AI/ML version of the about page. Kept so they can be put
+// back by moving an entry up into `education`.
+export const otherEducation: TimelineEntry[] = [
+  {
+    start: 'Aug 2023',
+    end: 'Present',
+    title: 'Student Pilot',
+    institution: "FTP and Journey's Aviation",
+    location: 'Winter Park, FL and Boulder, CO',
+    logo: '/logos/journeys-aviation.png',
+    monogram: 'JA',
   },
   {
     start: 'May 2021',

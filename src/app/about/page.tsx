@@ -9,7 +9,7 @@ import { about } from '@/content/about'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Atreyu Sutton, engineering graduate student at the ATLAS Institute in Boulder, Colorado.',
+    'Atreyu Sutton, engineering graduate student at the ATLAS Institute in Boulder, Colorado, working on AI agents and ML models.',
 }
 
 export default function AboutPage() {

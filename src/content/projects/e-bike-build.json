@@ -4,7 +4,7 @@
   "lane": "hardware",
   "tier": "future",
   "order": null,
-  "published": true,
+  "published": false,
   "featured": false,
   "status": "shelved",
   "oneLine": "A fat tire electric bike I am building to handle Colorado snow, sand and pavement on one frame.",

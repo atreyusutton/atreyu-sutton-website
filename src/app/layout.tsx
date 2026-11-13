@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     template: '%s, Atreyu Sutton',
   },
   description:
-    'I design the part, machine it, and write the firmware that runs it. Mechanical, software and hardware work by Atreyu Sutton, Boulder, Colorado.',
+    'I build AI agents and ML models, and I test them on real problems. Agentic LLM work and forecasting by Atreyu Sutton, engineering graduate student in Boulder, Colorado.',
   openGraph: {
     title: 'Atreyu Sutton',
-    description: 'I design the part, machine it, and write the firmware that runs it.',
+    description: 'I build AI agents and ML models, and I test them on real problems.',
     url: 'https://atreyusutton.com',
     siteName: 'Atreyu Sutton',
     type: 'website',

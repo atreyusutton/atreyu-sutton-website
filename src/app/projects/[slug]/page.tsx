@@ -4,10 +4,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import {
   featuredProjects,
-  futureProjects,
-  indexProjects,
   projectBySlug,
   publishedProjects,
+  sustainableProjects,
 } from '@/content/loader'
 import { answerFor, describedImages, LANE_LABELS, STATUS_LABELS } from '@/content/types'
 import { SpecTable } from '@/components/SpecTable'
@@ -21,7 +20,9 @@ import {
 import { Section } from '@/components/Section'
 
 export function generateStaticParams() {
-  return publishedProjects().map((project) => ({ slug: project.slug }))
+  return publishedProjects()
+    .filter((project) => !project.stub)
+    .map((project) => ({ slug: project.slug }))
 }
 
 export async function generateMetadata({
@@ -66,7 +67,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   let n = 1
   const next = () => String(n++).padStart(2, '0')
 
-  const ordered = [...featuredProjects(), ...indexProjects(), ...futureProjects()]
+  const ordered = [...featuredProjects(), ...sustainableProjects()].filter((p) => !p.stub)
   const position = ordered.findIndex((p) => p.slug === project.slug)
   const nextProject = position >= 0 ? ordered[(position + 1) % ordered.length] : null
 
