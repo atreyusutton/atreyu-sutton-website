@@ -1,22 +1,35 @@
 {
   "slug": "lesson-desk",
-  "title": "Lesson Desk",
+  "title": "Lesson Desk (All of a Sutton)",
   "lane": "software",
   "tier": "featured",
   "order": 2,
   "published": true,
   "featured": true,
   "status": "running",
-  "oneLine": "An AI lesson builder for a physics professor. A one-line request comes back as a 90-minute lesson grounded in the course textbook: slides, a group activity, a worksheet with a page-cited answer key, and two shuffled test versions.",
+  "oneLine": "Turns one sentence from a teacher into a full textbook-grounded lesson: slides, group activity, worksheet and answer key, in about five minutes.",
+  "chips": [
+    "5-call LLM pipeline",
+    "1,119 figures indexed",
+    "Deployed on Cloudflare"
+  ],
   "headlineNumber": {
-    "value": "1,119",
-    "unit": "textbook figures indexed"
+    "value": "",
+    "unit": ""
   },
   "specs": {
-    "Timeline": "November 2026",
-    "Stack": "TypeScript, Next.js, Claude API, Zod, Python (PyMuPDF), Cloudflare Workers, D1"
+    "Role": "Solo: design, pipeline, frontend, deployment",
+    "Built": "November 2026",
+    "Model": "Claude Opus 5.5 through the Anthropic API, with adaptive thinking and per-step effort levels",
+    "Stack": "Next.js, TypeScript, Zod, Anthropic SDK, PyMuPDF, pptxgenjs, docx, resvg (WebAssembly), Tailwind",
+    "Hosting": "Cloudflare Workers, D1 database, Cloudflare Workflows for background jobs, behind a password"
   },
-  "hero": null,
+  "hero": {
+    "src": "/lesson-desk/01-home-composer.png",
+    "alt": "The home screen of the app: a box asking \"What are we teaching?\" with a Create button, a library of saved lessons and tests below it, and the textbook chapter list down the right side",
+    "width": 1600,
+    "height": 1000
+  },
   "gallery": [],
   "video": null,
   "links": [],
@@ -26,14 +39,295 @@
       "question": "What number can you put on it?",
       "hint": "",
       "draft": "",
-      "answer": "A Python pipeline splits the textbook PDFs by chapter, then extracts and indexes 1,119 figures, with pixel-level verification."
+      "answer": ""
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "",
       "draft": "",
-      "answer": "Generation runs in stages: route, plan, then parallel generation. Outputs are structured and schema-validated, a sanitization step rejects invented figure references, and student names never reach the model."
+      "answer": ""
     }
-  ]
+  ],
+  "caseStudy": {
+    "tags": [
+      "LLM application",
+      "Claude API",
+      "Structured output",
+      "TypeScript",
+      "Python",
+      "Cloudflare"
+    ],
+    "intro": [
+      "Teachers spend hours turning a textbook chapter into a lesson. Lesson Desk does it from one sentence. I built it for my dad, who teaches astronomy and physics, and it is used for both courses. The app itself is named All of a Sutton, which is the name in the screenshots.",
+      "It reads the request, picks the chapters and writes a lesson plan. Then it writes the slides, a hands-on group activity and a worksheet in parallel from that plan. All of it is grounded in the class's actual textbook, with page citations in the answer key. Slides reuse figures cropped from the book, or diagrams the model draws itself as SVG. It also builds tests in two shuffled versions and makes balanced student groups.",
+      "This is LLM application engineering. I did not train or fine-tune a model. The work is what sits around the model: grounding, structured output, validation, cost and long-running jobs."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "One sentence in, a full class out",
+        "body": [
+          "A 90-minute class needs slides, an activity, a worksheet and an answer key, and they all have to teach the same thing. Building that from a chapter by hand takes hours.",
+          "Here the teacher types one sentence, like \"make me a lesson on chapter 11\". About five minutes later the whole class is ready to open as PowerPoint and Word files."
+        ],
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/lesson-desk/02-lesson-plan.png",
+            "alt": "The generated lesson plan for Newton's second law: four learning objectives, then a pacing table giving minutes to the warm-up, slides, group work, worksheet and wrap-up",
+            "width": 1600,
+            "height": 1000,
+            "caption": "The lesson plan: objectives and pacing"
+          },
+          {
+            "src": "/lesson-desk/05-group-activity.png",
+            "alt": "The generated group activity, a drop lab with a materials list, four named roles for each group and timed steps",
+            "width": 1600,
+            "height": 1000,
+            "caption": "The group activity: materials, roles and steps"
+          },
+          {
+            "src": "/lesson-desk/06-worksheet.png",
+            "alt": "The generated worksheet, numbered questions with point values and a \"Show answer key\" checkbox at the top right",
+            "width": 1600,
+            "height": 1000,
+            "caption": "The worksheet, with the answer key behind a toggle"
+          }
+        ],
+        "after": [
+          "Each lesson comes out as 5 files: the slides as .pptx, and the lesson plan, group handout, worksheet and answer key as .docx. Each test comes out as 3: version A, version B and the key."
+        ]
+      },
+      {
+        "label": "Pipeline",
+        "title": "How it works",
+        "body": [
+          "A lesson is 5 model calls. One reads the request, one writes the plan, and three write the slides, the activity and the worksheet at the same time. Nothing the model returns is used until it has passed three checks."
+        ],
+        "flow": {
+          "summary": "The textbooks are split into chapter text and a figure index ahead of time. A teacher request goes to an interpret call, then a plan call, then three parallel calls for slides, activity and worksheet. The results pass a schema check, a figure id check and an SVG safety check, are saved as JSON, and are shown in the browser and exported as PowerPoint and Word files.",
+          "offline": {
+            "label": "Ahead of time, offline",
+            "lines": [
+              [
+                "Textbook PDFs",
+                "split_textbook.py",
+                "chapter text"
+              ],
+              [
+                "Textbook PDFs",
+                "extract_figures.py",
+                "1,119 cropped figures and an index"
+              ]
+            ]
+          },
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "title": "Teacher request",
+                  "note": "\"make me a lesson on chapter 11\""
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "step": "1",
+                  "title": "Interpret",
+                  "note": "Low effort. Lesson or test, and which chapters."
+                }
+              ],
+              "aside": "Unclear? It asks one clarifying question."
+            },
+            {
+              "label": "lesson or test, plus chapters",
+              "boxes": [
+                {
+                  "step": "2",
+                  "title": "Plan",
+                  "note": "High effort. Writes the shared blueprint."
+                }
+              ],
+              "aside": "Fed the chapter text and the figure catalog."
+            },
+            {
+              "label": "shared blueprint, three calls in parallel",
+              "boxes": [
+                {
+                  "step": "3",
+                  "title": "Slides"
+                },
+                {
+                  "step": "4",
+                  "title": "Activity"
+                },
+                {
+                  "step": "5",
+                  "title": "Worksheet and key"
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "title": "Checks",
+                  "note": "Zod schema check, then figure id check, then SVG safety check."
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "title": "Saved as JSON",
+                  "note": "Shown in the browser, downloaded as PowerPoint and Word."
+                }
+              ],
+              "aside": "\"Redo with changes\" re-runs one part only."
+            }
+          ]
+        }
+      },
+      {
+        "label": "Grounding",
+        "title": "Grounded in the textbook, with a figure catalog",
+        "body": [
+          "The model never works from memory. A Python script splits each textbook PDF into chapters using its bookmarks. A second script finds every caption, such as \"Figure 11.3\", grows a crop outward from it to the nearby graphics, and throws away crops that caught body text.",
+          "Each request sends the model the chapter text plus a catalog of that chapter's figures: id, page and caption. The model picks figures by id, and it cites printed page numbers in the answer keys."
+        ]
+      },
+      {
+        "label": "Plan first",
+        "title": "Plan first, then fan out",
+        "body": [
+          "One call writes a lesson plan. Three parallel calls then write the slides, the activity and the worksheet, and each one is given the same plan as a blueprint. That is why the three pieces teach the same objectives instead of drifting apart, and why a lesson takes five minutes rather than fifteen.",
+          "A cheap, low-effort call at the front routes the request: lesson or test, and which chapters. When it cannot tell, it asks a clarifying question instead of guessing."
+        ]
+      },
+      {
+        "label": "Structured output",
+        "title": "Structured output, validated twice",
+        "body": [
+          "Every call returns JSON constrained by a Zod schema, and then I parse it again on my side. The model's answer is data, not prose: slides, questions, answers, points. So the same result renders in the browser and exports to PowerPoint and Word."
+        ],
+        "code": {
+          "file": "src/lib/ai.ts, inside generateStructured",
+          "text": "const stream = client.beta.messages.stream({\n  model: modelId(),\n  max_tokens: request.maxTokens,\n  betas: [\"server-side-fallback-2026-07-01\"],\n  fallbacks: \"default\",\n  thinking: { type: \"adaptive\" },\n  output_config: { effort: request.effort, format: zodOutputFormat(request.schema) },\n  system: request.system,\n  messages: [{ role: \"user\", content }],\n});\nmessage = await stream.finalMessage();\n\n// ...\n\nconst parsed = request.schema.safeParse(json);\nif (!parsed.success) {\n  throw new GenerationError(`The AI response did not match the expected format: ${parsed.error.message}`);\n}\nreturn parsed.data;"
+        }
+      },
+      {
+        "label": "Validation",
+        "title": "Never trust model output",
+        "body": [
+          "The model can name a figure that does not exist, or write an SVG that is unsafe. Figure ids are checked against the index. SVG diagrams are rejected if they contain scripts, event handlers, external links or foreignObject. A bad visual is dropped from that one slide rather than failing the deck.",
+          "Refusals, cut-off responses, rate limits and bad keys each turn into a message a teacher can act on."
+        ],
+        "code": {
+          "file": "src/lib/generate.ts",
+          "text": "/** Drop visuals that cannot be rendered safely rather than failing the whole deck. */\nasync function sanitizeSlides(courseId: string, slides: Slide[]): Promise<Slide[]> {\n  const noVisual = { kind: \"none\" as const, figureId: \"\", svg: \"\", caption: \"\" };\n  const cleaned: Slide[] = [];\n  for (const slide of slides) {\n    const { visual } = slide;\n    if (visual.kind === \"textbook_figure\" && !(await findFigure(courseId, visual.figureId))) {\n      cleaned.push({ ...slide, visual: noVisual });\n      continue;\n    }\n    if (visual.kind === \"diagram\") {\n      const svg = visual.svg.trim();\n      const isUnsafe = /<script|<foreignObject|\\son\\w+\\s*=|href\\s*=\\s*[\"'](?!#)/i.test(svg);\n      if (!svg.startsWith(\"<svg\") || !svg.endsWith(\"</svg>\") || isUnsafe) {\n        cleaned.push({ ...slide, visual: noVisual });\n        continue;\n      }\n    }\n    cleaned.push(slide);\n  }\n  return cleaned;\n}"
+        }
+      },
+      {
+        "label": "Diagrams",
+        "title": "The model draws its own diagrams",
+        "body": [
+          "When no textbook figure fits, the model writes a diagram as SVG: a force diagram, a graph sketch. The app rasterises it to PNG with resvg compiled to WebAssembly, so it can go into a PowerPoint file.",
+          "The first pair below is the same slide in the app and in the exported deck. The rest are more diagrams the model drew for the same physics lesson."
+        ],
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/lesson-desk/04-ai-diagram-slide-13.png",
+            "alt": "Slide 13 in the app, \"Worked Examples\": bullet points on the left, and on the right a model-drawn force diagram of a 4.0 kg carton with a 12.0 N push to the right and 6.0 N of friction to the left, with speaker notes underneath",
+            "width": 1600,
+            "height": 718,
+            "caption": "In the app, with speaker notes"
+          },
+          {
+            "src": "/lesson-desk/11-pptx-slide-13.png",
+            "alt": "The same worked examples slide in the exported PowerPoint, with the same carton force diagram placed beside the bullet points",
+            "width": 1600,
+            "height": 899,
+            "caption": "The same slide in the exported PowerPoint"
+          },
+          {
+            "src": "/lesson-desk/04-ai-diagram-slide-3.png",
+            "alt": "A warm-up slide with a model-drawn diagram of a heavy ball and a light ball dropped from the same height, a red question mark between them",
+            "width": 1600,
+            "height": 718
+          },
+          {
+            "src": "/lesson-desk/04-ai-diagram-slide-5.png",
+            "alt": "A check slide with a model-drawn diagram of a jet at constant velocity, thrust of 100,000 N pointing right and an unknown air resistance pointing left",
+            "width": 1600,
+            "height": 757
+          },
+          {
+            "src": "/lesson-desk/04-ai-diagram-slide-9.png",
+            "alt": "A mass versus weight slide with a model-drawn diagram of a 1 kg brick on a scale on Earth reading 10 N and on the Moon reading 1.6 N",
+            "width": 1600,
+            "height": 786
+          },
+          {
+            "src": "/lesson-desk/04-ai-diagram-slide-16.png",
+            "alt": "A falling with air resistance slide with a model-drawn diagram of three falling boxes, the upward drag arrow growing until it matches the weight arrow at terminal velocity",
+            "width": 1600,
+            "height": 757
+          }
+        ]
+      },
+      {
+        "label": "Long jobs",
+        "title": "Long jobs that survive",
+        "body": [
+          "A lesson takes minutes, which is longer than a web request. Hosted, each lesson is a Cloudflare Workflow with one durable step per part, so a failed part can be retried alone and the teacher watches the steps complete.",
+          "The teacher can also revise one part, for example \"make the worksheet easier\", without regenerating the rest."
+        ]
+      },
+      {
+        "label": "Right tool",
+        "title": "Not everything needs an LLM",
+        "body": [
+          "Student names are never sent to the model. Grouping is ordinary code: a randomised search of 400 attempts, scored by penalties for keep-apart pairs, repeated past pairings and an uneven ability mix.",
+          "Test version B is a seeded shuffle, so it is identical every time it is downloaded."
+        ],
+        "images": [
+          {
+            "src": "/lesson-desk/08-group-maker.png",
+            "alt": "The students and groups screen: a demo roster split into four balanced groups, with controls for students per group and how to mix them",
+            "width": 1600,
+            "height": 1000,
+            "caption": "Balanced groups in one click. The names are a made-up demo roster of famous scientists, not real students."
+          }
+        ]
+      },
+      {
+        "label": "Results",
+        "title": "Results",
+        "facts": {
+          "Pipeline": "5 model calls per lesson: interpret, plan, then slides, activity and worksheet in parallel",
+          "Real run, Astronomy ch. 11": "5 min 23 s, about $2, 55,374 output tokens, 18 slides (9 textbook figures, 5 model-drawn diagrams)",
+          "Real run, Physics ch. 4": "3 min 19 s, 39,210 output tokens, 18 slides (10 textbook figures, 6 model-drawn diagrams)",
+          "Textbook corpus": "2 books, 64 chapters, 1,119 figures cropped and indexed automatically (465 astronomy, 654 physics)",
+          "Outputs": "5 files per lesson, 3 per test",
+          "Code": "About 5,000 lines of TypeScript (Next.js 16, React 19) and Python (PDF processing)"
+        }
+      },
+      {
+        "label": "Next",
+        "title": "What I learned, and what is next",
+        "body": [
+          "Every call records input, output and cache tokens against the lesson. That telemetry showed the prompt cache was being written but never read: 0 cache-read tokens across the four calls. The likely cause is that each call sends a different output schema. Fixing it should save about $0.50 of the roughly $2 a lesson costs.",
+          "After that: a question bank that reuses questions across tests, and recovering the figures the cropper currently discards."
+        ]
+      },
+      {
+        "label": "Links",
+        "body": [
+          "The repo is private. The live app sits behind a password because it holds licensed textbook content and class rosters, so there is no public link. I can give a demo on request."
+        ]
+      }
+    ]
+  }
 }
