@@ -7,25 +7,42 @@
   "published": true,
   "carriedOver": true,
   "featured": true,
-  "status": "shipped",
-  "oneLine": "A marketplace for European collector cars. I was the sole engineer, and later rewrote it in Next.js and TypeScript on a 9-model PostgreSQL schema.",
+  "status": "running",
+  "oneLine": "A members-only marketplace for European collector cars. I was the sole engineer, and I rewrote it in Next.js and TypeScript on a 9-model PostgreSQL schema.",
+  "chips": [
+    "9-model PostgreSQL schema",
+    "Bulk-import pipeline",
+    "Vercel and Cloudflare Workers"
+  ],
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
   "specs": {
+    "Role": "Sole engineer: data model, auth, listing workflow, media pipeline, admin tooling, deployment",
     "Timeline": "July 2025 to April 2026",
-    "Stack": "TypeScript, React, Next.js, PostgreSQL (Supabase, Prisma), Cloudflare Images"
+    "Build state": "Working build with sample listings, deployed for demonstration. Payments are placeholders.",
+    "Stack": "Next.js 16 (App Router, Server Components, Server Actions), React 19, TypeScript, Prisma 6, NextAuth v5, Zod, react-hook-form, Tailwind CSS v4, shadcn/ui",
+    "Database": "PostgreSQL on Neon, 9 Prisma models",
+    "Media and email": "Cloudflare Images, Resend",
+    "Hosting": "Vercel, then Cloudflare Workers through the OpenNext adapter",
+    "First version": "React, Vite and Supabase, July to August 2025"
   },
   "hero": {
-    "src": "/classic-motor-market/classic-motor-1-hero.png",
-    "alt": "The Classic Motor Market home page, a green Porsche photograph behind the site name and browse listings buttons",
-    "width": 3024,
-    "height": 1554
+    "src": "/fuelfed-case-study/01-home-hero.jpg",
+    "alt": "The Classic Motor Market home page: the rear of a dark green Porsche behind the headline \"Drive your next adventure\", with Browse Listings and List a Vehicle buttons and an event announcement bar across the top",
+    "width": 1600,
+    "height": 1000,
+    "caption": "The home page. The site's own branding reads Classic Motor Market."
   },
   "gallery": [],
   "video": null,
-  "links": [],
+  "links": [
+    {
+      "label": "Source for the rewrite on GitHub",
+      "href": "https://github.com/atreyusutton/classic-motor-market"
+    }
+  ],
   "intake": [
     {
       "role": "oneLine",
@@ -39,7 +56,7 @@
       "question": "One number or spec",
       "hint": "Anything measured. Without one this stays a row rather than a card.",
       "draft": "From the repo: 36 commits from 28 November 2025 to 14 April 2026, so about five months, and 104 TypeScript files. 17 of the 36 carry a Claude co-author trailer. This is the larger and longer of your two marketplaces and it is currently an index row while the fork of it holds a featured slot. See the note on japanese-motor-market before you decide which one to feature. LINEAGE: fuelfed-motor-market came first, 17 commits from 21 July to 26 August 2025, built on Supabase and react-router rather than Next and Prisma. So the marketplace has three generations across a year: FuelFed, then Classic Motor Market in November, then Japanese Motor Market forked off it in May 2026. That progression is the argument. One rebrand on its own is not.",
-      "answer": "Bulk-import pipelines parse, validate, normalize and deduplicate vehicle data, and I wrote the SQL migration for full-text search."
+      "answer": ""
     },
     {
       "role": "media",
@@ -48,5 +65,375 @@
       "draft": "",
       "answer": ""
     }
-  ]
+  ],
+  "caseStudy": {
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "Cloudflare Workers",
+      "AI-assisted development"
+    ],
+    "stats": [
+      {
+        "value": "9",
+        "label": "Prisma models"
+      },
+      {
+        "value": "5",
+        "label": "Steps in the listing wizard"
+      },
+      {
+        "value": "37",
+        "label": "Commits on the rewrite"
+      },
+      {
+        "value": "2",
+        "label": "Hosting targets"
+      }
+    ],
+    "statsNote": "Counted from the rewrite's repo, November 2026.",
+    "intro": [
+      "FuelFed Motor Market is a members-only classifieds site for European collector cars: fixed-price listings, no auctions. I was the sole engineer. The site's own branding in the screenshots reads Classic Motor Market, which is the name the rewrite was built under. It is the same project.",
+      "I built it twice. The first version, in July and August 2025, was React on Supabase. In November 2025 I started over in Next.js and TypeScript on a 9-model PostgreSQL schema. The screenshots show the rewrite.",
+      "There is no machine learning model in this product. It is on this site because of how it was built: from written specs and a context file that an AI coding agent works against, on top of the data modelling, access rules and import pipeline that ML work also needs. Four ML extensions are listed near the end as planned, not built."
+    ],
+    "sections": [
+      {
+        "label": "State",
+        "title": "What exists today",
+        "body": [
+          "This is a working build with sample listings, deployed for demonstration. On a first visit the site shows a notice that it is a development version.",
+          "Membership and listing fees are placeholder checkboxes, so no money moves. The section on what is not built lists the rest."
+        ]
+      },
+      {
+        "label": "Method",
+        "title": "Written specs, then an AI coding agent",
+        "body": [
+          "The planning docs date from December 2025, the same week as the first feature commits. They cover the product, the stack, the database design, the listing flow and a build plan.",
+          "I later folded them into one context file, CLAUDE.md, which is the reference an AI coding agent reads before it touches the code. It covers the architecture, the schema, the business rules and a table of what is not built yet. Keeping that file current is the real work: a model can only be as right as the context it is given.",
+          "The repo shows the split. I am the only committer, and 18 of the 37 commits on the rewrite carry a Claude co-author trailer. The architecture, the data model, the privacy rules and the trade-offs were my decisions, and I reviewed what went in."
+        ]
+      },
+      {
+        "label": "Two versions",
+        "title": "The first version, then the rewrite",
+        "body": [
+          "The first version ran from July to August 2025: React and Vite on the front, Supabase behind it. It had a bulk import that checked every vehicle for required fields before inserting it, and a SQL migration that added indexes for filtering plus the full-text search index below.",
+          "The rewrite moved to a typed Prisma schema of 9 models: users, listings, listing media, saved listings, ads, events, and three for auth."
+        ],
+        "code": {
+          "file": "First version: supabase/migrations/001_enhance_vehicle_listings.sql",
+          "text": "-- Create full-text search index for searching across text fields\nCREATE INDEX IF NOT EXISTS idx_vehicle_listings_search\nON vehicle_listings\nUSING gin(to_tsvector('english',\n  COALESCE(make, '') || ' ' ||\n  COALESCE(model, '') || ' ' ||\n  COALESCE(description, '') || ' ' ||\n  COALESCE(vehicle_story, '') || ' ' ||\n  COALESCE(key_features::text, '')\n));"
+        },
+        "after": [
+          "Search has not been carried over to the rewrite yet. That index belongs to the first version only."
+        ]
+      },
+      {
+        "label": "Selling",
+        "title": "A 5-step listing wizard",
+        "body": [
+          "A seller goes through basic info, options and modifications, condition and history, images, then review and publish. Every step is validated with Zod and react-hook-form. A listing can be saved as a draft, published, and edited later.",
+          "Photos are dragged in and dragged to reorder, up to 50 per listing, and the first one becomes the cover. They are stored in Cloudflare Images. The database keeps image IDs only, never URLs."
+        ],
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/fuelfed-case-study/03-wizard-filled.png",
+            "alt": "Step 1 of the listing wizard filled with sample data for a 1993 Porsche 911 Carrera RS: year, make, model, VIN, location, mileage, asking price, engine, transmission and colours, under a five-step progress bar and a development mode banner",
+            "width": 1600,
+            "height": 1722,
+            "caption": "Step 1 of 5, filled with sample data"
+          },
+          {
+            "src": "/fuelfed-case-study/04-my-listings.png",
+            "alt": "The My Listings page in a member account: a table of vehicles with a small thumbnail, price, an active or sold status badge and a publish fee badge for each, and a List New Vehicle button",
+            "width": 1600,
+            "height": 1000,
+            "caption": "A member's listings. All listings are sample data."
+          }
+        ]
+      },
+      {
+        "label": "Access",
+        "title": "Three tiers, and privacy by default",
+        "body": [
+          "Access is split into public, member and admin. New listings go to members first. During that window everyone else sees a placeholder card marked as a member exclusive. The window is set to 10 minutes in this build.",
+          "Seller email addresses are never shown. Contact seller relays the buyer's message by email with reply-to set to the buyer, so the seller answers from their own inbox. The VIN is hidden from signed-out visitors.",
+          "Login is NextAuth v5 with JWT sessions and bcrypt-hashed passwords. Routes are protected at the proxy layer and again in layouts, and server actions check the session and ownership before they change anything."
+        ],
+        "table": {
+          "head": [
+            "Tier",
+            "What it can do"
+          ],
+          "rows": [
+            [
+              "Public",
+              "Browse listings once the early access window has passed, and open detail pages. No VIN."
+            ],
+            [
+              "Member",
+              "Everything public, plus early access, the full VIN, contacting sellers, a watchlist and listing vehicles."
+            ],
+            [
+              "Admin",
+              "Everything a member can, plus the admin console: all listings, users and roles, events and advertising."
+            ]
+          ]
+        },
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/fuelfed-case-study/05-listing-signed-out.png",
+            "alt": "Part of a sample 1987 BMW M3 listing as a signed-out visitor sees it: a spec table where the VIN row reads \"Sign In to See VIN\", beside a sidebar with Contact Seller, Save to Watchlist and Share Listing buttons",
+            "width": 1600,
+            "height": 895,
+            "caption": "Signed out: the VIN row asks you to sign in"
+          },
+          {
+            "src": "/fuelfed-case-study/06-listing-member.png",
+            "alt": "The same sample BMW M3 listing viewed by a signed-in member: the VIN row now shows the full sample VIN, and the sidebar button reads View My Listings",
+            "width": 1600,
+            "height": 895,
+            "caption": "Signed in: the full VIN. This capture is from the seller account, so the top button reads View My Listings."
+          }
+        ],
+        "after": [
+          "The admin console manages every listing (feature, mark sold, override fee status, delete), users and roles, and the events and advertising that drive the announcement bar across the top of the site."
+        ]
+      },
+      {
+        "label": "Import",
+        "title": "The bulk-import pipeline",
+        "body": [
+          "Sample vehicles do not get typed in by hand. A script reads one text file of vehicle records and one folder of images per vehicle, and turns them into listings. It runs dry by default, so nothing is written until I pass a flag."
+        ],
+        "flow": {
+          "summary": "A text file of vehicle records and a folder of images per vehicle are parsed, normalized and matched to their image folders. A dry run stops there. A real run skips vehicles that already exist, uploads the images to Cloudflare Images, and inserts one listing with its media rows.",
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "title": "Input",
+                  "note": "One text file of records and one image folder per vehicle. The seed folder holds 19 vehicles and 186 images."
+                }
+              ],
+              "aside": "The run stops if the seller account does not exist."
+            },
+            {
+              "boxes": [
+                {
+                  "step": "1",
+                  "title": "Parse",
+                  "note": "Splits the file into vehicle blocks and reads key and value lines. Narrative fields can run over several lines."
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "step": "2",
+                  "title": "Normalize",
+                  "note": "Yes, true and 1 become booleans. Commas come out of numbers. Prices round to whole dollars. Escaped line breaks are restored."
+                }
+              ]
+            },
+            {
+              "label": "typed vehicle records",
+              "boxes": [
+                {
+                  "step": "3",
+                  "title": "Match images",
+                  "note": "Builds a slug from year, make and model and looks for a folder with that name. No folder, and the vehicle is skipped with a warning."
+                }
+              ],
+              "aside": "A dry run prints the plan and stops here."
+            },
+            {
+              "label": "only with the run flag",
+              "boxes": [
+                {
+                  "step": "4",
+                  "title": "Deduplicate",
+                  "note": "Skips any vehicle whose VIN or chassis number is already on a listing."
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "step": "5",
+                  "title": "Upload",
+                  "note": "Each image goes to Cloudflare Images. The first file in the folder becomes the cover."
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "step": "6",
+                  "title": "Insert",
+                  "note": "One listing row, plus one media row per image holding the image ID."
+                }
+              ]
+            }
+          ]
+        },
+        "code": {
+          "file": "scripts/import-bulk-vehicles.ts, the deduplication step",
+          "text": "if (vehicle.vehicleIdentifier) {\n  const existing = await prisma.listing.findFirst({ where: { vehicleIdentifier: vehicle.vehicleIdentifier } });\n  if (existing) {\n    console.log(`Skipping ${vehicle.blockLabel} (${slug}) - listing already exists with vehicleIdentifier ${vehicle.vehicleIdentifier}`);\n    continue;\n  }\n}"
+        }
+      },
+      {
+        "label": "Porting",
+        "title": "One database client, two runtimes",
+        "body": [
+          "The app was first deployed on Vercel. In November 2026 I ported it to Cloudflare Workers with the OpenNext adapter, to host this build.",
+          "Workers do not allow a database connection to be reused across requests. On Node the usual pattern is the opposite: one shared Prisma client for the whole process. So on Workers each request now gets its own client through a driver adapter, and on Node the shared client stays.",
+          "The 26 files that import the client did not change. They still import one object named prisma. That object is now a proxy that picks the right client on every call."
+        ],
+        "flow": {
+          "summary": "A request reaches the Cloudflare Worker, which resolves a Prisma client that belongs to that request only, which connects to PostgreSQL. On Node and Vercel the same import returns one shared client instead.",
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "title": "Request"
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "title": "Cloudflare Worker",
+                  "note": "The Next.js app, built with the OpenNext adapter."
+                }
+              ]
+            },
+            {
+              "label": "import { prisma }",
+              "boxes": [
+                {
+                  "title": "Per-request client",
+                  "note": "Created on first use and kept in a WeakMap keyed by the request's execution context."
+                }
+              ],
+              "aside": "On Node and Vercel the same import returns one shared client."
+            },
+            {
+              "boxes": [
+                {
+                  "title": "PostgreSQL",
+                  "note": "Hosted on Neon."
+                }
+              ]
+            }
+          ]
+        },
+        "code": {
+          "file": "lib/prisma.ts",
+          "text": "// Workers forbid reusing a database connection across requests, so on Cloudflare\n// each request gets its own client, keyed by that request's execution context.\nconst clientsByRequest = new WeakMap<object, PrismaClient>()\n\nfunction getWorkerClient(): PrismaClient {\n  const requestKey = getCloudflareContext().ctx as object\n  let client = clientsByRequest.get(requestKey)\n  if (!client) {\n    const connectionString = process.env.DATABASE_URL\n    if (!connectionString) {\n      throw new Error('DATABASE_URL is not set')\n    }\n    const adapter = new PrismaPg({ connectionString, maxUses: 1 })\n    client = new PrismaClient({ adapter })\n    clientsByRequest.set(requestKey, client)\n  }\n  return client\n}\n\n// ...\n\n// Existing code imports a `prisma` singleton; this proxy keeps that API while\n// resolving the right client (per-request on Workers, global on Node/Vercel).\nexport const prisma = new Proxy({} as PrismaClient, {\n  get(_target, property) {\n    const client = isCloudflareWorker ? getWorkerClient() : getNodeClient()\n    const value = Reflect.get(client, property, client)\n    return typeof value === 'function' ? value.bind(client) : value\n  },\n})"
+        }
+      },
+      {
+        "label": "Mobile",
+        "title": "The same pages on a phone",
+        "body": [
+          "The layout is responsive. These are the home page, the catalogue and a listing at phone width."
+        ],
+        "imageLayout": "three",
+        "images": [
+          {
+            "src": "/fuelfed-case-study/07-mobile-home.jpg",
+            "alt": "The home page at phone width: a shortened event bar, the logo and menu button, and the headline and two buttons stacked over the green Porsche photo",
+            "width": 780,
+            "height": 1688,
+            "caption": "Home"
+          },
+          {
+            "src": "/fuelfed-case-study/08-mobile-browse.jpg",
+            "alt": "The catalogue at phone width: a note that non-members see the full listing after 10 minutes, then a single column of listing cards starting with a sample 2001 Audi TT",
+            "width": 780,
+            "height": 1688,
+            "caption": "Catalogue. Listings are sample data."
+          },
+          {
+            "src": "/fuelfed-case-study/09-mobile-listing.jpg",
+            "alt": "A sample 1987 BMW M3 listing at phone width: title and price, the cover photo, then the spec table in one column ending with a VIN row that reads \"Sign In to See VIN\"",
+            "width": 780,
+            "height": 1688,
+            "caption": "Listing, signed out"
+          }
+        ]
+      },
+      {
+        "label": "Not built",
+        "title": "What is not built",
+        "body": [
+          "Placeholders are labelled as placeholders, in the app and here."
+        ],
+        "facts": {
+          "Payments": "Membership and listing fees are placeholder checkboxes. The Stripe SDK is installed and the checkout route is a skeleton.",
+          "Search and filtering": "Not in the rewrite.",
+          "Email verification and password reset": "Not built.",
+          "Video upload": "Not built.",
+          "Admin analytics": "A placeholder page."
+        }
+      },
+      {
+        "label": "Next steps",
+        "title": "Where ML would go",
+        "body": [
+          "None of these exist. They are the four places I would add a model."
+        ],
+        "cards": [
+          {
+            "title": "Listing quality assistant",
+            "meta": "Planned, not built",
+            "body": "An LLM pass over a draft listing before it is published. It would flag missing history, vague condition claims, and places where the description disagrees with the spec fields."
+          },
+          {
+            "title": "Semantic search",
+            "meta": "Planned, not built",
+            "body": "Embeddings over the listing narratives, so a query like \"numbers-matching air-cooled driver under $80k\" works without exact keywords."
+          },
+          {
+            "title": "Photo checks",
+            "meta": "Planned, not built",
+            "body": "A vision model that checks the required angles are present (exterior, interior, engine bay, undercarriage) and picks the best cover image."
+          },
+          {
+            "title": "Price guidance",
+            "meta": "Planned, not built",
+            "body": "A regression baseline on comparable sold listings, with honest uncertainty, because collector-car data is sparse."
+          }
+        ]
+      },
+      {
+        "label": "Results",
+        "title": "In numbers",
+        "facts": {
+          "Schema": "9 Prisma models on PostgreSQL",
+          "Code": "About 9,900 lines of TypeScript in 105 files",
+          "History": "17 commits on the first version, July to August 2025. 37 on the rewrite: 36 from November 2025 to April 2026, and the Workers port in November 2026.",
+          "Listing wizard": "5 steps, up to 50 photos per listing",
+          "Seed data": "19 sample vehicles and 186 images",
+          "Hosting": "2 targets from one codebase: Vercel and Cloudflare Workers"
+        }
+      },
+      {
+        "label": "Learned",
+        "title": "What I took from it",
+        "body": [
+          "I owned a whole system alone: schema, auth, media, admin tools and deployment. There was nobody to hand the hard part to.",
+          "I learned to write specs a model can build against, and to keep them true as the code changes.",
+          "And I learned to scope honestly. A placeholder checkbox is fine as long as it is called a placeholder."
+        ]
+      }
+    ]
+  }
 }
