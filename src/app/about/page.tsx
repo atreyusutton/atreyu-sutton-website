@@ -93,6 +93,15 @@ export default function AboutPage() {
           <a href="mailto:me@atreyusutton.com" className="link-underline">
             me@atreyusutton.com
           </a>
+          , or on{' '}
+          <a
+            href="https://www.linkedin.com/in/atreyusutton/"
+            target="_blank"
+            rel="noreferrer"
+            className="link-underline"
+          >
+            LinkedIn
+          </a>
           .
         </p>
         <p className="mt-4">

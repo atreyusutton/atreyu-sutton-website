@@ -42,6 +42,14 @@ export default function HomePage() {
                   </a>
                   <span className="label">PDF</span>
                 </span>
+                <a
+                  href="https://www.linkedin.com/in/atreyusutton/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="link-underline"
+                >
+                  LinkedIn
+                </a>
               </nav>
             </div>
 
