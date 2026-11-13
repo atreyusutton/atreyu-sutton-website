@@ -9,6 +9,8 @@ export interface About {
   /** The six facts a reader should leave the home page with. */
   atAGlance: Record<string, string>
   sustainableIntro: string
+  /** Clients and businesses worked for. Shown under Work on the about page. */
+  work: { name: string; what: string; href?: string }[]
   /** Written by Atreyu in the studio. Empty means the page omits the section. */
   bio: string[]
   portrait: Media
