@@ -70,16 +70,16 @@ export function ProjectCard({ project }: { project: Project }) {
 
       {/* Sits above the card-wide link so it stays clickable on its own. */}
       {project.site ? (
-        <p className="relative z-10 mt-4">
+        <p className="relative z-10 mt-5">
           <a
             href={project.site.href}
             target="_blank"
             rel="noreferrer"
-            className="link-underline num text-sm"
+            className="inline-flex max-w-full flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 text-base hover:border-accent hover:text-accent"
           >
-            {project.site.label}
+            <span className="label !text-inherit">Live site</span>
+            <span className="num [overflow-wrap:anywhere]">{project.site.label}</span>
           </a>
-          <span className="label ml-2">Live site</span>
         </p>
       ) : null}
     </article>

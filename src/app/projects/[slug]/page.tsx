@@ -17,6 +17,7 @@ import {
   ProposalClosing,
   ProposalSections,
 } from '@/components/Proposal'
+import { ProjectMedia } from '@/components/ProjectMedia'
 import { Section } from '@/components/Section'
 import { CaseStudySections } from '@/components/CaseStudy'
 
@@ -96,6 +97,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       ) : null}
 
+      <ProjectMedia images={gallery} clips={project.clips ?? []} />
+
       <div className="mx-auto max-w-[var(--page-max)] px-5 py-12 md:px-8 md:py-16">
         <div className="grid gap-6 md:grid-cols-[var(--rail)_1fr] md:gap-10">
           <p className="label">{LANE_LABELS[project.lane]}</p>
@@ -104,16 +107,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <p className="prose-measure mt-6 text-xl text-ink-muted">{project.oneLine}</p>
 
             {project.site ? (
-              <p className="mt-6">
+              <p className="mt-8">
                 <a
                   href={project.site.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="link-underline num"
+                  className="inline-flex max-w-full flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 text-lg hover:border-accent hover:text-accent"
                 >
-                  {project.site.label}
+                  <span className="label !text-inherit">Live site</span>
+                  <span className="num [overflow-wrap:anywhere]">{project.site.label}</span>
                 </a>
-                <span className="label ml-2">Live site</span>
               </p>
             ) : null}
 
@@ -237,7 +240,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </Section>
       ) : null}
 
-      {evidence || gallery.length > 0 || project.video ? (
+      {evidence || project.video ? (
         <Section number={next()} label="Evidence">
           {evidence ? <p className="prose-measure num text-lg">{evidence}</p> : null}
 
@@ -252,25 +255,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </video>
           ) : null}
 
-          {gallery.length > 0 ? (
-            <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              {gallery.map((image) => (
-                <figure key={image.src}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={image.width}
-                    height={image.height}
-                    sizes="(max-width: 640px) 100vw, 45vw"
-                    className="w-full object-cover"
-                  />
-                  {image.caption ? (
-                    <figcaption className="label mt-2">{image.caption}</figcaption>
-                  ) : null}
-                </figure>
-              ))}
-            </div>
-          ) : null}
         </Section>
       ) : null}
 

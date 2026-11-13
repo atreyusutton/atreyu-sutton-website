@@ -20,13 +20,33 @@
     "Hardware": "Raspberry Pi 5, Arduino Uno R3 with Motor Shield Rev3, two 12 V gearmotors on tracks, Logitech C920, USB speaker, 3S battery pack"
   },
   "hero": {
-    "src": "/torq/dashboard-conversation.png",
-    "alt": "The Talk to TorQ panel of the dashboard. A header line reads \"Vehicle: 2015 Honda Civic, 1.8 liter, 2 note(s)\". Three typed questions and three answers follow: a lug nut torque answer of about eighty foot-pounds that ends by saying to confirm it in the owner's manual, a diagnosis of a cold-start squeal as a likely serpentine belt, and a confirmation that a note was saved. Below are a text box, Send, Hold to talk, Quiet and New conversation buttons.",
-    "width": 1600,
-    "height": 1049,
-    "caption": "The dashboard after a real three-question conversation. The Claude answers are real. Running against the simulated drive controller, not the robot."
+    "src": "/torq/robot.jpg",
+    "alt": "TorQ on a wooden table: a small tracked robot with an orange deck, a webcam on a mast, a speaker across the front and exposed wiring",
+    "width": 1080,
+    "height": 810,
+    "caption": "TorQ, from one of the clips below"
   },
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/torq/dashboard-conversation.png",
+      "alt": "The Talk to TorQ panel of the dashboard. A header line reads \"Vehicle: 2015 Honda Civic, 1.8 liter, 2 note(s)\". Three typed questions and three answers follow: a lug nut torque answer of about eighty foot-pounds that ends by saying to confirm it in the owner's manual, a diagnosis of a cold-start squeal as a likely serpentine belt, and a confirmation that a note was saved. Below are a text box, Send, Hold to talk, Quiet and New conversation buttons.",
+      "width": 1600,
+      "height": 1049,
+      "caption": "The dashboard after a real three-question conversation. The Claude answers are real. Running against the simulated drive controller, not the robot."
+    }
+  ],
+  "clips": [
+    {
+      "src": "/torq/clips/clip-3713.mp4",
+      "poster": "/torq/clips/clip-3713.jpg",
+      "caption": "The robot driving on a cutting mat in the lab."
+    },
+    {
+      "src": "/torq/clips/clip-4177.mp4",
+      "poster": "/torq/clips/clip-4177.jpg",
+      "caption": "The robot on a table, with its camera feed on the laptop."
+    }
+  ],
   "video": null,
   "links": [
     {
@@ -128,7 +148,7 @@
     "intro": [
       "TorQ is a small tracked robot for a home garage. You ask it a question while your hands are on a wrench, like \"what's the lug nut torque on my Civic?\", and it answers through a speaker. It remembers which vehicle you are working on and keeps job notes. You can also drive it from a browser dashboard.",
       "The part I want an AI/ML reader to look at is the voice assistant. I built it end to end: speech in, a streaming tool-use loop written directly against the Anthropic SDK, and speech out. It is a work in progress. This page uses present tense only for what exists in the repo, and everything else sits under \"What is next\".",
-      "The screenshot at the top is the real dashboard and the answers in it are real Claude answers. The robot was offline when I captured it, so the body code was running on my laptop against the simulated drive controller from the test suite. Photos and video of the robot itself are still to come."
+      "The dashboard screenshot at the top is real and the answers in it are real Claude answers. The robot was offline when I captured it, so the body code was running on my laptop against the simulated drive controller from the test suite. The two clips at the top show the robot itself."
     ],
     "sections": [
       {
@@ -344,22 +364,6 @@
           "The project began as a robot that collects and composts trash. I dropped it for reasons I could state. Hot composting needs roughly a cubic yard of material to sustain its own heat, which a small robot cannot carry. One compost cycle takes 4 to 8 weeks, which leaves almost no room to iterate. And collection depends on grasping, which is where hobby robots usually fail.",
           "TorQ inverts each of these. The hard part is knowing things, the feedback loop is one second, and a half-finished TorQ is still a useful rolling screen.",
           "The line from my notes: \"Don't build a robot that solves a problem you'd have to research. Build one that solves a problem you have.\""
-        ]
-      },
-      {
-        "label": "Robot",
-        "title": "The robot, filmed",
-        "videos": [
-          {
-            "src": "/torq/clips/clip-3713.mp4",
-            "poster": "/torq/clips/clip-3713.jpg",
-            "caption": "The robot driving on a cutting mat in the lab."
-          },
-          {
-            "src": "/torq/clips/clip-4177.mp4",
-            "poster": "/torq/clips/clip-4177.jpg",
-            "caption": "The robot on a table, with its camera feed on the laptop."
-          }
         ]
       },
       {

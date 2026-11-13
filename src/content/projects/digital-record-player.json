@@ -26,12 +26,58 @@
     "Deploy": "git push to a bare repo on the Pi with a post-receive hook"
   },
   "hero": {
-    "src": "/digital-record-player/round-display-still-2.png",
-    "alt": "A demo render of the round display, not a photo of the device: a circular frame on black filled with a generated album cover, a pale sun on a red and orange background with diagonal stripes, rotated so its title text reads upside down",
-    "width": 720,
-    "height": 720
+    "src": "/digital-record-player/photos/IMG_1055.jpg",
+    "alt": "The finished turntable from above on a glass table: a black plinth, a record with the round display in its centre, a silver tonearm, and the touchscreen with a knob on either side",
+    "width": 1200,
+    "height": 1600
   },
-  "gallery": [],
+  "gallery": [
+    {
+      "src": "/digital-record-player/photos/IMG_1060.jpg",
+      "alt": "The turntable on a desk between two studio monitors, cover art lit in the centre of the platter and the touchscreen lit at the front, next to a laptop with Spotify open",
+      "width": 1600,
+      "height": 780,
+      "caption": "Playing, with Spotify open on the laptop"
+    },
+    {
+      "src": "/digital-record-player/photos/IMG_1056.jpg",
+      "alt": "The turntable on a wooden desk under a wall mounted monitor and speakers, cover art showing in the centre of the platter and the small touchscreen lit beside the tonearm",
+      "width": 1200,
+      "height": 1600,
+      "caption": "On the desk, both screens lit"
+    },
+    {
+      "src": "/digital-record-player/photos/IMG_0584.jpg",
+      "alt": "The electronics laid out on a plywood board: a Raspberry Pi, the round display, the rectangular touchscreen, two rotary knobs and a joystick, joined by jumper wires",
+      "width": 1200,
+      "height": 1600,
+      "caption": "The electronics on a board before they went in the chassis"
+    },
+    {
+      "src": "/digital-record-player/photos/IMG_0608.jpg",
+      "alt": "A hand holding a small DC motor with two white wires running to a small circuit board on a metal plate, on a black bench mat",
+      "width": 1200,
+      "height": 1600,
+      "caption": "A motor and its wiring on the bench"
+    }
+  ],
+  "clips": [
+    {
+      "src": "/digital-record-player/photos/clip-1057.mp4",
+      "poster": "/digital-record-player/photos/clip-1057.jpg",
+      "caption": "The cover art turning in the platter. Filmed on the device."
+    },
+    {
+      "src": "/digital-record-player/photos/clip-1058.mp4",
+      "poster": "/digital-record-player/photos/clip-1058.jpg",
+      "caption": "A different cover, from above. Filmed on the device."
+    },
+    {
+      "src": "/digital-record-player/photos/clip-1059.mp4",
+      "poster": "/digital-record-player/photos/clip-1059.jpg",
+      "caption": "A walk around the turntable while it plays. Filmed on the device."
+    }
+  ],
   "video": null,
   "links": [
     {
@@ -142,7 +188,7 @@
     "intro": [
       "I took apart a 1byone vinyl turntable and rebuilt it as a self-contained Spotify player. A Raspberry Pi 4 inside the chassis shows up as a Spotify Connect device. A 4 inch round display sits where the record label would be and shows the current album art turning at 33 1/3 RPM, while the original platter motor spins underneath it.",
       "A 3.5 inch touchscreen runs a control UI I wrote. Two rotary encoders give physical volume and navigation knobs. Audio goes out through a Focusrite Scarlett Solo to studio monitors.",
-      "There is no machine learning in this project. It is an embedded systems and full-stack build, and it is here for the engineering underneath it. The images on this page are renders with demo data, not photos of the device. Real photos are still to come."
+      "There is no machine learning in this project. It is an embedded systems and full-stack build, and it is here for the engineering underneath it. The photos and clips at the top of this page are of the real device. The interface screenshots and the round display recreation further down are renders with demo data."
     ],
     "sections": [
       {
@@ -157,65 +203,6 @@
           "poster": "/digital-record-player/round-display-still.png",
           "caption": "A recreation of what the round display draws: cover art at 33 1/3 RPM. Rendered on a computer with generated demo artwork, not filmed on the device."
         }
-      },
-      {
-        "label": "Photos",
-        "title": "The build",
-        "imageLayout": "three",
-        "images": [
-          {
-            "src": "/digital-record-player/photos/IMG_1060.jpg",
-            "alt": "The turntable on a desk between two studio monitors, cover art lit in the centre of the platter and the touchscreen lit at the front, next to a laptop with Spotify open",
-            "width": 1600,
-            "height": 780,
-            "caption": "Playing, with Spotify open on the laptop"
-          },
-          {
-            "src": "/digital-record-player/photos/IMG_1056.jpg",
-            "alt": "The turntable on a wooden desk under a wall mounted monitor and speakers, cover art showing in the centre of the platter and the small touchscreen lit beside the tonearm",
-            "width": 1200,
-            "height": 1600,
-            "caption": "On the desk, both screens lit"
-          },
-          {
-            "src": "/digital-record-player/photos/IMG_1055.jpg",
-            "alt": "The finished turntable from above on a glass table: a black plinth, a record with the round display in its centre, a silver tonearm, and the touchscreen with a knob on either side",
-            "width": 1200,
-            "height": 1600,
-            "caption": "The finished turntable, screens off"
-          },
-          {
-            "src": "/digital-record-player/photos/IMG_0584.jpg",
-            "alt": "The electronics laid out on a plywood board: a Raspberry Pi, the round display, the rectangular touchscreen, two rotary knobs and a joystick, joined by jumper wires",
-            "width": 1200,
-            "height": 1600,
-            "caption": "The electronics on a board before they went in the chassis"
-          },
-          {
-            "src": "/digital-record-player/photos/IMG_0608.jpg",
-            "alt": "A hand holding a small DC motor with two white wires running to a small circuit board on a metal plate, on a black bench mat",
-            "width": 1200,
-            "height": 1600,
-            "caption": "A motor and its wiring on the bench"
-          }
-        ],
-        "videos": [
-          {
-            "src": "/digital-record-player/photos/clip-1057.mp4",
-            "poster": "/digital-record-player/photos/clip-1057.jpg",
-            "caption": "The cover art turning in the platter. Filmed on the device."
-          },
-          {
-            "src": "/digital-record-player/photos/clip-1058.mp4",
-            "poster": "/digital-record-player/photos/clip-1058.jpg",
-            "caption": "A different cover, from above. Filmed on the device."
-          },
-          {
-            "src": "/digital-record-player/photos/clip-1059.mp4",
-            "poster": "/digital-record-player/photos/clip-1059.jpg",
-            "caption": "A walk around the turntable while it plays. Filmed on the device."
-          }
-        ]
       },
       {
         "label": "Architecture",
