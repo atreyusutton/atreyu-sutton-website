@@ -16,10 +16,10 @@
     "I also build physical things, which is why half of these projects have a robot, a truck or a turntable attached. I play chess, and that is why this is the internship I am applying for. I am in Boulder, Colorado, and I can work anywhere in the USA."
   ],
   "portrait": {
-    "src": "/home.jpeg",
-    "alt": "Atreyu in a welding helmet and jacket in the shop, smoke still rising from the work in front of him",
-    "width": 666,
-    "height": 1000
+    "src": "/headshot.jpg",
+    "alt": "Atreyu smiling at the camera in a dark green linen shirt, with a plant and a framed photograph behind him",
+    "width": 1254,
+    "height": 1254
   },
   "skills": {
     "AI and agents": "LLM applications on the Claude API, agentic workflows, context engineering, prompt design",
