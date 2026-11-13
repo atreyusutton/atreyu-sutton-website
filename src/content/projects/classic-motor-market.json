@@ -43,6 +43,10 @@
       "href": "https://github.com/atreyusutton/classic-motor-market"
     }
   ],
+  "site": {
+    "label": "classic-motor-market.vercel.app",
+    "href": "https://classic-motor-market.vercel.app/listings"
+  },
   "intake": [
     {
       "role": "oneLine",
