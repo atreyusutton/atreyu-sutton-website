@@ -41,7 +41,7 @@ not removed. The old work index and lane filter are parked in `_archive/`.
 - Still needed: real copy and images for Renaud's Bakery, 4Runner Agent and
   Dad's Physics Build, everything for Fantasia.build (a title-only stub), and
   the project pages rewritten for this role.
-- `public/resume.pdf` has not been changed for this role.
+- `public/resume.pdf` is the Chess.com AI/ML resume as of 13 Nov 2026.
 
 ## Next, in order
 
