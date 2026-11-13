@@ -180,6 +180,27 @@ function Clip({ video }: { video: CaseStudyVideo }) {
   )
 }
 
+function Clips({ videos }: { videos: CaseStudyVideo[] }) {
+  return (
+    <div className="mt-8 grid max-w-[60rem] items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {videos.map((video) => (
+        <figure key={video.src}>
+          <video
+            controls
+            preload="none"
+            poster={video.poster}
+            aria-label={video.caption}
+            className="w-full border border-rule"
+          >
+            <source src={video.src} type="video/mp4" />
+          </video>
+          {video.caption ? <figcaption className="label mt-2">{video.caption}</figcaption> : null}
+        </figure>
+      ))}
+    </div>
+  )
+}
+
 function Cards({ cards }: { cards: CaseStudyCard[] }) {
   return (
     <ul className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
@@ -257,6 +278,7 @@ function Block({ section }: { section: CaseStudySection }) {
       {section.table ? <DataTable table={section.table} /> : null}
       {section.images ? <Shots images={section.images} layout={section.imageLayout ?? 'one'} /> : null}
       {section.video ? <Clip video={section.video} /> : null}
+      {section.videos ? <Clips videos={section.videos} /> : null}
       {section.code ? <Code code={section.code} /> : null}
       {section.facts ? (
         <div className={section.body ? 'mt-8' : ''}>
