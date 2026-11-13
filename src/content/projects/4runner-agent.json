@@ -6,14 +6,25 @@
   "order": 6,
   "published": true,
   "featured": true,
-  "mock": true,
   "status": "in-progress",
-  "oneLine": "The engine swap on my 1988 4Runner, run as an agent project. An AI agent works through the factory service manuals with me, keeps the wiring tables and the cut log, and builds the public checklist site from those notes.",
+  "oneLine": "I used an AI coding agent to research and document a 1998-engine-into-1988-truck swap, and built the verification system that makes its output safe to act on in the real world.",
+  "chips": [
+    "207 lines audited",
+    "Factory manuals only",
+    "23 of 65 jobs done"
+  ],
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
-  "specs": {},
+  "specs": {
+    "Role": "I made every decision, set the rules, did the physical work and took the measurements",
+    "Agent": "Claude Code, Anthropic's coding agent",
+    "Dates": "In progress, November 2026",
+    "Vehicle": "1988 Toyota 4Runner getting a rebuilt, supercharged 1998 5VZ-FE V6 (3.4 L)",
+    "Stack": "Python, Markdown, JSON, hand-written HTML, CSS and SVG",
+    "Hosting": "Cloudflare Pages, with a Pages Function and KV for the checklist state"
+  },
   "hero": {
     "src": "/1985-toyota-4runner/toyota-build-21.jpeg",
     "alt": "The 4Runner front three quarter in a workshop, matte black with the weathered Mount Fuji and rising sun livery down the side, on a lift and BFGoodrich all terrains",
@@ -24,9 +35,327 @@
   "video": null,
   "links": [
     {
-      "label": "Build site",
-      "href": "https://5vz-swap.pages.dev"
+      "label": "View live case study",
+      "href": "https://5vz-swap.pages.dev/about/"
+    },
+    {
+      "label": "Live build checklist",
+      "href": "https://5vz-swap.pages.dev/"
+    },
+    {
+      "label": "Wiring diagrams",
+      "href": "https://5vz-swap.pages.dev/wiring/"
     }
   ],
-  "intake": []
+  "intake": [],
+  "caseStudy": {
+    "tags": [
+      "LLM evaluation",
+      "AI agents",
+      "Human-in-the-loop",
+      "Grounding",
+      "Python",
+      "Data pipelines"
+    ],
+    "stats": [
+      {
+        "value": "207",
+        "label": "guide lines audited against the factory manual"
+      },
+      {
+        "value": "44",
+        "label": "of those lines needed fixing"
+      },
+      {
+        "value": "53",
+        "label": "community wiring chart entries re-verified"
+      },
+      {
+        "value": "23 / 65",
+        "label": "build jobs done"
+      }
+    ],
+    "statsNote": "Audit figures come from the project's research notes. The job count is as of November 2026 and updates on the live site.",
+    "intro": [
+      "I'm swapping a rebuilt, supercharged 1998 Toyota V6 into a 1988 4Runner, and I used an AI coding agent for the research, documentation and tooling. Because a wrong pin or torque spec costs real hardware, I built a verification process around the model: factory-manual sources only, a line-by-line audit of its output, meter readings as ground truth, and a build that fails on bad data.",
+      "The audit graded 207 lines of AI-written instructions and found 44 that needed fixing, none of which a quick read would have caught.",
+      "This is applied AI: agent workflow, evaluation and verification. I did not train or fine-tune a model. The build is also still in progress. 23 of the 65 jobs on the checklist are done, and the engine has not run in the truck yet."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "An AI agent that isn't allowed to guess",
+        "body": [
+          "The engineering problem: the truck keeps its original 5-speed manual and its original gauges, and the 1998 engine runs on a plug-in standalone ECU. So the electronics of a 1998 engine have to live inside a 1988 truck, and the signals between them have to be traced across two sets of factory wiring diagrams.",
+          "The AI problem is the one every applied-AI team has: how do you use a language model on a task where a confident wrong answer is expensive? Here a wrong pin number can destroy an engine computer and a wrong torque spec can destroy an engine. I couldn't take the model's word for anything, so I designed a process around it."
+        ],
+        "callout": "Nothing gets used because the model said it. Every number has to trace back to a factory manual page or a meter reading on this truck."
+      },
+      {
+        "label": "Method",
+        "title": "Six checks between the model and the truck",
+        "cards": [
+          {
+            "title": "Grounding",
+            "meta": "Check 1",
+            "body": "The agent may only use Toyota's factory service manuals and wiring diagrams as sources. Every spec carries the manual page code so I can check it by hand."
+          },
+          {
+            "title": "Evaluation",
+            "meta": "Check 2",
+            "body": "A second pass re-read the manual and graded every line of the AI-written build guide as MATCH, FIX, OMISSION or LABEL. The result is in the next section."
+          },
+          {
+            "title": "Verifying outside knowledge",
+            "meta": "Check 3",
+            "body": "The wiring plan started from a well-known forum write-up. Before using it, the agent checked 53 entries pin by pin against Toyota's diagrams. It found three wrong function labels and a swapped pair of pins. One wire labelled \"not used\" was really the main power feed for the airflow sensor, idle valve and oxygen-sensor heaters."
+          },
+          {
+            "title": "Ground truth from the truck",
+            "meta": "Check 4",
+            "body": "Documents are checked against meter readings I take on the truck. When a document and the meter disagree, the meter wins."
+          },
+          {
+            "title": "Explicit uncertainty",
+            "meta": "Check 5",
+            "body": "Anything not confirmed by a manual page or a measurement is tagged UNVERIFIED and comes with the exact test that would settle it. The example below is one of those tags."
+          },
+          {
+            "title": "One source of truth, and a build that can fail",
+            "meta": "Check 6",
+            "body": "143 connector pins live in one JSON file. Python generators produce the connector diagrams, the printed garage binder and the website from the same notes."
+          }
+        ],
+        "code": {
+          "file": "An UNVERIFIED tag, as quoted on the live case study",
+          "text": "N5-1 is most likely the fuel pump output. UNVERIFIED.\nCheck: key ON, ground N5-8 → N5-1 reads 12 V."
+        }
+      },
+      {
+        "label": "Audit",
+        "title": "The first draft was 79% right",
+        "body": [
+          "The agent wrote the first draft of the engine build guide from the manual. Then a second pass re-read the manual and graded the guide line by line. Across 207 lines: 163 match, 26 fix, 15 omission, 3 label.",
+          "So the first draft was 79% right, and the 21% that wasn't was the dangerous kind: steps missing from a sequence, cautions left out, cross-references to the wrong step. No torque, clearance or angle contradicted the manual. All the fixes were applied."
+        ],
+        "table": {
+          "head": [
+            "Verdict",
+            "Lines",
+            "What it means"
+          ],
+          "rows": [
+            [
+              "MATCH",
+              "163",
+              "Agrees with the factory manual"
+            ],
+            [
+              "FIX",
+              "26",
+              "Wrong or incomplete text, a broken cross-reference, or a link to the wrong page"
+            ],
+            [
+              "OMISSION",
+              "15",
+              "The numbers were right, but steps, cautions or specs from the manual were missing"
+            ],
+            [
+              "LABEL",
+              "3",
+              "Advice that isn't Toyota's and had to be marked that way"
+            ],
+            [
+              "Total",
+              "207",
+              "Every line of the guide"
+            ]
+          ]
+        },
+        "images": [
+          {
+            "src": "/4runner-agent/audit-result.png",
+            "alt": "The audit card from the live case study: a bar split into 163 matching lines, 26 fixes, 15 omissions and 3 labels, with a short description of the second pass above it",
+            "width": 1600,
+            "height": 413,
+            "caption": "The audit result as it appears on the live case study"
+          }
+        ]
+      },
+      {
+        "label": "Pipeline",
+        "title": "From manual page to garage floor",
+        "body": [
+          "The notes are the only thing the outputs are built from. There are 18 research notes, each answering one question: the power budget, the gauge signals, every plug on the harness, a full wiring audit, and so on.",
+          "The site build fails if a private detail or a copyrighted manual file would be published, or if any link is broken. The check below is the end of the build script."
+        ],
+        "flow": {
+          "summary": "Factory manuals, wiring diagrams and meter readings feed research notes and one pin data file. Audits and pin-by-pin checks correct the notes. Python generators turn the notes into connector diagrams, a printed binder and the website. The site build stops if it finds a private detail, a manual file or a broken link.",
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "title": "Sources",
+                  "note": "Toyota factory service manuals, wiring diagrams, and meter readings from the truck."
+                }
+              ],
+              "aside": "Forum posts are leads to check, not sources."
+            },
+            {
+              "label": "the agent searches and writes",
+              "boxes": [
+                {
+                  "title": "Notes and data",
+                  "note": "18 research notes in Markdown. 143 connector pins in one JSON file."
+                }
+              ],
+              "aside": "Every spec carries its manual page code."
+            },
+            {
+              "label": "a second pass grades the first",
+              "boxes": [
+                {
+                  "title": "Checks",
+                  "note": "Line-by-line audit, pin-by-pin verification, UNVERIFIED tags with the test that settles each one."
+                }
+              ],
+              "aside": "Fixes go back into the notes."
+            },
+            {
+              "label": "same notes, three outputs",
+              "boxes": [
+                {
+                  "title": "Connector diagrams"
+                },
+                {
+                  "title": "Printed garage binder"
+                },
+                {
+                  "title": "Website"
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "title": "Build guard",
+                  "note": "The site build stops on a private detail, a manual file or a broken link."
+                }
+              ]
+            }
+          ]
+        },
+        "code": {
+          "file": "tools/build_site.py, the end of main()",
+          "text": "    problems = privacy_check()\n    broken = link_check()\n    if problems or broken:\n        print('\\n'.join(['PRIVACY:'] + problems[:40] + ['LINKS:'] + broken[:40]), file=sys.stderr)\n        raise SystemExit(f'build failed: {len(problems)} privacy hits, {len(broken)} broken links')"
+        }
+      },
+      {
+        "label": "Failures",
+        "title": "What went wrong",
+        "body": [
+          "The checks exist because they kept finding things."
+        ],
+        "cards": [
+          {
+            "title": "44 of 207 lines needed work",
+            "body": "That is the score for the first AI draft before any checking. It was mostly right, with the errors in places a quick read would not catch."
+          },
+          {
+            "title": "A bug in the page generator",
+            "body": "The audit caught a bug in the page generator: four spec chips linked to page 1 of the manual instead of their own page."
+          },
+          {
+            "title": "The manual that didn't cover the engine",
+            "body": "The notes assumed a 1988 repair manual covered the V6's wiring. Reading it page by page showed it covers only the four-cylinder. The correction is logged and the affected items are still marked open."
+          },
+          {
+            "title": "When the sources disagree",
+            "body": "Two pages of the same factory manual imply opposite polarity for one signal. The note doesn't pick one. It specifies a bench test that decides it."
+          }
+        ]
+      },
+      {
+        "label": "Gallery",
+        "title": "What the notes turn into",
+        "body": [
+          "These are pages from the live site. The connector faces are generated from the pin data. The pages record one truck's build. They are not a how-to, and the wiring is not validated for anyone else's truck."
+        ],
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/4runner-agent/strip-keep-map.png",
+            "alt": "Color-coded wiring map from the 1998 engine harness to the 1988 truck plugs, with branches marked keep, move, remove, kept whole or new part",
+            "width": 1600,
+            "height": 1078,
+            "caption": "Which 1998 harness wires are kept, moved or removed"
+          },
+          {
+            "src": "/4runner-agent/connector-faces.png",
+            "alt": "A 34-cavity connector drawn face-on with numbered, color-coded pins, next to a photo of the real plug held in a hand",
+            "width": 1600,
+            "height": 695,
+            "caption": "A connector face generated from the pin data, beside the real plug"
+          },
+          {
+            "src": "/4runner-agent/ecu-sensor-wiring.png",
+            "alt": "Wiring diagram from the engine computer to a MAP sensor, a wideband oxygen sensor and the diagnostic port, with each wire labelled by pin",
+            "width": 1600,
+            "height": 1516,
+            "caption": "Wiring sheet for the MAP sensor, wideband oxygen sensor and CAN bus"
+          },
+          {
+            "src": "/4runner-agent/live-checklist.png",
+            "alt": "The live build checklist showing 23 of 65 jobs done, with the finished bottom end jobs ticked in green",
+            "width": 1600,
+            "height": 1081,
+            "caption": "The live build checklist, 23 of 65 done"
+          }
+        ]
+      },
+      {
+        "label": "Roles",
+        "title": "My job and the agent's job",
+        "table": {
+          "head": [
+            "Me",
+            "The agent (Claude Code)"
+          ],
+          "rows": [
+            [
+              "Made every decision",
+              "Searched the manuals"
+            ],
+            [
+              "Set the rules",
+              "Wrote the notes"
+            ],
+            [
+              "Did all the physical work",
+              "Ran the audits and cross-checks"
+            ],
+            [
+              "Took the measurements",
+              "Wrote the generators and the site"
+            ]
+          ]
+        }
+      },
+      {
+        "label": "Stack",
+        "title": "Stack and links",
+        "facts": {
+          "Code": "About 1,000 lines of Python, standard library plus Pillow, no framework",
+          "Content": "18 research notes in Markdown, 143 connector pins in one JSON file",
+          "Site": "Static pages built by the Python generators, with hand-written HTML, CSS and SVG",
+          "Hosting": "Cloudflare Pages, with a Pages Function and KV for the checklist state",
+          "AI tool": "Claude Code (Anthropic's coding agent)",
+          "Progress": "65 jobs on the live build checklist, 23 done as of November 2026"
+        },
+        "after": [
+          "The live case study, the build checklist and the wiring diagrams are public and linked at the top of this page. The source repo is private. The factory manuals are Toyota's and are not published."
+        ]
+      }
+    ]
+  }
 }

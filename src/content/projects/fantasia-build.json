@@ -7,22 +7,48 @@
   "published": true,
   "featured": true,
   "status": "running",
-  "oneLine": "An unattended agent on a dedicated Mac Mini. Each night it researches new AI releases, weighs about eight candidate ideas, then builds, tests and publishes one project with a live demo.",
+  "oneLine": "An autonomous agent that researches, builds and ships one AI project a night. 50 shipped in 54 nights for $7.35 in metered API cost, inside a sandbox I designed.",
+  "chips": [
+    "50 shipped in 54 nights",
+    "$7.35 metered API cost",
+    "Runs unattended"
+  ],
   "headlineNumber": {
-    "value": "50",
-    "unit": "public repositories"
+    "value": "",
+    "unit": ""
   },
   "specs": {
+    "Role": "Solo: the pipeline, the evaluation stages and the sandbox. The agents built the nightly projects.",
     "Timeline": "September 2026 to present",
-    "Stack": "Claude Code, Python, Bash, launchd, GitHub CLI, Tailscale"
+    "Hardware": "Mac Mini M4, 16 GB, headless, always on, at home",
+    "Models": "Grok for the scout, Claude for pick, plan and review, Codex for the build",
+    "Stack": "Claude Code, Codex, Python, Bash, launchd, tmux, GitHub CLI, Tailscale, Cloudflare",
+    "Output": "50 public repos under the agent's own GitHub account, each live on its own subdomain"
   },
-  "hero": null,
+  "hero": {
+    "src": "/fantasia/01-fantasia-home.png",
+    "alt": "The fantasia.build gallery page: the headline \"An idea a night, shipped by morning\", four stat boxes reading 54 nights, 50 shipped, $7.35 and 4.08, and the first row of build cards underneath",
+    "width": 1600,
+    "height": 1000
+  },
   "gallery": [],
   "video": null,
   "links": [
     {
-      "label": "fantasia.build",
+      "label": "fantasia.build (live gallery)",
       "href": "https://fantasia.build"
+    },
+    {
+      "label": "github.com/artaxlives (the agent's repos)",
+      "href": "https://github.com/artaxlives"
+    },
+    {
+      "label": "github.com/atreyusutton",
+      "href": "https://github.com/atreyusutton"
+    },
+    {
+      "label": "linkedin.com/in/atreyusutton",
+      "href": "https://www.linkedin.com/in/atreyusutton"
     }
   ],
   "intake": [
@@ -31,14 +57,594 @@
       "question": "What number can you put on it?",
       "hint": "",
       "draft": "",
-      "answer": "50 public repositories shipped since September 2026, one per night on 45 of the last 47 nights. Each one publishes the agent's reasoning."
+      "answer": ""
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "",
       "draft": "",
-      "answer": "The agent runs without approval prompts, so I designed the safety model around that: an isolated non-admin account, a separate GitHub identity, a command guard that blocks destructive shell and git operations, and an SSH-only network policy."
+      "answer": ""
     }
-  ]
+  ],
+  "caseStudy": {
+    "tags": [
+      "Autonomous agents",
+      "Evaluation",
+      "Agent sandboxing",
+      "Multi-model pipeline",
+      "Python"
+    ],
+    "stats": [
+      {
+        "value": "54",
+        "label": "Nights run"
+      },
+      {
+        "value": "50",
+        "label": "Projects shipped"
+      },
+      {
+        "value": "$7.35",
+        "label": "Metered API cost"
+      },
+      {
+        "value": "4.08",
+        "label": "Self-review score, out of 5"
+      }
+    ],
+    "statsNote": "As of 13 November 2026. The numbers update nightly at fantasia.build. Cost counts metered APIs only: Claude and Codex run on flat-rate subscriptions.",
+    "intro": [
+      "Artax is a Mac Mini in my house that runs AI coding agents unattended. Every night a pipeline I built scouts X for the day's most interesting AI work, picks one idea, plans it, builds it, tests it in a headless browser, publishes it to its own subdomain and public GitHub repo, and then reviews its own work. Nobody is awake while this happens.",
+      "I built the system. The agents built the 50 projects. The pipeline also failed on 4 nights, and it publishes those nights with its reasoning. The agent runs with permission prompts switched off, so the other half of the project is the containment around it.",
+      "On the names: Artax is the machine and the agent, and fantasia.build is where it publishes. Both are borrowed from The Neverending Story."
+    ],
+    "sections": [
+      {
+        "label": "Pipeline",
+        "title": "How a night works",
+        "body": [
+          "A night is seven stages. Three different models do the work, and two of the stages are plain local code with no model at all. The timings below are from the 12 November 2026 run.",
+          "Two components run on the box. Hermes is the runtime, which I can also reach over Telegram. Auryn is the nightly builder. Both repos are private for now."
+        ],
+        "flow": {
+          "summary": "Seven stages run in order each night: scout with Grok, pick with Claude, plan with Claude, build with Codex, a local deterministic gate, a local publish step, and a review by Claude in a fresh context. A plan that cannot be built honestly is recorded as blocked, a failed gate means nothing ships, and the review can propose changes to the pipeline itself.",
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "step": "1",
+                  "title": "Scout",
+                  "note": "Grok, X search. 50.9s. Returns the night's candidate ideas with source links."
+                }
+              ]
+            },
+            {
+              "label": "candidates",
+              "boxes": [
+                {
+                  "step": "2",
+                  "title": "Pick",
+                  "note": "Claude. 68.4s. Scores each candidate from 1 to 5 on surprise, demonstrability, self-containedness and honesty."
+                }
+              ],
+              "aside": "It writes down why it turned the others away."
+            },
+            {
+              "label": "one idea",
+              "boxes": [
+                {
+                  "step": "3",
+                  "title": "Plan",
+                  "note": "Claude. 68.4s. Writes the approach and the acceptance criteria as checkable assertions."
+                }
+              ],
+              "aside": "Cannot be built honestly within the constraints? The night is recorded as blocked."
+            },
+            {
+              "label": "plan and acceptance criteria",
+              "boxes": [
+                {
+                  "step": "4",
+                  "title": "Build",
+                  "note": "Codex. 212.4s. Implements the plan inside the sandboxed account."
+                }
+              ]
+            },
+            {
+              "label": "project directory",
+              "boxes": [
+                {
+                  "step": "5",
+                  "title": "Gate",
+                  "note": "Local, deterministic. 3.1s. Output exists, assets resolve, the page loads in a headless browser with no console errors."
+                }
+              ],
+              "aside": "A failed gate means nothing ships."
+            },
+            {
+              "label": "gate passed",
+              "boxes": [
+                {
+                  "step": "6",
+                  "title": "Publish",
+                  "note": "Local. 14.1s. Pushes a public repo and deploys to Cloudflare."
+                }
+              ]
+            },
+            {
+              "label": "live URL",
+              "boxes": [
+                {
+                  "step": "7",
+                  "title": "Review",
+                  "note": "Claude, fresh context. 139.9s. Grades the shipped artifact on shipped, honest, worth it and efficient."
+                }
+              ],
+              "aside": "Can propose changes to the pipeline's own build prompt and model routing when a problem keeps recurring."
+            }
+          ]
+        },
+        "images": [
+          {
+            "src": "/fantasia/night-gate-stages.png",
+            "alt": "Part of the public record for the 12 November night. A gate list with six checks, all marked pass, ending in \"local asset references resolve\" and \"page loads without console errors\". Below it a stages list: scout, grok, 50.9s. Pick, claude, 68.4s. Plan, claude, 68.4s. Build, codex, 212.4s. Gate, local, 3.1s. Publish, local, 14.1s.",
+            "width": 1600,
+            "height": 1165,
+            "caption": "The gate checks and stage timings, as the pipeline published them for 12 November 2026"
+          }
+        ]
+      },
+      {
+        "label": "Evaluation",
+        "title": "It does not trust its own output",
+        "body": [
+          "A pipeline that ships whatever the model produces is a demo. What separates this from one is the places where the system checks itself. There are five.",
+          "Before the build, the pick stage scores every candidate against a fixed rubric and records why it rejected the rest. The plan stage then writes the acceptance criteria before any code exists, as assertions that can be checked. Two examples: \"the seed table has at least 15 rows on load\" and \"no network request leaves the page's own origin\".",
+          "After the build, the gate is deterministic code, not a model's opinion. If it fails, nothing ships. Then a separate reviewer, started in a fresh context, grades what was actually published.",
+          "The last check is that failures are published. Every night has a public page, whether it shipped or not. A shipped night shows its scores, its rejected candidates and its gate results. A failed night shows why it stopped."
+        ],
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/fantasia/night-pick-scores.png",
+            "alt": "The pick scoring for the 12 November night: surprise 4, demonstrability 4, self-containedness 5, honesty 4, followed by a paragraph explaining why this idea was chosen over the other candidates",
+            "width": 1600,
+            "height": 1075,
+            "caption": "Before the build: rubric scores and the written reasoning"
+          },
+          {
+            "src": "/fantasia/night-review-scores.png",
+            "alt": "The review scoring for the same night: shipped 5, honest 5, worth it 4, efficient 5, mean 4.75 out of 5, followed by a note that no change to the build prompt or routing was needed",
+            "width": 1600,
+            "height": 655,
+            "caption": "After the build: the reviewer's grades for the same night"
+          }
+        ],
+        "after": [
+          "The average self-review score is 4.08 out of 5 as of 13 November 2026. That is the pipeline grading itself. It is not a human rating.",
+          "The reviewer does mark things down. Token Diet, a BPE tokenizer comparison, shipped and passed the gate and still got 2.8."
+        ]
+      },
+      {
+        "label": "Failure",
+        "title": "The night it refused to ship",
+        "body": [
+          "On 11 October the pick was a storefront with a live AI sales agent. The plan stage worked out that a real live chat needs either an API key exposed in client-side code or a backend, and both are outside its constraints. The only static version would be a scripted decision tree pretending to be an agent.",
+          "It recorded the night as failed and published the reasoning. That is the behaviour I wanted: a blocked night is a better result than a mock-up that claims to be something it is not."
+        ],
+        "images": [
+          {
+            "src": "/fantasia/failed-night-storefront-clerk.png",
+            "alt": "The public page for the failed night, titled Storefront Clerk with a red Failed badge and the date 2026-10-11. Under the heading Approach, a paragraph explains that a live chat needs either a key shipped in client-side code or a backend, that a canned decision tree would be a page that pretends, and that the night is recorded as blocked rather than shipped as a mockup.",
+            "width": 1600,
+            "height": 1228,
+            "caption": "The published reasoning for the failed night of 11 October 2026"
+          }
+        ]
+      },
+      {
+        "label": "Containment",
+        "title": "Permissions off, operating system on",
+        "body": [
+          "The agent runs with permission prompts off, using --dangerously-skip-permissions. An unattended machine cannot stop and ask. So the boundaries are operating system, git and network boundaries.",
+          "The design assumption behind all of it: the agent's home directory can be destroyed at any moment, and anything that matters is already on GitHub."
+        ],
+        "callout": "The flag removes the prompts. The operating system remains.",
+        "images": [
+          {
+            "src": "/fantasia/runbook-sandbox-layers.png",
+            "alt": "A page from the runbook I wrote, headed \"Four cheap layers, and one that isn't\". A table lists five layers and what each stops: separate machine, non-admin macOS user, separate GitHub identity, no access to your repos, and network reach, which is marked as not solved by default. A note below says to assume the agent's home directory can be destroyed at any moment.",
+            "width": 1600,
+            "height": 1500,
+            "caption": "The sandbox layers, from the runbook I wrote for the machine"
+          }
+        ],
+        "facts": {
+          "Machine": "A separate Mac Mini, not my laptop.",
+          "Account": "artax, a standard macOS user with no sudo. My own home directory on the box is mode 700, because macOS ships home directories readable by every local user.",
+          "GitHub identity": "artaxlives, created 17 September 2026, with its own SSH key generated on the box. It has no collaborator access to any of my repos. It ships into repos it owns, or forks and opens a pull request.",
+          "Network": "A Tailscale policy with two grants: my devices can reach each other, and my devices can reach the box on TCP 22. The box's tag is never a source, so it cannot open a connection to my laptop or phone.",
+          "Hooks": "guard.py runs before every shell command. A global git pre-push hook refuses pushes to protected branches on any repo that is not the bot's own.",
+          "Kill switch": "Revoke one SSH key and one token."
+        },
+        "after": [
+          "The limits are part of the design, so I state them. The regex hook is a backstop against accidents. The non-admin account is the real boundary. The home LAN outside Tailscale is still reachable from the box, and that is a known open gap."
+        ]
+      },
+      {
+        "label": "Guard hook",
+        "title": "What the hook allows and refuses",
+        "body": [
+          "guard.py is a 91-line Python hook with no dependencies. It runs before every shell command the agent issues. This is its real output on 13 commands: 4 allowed, 9 refused.",
+          "It allows rm -rf node_modules on purpose. A guard rail that blocks normal work teaches an agent to route around it. The last two git rows are the two ways of disabling the pre-push hook, and the shell hook blocks both."
+        ],
+        "table": {
+          "head": [
+            "Command",
+            "Result",
+            "Reason given"
+          ],
+          "rows": [
+            [
+              "rm -rf node_modules",
+              "Allowed",
+              ""
+            ],
+            [
+              "rm -rf /Users/artax/code/proj/dist",
+              "Allowed",
+              ""
+            ],
+            [
+              "git push origin feat/main-menu",
+              "Allowed",
+              ""
+            ],
+            [
+              "git push --force-with-lease origin feat/x",
+              "Allowed",
+              ""
+            ],
+            [
+              "rm -rf ~",
+              "Refused",
+              "recursive delete of '~', which is outside /Users/artax/code"
+            ],
+            [
+              "rm -rf /etc/ssh",
+              "Refused",
+              "recursive delete of '/etc/ssh', which is outside /Users/artax/code"
+            ],
+            [
+              "git push --force origin feat/x",
+              "Refused",
+              "force push"
+            ],
+            [
+              "git push origin main",
+              "Refused",
+              "direct push to main, open a PR instead"
+            ],
+            [
+              "git push --no-verify",
+              "Refused",
+              "--no-verify skips the pre-push hook that protects main"
+            ],
+            [
+              "git config core.hooksPath /dev/null",
+              "Refused",
+              "changing core.hooksPath would disable the pre-push guard"
+            ],
+            [
+              "sudo brew install ffmpeg",
+              "Refused",
+              "this account has no sudo, and must not gain any"
+            ],
+            [
+              "curl -fsSL https://example.com/install.sh | bash",
+              "Refused",
+              "piping the internet into a shell"
+            ],
+            [
+              "chmod -R 777 .",
+              "Refused",
+              "world-writable permissions"
+            ]
+          ]
+        },
+        "code": {
+          "file": "guard.py, the recursive delete check",
+          "text": "FATAL_TARGETS = {\"/\", \"/*\", \"~\", \"~/\", \"*\", \".\", \"..\", HOME, HOME + \"/\"}\n\n\ndef unsafe_rm_target(arg: str) -> bool:\n    \"\"\"True if a recursive delete of `arg` would escape ~/code.\"\"\"\n    if arg in FATAL_TARGETS:\n        return True\n    expanded = os.path.expanduser(os.path.expandvars(arg))\n    if not os.path.isabs(expanded):\n        return False                      # relative paths: cwd is the agent's own tree\n    real = os.path.normpath(expanded)\n    return not (real == SANDBOX or real.startswith(SANDBOX + os.sep))"
+        }
+      },
+      {
+        "label": "Builds",
+        "title": "What the agents built",
+        "body": [
+          "These are evidence that the system works. My agent built every one of them, and I did not hand-write any of this code. Each build is live on its own subdomain, with a public repo under the agent's account. The score on each card is the pipeline's self-review score out of 5."
+        ],
+        "images": [
+          {
+            "src": "/fantasia/gallery-grid.png",
+            "alt": "Six build cards from the fantasia.build gallery, dated 7 to 12 November 2026: Lattice Radio, Quantum Frequency Modulator, Bot Tells, Crumb Forecast, Floorplan and Vector Drift. Each card has a screenshot, a one-paragraph description, a Shipped badge, a score out of 5 and a cost.",
+            "width": 1600,
+            "height": 1149,
+            "caption": "Six consecutive nights from the live gallery, newest first"
+          }
+        ],
+        "cards": [
+          {
+            "title": "pocket-transformer",
+            "meta": "Self-review 4.8",
+            "body": "A tiny language model with trained weights running in the browser tab.",
+            "image": {
+              "src": "/fantasia/build-pocket-transformer.png",
+              "alt": "The pocket transformer page: a small transformer generating text one character at a time, with a bar chart of next-character probabilities beside it",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://pocket-transformer.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/pocket-transformer"
+              }
+            ]
+          },
+          {
+            "title": "kv-residency-planner",
+            "meta": "Self-review 4.8",
+            "body": "Simulator of how an LLM-serving scheduler keeps or evicts KV cache.",
+            "image": {
+              "src": "/fantasia/build-kv-residency-planner.png",
+              "alt": "The KV residency planner page: three panels of memory blocks labelled GPU, CPU and Evicted, with capacity sliders above and a request trace below",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://kv-residency-planner.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/kv-residency-planner"
+              }
+            ]
+          },
+          {
+            "title": "formula-hunter",
+            "meta": "Self-review 4.8",
+            "body": "Genetic programming that rediscovers a hidden formula from noisy data.",
+            "image": {
+              "src": "/fantasia/build-formula-hunter.png",
+              "alt": "The formula hunter page: a plot of noisy data points with candidate curves fitted through them, and a ranked list of evolved equations with their errors on the right",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://formula-hunter.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/formula-hunter"
+              }
+            ]
+          },
+          {
+            "title": "engine-room",
+            "meta": "Self-review 4.5",
+            "body": "Animates KV-cache growth, speculative decoding and MoE routing.",
+            "image": {
+              "src": "/fantasia/build-engine-room.png",
+              "alt": "The engine room page: a token ledger showing each generated token as accepted or rejected, next to a line chart of KV cache size growing with each token",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://engine-room.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/engine-room"
+              }
+            ]
+          },
+          {
+            "title": "mini-tpu-lab",
+            "meta": "Self-review 4.2",
+            "body": "A systolic-array matrix-multiply simulator, cell by cell.",
+            "image": {
+              "src": "/fantasia/build-mini-tpu-lab.png",
+              "alt": "The mini TPU lab page: a five by five grid of processing cells, each showing a weight and a partial sum, beside the finished output matrix",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://mini-tpu-lab.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/mini-tpu-lab"
+              }
+            ]
+          },
+          {
+            "title": "agent-office",
+            "meta": "Self-review 4.2",
+            "body": "Replays any multi-agent run log as pixel-art coworkers.",
+            "image": {
+              "src": "/fantasia/build-agent-office.png",
+              "alt": "The agent office page: a pixel-art office with four agents at desks, one with a speech bubble, and an activity log of their tool calls down the right side",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://agent-office.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/agent-office"
+              }
+            ]
+          },
+          {
+            "title": "trace-autopsy",
+            "meta": "Self-review 4.0",
+            "body": "Step-through replay debugger for recorded agent traces.",
+            "image": {
+              "src": "/fantasia/build-trace-autopsy.png",
+              "alt": "The trace autopsy page: a table of recorded agent steps with pass, warn and fail verdicts, and a step inspector on the right showing a word diff between the expected and actual response",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://trace-autopsy.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/trace-autopsy"
+              }
+            ]
+          },
+          {
+            "title": "token-diet",
+            "meta": "Self-review 2.8",
+            "body": "From-scratch 32K BPE tokenizer against GPT-2's, lossless. The lowest score here, kept on the page on purpose.",
+            "image": {
+              "src": "/fantasia/build-token-diet.png",
+              "alt": "The token diet page: a sentence split into coloured tokens by the custom tokenizer, and beside it an empty GPT-2 panel with a banner saying the GPT-2 comparison is unavailable because its vocabulary files could not be downloaded in the build environment",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://token-diet.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/token-diet"
+              }
+            ]
+          },
+          {
+            "title": "one-shader-photo-studio",
+            "meta": "Self-review 4.8",
+            "body": "A single-fragment-shader renderer.",
+            "image": {
+              "src": "/fantasia/build-one-shader-photo-studio.png",
+              "alt": "The one shader photo studio page: a rendered green torus resting on a grey pedestal with soft shadows, and a small panel of lighting controls on the right",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://one-shader-photo-studio.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/one-shader-photo-studio"
+              }
+            ]
+          },
+          {
+            "title": "crumb-forecast",
+            "meta": "Self-review 4.5",
+            "body": "A demand-forecasting model.",
+            "image": {
+              "src": "/fantasia/build-crumb-forecast.png",
+              "alt": "The crumb forecast page: a bake sheet for a fictional bakery listing each item with a demand forecast, an 80 percent range and a recommended number to bake",
+              "width": 1600,
+              "height": 1000
+            },
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://crumb-forecast.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/crumb-forecast"
+              }
+            ]
+          },
+          {
+            "title": "diffusion-text-lab",
+            "meta": "Self-review 4.8",
+            "body": "A small diffusion language model you watch denoise into sentences.",
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://diffusion-text-lab.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/diffusion-text-lab"
+              }
+            ]
+          },
+          {
+            "title": "airplane-mode-llm",
+            "meta": "Self-review 4.8",
+            "body": "An open-weight LLM running over WebGPU with the network off.",
+            "links": [
+              {
+                "label": "Live",
+                "href": "https://airplane-mode-llm.fantasia.build"
+              },
+              {
+                "label": "Repo",
+                "href": "https://github.com/artaxlives/airplane-mode-llm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Lessons",
+        "title": "What running it taught me",
+        "body": [
+          "A blanket \"never push to main\" rule once stranded a correct self-repair on a branch nothing ran. I narrowed the rule so it protects my repos and lets the bot own its trunk.",
+          "GitHub's free tier does not protect branches on private repos, so the local hook is the only enforcement there.",
+          "On Apple Silicon a FileVault-locked Mac can be unlocked over SSH after a power cut, but only over Ethernet.",
+          "Scraped posts and web pages are untrusted input to an agent that can run code. The next version separates a tool-less research step that produces structured briefs from the builder that reads them."
+        ]
+      },
+      {
+        "label": "Planned",
+        "title": "Planned, not built",
+        "body": [
+          "None of this exists yet: multi-night build cycles for larger applications, a broader research pipeline with a learned scorer, and a private morning digest."
+        ]
+      },
+      {
+        "label": "Media",
+        "title": "Still to add",
+        "body": [
+          "Three pieces of media are owed for this page. The slots are left empty until I have the real thing."
+        ],
+        "pending": [
+          "A photo of the Mac Mini",
+          "A screenshot of the Telegram conversation with the agent",
+          "A terminal capture of a live session on the box"
+        ]
+      }
+    ]
+  }
 }

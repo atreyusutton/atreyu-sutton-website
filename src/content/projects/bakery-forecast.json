@@ -1,0 +1,326 @@
+{
+  "slug": "bakery-forecast",
+  "title": "Bakery Demand Forecast (client under NDA)",
+  "lane": "software",
+  "tier": "featured",
+  "order": 4,
+  "published": true,
+  "featured": true,
+  "status": "in-progress",
+  "oneLine": "LightGBM quantile forecasts of daily pastry sales for six shops, three days ahead, with an editable bake sheet for the chef. It beat the best simple baseline in a 7-month walk-forward backtest (25.1% vs 27.9% WAPE) and documents where it still fails.",
+  "chips": [
+    "LightGBM quantile forecasts",
+    "7-month walk-forward backtest",
+    "25.1% vs 27.9% WAPE"
+  ],
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {
+    "Role": "Solo project: data cleaning, model, backtest, frontend and CI",
+    "Client": "A bakery group with six shops. Client data is under NDA.",
+    "Data": "One 16-month export, 1.1M sales rows, 6 shops, 8 breakfast pastries",
+    "Model": "LightGBM. Poisson objective for the mean, quantile models for P50, P75 and P90.",
+    "Validation": "Walk-forward backtest by month, October 2024 to April 2025, with a leakage test in CI",
+    "Stack": "Python, LightGBM, pandas, Next.js, Cloudflare Pages"
+  },
+  "hero": {
+    "src": "/bakery-forecast/bake-sheet-top.png",
+    "alt": "The bake sheet screen: a heading asking what to bake for a chosen day, three buffer settings called Lean, Balanced and Generous with the share of days each was enough in testing, and a table of pastries by Shop A to Shop F with an editable number in every cell",
+    "width": 1600,
+    "height": 996
+  },
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": [
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "",
+      "draft": "",
+      "answer": ""
+    }
+  ],
+  "caseStudy": {
+    "tags": [
+      "Time-series forecasting",
+      "LightGBM",
+      "Quantile regression",
+      "Backtesting",
+      "Python",
+      "pandas",
+      "Next.js",
+      "CI/CD"
+    ],
+    "stats": [
+      {
+        "value": "1.1M",
+        "label": "sales rows: 6 shops, 8 pastries, 16 months"
+      },
+      {
+        "value": "25.1%",
+        "label": "WAPE for the model, against 27.9% for the best simple baseline"
+      },
+      {
+        "value": "80%",
+        "label": "of shop-pastry-days covered when baking the P75 forecast"
+      },
+      {
+        "value": "55% low",
+        "label": "on Christmas Eve, a day the model had never seen"
+      }
+    ],
+    "statsNote": "All from the walk-forward backtest, October 2024 to April 2025. WAPE is weighted absolute percentage error for one shop, one pastry, one day. Lower is better.",
+    "intro": [
+      "Forecasting what a bakery should bake, three days ahead. The bakery sets its daily pastry quantities, called pars, by hand and changes them every few months. I built a system that forecasts how many of each breakfast pastry each shop will sell three days ahead, turns that into a bake sheet the pastry chef can edit, and reports how accurate it is and where it fails.",
+      "It is a working prototype built from one 16-month data export. I presented it to the client as a first version, along with the list of data that would improve it. It is not running in production.",
+      "The shops in the screenshots are renamed Shop A to Shop F, because the client data is under NDA."
+    ],
+    "sections": [
+      {
+        "label": "Problem",
+        "title": "A par that changes every few months",
+        "body": [
+          "A baker has to decide how many croissants and morning buns each shop gets before anyone has walked in. Too many and they are left over. Too few and they run out.",
+          "The bakery handles this with a par for each pastry, set by hand and changed every few months. I wanted a number for each shop, each pastry and each day, ready three days ahead, that the chef could still overrule."
+        ]
+      },
+      {
+        "label": "Data",
+        "title": "The data, and what was wrong with it",
+        "body": [
+          "I had four CSV exports from the client's FileMaker database: sales, end-of-day counts, store orders and products. I added daily weather from Open-Meteo. Most of the early work was making the files usable."
+        ],
+        "facts": {
+          "File format": "No header rows, and lines ended with a bare carriage return",
+          "Product names": "Inconsistent, so everything keys on product ID",
+          "Shop identifiers": "The sales and inventory files used different ones, which had to be mapped",
+          "End-of-day counts": "About 25% of records were unsubmitted and had to be excluded",
+          "Target": "Daily units per shop and pastry from the point-of-sale system, with closed days dropped"
+        }
+      },
+      {
+        "label": "Model",
+        "title": "Features, learner, and why quantiles",
+        "body": [
+          "Every feature is something known three days before the target day. The same-weekday lags are at 7, 14, 21, 28 and 364 days. The rest are a 4-week same-weekday mean, 7-day and 28-day rolling means shifted by the horizon, a store traffic lag, the calendar, holiday flags, days until the next holiday, and daily maximum temperature and precipitation.",
+          "The learner is LightGBM. One model with a Poisson objective predicts the mean. Three separate quantile models predict P50, P75 and P90, forced monotone so they never cross.",
+          "A baker does not want the average. They want to choose how often they are willing to run out. So the quantiles become the bake sheet's Lean, Balanced and Generous settings. The screen shows each setting's measured coverage from the backtest, not its nominal level: P50 covered 62% of shop-pastry-days, P75 covered 80% and P90 covered 90%."
+        ],
+        "flow": {
+          "summary": "Four database exports and daily weather are cleaned into one table of daily units per shop and pastry. Features that are known three days ahead are built from it. LightGBM models for the mean and for three quantiles are trained and scored in a walk-forward backtest, and the quantile forecasts feed the bake sheet and the track record page.",
+          "offline": {
+            "label": "On every merge, in GitHub Actions",
+            "lines": [
+              [
+                "Rebuild the forecast from source data",
+                "tests, including the leakage test",
+                "lint",
+                "build",
+                "deploy to Cloudflare Pages"
+              ]
+            ]
+          },
+          "stages": [
+            {
+              "boxes": [
+                {
+                  "title": "Source data",
+                  "note": "Sales, end-of-day counts, store orders and products as CSV exports, plus daily weather."
+                }
+              ]
+            },
+            {
+              "label": "clean and join on product ID",
+              "boxes": [
+                {
+                  "step": "1",
+                  "title": "Daily panel",
+                  "note": "Units per shop, pastry and day. Closed days dropped."
+                }
+              ],
+              "aside": "Unsubmitted end-of-day records are excluded."
+            },
+            {
+              "label": "only data from three or more days before the target day",
+              "boxes": [
+                {
+                  "step": "2",
+                  "title": "Features",
+                  "note": "Lags, rolling means, calendar, holidays, weather."
+                }
+              ],
+              "aside": "A test asserts no feature uses data from after the forecast date."
+            },
+            {
+              "label": "LightGBM",
+              "boxes": [
+                {
+                  "step": "3",
+                  "title": "Mean",
+                  "note": "Poisson objective."
+                },
+                {
+                  "step": "4",
+                  "title": "Quantiles",
+                  "note": "P50, P75 and P90, forced monotone."
+                },
+                {
+                  "step": "5",
+                  "title": "Backtest",
+                  "note": "Walk-forward by month, against two baselines."
+                }
+              ]
+            },
+            {
+              "boxes": [
+                {
+                  "title": "Bake sheet and track record",
+                  "note": "A static Next.js site. Lean is P50, Balanced is P75, Generous is P90."
+                }
+              ],
+              "aside": "The chef can change any number."
+            }
+          ]
+        }
+      },
+      {
+        "label": "Testing",
+        "title": "How I tested it",
+        "body": [
+          "The backtest walks forward by month. For each test month, I train only on data up to three days before the month starts, then predict the whole month. There are no random splits, because a random split lets the model see the future.",
+          "I compared the model with two rules a person could use to set pars: the same day last week, and the average of the last four same weekdays. The metric is WAPE at the level of one shop, one pastry, one day."
+        ],
+        "table": {
+          "head": [
+            "Test period",
+            "Same day last week",
+            "4-week same-weekday average",
+            "My model"
+          ],
+          "rows": [
+            [
+              "All test months",
+              "33.8%",
+              "27.9%",
+              "25.1%"
+            ],
+            [
+              "Ordinary days (holiday weeks excluded)",
+              "n/a",
+              "26.5%",
+              "23.7%"
+            ],
+            [
+              "December 2024",
+              "44.7%",
+              "32.4%",
+              "28.4%"
+            ]
+          ]
+        },
+        "images": [
+          {
+            "src": "/bakery-forecast/backtest.png",
+            "alt": "A section of the client page titled \"Tested on months it had never seen\": a table of error by month from October 2024 to April 2025 for two simple rules and the forecast model, and below it a comparison of the forecast's Balanced setting with what the shops actually ordered",
+            "width": 1600,
+            "height": 1355,
+            "caption": "The same results as the client sees them, by month. The lower table compares the forecast with the shops' own orders and assumes the recorded order is what was baked."
+          }
+        ],
+        "after": [
+          "By month, the model's WAPE was 24% in October, 27% in November, 28% in December, 27% in January, and 23% in February, March and April. It beat both baselines in all seven months. October was narrow: 23.9% against 24.4%.",
+          "A leakage test guards the result. It is an integration test on the real panel that asserts no feature uses data from after the forecast date. It runs in CI on every pull request, along with a full rebuild of the pipeline.",
+          "One decision came straight out of the backtest. I added a day-of-year feature, and December got worse than the simple baseline, at 40.6% WAPE. With under two years of history, every test month contains day-of-year values the model never trained on. Removing the feature brought December to 28.4% and moved no other month by more than half a point.",
+          "I also compared the P75 forecast with what the shops actually ordered over the same days, for 4 shops and 5,486 shop-pastry-days. Baking the P75 forecast used 4% fewer pieces, left 20% unsold instead of 26%, and missed 6% of sales instead of 9%. It ran short on more days, 21% against 17%, but by fewer pieces. This assumes the recorded order equals what was baked, which the client has not confirmed."
+        ]
+      },
+      {
+        "label": "Failures",
+        "title": "Where it fails, and why",
+        "body": [
+          "Holidays it has never seen. The data starts in January 2024, so the model was tested on its first Thanksgiving and its first Christmas. It was 52% low on the day before Thanksgiving and 55% low on Christmas Eve. Holiday weeks were 9% of test days but 16% of total error. Easter shows what one prior example does: the previous Easter was in the training data, and Easter Saturday 2025 was forecast within 5%, 1,445 forecast against 1,380 sold.",
+          "Sold-out days. 43% of end-of-day counts found the pastry sold out, and 66% for the top item. So sales understate demand, and a model trained on sales learns to under-bake. The model does not yet correct for sold-out days. That is the next modeling task.",
+          "Promotions nobody told it about. Two unannounced promotion days sold 4x the forecast, 1,037 against 253. The spike then inflated the same-weekday lag features for the following four weeks.",
+          "The noise floor. A shop sells about 17 of a given pastry a day, so even a perfect forecast of the mean would miss by about 18% WAPE. The realistic gap to close is 24% to 18%, not 24% to 0%."
+        ],
+        "callout": "Sales are not demand. On a day the pastry sold out, the data shows what was baked, not what people wanted.",
+        "images": [
+          {
+            "src": "/bakery-forecast/failure-holidays.png",
+            "alt": "Three forecast against actual bar pairs for all shops: Easter Saturday 2025 within 5%, the day before Thanksgiving 2024 52% under, and Christmas Eve 2024 55% under",
+            "width": 1600,
+            "height": 582,
+            "caption": "Holiday misses, as shown to the client"
+          },
+          {
+            "src": "/bakery-forecast/failure-sold-out.png",
+            "alt": "A bar chart of how often each of the eight pastries was sold out at the end-of-day count, from the ham and cheese baked croissant at the top to the plain croissant at the bottom",
+            "width": 1140,
+            "height": 1100,
+            "caption": "Share of days each pastry was gone by the end-of-day count"
+          },
+          {
+            "src": "/bakery-forecast/failure-noise-floor.png",
+            "alt": "A note titled \"What more data can't fix\", explaining that some of the miss is chance because a shop sells only about 17 of a given pastry on a typical day",
+            "width": 1600,
+            "height": 263,
+            "caption": "The noise floor, in the words I used with the client"
+          }
+        ]
+      },
+      {
+        "label": "Product",
+        "title": "The tool the chef would use",
+        "body": [
+          "The product is a static Next.js site. On the bake sheet you pick the day, pick the buffer and pick the shop. Every number is editable, and the sheet exports to CSV and prints.",
+          "The track record page shows forecast against actual by shop and pastry. I also wrote a plain-language page for the client covering accuracy, the failure cases and the data needed to fix each one. Several of the images on this page are sections of it."
+        ],
+        "images": [
+          {
+            "src": "/bakery-forecast/bake-sheet.png",
+            "alt": "The full bake sheet for one day: eight pastries by six shops with a suggested count in each editable box, last week's sales under each one, \"often sells out\" flags on some cells, totals per shop, and a legend explaining each mark",
+            "width": 1600,
+            "height": 1531,
+            "caption": "The bake sheet. It runs on demo data: the three days after the export ends."
+          },
+          {
+            "src": "/bakery-forecast/track-record.png",
+            "alt": "The track record page: a line chart of pieces sold and pieces forecast per day across all shops over eight weeks, with a shaded band for the extra baked on the Balanced setting, and a table of accuracy for each pastry",
+            "width": 1600,
+            "height": 1477,
+            "caption": "The track record: the last 8 weeks of the backtest, forecast against sold"
+          }
+        ]
+      },
+      {
+        "label": "Next",
+        "title": "What I would do next",
+        "body": [
+          "First, correct for sold-out days, using the end-of-day counts to estimate the demand that sales hide. Until then the model inherits the shortage it was trained on.",
+          "Second, get more history, so the model has seen Thanksgiving and Christmas before it is asked to forecast them. Third, get a list of promotion dates, so a promotion is a feature instead of a surprise that distorts the next four weeks."
+        ]
+      },
+      {
+        "label": "Footprint",
+        "title": "Stack and footprint",
+        "facts": {
+          "Model": "Python, pandas, LightGBM",
+          "Product": "Next.js static site, TypeScript and React",
+          "Hosting": "Cloudflare Pages, behind a password gate that fails closed",
+          "CI": "GitHub Actions rebuilds the forecast from source data, runs tests, lints, builds and deploys on every merge",
+          "Size": "About 600 lines of Python and about 1,500 lines of TypeScript and React",
+          "Team": "Solo"
+        }
+      },
+      {
+        "label": "Links",
+        "body": [
+          "Private repo, client data under NDA. Happy to walk through the code in an interview."
+        ]
+      }
+    ]
+  }
+}
