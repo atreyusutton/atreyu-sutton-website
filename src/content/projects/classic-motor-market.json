@@ -1,19 +1,22 @@
 {
   "slug": "classic-motor-market",
-  "title": "FuelFed",
+  "title": "FuelFed Motor Market",
   "lane": "software",
   "tier": "featured",
-  "order": 8,
+  "order": 5,
   "published": true,
   "carriedOver": true,
   "featured": true,
-  "status": "running",
-  "oneLine": "An online motor market for European enthusiast cars, which I built with a custom backend and database behind it.",
+  "status": "shipped",
+  "oneLine": "A marketplace for European collector cars. I was the sole engineer, and later rewrote it in Next.js and TypeScript on a 9-model PostgreSQL schema.",
   "headlineNumber": {
     "value": "",
     "unit": ""
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "July 2025 to April 2026",
+    "Stack": "TypeScript, React, Next.js, PostgreSQL (Supabase, Prisma), Cloudflare Images"
+  },
   "hero": {
     "src": "/classic-motor-market/classic-motor-1-hero.png",
     "alt": "The Classic Motor Market home page, a green Porsche photograph behind the site name and browse listings buttons",
@@ -22,12 +25,7 @@
   },
   "gallery": [],
   "video": null,
-  "links": [
-    {
-      "label": "Live site",
-      "href": "https://rileyshucks.com"
-    }
-  ],
+  "links": [],
   "intake": [
     {
       "role": "oneLine",
@@ -41,7 +39,7 @@
       "question": "One number or spec",
       "hint": "Anything measured. Without one this stays a row rather than a card.",
       "draft": "",
-      "answer": ""
+      "answer": "Bulk-import pipelines parse, validate, normalize and deduplicate vehicle data, and I wrote the SQL migration for full-text search."
     },
     {
       "role": "media",

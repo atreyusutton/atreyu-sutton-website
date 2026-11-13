@@ -1,22 +1,44 @@
 {
   "slug": "fantasia-build",
-  "title": "Fantasia.build",
+  "title": "Fantasia",
   "lane": "software",
   "tier": "featured",
-  "order": 9,
+  "order": 1,
   "published": true,
   "featured": true,
-  "stub": true,
-  "status": "in-progress",
-  "oneLine": "",
+  "status": "running",
+  "oneLine": "An unattended agent on a dedicated Mac Mini. Each night it researches new AI releases, weighs about eight candidate ideas, then builds, tests and publishes one project with a live demo.",
   "headlineNumber": {
-    "value": "",
-    "unit": ""
+    "value": "50",
+    "unit": "public repositories"
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "September 2026 to present",
+    "Stack": "Claude Code, Python, Bash, launchd, GitHub CLI, Tailscale"
+  },
   "hero": null,
   "gallery": [],
   "video": null,
-  "links": [],
-  "intake": []
+  "links": [
+    {
+      "label": "fantasia.build",
+      "href": "https://fantasia.build"
+    }
+  ],
+  "intake": [
+    {
+      "role": "number",
+      "question": "What number can you put on it?",
+      "hint": "",
+      "draft": "",
+      "answer": "50 public repositories shipped since September 2026, one per night on 45 of the last 47 nights. Each one publishes the agent's reasoning."
+    },
+    {
+      "role": "decision",
+      "question": "What did you decide, and what did you reject?",
+      "hint": "",
+      "draft": "",
+      "answer": "The agent runs without approval prompts, so I designed the safety model around that: an isolated non-admin account, a separate GitHub identity, a command guard that blocks destructive shell and git operations, and an SSH-only network policy."
+    }
+  ]
 }

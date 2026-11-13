@@ -1,26 +1,44 @@
 {
   "applyingFor": "For the AI/ML engineering internship at Chess.com",
   "headline": "I build AI agents and ML models, and I test them on real problems.",
-  "intro": "Atreyu Sutton. Engineering graduate student at the ATLAS Institute at CU Boulder, with a B.A. in Computer Science. Most of my work now is agentic: LLM systems that read service manuals, write lessons and rewrite resumes. I am also building a demand forecasting model for a bakery. And I play chess.",
+  "intro": "Atreyu Sutton. M.S. student at the ATLAS Institute at CU Boulder, with a B.A. in Computer Science. I build LLM systems and ML models end to end: an agent that ships a project every night, a voice assistant on a robot, a lesson builder grounded in a textbook, and a demand forecasting model for a bakery. And I play chess.",
   "atAGlance": {
     "Now": "M.S. Engineering, ATLAS Institute, CU Boulder, finishing May 2027",
     "Before": "B.A. Computer Science, Rollins College, 4.0 GPA",
-    "Focus": "Agentic LLM systems, context engineering, forecasting models",
+    "Focus": "Autonomous agents, LLM applications, demand forecasting",
     "Stack": "Python, TypeScript, SQL, LightGBM, Claude, GPT, Grok, Cursor, Claude Code",
     "Based": "Boulder, Colorado"
   },
   "sustainableIntro": "Projects about land, energy and the outdoors, which is the other thing I keep coming back to.",
   "bio": [
     "I am an engineering graduate student at the ATLAS Institute at CU Boulder, finishing the M.S. in May 2027. Before this I took a B.A. in Computer Science at Rollins College, and I have run Sutton Web Solutions, my own software practice, since 2023.",
-    "Most of what I build now is agentic. I give an LLM the right context and a way to check its own work, then point it at something real: a factory service manual, a physics textbook, a job listing. Alongside that I am building a demand forecasting model for a bakery. It is gradient boosted trees, a walk-forward backtest and a test that fails if a feature uses future data.",
+    "Most of what I build now is agentic. I give an LLM the right context, tools and a way to check its own work, then point it at something real: a nightly build with nobody watching, a car repair, a physics textbook. Alongside that I built a demand forecasting model for a bakery: gradient boosted trees on 1.1M sales records, checked with a walk-forward backtest.",
     "I also build physical things, which is why half of these projects have a robot, a truck or a turntable attached. I play chess, and that is why this is the internship I am applying for. I am in Boulder, Colorado, and I can work anywhere in the USA."
   ],
   "work": [
-    { "name": "Renaud's Bakery", "what": "Prediction model", "href": "/projects/renauds-bakery/" },
-    { "name": "FuelFed", "what": "Online motor market", "href": "/projects/classic-motor-market/" },
-    { "name": "Valdra Outside", "what": "Brand apparel", "href": "/projects/valdra-outside/" },
-    { "name": "Ute Pass Vacation Rentals", "what": "Real estate" },
-    { "name": "TREC, The Real Estate Collaborative", "what": "Real estate" }
+    {
+      "name": "Renaud's Bakery",
+      "what": "Prediction model",
+      "href": "/projects/renauds-bakery/"
+    },
+    {
+      "name": "FuelFed Motor Market",
+      "what": "Online collector car marketplace",
+      "href": "/projects/classic-motor-market/"
+    },
+    {
+      "name": "Valdra Outside",
+      "what": "Brand apparel",
+      "href": "/projects/valdra-outside/"
+    },
+    {
+      "name": "Ute Pass Vacation Rentals",
+      "what": "Real estate"
+    },
+    {
+      "name": "TREC, The Real Estate Collaborative",
+      "what": "Real estate"
+    }
   ],
   "portrait": {
     "src": "/headshot.jpg",
@@ -29,10 +47,11 @@
     "height": 1442
   },
   "skills": {
-    "AI and agents": "LLM applications and agentic workflows with Claude, GPT and Grok, coding agents (Cursor, Claude Code), context engineering, prompt design",
-    "ML and data": "Python, pandas, LightGBM, quantile forecasting, walk-forward backtesting, scrapers and data pipelines",
-    "Software": "TypeScript, JavaScript, React, Next.js, Node.js, SQL (Postgres), Git, AWS, Cloudflare",
-    "Hardware and making": "Raspberry Pi, electronics assembly, CAD, 3D printing, CNC machining, welding"
+    "AI and agents": "LLM applications and agentic workflows with Claude, GPT and Grok, tool use, context engineering, structured outputs and schema validation, prompt caching, model routing, speech pipelines (Whisper, Piper)",
+    "Agent operations": "Claude Code and Cursor, autonomous build-and-verify pipelines, sandboxing and guardrails, cost and time budgeting",
+    "ML and data": "Demand forecasting with gradient boosted trees (LightGBM), feature engineering, walk-forward backtesting, pandas, PDF and data preprocessing pipelines",
+    "Software": "Python, TypeScript, SQL (PostgreSQL), React, Next.js, Git, Cloudflare",
+    "Hardware and making": "Robotics prototyping (Raspberry Pi, Arduino), CAD, 3D modelling, welding"
   },
   "mock": true
 }

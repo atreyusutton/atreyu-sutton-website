@@ -3,22 +3,19 @@
   "title": "TorQ",
   "lane": "software",
   "tier": "featured",
-  "order": 1,
+  "order": 3,
   "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "A tracked shop robot that stores service manuals and puts the right page on a screen in its belly, so every number arrives with its source beside it.",
+  "oneLine": "The voice assistant for a tracked garage robot that helps with car repair: local Whisper transcription, Claude answers and spoken replies you can interrupt.",
   "headlineNumber": {
-    "value": "4",
-    "unit": "moving parts"
+    "value": "18",
+    "unit": "integration tests"
   },
   "specs": {
-    "Role": "Concept and system design, now a group build",
-    "Duration": "12 weeks, September to December 2026",
-    "Status": "Design locked, parts not yet ordered",
-    "Moving joints": "4",
-    "Compute": "Raspberry Pi 5, RP2350",
-    "Tools": "Python, build123d, sqlite, Next.js, Claude API"
+    "Timeline": "September 2026 to present",
+    "Compute": "Raspberry Pi 5, Arduino",
+    "Stack": "Python, Claude API, faster-whisper, Piper TTS"
   },
   "hero": {
     "src": "/generated/torq.jpg",
@@ -56,14 +53,14 @@
       "question": "What did you decide, and what did you reject?",
       "hint": "One decision where you chose the harder correct route over the quick one.",
       "draft": "I moved the project into a domain I already work in, and swapped the hard problem from handling things to knowing things. The option I rejected was keeping the sorting robot and scoping it down, to place items by hand rather than have it find them. I rejected it because at that point the person is already holding the item and could just put it in the bin, so the version that saves anyone anything is the version that is much harder. Swapping the job removed the arm, the gripper and the inverse kinematics in one move, taking the design from nine moving joints to four.",
-      "answer": ""
+      "answer": "The assistant runs a streaming tool-use loop over the vehicle record, job notes and a motor stop. It routes between a fast model and a stronger one, and uses prompt caching and persistent job memory."
     },
     {
       "role": "number",
       "question": "What number can you put on it?",
       "hint": "A measured quantity. Never estimated.",
       "draft": "Nothing measured yet, the build has not started. Candidates once it runs: lookup latency, offline hit rate against a manual, or battery life under load. Design figures that exist now are 4 servos and a 495 dollar parts list, but neither is measured.",
-      "answer": ""
+      "answer": "Drive firmware with a watchdog and an emergency stop, plus 18 integration tests against simulated hardware and model responses."
     },
     {
       "role": "broke",
@@ -88,7 +85,8 @@
     }
   ],
   "mock": false,
-  "proposal": {
+  "imagePrompt": "a small boxy tracked robot with a compact cube shaped body riding on black rubber treads, having no arms at all and no limbs of any kind. On a short jointed neck it carries a binocular head built from two large cylindrical eyes set side by side: the left eye is a camera lens with visible glass elements, the right eye is a lamp with a clear reflector, switched on. A hinged flat display panel folds down out of a bay in the front of the body and tilts up toward the viewer, its screen a blank flat grey. Weathered matte machined aluminium and black plastic, workshop worn. Standing on a concrete floor with a workbench and a few hand tools out of focus behind it.",
+  "proposalArchived": {
     "audience": "Written for the group. Read it, then tell me what you think.",
     "summary": [
       "I want us to build TorQ instead of the sorting robot. Ask it a torque spec and it finds the page in our service manuals, then displays it on a hinged screen in its belly, tilted up to your eyeline. It is also a lit inspection magnifier for reading part numbers, it films your teardown with its own light, it picks up dropped fasteners with a magnet, and it runs timers for torque sequences and cure times.",
@@ -723,6 +721,5 @@
       ],
       "verdict": "TorQ inverts the risk. The essential part, finding the right page and putting it on screen, is a laptop program we can build in week 2 before a single part arrives, so if it is going to fail it fails while we still have ten weeks. And when something does go wrong it degrades into something useful instead of into nothing: no model, still a manual page; no retrieval, still a screen on wheels you can drive. The belly even survived the change. It still opens, it just holds a display instead of a bin."
     }
-  },
-  "imagePrompt": "a small boxy tracked robot with a compact cube shaped body riding on black rubber treads, having no arms at all and no limbs of any kind. On a short jointed neck it carries a binocular head built from two large cylindrical eyes set side by side: the left eye is a camera lens with visible glass elements, the right eye is a lamp with a clear reflector, switched on. A hinged flat display panel folds down out of a bay in the front of the body and tilts up toward the viewer, its screen a blank flat grey. Weathered matte machined aluminium and black plastic, workshop worn. Standing on a concrete floor with a workbench and a few hand tools out of focus behind it."
+  }
 }
