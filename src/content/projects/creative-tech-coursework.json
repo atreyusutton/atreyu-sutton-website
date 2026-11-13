@@ -12,7 +12,12 @@
     "value": "",
     "unit": ""
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "10 January to 25 April 2026",
+    "Commits": "24",
+    "Built": "Next.js site, 87 files, documenting the coursework",
+    "Repo": "github.com/atreyusutton/creative-tech, public"
+  },
   "hero": {
     "src": "/generated/creative-tech-coursework.jpg",
     "alt": "Generated stand-in image for Creative Tech Coursework. Not a photograph of the real build.",
@@ -34,7 +39,7 @@
       "role": "number",
       "question": "One number or spec",
       "hint": "Semester, number of projects, your grade if it flatters you.",
-      "draft": "",
+      "draft": "From the repo: 24 commits from 10 January to 25 April 2026, an 87 file Next.js site built to document the coursework rather than to be the coursework. Projects it covers include Motor Buffet with the War Pigs tornado piece, Technology Tinder, and an IDC2 ideation and project pair on the Spotify record player. Worth knowing: that IDC2 work is the Digital Record Player in slot 2. The coursework page and the featured case study are the same build seen twice. Either say so and let the coursework page carry the earlier prototype videos as evidence, or cut the overlap. NEEDS YOU: which pieces here are yours alone and which were team work.",
       "answer": ""
     },
     {

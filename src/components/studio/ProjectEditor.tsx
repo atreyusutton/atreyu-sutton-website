@@ -17,7 +17,10 @@ export function ProjectEditor({
   const state = readiness(project)
 
   const setAnswer = (index: number, answer: string) => {
-    onChange({ intake: project.intake.map((q, i) => (i === index ? { ...q, answer } : q)) })
+    // Editing an answer is Atreyu confirming it, which is what unverified means.
+    onChange({
+      intake: project.intake.map((q, i) => (i === index ? { ...q, answer, unverified: false } : q)),
+    })
   }
 
   const setGalleryAlt = (src: string, alt: string) => {

@@ -6,6 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { report, summaryLines } from './content-report.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const projectsDir = path.join(root, 'src/content/projects')
@@ -27,12 +28,11 @@ fs.writeFileSync(
 
 console.log(`bundle: ${projects.length} projects written to public/content/bundle.json`)
 
-// Placeholder copy must never reach a hiring manager by accident.
-const mock = projects.filter((p) => p.mock).map((p) => p.slug)
-if (mock.length > 0) {
-  console.log('')
-  console.log(`  !!  ${mock.length} projects carry PLACEHOLDER content and are set to published.`)
-  console.log('  !!  Do not deploy this. Answer them in /studio, then clear the mock flag.')
-  console.log(`  !!  ${mock.join(', ')}`)
-  console.log('')
-}
+// Nothing unfinished should reach a hiring manager by accident. The detail is a
+// report of its own rather than a wall of slugs printed on every build.
+const state = report()
+console.log('')
+for (const line of summaryLines(state)) console.log(`  ${line}`)
+console.log('')
+console.log('  npm run content:report   what each project is still missing')
+console.log('')

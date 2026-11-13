@@ -12,7 +12,13 @@
     "value": "12",
     "unit": "planning documents"
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "6 December 2025 to 20 January 2026",
+    "Commits": "5",
+    "Documents": "12 markdown planning documents",
+    "Code": "Next.js 16 marketing app, 9 TypeScript files",
+    "Repo": "github.com/atreyusutton/echo-pilot, public"
+  },
   "hero": {
     "src": "/generated/echopilot.jpg",
     "alt": "Generated stand-in image for EchoPilot. Not a photograph of the real build.",
@@ -34,7 +40,7 @@
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "Confirm.",
-      "draft": "Solo. First commit 6 December 2025, last 20 January 2026, 5 commits. Built: marketing site. Not built: the product. Planned stack was Next.js on Vercel, Fastify on Railway, Supabase, Twilio, Google Business Profile API, Stripe.",
+      "draft": "From the repo: 5 commits, 6 December 2025 to 20 January 2026. The 12 in the headline is correct, I counted the markdown files: ai_runbook, boulder-business-outreach, brand, marketing_site_full, plan, review-request-integrations, sms-feature-ideas, stack, twilio-approval-process, twilio-integration-plan and two READMEs. The last commit is \"Product pivot: SMS-first business management platform\", so the SMS idea is where it ended, not where it started. Against 12 documents there are 9 TypeScript files and no backend, which makes this a piece of product thinking rather than a build. Said plainly that is a fine thing for it to be, and the twilio-approval-process document is the interesting part: it is the regulatory constraint, not a feature list. NEEDS YOU: what the pivot was away from, and whether you ever got Twilio approval.",
       "answer": ""
     },
     {

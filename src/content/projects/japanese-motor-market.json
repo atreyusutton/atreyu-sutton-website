@@ -12,7 +12,12 @@
     "value": "20,245",
     "unit": "listings scraped"
   },
-  "specs": {},
+  "specs": {
+    "Timeline": "7 May 2026",
+    "Commits": "7, forked from Classic Motor Market",
+    "Stack": "Next.js 16 App Router, React 19, Tailwind v4, Prisma 6, Postgres on Neon",
+    "Services": "Clerk for auth, Cloudflare Images, Resend, deployed on Vercel"
+  },
   "hero": {
     "src": "/generated/japanese-motor-market.jpg",
     "alt": "Generated stand-in image for Japanese Motor Market. Not a photograph of the real build.",
@@ -41,7 +46,7 @@
       "role": "meta",
       "question": "Role, timeline, status",
       "hint": "Dates, and is it deployed.",
-      "draft": "Solo. NOT A GIT REPO, so I could not read dates. Tell me when you built it and whether it is live anywhere. Scope in the folder: Next.js App Router, 12 Prisma models, admin dashboard, listings, sell flow, blog, ad placements, Clerk auth, account settings.",
+      "draft": "READ THIS BEFORE THE PAGE SHIPS. The repo is 7 commits, all on 7 May 2026, and its first commit is \"Initial JMM scaffold from CMM\". Its own CLAUDE.md says it was forked from Classic Motor Market in May 2026, and the 20,245 listings come from a sibling Python project called japanese-scrapper that is not among the repos I can see. As written, this page invites \"tell me about building Japanese Motor Market\" and the true answer is a one day rebrand of another site of yours. The stronger and more honest framing is the opposite one: Classic Motor Market is the real build, 36 commits and 104 TypeScript files from November 2025 to April 2026, and JMM is the evidence you could retarget it to a new market in a day, stripping the whole Stripe and membership layer and swapping NextAuth for Clerk on the way. That is a better engineering story than the listing count. NEEDS YOU: confirm the scraper is yours, and decide which of the two sites gets the featured slot.",
       "answer": ""
     },
     {
