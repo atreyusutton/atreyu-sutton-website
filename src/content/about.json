@@ -6,7 +6,7 @@
     "Now": "M.S. Engineering, ATLAS Institute, CU Boulder, finishing May 2027",
     "Before": "B.A. Computer Science, Rollins College, 4.0 GPA",
     "Focus": "Agentic LLM systems, context engineering, forecasting models",
-    "Stack": "Python, TypeScript, SQL, LightGBM, Claude API",
+    "Stack": "Python, TypeScript, SQL, LightGBM, Claude, GPT, Grok, Cursor, Claude Code",
     "Based": "Boulder, Colorado"
   },
   "sustainableIntro": "Projects about land, energy and the outdoors, which is the other thing I keep coming back to.",
@@ -22,7 +22,7 @@
     "height": 1254
   },
   "skills": {
-    "AI and agents": "LLM applications on the Claude API, agentic workflows, context engineering, prompt design",
+    "AI and agents": "LLM applications and agentic workflows with Claude, GPT and Grok, coding agents (Cursor, Claude Code), context engineering, prompt design",
     "ML and data": "Python, pandas, LightGBM, quantile forecasting, walk-forward backtesting, scrapers and data pipelines",
     "Software": "TypeScript, JavaScript, React, Next.js, Node.js, SQL (Postgres), Git, AWS, Cloudflare",
     "Hardware and making": "Raspberry Pi, electronics assembly, CAD, 3D printing, CNC machining, welding"
