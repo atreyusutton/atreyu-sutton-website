@@ -115,6 +115,58 @@ export interface Proposal {
   }
 }
 
+/* A case study is the long form for a finished project: an intro, then
+   sections that can each carry prose, a flow diagram, screenshots, a code
+   excerpt or a table of facts. All of it is data, so the page stays one
+   content file. */
+
+export interface FlowBox {
+  step?: string
+  title: string
+  note?: string
+}
+
+export interface FlowStage {
+  /** Printed on the connector leading into this stage. */
+  label?: string
+  /** One box, or several side by side when they run in parallel. */
+  boxes: FlowBox[]
+  /** A side note for the stage: an input it is fed, or a branch it can take. */
+  aside?: string
+}
+
+export interface CaseStudyFlow {
+  /** One sentence describing the whole diagram, for screen readers. */
+  summary: string
+  /** Work done ahead of time, shown above the request flow. */
+  offline?: { label: string; lines: string[][] }
+  stages: FlowStage[]
+}
+
+export interface CaseStudyCode {
+  file: string
+  text: string
+}
+
+export interface CaseStudySection {
+  label: string
+  title?: string
+  body?: string[]
+  flow?: CaseStudyFlow
+  images?: Media[]
+  /** `two` sets images side by side. Default is one per row. */
+  imageLayout?: 'one' | 'two'
+  code?: CaseStudyCode
+  facts?: Record<string, string>
+  after?: string[]
+}
+
+export interface CaseStudy {
+  tags: string[]
+  intro: string[]
+  sections: CaseStudySection[]
+}
+
 export interface Project {
   slug: string
   title: string
@@ -139,6 +191,10 @@ export interface Project {
   intake: IntakeQuestion[]
   /** Overrides the lane heuristic in scripts/generate-images.mjs. Subject only. */
   imagePrompt?: string
+  /** Up to three short facts shown on the card. */
+  chips?: string[]
+  /** The long form write-up for a finished project. */
+  caseStudy?: CaseStudy
   /** Present only on projects argued for rather than reported on. */
   proposal?: Proposal
 }

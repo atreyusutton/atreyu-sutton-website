@@ -18,6 +18,7 @@ import {
   ProposalSections,
 } from '@/components/Proposal'
 import { Section } from '@/components/Section'
+import { CaseStudySections } from '@/components/CaseStudy'
 
 export function generateStaticParams() {
   return publishedProjects()
@@ -110,6 +111,23 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </div>
             ) : null}
 
+            {project.caseStudy ? (
+              <>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {project.caseStudy.tags.map((tag) => (
+                    <li key={tag} className="label border border-rule px-2 py-1">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+                <div className="prose-measure mt-8 text-lg">
+                  {project.caseStudy.intro.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </>
+            ) : null}
+
             {project.proposal?.origin ? (
               <ProposalOriginBlock origin={project.proposal.origin} />
             ) : null}
@@ -157,6 +175,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <ProposalSections
           sections={project.proposal.sections}
           numbers={project.proposal.sections.map(() => next())}
+        />
+      ) : null}
+
+      {project.caseStudy ? (
+        <CaseStudySections
+          sections={project.caseStudy.sections}
+          numbers={project.caseStudy.sections.map(() => next())}
         />
       ) : null}
 
