@@ -1,6 +1,6 @@
 export type Lane = 'mechanical' | 'software' | 'hardware' | 'fab' | 'writing'
 export type Status = 'running' | 'shipped' | 'shelved' | 'in-progress'
-export type Tier = 'featured' | 'swap' | 'index' | 'future' | 'writing'
+export type Tier = 'featured' | 'swap' | 'index' | 'future' | 'writing' | 'sustainable'
 
 /** Maps an intake answer onto the part of the case study it renders as. */
 export type QuestionRole =
@@ -119,6 +119,8 @@ export interface Project {
   published: boolean
   featured: boolean
   carriedOver?: boolean
+  /** A title-only card with no page behind it yet. Skips the publish checks. */
+  stub?: boolean
   /** Set by scripts/fill-mock-content.mjs. Placeholder copy, never shippable. */
   mock?: boolean
   status: Status

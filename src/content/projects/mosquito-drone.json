@@ -4,7 +4,7 @@
   "lane": "hardware",
   "tier": "future",
   "order": null,
-  "published": true,
+  "published": false,
   "featured": false,
   "status": "in-progress",
   "oneLine": "A small drone I built to be light enough to be a nuisance and cheap enough to crash.",

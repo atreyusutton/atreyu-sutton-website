@@ -4,7 +4,7 @@
   "lane": "software",
   "tier": "index",
   "order": null,
-  "published": true,
+  "published": false,
   "featured": false,
   "status": "running",
   "oneLine": "The consultancy I run, doing full stack development and AI integration for clients.",

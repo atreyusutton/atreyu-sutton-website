@@ -4,7 +4,7 @@
   "lane": "mechanical",
   "tier": "index",
   "order": null,
-  "published": true,
+  "published": false,
   "featured": false,
   "status": "in-progress",
   "oneLine": "A full teardown and rebuild of an engine, down to the bare block and back together running.",

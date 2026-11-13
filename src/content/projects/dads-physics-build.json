@@ -1,0 +1,22 @@
+{
+  "slug": "dads-physics-build",
+  "title": "Dad's Physics Build",
+  "lane": "software",
+  "tier": "featured",
+  "order": 7,
+  "published": true,
+  "featured": true,
+  "mock": true,
+  "status": "running",
+  "oneLine": "A lesson builder for my dad's physics and astronomy classes. One line, like \"make me a lesson on chapters 11 and 12\", comes back as slides, a group activity, a worksheet with an answer key and two versions of a test, all drawn from the class textbook.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": []
+}

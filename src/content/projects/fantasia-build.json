@@ -1,0 +1,22 @@
+{
+  "slug": "fantasia-build",
+  "title": "Fantasia.build",
+  "lane": "software",
+  "tier": "featured",
+  "order": 8,
+  "published": true,
+  "featured": true,
+  "stub": true,
+  "status": "in-progress",
+  "oneLine": "",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": null,
+  "gallery": [],
+  "video": null,
+  "links": [],
+  "intake": []
+}

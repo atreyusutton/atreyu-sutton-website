@@ -39,7 +39,7 @@ export function SiteFooter() {
 
             <p className="label mt-10">
               Boulder, Colorado.{' '}
-              <Link href="/projects/" className="link-underline">
+              <Link href="/#work" className="link-underline">
                 All work
               </Link>
             </p>

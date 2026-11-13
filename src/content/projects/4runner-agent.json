@@ -1,0 +1,32 @@
+{
+  "slug": "4runner-agent",
+  "title": "4Runner Agent",
+  "lane": "software",
+  "tier": "featured",
+  "order": 4,
+  "published": true,
+  "featured": true,
+  "mock": true,
+  "status": "in-progress",
+  "oneLine": "The engine swap on my 1988 4Runner, run as an agent project. An AI agent works through the factory service manuals with me, keeps the wiring tables and the cut log, and builds the public checklist site from those notes.",
+  "headlineNumber": {
+    "value": "",
+    "unit": ""
+  },
+  "specs": {},
+  "hero": {
+    "src": "/1985-toyota-4runner/toyota-build-21.jpeg",
+    "alt": "The 4Runner front three quarter in a workshop, matte black with the weathered Mount Fuji and rising sun livery down the side, on a lift and BFGoodrich all terrains",
+    "width": 1536,
+    "height": 1024
+  },
+  "gallery": [],
+  "video": null,
+  "links": [
+    {
+      "label": "Build site",
+      "href": "https://5vz-swap.pages.dev"
+    }
+  ],
+  "intake": []
+}
