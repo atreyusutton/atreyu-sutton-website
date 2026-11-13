@@ -24,9 +24,9 @@
   ],
   "portrait": {
     "src": "/headshot.jpg",
-    "alt": "Atreyu smiling at the camera in a dark green linen shirt, with a plant and a framed photograph behind him",
-    "width": 1254,
-    "height": 1254
+    "alt": "Atreyu smiling at the camera in a dark green linen shirt, outdoors with pine trees and dry grass behind him",
+    "width": 1091,
+    "height": 1442
   },
   "skills": {
     "AI and agents": "LLM applications and agentic workflows with Claude, GPT and Grok, coding agents (Cursor, Claude Code), context engineering, prompt design",
