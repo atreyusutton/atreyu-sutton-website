@@ -16,7 +16,7 @@ projects sit next to each other.
 | 02 | Engine Rebuild | Mech | Most visceral proof on the list. Compression before and after is the number. | Possibly inside `1985-toyota-4runner/` |
 | 03 | Digital Record Player | Hardware | The best project in the set. Power electronics, audio DAC, embedded Linux, Python display, Flask control app, physical retrofit, in one object. | None yet |
 | 04 | FSAE Team | Mech | The credential mechanical recruiters look for by name. Written around the subsystem he owned, not the team. | None yet |
-| 05 | Japanese Motor Market | Software | 20,245 scraped Bring a Trailer listings behind a full Next.js marketplace. The only project that is software and automotive at once. | `fuelfed-motor-market/`, 1 image |
+| 05 | Japanese Motor Market | Software | 100 scraped Bring a Trailer listings and 643 images behind a full Next.js marketplace. The only project that is software and automotive at once. | `fuelfed-motor-market/`, 1 image |
 | 06 | RISD Car Design | Mech | The differentiator. Engineers who can draw are rare. The page people screenshot. | `risd-project-car/`, 4 images |
 | 07 | Phantom Typewriter | Hardware | The strange one, and the only project carrying personality. Displaced by the mosquito drone when that flies. | None yet |
 | 08 | Coleman Frame **or** Custom Car Radio | Fab / Hardware | DECIDE. Fabrication is the one hard skill nothing else here proves, so the frame wins by default. The radio wins instead if it took six or more revisions with calipers and a real tolerance study. Two or three prints until it looked right, and it goes to the index. | None yet |

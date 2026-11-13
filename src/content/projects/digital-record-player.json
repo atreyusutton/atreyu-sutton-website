@@ -7,32 +7,44 @@
   "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "I put a Raspberry Pi inside a 1byone turntable so it streams Spotify while the platter still spins real vinyl, with a round screen in the middle showing the album art turning at 33 1/3.",
+  "oneLine": "I rebuilt a 1byone turntable around a Raspberry Pi 4. It streams Spotify while the platter spins, and a round display in the centre shows the album art turning at 33 1/3 RPM.",
   "headlineNumber": {
-    "value": "6x",
-    "unit": "faster boot, 2m 14s to 22s"
+    "value": "98",
+    "unit": "commits, solo"
   },
   "specs": {
-    "Timeline": "27 February to 23 April 2026",
-    "Commits": "97 across all branches, 93 on main",
-    "Compute": "Raspberry Pi 4 8GB, Raspberry Pi OS Bookworm, Wayland and labwc",
-    "Display": "Waveshare 4 inch 720x720 round IPS HDMI panel",
-    "Audio": "InnoMaker HiFi DAC HAT, PCM5122, 384 kHz 32-bit",
-    "Power": "12V 5A supply, 5A blade fuse, 12V to 5V buck converter",
-    "Software": "Raspotify and librespot, Python, pygame, Flask, 6 systemd units"
+    "Role": "Solo: power wiring, software, debugging",
+    "Built": "Main build 27 February to 23 April 2026",
+    "Compute": "Raspberry Pi 4 (8 GB), Raspberry Pi OS, Wayland with the labwc compositor",
+    "Displays": "Waveshare 4 inch round HDMI LCD, 720x720. 3.5 inch DSI capacitive touchscreen, 800x480",
+    "Audio": "Focusrite Scarlett Solo 4th Gen over USB into KRK Rokit 5 monitors",
+    "Inputs": "Two rotary encoders on GPIO: volume and navigation",
+    "Motor": "Original platter motor through a MOSFET on GPIO 18, 1 kHz PWM",
+    "Power": "One 12 V 5 A supply, master switch, 5 A fuse, buck converter to 5 V for the Pi and round display",
+    "Stack": "Python, Flask, pygame, systemd, GPIO, librespot (raspotify), Spotify Web API",
+    "Code": "About 3,300 lines: about 1,330 Python, about 1,460 HTML, CSS and JS in one file with no framework, about 560 shell",
+    "Deploy": "git push to a bare repo on the Pi with a post-receive hook"
   },
   "hero": {
-    "src": "/generated/digital-record-player.jpg",
-    "alt": "Generated stand-in image for Digital Record Player. Not a photograph of the real build.",
-    "width": 1600,
-    "height": 1066
+    "src": "/digital-record-player/round-display-still-2.png",
+    "alt": "A demo render of the round display, not a photo of the device: a circular frame on black filled with a generated album cover, a pale sun on a red and orange background with diagonal stripes, rotated so its title text reads upside down",
+    "width": 720,
+    "height": 720
   },
   "gallery": [],
   "video": null,
   "links": [
     {
-      "label": "Repo",
+      "label": "Source on GitHub",
       "href": "https://github.com/atreyusutton/recordplayer"
+    },
+    {
+      "label": "GitHub profile",
+      "href": "https://github.com/atreyusutton"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/atreyusutton"
     }
   ],
   "intake": [
@@ -55,14 +67,14 @@
       "question": "What made it hard?",
       "hint": "Pick one: power, display, or audio.",
       "draft": "Candidates from your own notes: sharing one 12V supply between the motor circuit and the Pi while keeping the motor completely independent of it; driving a 720x720 round display under Wayland and labwc in kiosk mode; and the audio path through the PCM5122 DAC HAT. You have both a diagnose-audio.sh and a boot-optimize.sh sitting in the repo, which tells me audio and boot time each cost you real time. Which was worse?",
-      "answer": "The turntable motor and the Pi had to share one 12V supply, and the motor could never depend on the computer to run. On top of that the 720x720 round display had to come up under Wayland in kiosk mode, and the audio had to stay clean through the PCM5122 DAC."
+      "answer": ""
     },
     {
       "role": "decision",
       "question": "What did you decide, and what did you reject?",
       "hint": "Confirm the motor decision and add anything I missed.",
       "draft": "This one is documented and it is good: you hardwired the motor to the original OEM switches off the 12V rail rather than putting it under Pi control, and your notes list a 400W dual MOSFET trigger switch as purchased but not used for exactly that reason. A decision and its rejected alternative, with the leftover part as evidence. Second decision worth naming: Raspotify and librespot for the audio path with a separate Flask app on the Spotify Web API for control, instead of one program doing both.",
-      "answer": "I hardwired the motor to the original OEM switches off the 12V rail instead of putting it under Pi control. I had bought a 400W dual MOSFET trigger switch and deliberately did not use it. If the Pi hangs, the platter still spins and the record player is still a record player."
+      "answer": ""
     },
     {
       "role": "number",
@@ -93,5 +105,221 @@
       "answer": ""
     }
   ],
-  "mock": true
+  "chips": [
+    "Raspberry Pi 4",
+    "5 systemd services",
+    "Art turns at 33 1/3 RPM"
+  ],
+  "caseStudy": {
+    "tags": [
+      "Embedded Linux",
+      "Raspberry Pi 4",
+      "Python",
+      "Flask",
+      "pygame",
+      "systemd",
+      "GPIO"
+    ],
+    "stats": [
+      {
+        "value": "33 1/3",
+        "label": "RPM the album art turns at"
+      },
+      {
+        "value": "60",
+        "label": "FPS render loop"
+      },
+      {
+        "value": "100 ms",
+        "label": "Knob polling interval"
+      },
+      {
+        "value": "5",
+        "label": "systemd services on one Pi"
+      }
+    ],
+    "statsNote": "Values set in the source code. They are design settings, not benchmarks.",
+    "intro": [
+      "I took apart a 1byone vinyl turntable and rebuilt it as a self-contained Spotify player. A Raspberry Pi 4 inside the chassis shows up as a Spotify Connect device. A 4 inch round display sits where the record label would be and shows the current album art turning at 33 1/3 RPM, while the original platter motor spins underneath it.",
+      "A 3.5 inch touchscreen runs a control UI I wrote. Two rotary encoders give physical volume and navigation knobs. Audio goes out through a Focusrite Scarlett Solo to studio monitors.",
+      "There is no machine learning in this project. It is an embedded systems and full-stack build, and it is here for the engineering underneath it. The images on this page are renders with demo data, not photos of the device. Real photos are still to come."
+    ],
+    "sections": [
+      {
+        "label": "What it is",
+        "title": "A turntable that streams Spotify",
+        "body": [
+          "Pick the player in the Spotify app and the platter starts. The round display draws the cover with a pygame render loop at 60 FPS, rotating 200 degrees per second clockwise, which is 33 1/3 RPM. Covers cross-fade over 0.5 s. When playback pauses, the rotation freezes and the motor stops.",
+          "After 2 minutes with nothing playing, both screens power off and API polling stops. A knob, a touch or a Spotify Connect transfer wakes it in about 2 s."
+        ],
+        "video": {
+          "src": "/digital-record-player/round-display-spin.mp4",
+          "poster": "/digital-record-player/round-display-still.png",
+          "caption": "A recreation of what the round display draws: cover art at 33 1/3 RPM. Rendered on a computer with generated demo artwork, not filmed on the device."
+        }
+      },
+      {
+        "label": "Photos",
+        "title": "Photos still to come",
+        "body": [
+          "I have not photographed the finished build yet. These slots stay empty until I do, rather than being filled with stand-ins."
+        ],
+        "pending": [
+          "The finished turntable from a 3/4 angle, both screens lit, art visible on the platter",
+          "Top-down shot of the round display in the centre of the platter",
+          "Close-up of the touchscreen and the two knobs",
+          "Inside the chassis: Pi, buck converter, fuse, MOSFET, wiring",
+          "A 10 to 15 s video: select the device in Spotify, the platter starts, the art fades in, then a knob turn with the on-screen slider tracking it"
+        ]
+      },
+      {
+        "label": "Architecture",
+        "title": "How it works",
+        "body": [
+          "Five systemd services run on one Pi. raspotify, which wraps librespot, is the Spotify Connect endpoint and plays the audio. An event hook writes the current track to a small file. The display service reads that file and draws the spinning cover.",
+          "The control backend is Flask on port 8080 with 28 routes. It talks to the Spotify Web API over OAuth with automatic token refresh, serves the touchscreen UI, and drives the motor from playback state. Each knob has its own process.",
+          "The services coordinate through small files in /tmp instead of a message bus. The knob story below explains why."
+        ],
+        "images": [
+          {
+            "src": "/digital-record-player/architecture.png",
+            "alt": "System architecture diagram in four columns. Inputs: the Spotify app, a volume encoder, a navigation encoder and the touchscreen. Services: raspotify, knob.py, nav-knob.py and a Chromium kiosk. Small files in /tmp: now_playing.json, a volume file, a navigation file and sleep and wake flags. Outputs: the Scarlett Solo, display.py driving the round LCD, and the platter motor. A Flask backend, control.py, sits underneath, reads the files, talks to the Spotify Web API and drives the motor by PWM.",
+            "width": 1600,
+            "height": 1028,
+            "caption": "Services, the files they share, and the hardware they drive"
+          }
+        ]
+      },
+      {
+        "label": "Boot",
+        "title": "Finding where the boot time went",
+        "body": [
+          "A cold boot to a usable screen started at 2 min 14 s. I profiled it and removed the costs one at a time.",
+          "The biggest was a leftover device-tree overlay. That is a line in the Pi's boot config that tells the kernel what hardware is attached. Mine still named a DAC I had removed, so the system probed for a chip that was not there and hung for roughly 60 s.",
+          "The next was the display manager, the program that normally starts the desktop session. It waited for Wi-Fi before starting. I replaced it with an automatic console login that starts the compositor directly, which saved about 33 s. I also changed the services so they no longer wait on the network or the graphical target."
+        ],
+        "table": {
+          "head": [
+            "Cost",
+            "Cause",
+            "Fix",
+            "Saved"
+          ],
+          "rows": [
+            [
+              "Stale DAC overlay",
+              "Boot config named hardware that was no longer installed",
+              "Removed the overlay",
+              "Roughly 60 s"
+            ],
+            [
+              "Display manager (lightdm)",
+              "Session start blocked on Wi-Fi",
+              "tty autologin that execs the compositor directly",
+              "About 33 s"
+            ]
+          ]
+        },
+        "after": [
+          "I also designed around boot time. The device sleeps instead of shutting down, so day to day it wakes in about 2 s."
+        ]
+      },
+      {
+        "label": "Knobs",
+        "title": "Getting the knobs to feel instant",
+        "body": [
+          "What shipped: each knob process writes its state to a small file in /tmp, the backend has one cheap endpoint that reads those files, and the UI polls it every 100 ms.",
+          "My first attempt had the knobs send virtual key presses. Wayland only delivers keyboard events to the focused window, and this device has two fullscreen windows on two displays, Chromium and pygame. Input went to whichever one happened to have focus.",
+          "My second attempt was server-sent events from Flask. The long-lived streams tied up the server's worker threads and starved ordinary requests.",
+          "There was a second source of lag. The amixer call that actually changes the volume takes about a second. The fix was ordering: write the new value to the file first so the slider moves at once, then apply the mixer change on a background thread."
+        ],
+        "code": {
+          "file": "knob.py",
+          "text": "def _set_volume(vol: int):\n    global _current_vol\n    _current_vol = max(MIN_VOLUME, min(MAX_VOLUME, vol))\n    # Write file first so UI updates instantly\n    try:\n        VOL_FILE.write_text(str(_current_vol))\n    except OSError:\n        pass\n    # ALSA update runs in background so it doesn't block the next knob event\n    threading.Thread(target=_amixer_all, args=(f\"{_current_vol}%\",), daemon=True).start()"
+        },
+        "after": [
+          "The volume knob has 22 detents of 4 %. It is capped at 88 % because that is 0 dB on the Scarlett and anything above clips."
+        ]
+      },
+      {
+        "label": "Permissions",
+        "title": "Two processes, two users, one /tmp",
+        "body": [
+          "The Spotify daemon runs as root, and its event hook writes the wake flag. The display service runs as an unprivileged user and tried to delete that flag on start. It could not, and the service crash-looped.",
+          "Making the file world-writable did not help. /tmp has the sticky bit, so only a file's owner can delete it, whatever its mode. The fix was correct ownership on the file, plus handling the permission error explicitly.",
+          "The event hook also takes a lock with flock, so concurrent librespot events cannot interleave their writes to the now-playing file."
+        ],
+        "code": {
+          "file": "display.py, startup cleanup in main",
+          "text": "for f in (SLEEP_FILE, WAKE_FILE):\n    try:\n        f.unlink(missing_ok=True)\n    except PermissionError:\n        pass"
+        }
+      },
+      {
+        "label": "Relevance",
+        "title": "Why this is on an AI/ML portfolio",
+        "body": [
+          "This project has no model in it. I am applying for AI/ML engineering internships, and this is the engineering I would bring.",
+          "Latency budgeting. Every interactive path has a budget: 100 ms knob polling, 60 FPS rendering with all network I/O off the render thread, and optimistic UI updates so commands do not wait on a round trip to Spotify. Serving a model takes the same discipline.",
+          "Measure, then cut. The boot work was profiling and one-variable-at-a-time experiments.",
+          "Concurrency in practice. Background threads, file locking, state shared across processes, and a watchdog that pauses playback if Spotify reports playing but the audio output has been silent for 60 s.",
+          "Whole-stack ownership. Power wiring, kernel overlays, compositor, audio stack, backend, frontend and deploy pipeline. ML work that leaves the notebook needs people comfortable at every layer.",
+          "I built this with Claude Code as a pair programmer. I kept a project brief and a running log of non-obvious findings, so each session started with real context."
+        ]
+      },
+      {
+        "label": "Control UI",
+        "title": "The touchscreen UI",
+        "body": [
+          "The control UI has three swipeable pages: player, playlists and search. All of it works by touch or by the navigation knob alone: rotate to move focus, press to select.",
+          "These are the real frontend code rendered on a computer against a mock API. The track names are invented and the cover art is generated. They are not photos of the device."
+        ],
+        "imageLayout": "two",
+        "images": [
+          {
+            "src": "/digital-record-player/ui-01-now-playing.png",
+            "alt": "UI capture with demo data: the player page with cover art, track title, a progress bar at 1:37 of 4:23, shuffle, previous, pause, next and repeat buttons, an up-next row, a volume slider and a motor toggle in the top right corner",
+            "width": 1600,
+            "height": 960,
+            "caption": "Player page, with the motor toggle top right. Demo data."
+          },
+          {
+            "src": "/digital-record-player/ui-02-playlists.png",
+            "alt": "UI capture with demo data: the playlists page, a Liked Songs row above a grid of five playlists, each with a cover and a track count",
+            "width": 1600,
+            "height": 960,
+            "caption": "Playlist grid. Demo data."
+          },
+          {
+            "src": "/digital-record-player/ui-03-playlist-tracks.png",
+            "alt": "UI capture with demo data: the track list inside a playlist called Late Night Vinyl, four tracks with covers, artists and durations, and a Play All button",
+            "width": 1600,
+            "height": 960,
+            "caption": "Tracks inside a playlist. Demo data."
+          },
+          {
+            "src": "/digital-record-player/ui-04-recently-played.png",
+            "alt": "UI capture with demo data: the search page before typing, an empty search box above a recently played list of four albums",
+            "width": 1600,
+            "height": 960,
+            "caption": "Search page before typing. Demo data."
+          },
+          {
+            "src": "/digital-record-player/ui-05-search.png",
+            "alt": "UI capture with demo data: search results for the word night, three tracks under a Tracks heading and one album under an Albums heading",
+            "width": 1600,
+            "height": 960,
+            "caption": "Search results. Demo data."
+          }
+        ]
+      },
+      {
+        "label": "Next",
+        "title": "What is next",
+        "body": [
+          "Both of these are planned and not built.",
+          "First, porting to a Compute Module 4 with both panels on DSI. Second, a minimal custom Linux image and a native app that replaces Chromium, pygame and Flask. The target for that is a 15 to 18 s cold boot."
+        ]
+      }
+    ]
+  }
 }

@@ -39,11 +39,11 @@ not removed. The old work index and lane filter are parked in `_archive/`.
 
 - Home and about copy is in `src/content/about.json`. Drafted, still flagged
   `mock`. Read every line before it ships.
-- Selected work: TorQ, Bakery client (NDA), Digital Record Player, 4Runner Agent,
+- Selected work: TorQ, the bakery forecast (client under NDA, never named), Digital Record Player, 4Runner Agent,
   Japanese Motor Market, LandedTheJob, Dad's Physics Build, Fantasia.build.
 - Sustainable interests: Land Finder, Net Zero Home, Green Burial Pitch,
   Valdra Outside. Ordered by the `order` field.
-- Still needed: real copy and images for Bakery client (NDA), 4Runner Agent and
+- Still needed: real copy and images for the bakery forecast, 4Runner Agent and
   Dad's Physics Build, everything for Fantasia.build (a title-only stub), and
   the project pages rewritten for this role.
 - `public/resume.pdf` is the Chess.com AI/ML resume as of 13 Nov 2026.

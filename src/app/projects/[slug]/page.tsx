@@ -18,6 +18,7 @@ import {
   ProposalSections,
 } from '@/components/Proposal'
 import { Section } from '@/components/Section'
+import { CaseStudySections } from '@/components/CaseStudy'
 
 export function generateStaticParams() {
   return publishedProjects()
@@ -88,6 +89,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               sizes="(max-width: 84rem) 100vw, 84rem"
               className="mx-auto max-h-[68vh] w-auto border border-rule"
             />
+            {project.hero.caption ? (
+              <figcaption className="label mt-2">{project.hero.caption}</figcaption>
+            ) : null}
           </figure>
         </div>
       ) : null}
@@ -108,6 +112,38 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   ))}
                 </div>
               </div>
+            ) : null}
+
+            {project.caseStudy ? (
+              <>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {project.caseStudy.tags.map((tag) => (
+                    <li key={tag} className="label border border-rule px-2 py-1">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+                {project.caseStudy.stats && project.caseStudy.stats.length > 0 ? (
+                  <div className="mt-8">
+                    <dl className="grid max-w-[52rem] grid-cols-2 gap-x-8 gap-y-6 border-y border-rule py-5 sm:grid-cols-4">
+                      {project.caseStudy.stats.map((stat) => (
+                        <div key={stat.label} className="flex flex-col-reverse">
+                          <dt className="label mt-1">{stat.label}</dt>
+                          <dd className="num text-3xl">{stat.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    {project.caseStudy.statsNote ? (
+                      <p className="label mt-2">{project.caseStudy.statsNote}</p>
+                    ) : null}
+                  </div>
+                ) : null}
+                <div className="prose-measure mt-8 text-lg">
+                  {project.caseStudy.intro.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </>
             ) : null}
 
             {project.proposal?.origin ? (
@@ -157,6 +193,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <ProposalSections
           sections={project.proposal.sections}
           numbers={project.proposal.sections.map(() => next())}
+        />
+      ) : null}
+
+      {project.caseStudy ? (
+        <CaseStudySections
+          sections={project.caseStudy.sections}
+          numbers={project.caseStudy.sections.map(() => next())}
         />
       ) : null}
 

@@ -57,6 +57,16 @@ export function ProjectCard({ project }: { project: Project }) {
       {project.oneLine.trim() ? (
         <p className="prose-measure mt-2 text-[0.98rem] text-ink-muted">{project.oneLine}</p>
       ) : null}
+
+      {project.chips && project.chips.length > 0 ? (
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {project.chips.map((chip) => (
+            <li key={chip} className="label border border-rule px-2 py-1">
+              {chip}
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </article>
   )
 }
