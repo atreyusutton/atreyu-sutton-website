@@ -51,6 +51,10 @@
       "href": "https://www.linkedin.com/in/atreyusutton"
     }
   ],
+  "site": {
+    "label": "fantasia.build",
+    "href": "https://fantasia.build"
+  },
   "intake": [
     {
       "role": "number",

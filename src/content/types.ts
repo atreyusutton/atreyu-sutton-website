@@ -181,6 +181,8 @@ export interface CaseStudySection {
   /** `two` and `three` set images side by side. Default is one per row. */
   imageLayout?: 'one' | 'two' | 'three'
   video?: CaseStudyVideo
+  /** Several short clips, set side by side. */
+  videos?: CaseStudyVideo[]
   code?: CaseStudyCode
   facts?: Record<string, string>
   cards?: CaseStudyCard[]
@@ -220,6 +222,8 @@ export interface Project {
   gallery: Media[]
   video: { src: string; poster: string } | null
   links: { label: string; href: string }[]
+  /** The live site, when the project is one. Shown on the card and the page. */
+  site?: { label: string; href: string }
   intake: IntakeQuestion[]
   /** Overrides the lane heuristic in scripts/generate-images.mjs. Subject only. */
   imagePrompt?: string

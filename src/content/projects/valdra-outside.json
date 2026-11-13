@@ -27,6 +27,10 @@
       "href": "https://valdraoutside.com"
     }
   ],
+  "site": {
+    "label": "valdraoutside.com",
+    "href": "https://valdraoutside.com"
+  },
   "intake": [
     {
       "role": "oneLine",
