@@ -19,8 +19,8 @@
     { "name": "Renaud's Bakery", "what": "Prediction model", "href": "/projects/renauds-bakery/" },
     { "name": "FuelFed", "what": "Online motor market", "href": "/projects/classic-motor-market/" },
     { "name": "Valdra Outside", "what": "Brand apparel", "href": "/projects/valdra-outside/" },
-    { "name": "Ute Pass Vacation Rentals", "what": "Real estate", "href": "https://utepassvacationrentals.com" },
-    { "name": "TREC, The Real Estate Collaborative", "what": "Real estate", "href": "https://trecprojects.com" }
+    { "name": "Ute Pass Vacation Rentals", "what": "Real estate" },
+    { "name": "TREC, The Real Estate Collaborative", "what": "Real estate" }
   ],
   "portrait": {
     "src": "/headshot.jpg",
