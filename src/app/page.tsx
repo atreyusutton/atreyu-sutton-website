@@ -18,8 +18,7 @@ export default function HomePage() {
 
           <div className="grid gap-10 lg:grid-cols-[1fr_320px] lg:items-start lg:gap-16">
             <div>
-              <p className="label !text-accent">{about.applyingFor}</p>
-              <h1 className="mt-4">{about.headline}</h1>
+              <h1>{about.headline}</h1>
               <p className="prose-measure mt-6 text-lg text-ink-muted">{about.intro}</p>
 
               <div className="mt-8 max-w-[44rem]">

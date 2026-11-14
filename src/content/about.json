@@ -1,7 +1,6 @@
 {
-  "applyingFor": "For the AI/ML engineering internship at Chess.com",
   "headline": "I build AI agents and ML models, and I test them on real problems.",
-  "intro": "Atreyu Sutton. M.S. student at the ATLAS Institute at CU Boulder, with a B.A. in Computer Science. I build LLM systems and ML models end to end: an agent that has shipped 50 projects in 54 nights, a voice assistant on a robot, a lesson builder grounded in a textbook, and a demand forecasting model for a bakery. And I play chess.",
+  "intro": "Atreyu Sutton. M.S. student at the ATLAS Institute at CU Boulder, with a B.A. in Computer Science. I build LLM systems and ML models end to end: an agent that has shipped 50 projects in 54 nights, a voice assistant on a robot, a lesson builder grounded in a textbook, and a demand forecasting model for a bakery.",
   "atAGlance": {
     "Now": "M.S. Engineering, ATLAS Institute, CU Boulder, finishing May 2027",
     "Before": "B.A. Computer Science, Rollins College, 4.0 GPA",
@@ -13,7 +12,7 @@
   "bio": [
     "I am an engineering graduate student at the ATLAS Institute at CU Boulder, finishing the M.S. in May 2027. Before this I took a B.A. in Computer Science at Rollins College, and I have run Sutton Web Solutions, my own software practice, since 2023.",
     "Most of what I build now is agentic. I give an LLM the right context, tools and a way to check its own work, then point it at something real: a nightly build with nobody watching, a car repair, a physics textbook. Alongside that I built a demand forecasting model for a bakery: gradient boosted trees on 1.1M sales records, checked with a walk-forward backtest.",
-    "I also build physical things, which is why three of these projects have a robot, a truck or a turntable attached. I play chess, and that is why this is the internship I am applying for. I am in Boulder, Colorado, and I can work anywhere in the USA."
+    "I also build physical things, which is why three of these projects have a robot, a truck or a turntable attached. I am in Boulder, Colorado, and I can work anywhere in the USA."
   ],
   "work": [
     {
