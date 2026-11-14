@@ -183,7 +183,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         {project.headlineNumber.value.trim() ? (
           <p className="num mt-8 text-4xl">
-            {project.headlineNumber.value}
+            {project.headlineNumber.value}{" "}
             <span className="label ml-3">{project.headlineNumber.unit}</span>
           </p>
         ) : null}

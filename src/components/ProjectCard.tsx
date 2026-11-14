@@ -18,7 +18,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <p className="label">{LANE_LABELS[project.lane]}</p>
         {number ? (
           <p className="num text-sm text-ink">
-            {number}
+            {number}{" "}
             <span className="label ml-1.5">{project.headlineNumber.unit}</span>
           </p>
         ) : null}

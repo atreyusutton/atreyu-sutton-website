@@ -7,7 +7,7 @@
   "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "I rebuilt a 1byone turntable around a Raspberry Pi 4. It streams Spotify while the platter spins, and a round display in the centre shows the album art turning at 33 1/3 RPM.",
+  "oneLine": "I rebuilt a 1byone turntable around a Raspberry Pi 4. It streams Spotify while the platter spins, and a round display in the center shows the album art turning at 33 1/3 RPM.",
   "headlineNumber": {
     "value": "98",
     "unit": "commits, solo"
@@ -27,21 +27,21 @@
   },
   "hero": {
     "src": "/digital-record-player/photos/IMG_1055.jpg",
-    "alt": "The finished turntable from above on a glass table: a black plinth, a record with the round display in its centre, a silver tonearm, and the touchscreen with a knob on either side",
+    "alt": "The finished turntable from above on a glass table: a black plinth, a record with the round display in its center, a silver tonearm, and the touchscreen with a knob on either side",
     "width": 1200,
     "height": 1600
   },
   "gallery": [
     {
       "src": "/digital-record-player/photos/IMG_1060.jpg",
-      "alt": "The turntable on a desk between two studio monitors, cover art lit in the centre of the platter and the touchscreen lit at the front, next to a laptop with Spotify open",
+      "alt": "The turntable on a desk between two studio monitors, cover art lit in the center of the platter and the touchscreen lit at the front, next to a laptop with Spotify open",
       "width": 1600,
       "height": 780,
       "caption": "Playing, with Spotify open on the laptop"
     },
     {
       "src": "/digital-record-player/photos/IMG_1056.jpg",
-      "alt": "The turntable on a wooden desk under a wall mounted monitor and speakers, cover art showing in the centre of the platter and the small touchscreen lit beside the tonearm",
+      "alt": "The turntable on a wooden desk under a wall mounted monitor and speakers, cover art showing in the center of the platter and the small touchscreen lit beside the tonearm",
       "width": 1200,
       "height": 1600,
       "caption": "On the desk, both screens lit"
@@ -146,7 +146,7 @@
     {
       "role": "differently",
       "question": "What would you do differently?",
-      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "hint": "Two sentences. Not self criticism, a design judgment you would make differently now.",
       "draft": "Candidate, and it is already in the repo: feat/motor-auto-spin, four commits from 23 April 2026, adds PWM motor speed, auto-spin while playing with a UI toggle, and freezes the album art when playback pauses. That is the decision above being revisited, because it puts the motor under Pi control after you deliberately kept it off. The branch is unmerged. NEEDS YOU: did you leave it unmerged because it broke the independence you wanted, or did you just not get back to it? Either answer is a good two sentences.",
       "answer": ""
     }
