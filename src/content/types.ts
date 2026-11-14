@@ -181,8 +181,6 @@ export interface CaseStudySection {
   /** `two` and `three` set images side by side. Default is one per row. */
   imageLayout?: 'one' | 'two' | 'three'
   video?: CaseStudyVideo
-  /** Several short clips, set side by side. */
-  videos?: CaseStudyVideo[]
   code?: CaseStudyCode
   facts?: Record<string, string>
   cards?: CaseStudyCard[]
@@ -220,6 +218,8 @@ export interface Project {
   specs: Record<string, string>
   hero: Media | null
   gallery: Media[]
+  /** Short clips, shown with the gallery under the hero. */
+  clips?: CaseStudyVideo[]
   video: { src: string; poster: string } | null
   links: { label: string; href: string }[]
   /** The live site, when the project is one. Shown on the card and the page. */
