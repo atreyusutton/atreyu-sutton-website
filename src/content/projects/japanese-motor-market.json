@@ -3,7 +3,7 @@
   "title": "Japanese Motor Market",
   "lane": "software",
   "tier": "featured",
-  "order": 8,
+  "order": 7,
   "published": true,
   "featured": true,
   "status": "in-progress",
@@ -25,8 +25,8 @@
     "Services": "Clerk for auth, Cloudflare Images, deployed on Vercel with a custom domain"
   },
   "hero": {
-    "src": "/japanese-motor-market/01-home-hero.png",
-    "alt": "The Japanese Motor Market home page: a round brush-stroke logo with the kanji for old car, the headline \"The marketplace for JDM.\" in white and red on black, and Browse vehicles and List a vehicle buttons",
+    "src": "/japanese-motor-market/01-home-hero.jpg",
+    "alt": "The Japanese Motor Market home page: a round brush-stroke logo with the kanji for old car and the headline \"The marketplace for JDM.\" in white and red, over a dimmed photo of Japanese cars parked in a row, with Browse vehicles and List a vehicle buttons",
     "width": 1600,
     "height": 1000
   },
