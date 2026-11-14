@@ -39,7 +39,7 @@ not removed. The old work index and lane filter are parked in `_archive/`.
 
 - Home and about copy is in `src/content/about.json`. Drafted, still flagged
   `mock`. Read every line before it ships.
-- Selected work: TorQ, the bakery forecast (client under NDA, never named), Digital Record Player, 4Runner Agent,
+- Selected work: TorQ, the bakery forecast (client under NDA, never named), Digital Record Player, the 4Runner swap agent,
   Japanese Motor Market, LandedTheJob, Dad's Physics Build, Fantasia.build.
 - Sustainable interests: Land Finder, Net Zero Home, Green Burial Pitch,
   Valdra Outside. Ordered by the `order` field.
