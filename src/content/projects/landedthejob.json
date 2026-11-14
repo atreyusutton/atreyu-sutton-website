@@ -109,7 +109,7 @@
     {
       "role": "differently",
       "question": "What would you do differently?",
-      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "hint": "Two sentences. Not self criticism, a design judgment you would make differently now.",
       "draft": "",
       "answer": ""
     }
@@ -144,7 +144,7 @@
     "statsNote": "Timings are from one run on my local machine with claude-sonnet-4-6, on a fictional candidate and a fictional job posting. Not a benchmark.",
     "intro": [
       "LandedTheJob is a deployed web app. It takes a job seeker's career history and a job posting, and produces a resume and cover letter rewritten for that posting.",
-      "The resume above is real output from the pipeline, for a made-up candidate and a made-up job posting. It also breaks my own no-fabrication rule. I ran the pipeline once to see what it did, and that run is the centre of this page.",
+      "The resume above is real output from the pipeline, for a made-up candidate and a made-up job posting. It also breaks my own no-fabrication rule. I ran the pipeline once to see what it did, and that run is the center of this page.",
       "This is prompt design, structured extraction, multimodal input handling and output constraint around a hosted model. I did not train or fine-tune anything."
     ],
     "sections": [
@@ -343,11 +343,6 @@
             "height": 344,
             "caption": "The top of the landing page on the live site"
           }
-        ],
-        "pending": [
-          "The profile page after a resume import",
-          "The job import screen",
-          "The resume viewer inside the dashboard"
         ]
       }
     ]
