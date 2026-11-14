@@ -1,9 +1,9 @@
 {
   "slug": "torq",
   "title": "TorQ",
-  "lane": "software",
+  "lane": "hardware",
   "tier": "featured",
-  "order": 3,
+  "order": 5,
   "published": true,
   "featured": true,
   "status": "in-progress",

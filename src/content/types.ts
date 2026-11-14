@@ -238,7 +238,7 @@ export interface Project {
 export const LANE_LABELS: Record<Lane, string> = {
   mechanical: 'Mechanical',
   software: 'Software',
-  hardware: 'Hardware',
+  hardware: 'Hardware / Software',
   fab: 'Fabrication',
   writing: 'Writing',
 }
