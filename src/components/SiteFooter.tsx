@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const contact = [
-  { label: 'Email', href: 'mailto:me@atreyusutton.com', text: 'me@atreyusutton.com' },
+  { label: 'Email', href: 'mailto:atreyu@atreyusutton.com', text: 'atreyu@atreyusutton.com' },
   { label: 'GitHub', href: 'https://github.com/atreyusutton', text: 'github.com/atreyusutton' },
   {
     label: 'LinkedIn',

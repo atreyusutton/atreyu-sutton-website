@@ -90,8 +90,8 @@ export default function AboutPage() {
       <Section number="05" label="Contact">
         <p className="prose-measure text-lg">
           Best reached by email at{' '}
-          <a href="mailto:me@atreyusutton.com" className="link-underline">
-            me@atreyusutton.com
+          <a href="mailto:atreyu@atreyusutton.com" className="link-underline">
+            atreyu@atreyusutton.com
           </a>
           , or on{' '}
           <a
