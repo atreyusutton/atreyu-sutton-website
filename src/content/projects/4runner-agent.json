@@ -7,7 +7,7 @@
   "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "I used an AI coding agent to research and document a 1998-engine-into-1988-truck swap, and built the verification system that makes its output safe to act on in the real world.",
+  "oneLine": "I used an AI coding agent to research and document a 1998-engine-into-1988-truck swap, and built the verification process that checks its output against factory manuals and meter readings before I act on it.",
   "chips": [
     "207 lines audited",
     "Factory manuals only",
@@ -35,14 +35,14 @@
   "gallery": [
     {
       "src": "/4runner-agent/photos/main.jpg",
-      "alt": "A grey first generation Toyota 4Runner with the top off, parked on a rocky hilltop under a blue sky, with a roll cage and yellow seats visible",
+      "alt": "A gray first generation Toyota 4Runner with the top off, parked on a rocky hilltop under a blue sky, with a roll cage and yellow seats visible",
       "width": 1600,
       "height": 900,
       "caption": "The truck with the top off"
     },
     {
       "src": "/4runner-agent/photos/IMG_3688.jpg",
-      "alt": "The grey 4Runner parked in a driveway, seen from the front corner, on black steel wheels and all terrain tyres with a sunshade in the windscreen",
+      "alt": "The gray 4Runner parked in a driveway, seen from the front corner, on black steel wheels and all terrain tires with a sunshade in the windshield",
       "width": 1200,
       "height": 1600,
       "caption": "The truck in the driveway"
@@ -56,7 +56,7 @@
     },
     {
       "src": "/4runner-agent/photos/IMG_3677.jpg",
-      "alt": "Atreyu standing beside the 4Runner with its bonnet off and a V6 engine hanging from a red engine hoist in front of the grille",
+      "alt": "Atreyu standing beside the 4Runner with its hood off and a V6 engine hanging from a red engine hoist in front of the grille",
       "width": 1200,
       "height": 1600,
       "caption": "The engine out of the truck on the hoist"
@@ -77,7 +77,7 @@
     },
     {
       "src": "/4runner-agent/photos/IMG_4245.jpg",
-      "alt": "An assembled V6 engine on a stand over a drip tray in the driveway, in front of the 4Runner with its bonnet off",
+      "alt": "An assembled V6 engine on a stand over a drip tray in the driveway, in front of the 4Runner with its hood off",
       "width": 1200,
       "height": 1600,
       "caption": "The engine on its stand in front of the truck"
@@ -184,7 +184,7 @@
           {
             "title": "Verifying outside knowledge",
             "meta": "Check 3",
-            "body": "The wiring plan started from a well-known forum write-up. Before using it, the agent checked 53 entries pin by pin against Toyota's diagrams. It found three wrong function labels and a swapped pair of pins. One wire labelled \"not used\" was really the main power feed for the airflow sensor, idle valve and oxygen-sensor heaters."
+            "body": "The wiring plan started from a well-known forum write-up. Before using it, the agent checked 53 entries pin by pin against Toyota's diagrams. It found three wrong function labels and a swapped pair of pins. One wire labeled \"not used\" was really the main power feed for the airflow sensor, idle valve and oxygen-sensor heaters."
           },
           {
             "title": "Ground truth from the truck",
@@ -375,7 +375,7 @@
           },
           {
             "src": "/4runner-agent/ecu-sensor-wiring.png",
-            "alt": "Wiring diagram from the engine computer to a MAP sensor, a wideband oxygen sensor and the diagnostic port, with each wire labelled by pin",
+            "alt": "Wiring diagram from the engine computer to a MAP sensor, a wideband oxygen sensor and the diagnostic port, with each wire labeled by pin",
             "width": 1600,
             "height": 1516,
             "caption": "Wiring sheet for the MAP sensor, wideband oxygen sensor and CAN bus"

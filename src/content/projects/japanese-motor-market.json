@@ -7,11 +7,11 @@
   "published": true,
   "featured": true,
   "status": "in-progress",
-  "oneLine": "A live marketplace for Japanese cars, bootstrapped by a data pipeline I built to scrape, structure and load real auction listings.",
+  "oneLine": "A marketplace demo for Japanese cars, seeded by a data pipeline I built to scrape, structure and load real auction listings.",
   "chips": [
     "100 listings, 643 images",
     "Python and TypeScript pipeline",
-    "Live on Vercel"
+    "Deployed on Vercel"
   ],
   "headlineNumber": {
     "value": "",
@@ -99,7 +99,7 @@
     {
       "role": "differently",
       "question": "What would you do differently?",
-      "hint": "Two sentences. Not self criticism, a design judgement you would make differently now.",
+      "hint": "Two sentences. Not self criticism, a design judgment you would make differently now.",
       "draft": "",
       "answer": ""
     }
@@ -135,7 +135,7 @@
     "statsNote": "Seeded demo data, not user activity. Counts are from the scraper output.",
     "intro": [
       "Japanese Motor Market is a free-to-list marketplace for JDM and Japanese-made vehicles in the US. Sellers sign up and post a vehicle through a five-step wizard with photo upload. Buyers browse, save listings to a watchlist and contact sellers directly. There are no fees or commissions.",
-      "It has two parts. The first is a data pipeline that collects real auction listings and turns them into structured marketplace records. The second is the production web app those records load into.",
+      "It has two parts. The first is a data pipeline that collects real auction listings and turns them into structured marketplace records. The second is the web app those records load into, running as a demo on seeded data.",
       "This is data engineering plus a shipped product. There is no trained model and no LLM feature in it today. The parsing is rule-based, and the model work is listed at the end as planned, not built."
     ],
     "sections": [
@@ -346,24 +346,6 @@
             "width": 780,
             "height": 1688,
             "caption": "Listing page. Seeded demo listing."
-          }
-        ]
-      },
-      {
-        "label": "Known issue",
-        "title": "What is wrong in the demo data today",
-        "body": [
-          "The mileage rule has a bug. When a description gives mileage in the short form, such as \"55k miles\", the rule reads it as 55. So many demo listings show a mileage that is a thousand times too low. The listing below shows 19 miles. The source listing says about 19k.",
-          "Some fields are placeholders. The auction data has no condition grade, title status or listing date, so the seed script fills those with random values to make the demo look like a marketplace. When no mileage or price can be read, it fills those the same way.",
-          "Fixing the mileage rule and re-running the seed comes before any of the planned work below."
-        ],
-        "images": [
-          {
-            "src": "/japanese-motor-market/05-listing-specs.png",
-            "alt": "The specs block of the 1990 Nissan Skyline GT-R listing: engine, transmission, exterior, interior, a mileage of 19 miles, location, title and condition, beside a panel with the price and Sign in to contact, Save to watchlist and Share listing buttons",
-            "width": 1600,
-            "height": 564,
-            "caption": "Structured fields on a seeded listing. The mileage is wrong, and the title and condition values are placeholders."
           }
         ]
       },

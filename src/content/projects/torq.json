@@ -106,7 +106,7 @@
     {
       "role": "differently",
       "question": "What would you do differently?",
-      "hint": "Two sentences. A design judgement, not self criticism.",
+      "hint": "Two sentences. A design judgment, not self criticism.",
       "draft": "",
       "answer": ""
     }
@@ -371,10 +371,6 @@
         "body": [
           "On the first bench test the left track ran slower than the right. The motor shield's current-sense pins showed the left motor drawing about 1.5 to 2 times the current of the right at the same PWM, and stalling at 30% power. That pointed at mechanical drag and away from software. The cause turned out to be a stripped gearbox in the left motor. A replacement motor is the next hardware task.",
           "Loud replies made the USB speaker brown out and reset on battery power, which showed up in the kernel log as USB disconnects. The fix for now is a software volume cap that is re-applied before every reply. A separate 5 V supply is the real fix and is on the list."
-        ],
-        "pending": [
-          "A short demo video: a spoken question and the spoken answer, on the real robot.",
-          "A dashboard screenshot with the Pi connected, showing the live camera feed and real telemetry."
         ]
       },
       {
@@ -418,7 +414,7 @@
         "title": "Tests, and where the code is",
         "body": [
           "There are 20 integration tests and all of them pass. They run the real brain server and the real body code over real sockets, against a simulated Arduino that speaks the firmware's serial protocol, plus stand-ins for Claude, Whisper and Piper.",
-          "They cover the behaviours that matter. The watchdog stops the motors when the brain disappears. E-stop locks out driving. Invalid tool input is reported and not run. A new question interrupts the current answer. A missing API key produces a spoken explanation instead of a crash."
+          "They cover the behaviors that matter. The watchdog stops the motors when the brain disappears. E-stop locks out driving. Invalid tool input is reported and not run. A new question interrupts the current answer. A missing API key produces a spoken explanation instead of a crash."
         ],
         "code": {
           "file": "pytest output, the voice half of the run (test-run.txt)",
@@ -433,7 +429,7 @@
       }
     ]
   },
-  "imagePrompt": "a small boxy tracked robot with a compact cube shaped body riding on black rubber treads, having no arms at all and no limbs of any kind. On a short jointed neck it carries a binocular head built from two large cylindrical eyes set side by side: the left eye is a camera lens with visible glass elements, the right eye is a lamp with a clear reflector, switched on. A hinged flat display panel folds down out of a bay in the front of the body and tilts up toward the viewer, its screen a blank flat grey. Weathered matte machined aluminium and black plastic, workshop worn. Standing on a concrete floor with a workbench and a few hand tools out of focus behind it.",
+  "imagePrompt": "a small boxy tracked robot with a compact cube shaped body riding on black rubber treads, having no arms at all and no limbs of any kind. On a short jointed neck it carries a binocular head built from two large cylindrical eyes set side by side: the left eye is a camera lens with visible glass elements, the right eye is a lamp with a clear reflector, switched on. A hinged flat display panel folds down out of a bay in the front of the body and tilts up toward the viewer, its screen a blank flat gray. Weathered matte machined aluminium and black plastic, workshop worn. Standing on a concrete floor with a workbench and a few hand tools out of focus behind it.",
   "proposalArchived": {
     "audience": "Written for the group. Read it, then tell me what you think.",
     "summary": [
@@ -805,7 +801,7 @@
             "when": "After",
             "status": "Upside",
             "title": "Codes, angles and a personality",
-            "body": "OBD-II trouble codes chained straight to the manual diagnostic page. A digital angle gauge for driveline work. Reading specs aloud. The idle behaviours that make it feel like something rather than a cart."
+            "body": "OBD-II trouble codes chained straight to the manual diagnostic page. A digital angle gauge for driveline work. Reading specs aloud. The idle behaviors that make it feel like something rather than a cart."
           }
         ],
         "after": [
@@ -947,7 +943,7 @@
             },
             {
               "lead": "Unit conversion and timers",
-              "note": "Foot pounds to newton metres, cure times, brake bleed cycles, oil drains."
+              "note": "Foot pounds to newton meters, cure times, brake bleed cycles, oil drains."
             },
             {
               "lead": "Magnets that pick up what you drop",
@@ -1052,7 +1048,7 @@
         },
         {
           "lead": "The belly holds almost nothing",
-          "note": "Once the battery, the compute and the drive are in, a robot this size has maybe a litre or two of space left. That is a couple of items before a human has to come and empty it."
+          "note": "Once the battery, the compute and the drive are in, a robot this size has maybe a liter or two of space left. That is a couple of items before a human has to come and empty it."
         },
         {
           "lead": "If a person has to be standing there, it has not saved anyone anything",

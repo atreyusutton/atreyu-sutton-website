@@ -99,9 +99,9 @@
     ],
     "statsNote": "Counted from the rewrite's repo, November 2026.",
     "intro": [
-      "FuelFed Motor Market is a members-only classifieds site for European collector cars: fixed-price listings, no auctions. I was the sole engineer. The site's own branding in the screenshots reads Classic Motor Market, which is the name the rewrite was built under. It is the same project.",
+      "FuelFed Motor Market and Classic Motor Market are the same project. The screenshots read Classic Motor Market, which is the name the rewrite was built under. It is a members-only classifieds site for European collector cars: fixed-price listings, no auctions. I was the sole engineer.",
       "I built it twice. The first version, in July and August 2025, was React on Supabase. In November 2025 I started over in Next.js and TypeScript on a 9-model PostgreSQL schema. The screenshots show the rewrite.",
-      "There is no machine learning model in this product. It is on this site because of how it was built: from written specs and a context file that an AI coding agent works against, on top of the data modelling, access rules and import pipeline that ML work also needs. Four ML extensions are listed near the end as planned, not built."
+      "There is no machine learning model in this product. It is on this site because of how it was built: from written specs and a context file that an AI coding agent works against, on top of the data modeling, access rules and import pipeline that ML work also needs. Four ML extensions are listed near the end as planned, not built."
     ],
     "sections": [
       {
@@ -347,7 +347,7 @@
         "label": "Mobile",
         "title": "The same pages on a phone",
         "body": [
-          "The layout is responsive. These are the home page, the catalogue and a listing at phone width."
+          "The layout is responsive. These are the home page, the catalog and a listing at phone width."
         ],
         "imageLayout": "three",
         "images": [
@@ -360,10 +360,10 @@
           },
           {
             "src": "/fuelfed-case-study/08-mobile-browse.jpg",
-            "alt": "The catalogue at phone width: a note that non-members see the full listing after 10 minutes, then a single column of listing cards starting with a sample 2001 Audi TT",
+            "alt": "The catalog at phone width: a note that non-members see the full listing after 10 minutes, then a single column of listing cards starting with a sample 2001 Audi TT",
             "width": 780,
             "height": 1688,
-            "caption": "Catalogue. Listings are sample data."
+            "caption": "Catalog. Listings are sample data."
           },
           {
             "src": "/fuelfed-case-study/09-mobile-listing.jpg",
@@ -378,7 +378,7 @@
         "label": "Not built",
         "title": "What is not built",
         "body": [
-          "Placeholders are labelled as placeholders, in the app and here."
+          "Placeholders are labeled as placeholders, in the app and here."
         ],
         "facts": {
           "Payments": "Membership and listing fees are placeholder checkboxes. The Stripe SDK is installed and the checkout route is a skeleton.",

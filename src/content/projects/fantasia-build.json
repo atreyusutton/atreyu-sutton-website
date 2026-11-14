@@ -235,7 +235,7 @@
         "title": "The night it refused to ship",
         "body": [
           "On 11 October the pick was a storefront with a live AI sales agent. The plan stage worked out that a real live chat needs either an API key exposed in client-side code or a backend, and both are outside its constraints. The only static version would be a scripted decision tree pretending to be an agent.",
-          "It recorded the night as failed and published the reasoning. That is the behaviour I wanted: a blocked night is a better result than a mock-up that claims to be something it is not."
+          "It recorded the night as failed and published the reasoning. That is the behavior I wanted: a blocked night is a better result than a mock-up that claims to be something it is not."
         ],
         "images": [
           {
@@ -405,7 +405,7 @@
             "body": "Simulator of how an LLM-serving scheduler keeps or evicts KV cache.",
             "image": {
               "src": "/fantasia/build-kv-residency-planner.png",
-              "alt": "The KV residency planner page: three panels of memory blocks labelled GPU, CPU and Evicted, with capacity sliders above and a request trace below",
+              "alt": "The KV residency planner page: three panels of memory blocks labeled GPU, CPU and Evicted, with capacity sliders above and a request trace below",
               "width": 1600,
               "height": 1000
             },
@@ -531,7 +531,7 @@
             "body": "From-scratch 32K BPE tokenizer against GPT-2's, lossless. The lowest score here, kept on the page on purpose.",
             "image": {
               "src": "/fantasia/build-token-diet.png",
-              "alt": "The token diet page: a sentence split into coloured tokens by the custom tokenizer, and beside it an empty GPT-2 panel with a banner saying the GPT-2 comparison is unavailable because its vocabulary files could not be downloaded in the build environment",
+              "alt": "The token diet page: a sentence split into colored tokens by the custom tokenizer, and beside it an empty GPT-2 panel with a banner saying the GPT-2 comparison is unavailable because its vocabulary files could not be downloaded in the build environment",
               "width": 1600,
               "height": 1000
             },
@@ -552,7 +552,7 @@
             "body": "A single-fragment-shader renderer.",
             "image": {
               "src": "/fantasia/build-one-shader-photo-studio.png",
-              "alt": "The one shader photo studio page: a rendered green torus resting on a grey pedestal with soft shadows, and a small panel of lighting controls on the right",
+              "alt": "The one shader photo studio page: a rendered green torus resting on a gray pedestal with soft shadows, and a small panel of lighting controls on the right",
               "width": 1600,
               "height": 1000
             },
@@ -635,18 +635,6 @@
         "title": "Planned, not built",
         "body": [
           "None of this exists yet: multi-night build cycles for larger applications, a broader research pipeline with a learned scorer, and a private morning digest."
-        ]
-      },
-      {
-        "label": "Media",
-        "title": "Still to add",
-        "body": [
-          "Three pieces of media are owed for this page. The slots are left empty until I have the real thing."
-        ],
-        "pending": [
-          "A photo of the Mac Mini",
-          "A screenshot of the Telegram conversation with the agent",
-          "A terminal capture of a live session on the box"
         ]
       }
     ]
