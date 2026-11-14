@@ -144,7 +144,7 @@
         "title": "An empty marketplace cannot be designed or tested",
         "body": [
           "A new marketplace starts with no listings. Without listings there is nothing to lay out, nothing to search and nothing to test against.",
-          "I solved the cold start by building a pipeline that collects real auction listings and turns them into typed marketplace records."
+          "To get the demo past the cold start, I built a pipeline that collects real auction listings and turns them into typed marketplace records."
         ]
       },
       {

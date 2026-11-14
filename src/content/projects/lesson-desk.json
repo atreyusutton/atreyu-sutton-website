@@ -22,7 +22,7 @@
     "Built": "November 2026",
     "Model": "Claude Opus 5.5 through the Anthropic API, with adaptive thinking and per-step effort levels",
     "Stack": "Next.js, TypeScript, Zod, Anthropic SDK, PyMuPDF, pptxgenjs, docx, resvg (WebAssembly), Tailwind",
-    "Hosting": "Cloudflare Workers, D1 database, Cloudflare Workflows for background jobs, behind a password"
+    "Hosting": "Cloudflare Workers, D1 database, Cloudflare Workflows for background jobs, behind a password with a public read-only demo"
   },
   "hero": {
     "src": "/lesson-desk/01-home-composer.png",
@@ -329,7 +329,7 @@
       {
         "label": "Links",
         "body": [
-          "The repo is private. The live app sits behind a password because it holds licensed textbook content and class rosters, so there is no public link. I can give a demo on request."
+          "The repo is private. The live app sits behind a password because it holds licensed textbook content and class rosters. The link at the top of this page opens a read-only demo instead: you can browse and download what is in the library, but creating and changing lessons is switched off and no roster is shown."
         ]
       }
     ]

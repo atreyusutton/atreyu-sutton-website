@@ -20,7 +20,7 @@
   },
   "specs": {
     "Role": "Sole engineer: data model, auth, listing workflow, media pipeline, admin tooling, deployment",
-    "Timeline": "July 2025 to April 2026",
+    "Timeline": "July 2025 to April 2026, plus a hosting port in November 2026",
     "Build state": "Working build with sample listings, deployed for demonstration. Payments are placeholders.",
     "Stack": "Next.js 16 (App Router, Server Components, Server Actions), React 19, TypeScript, Prisma 6, NextAuth v5, Zod, react-hook-form, Tailwind CSS v4, shadcn/ui",
     "Database": "PostgreSQL on Neon, 9 Prisma models",
