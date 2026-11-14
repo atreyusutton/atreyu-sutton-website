@@ -1,9 +1,9 @@
 {
   "slug": "4runner-agent",
   "title": "Custom Engine Rebuild Wiring and Swap Agent",
-  "lane": "software",
+  "lane": "hardware",
   "tier": "featured",
-  "order": 6,
+  "order": 4,
   "published": true,
   "featured": true,
   "status": "in-progress",
