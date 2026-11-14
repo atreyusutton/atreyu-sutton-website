@@ -4,7 +4,7 @@
   "lane": "writing",
   "tier": "sustainable",
   "order": 3,
-  "published": true,
+  "published": false,
   "carriedOver": true,
   "featured": false,
   "status": "shipped",
