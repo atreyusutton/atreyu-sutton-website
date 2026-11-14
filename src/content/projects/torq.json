@@ -21,10 +21,9 @@
   },
   "hero": {
     "src": "/torq/robot.jpg",
-    "alt": "TorQ on a wooden table: a small tracked robot with an orange deck, a webcam on a mast, a speaker across the front and exposed wiring",
-    "width": 1080,
-    "height": 810,
-    "caption": "TorQ, from one of the clips below"
+    "alt": "TorQ on a wooden table, seen from the front: a small tracked robot with an orange deck, a webcam on a mast, a speaker across the front and exposed wiring",
+    "width": 982,
+    "height": 728
   },
   "gallery": [
     {
