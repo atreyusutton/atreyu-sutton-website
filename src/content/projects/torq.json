@@ -176,7 +176,7 @@
           {
             "title": "Diya and Spatika",
             "meta": "First version of the software",
-            "body": "Wrote the initial code that got the robot answering questions, with everything running on the Raspberry Pi."
+            "body": "Wrote the first version: a wake word, speech recognition, a search over the service manuals and a spoken answer, all running on the Raspberry Pi."
           },
           {
             "title": "Zach",
@@ -194,25 +194,32 @@
         "label": "Then and now",
         "title": "From 90 seconds to about one",
         "body": [
-          "The first version of the software, written by Diya and Spatika, proved the idea: you could ask the robot a question and get an answer. Every process ran on the Raspberry Pi inside the robot. With all of it on that one small board, a response took about 90 seconds. That is too long to stand there holding a wrench.",
-          "I rewrote the software around one question: what actually has to be on the robot? Very little. The Pi keeps the jobs that touch hardware, which are the microphone, the speaker, the camera and the motors. The heavy work runs on a laptop on the same network. Stopping the motors went the other way, down to an Arduino, so it does not depend on either computer being healthy."
+          "The first version of the software, written by Diya and Spatika, proved the idea, and it did a lot. You said \"Hey TorQ\", asked a question, and it searched the service manuals and answered out loud with the page it came from.",
+          "Nearly all of that ran on the Raspberry Pi inside the robot: a Vosk wake-word model listening all the time, Whisper on the CPU, an embedding search over the manuals, and a Piper process started fresh for each reply. Only the language model call left the board. The code's own notes record Piper taking about 3 seconds just to start, and a larger wake-word model was killed for running out of memory. On a 4 GB Pi it added up to about 90 seconds for a response. That is too long to stand there holding a wrench.",
+          "I rewrote the software around one question: what actually has to be on the robot? Very little. The Pi keeps the jobs that touch hardware, which are the microphone, the speaker, the camera and the motors. The speech models run on a laptop on the same network, with Piper loaded once instead of started for each reply. Stopping the motors went the other way, down to an Arduino, so it does not depend on either computer being healthy."
         ],
         "compare": {
-          "summary": "Two versions of the same robot. In the first version one Raspberry Pi 5 ran every process: listening, turning speech into text, working out the answer, speaking, the camera and the motors, and a response took about 90 seconds. In the current version a Mac runs speech-to-text, the Claude tool loop, text-to-speech, job memory and the dashboard. It connects by WebSocket to the Raspberry Pi 5, which only handles the microphone, speaker, camera stream and motor commands. The Pi connects by USB serial to an Arduino Uno that runs the motors, the watchdog and the E-stop. The robot now starts answering in about 1 second.",
+          "summary": "Two versions of the same robot. In the first version one Raspberry Pi 5 ran the Vosk wake word, Whisper speech-to-text on the CPU, a bge-small search over the manuals, Piper text-to-speech started for each reply, and the drive scripts, and called a cloud model over HTTPS for the answer. A response took about 90 seconds. In the current version a Mac runs Whisper, the Claude tool loop, Piper, job memory and the dashboard. It connects by WebSocket to the Raspberry Pi 5, which only handles the microphone, speaker, camera stream and motor commands. The Pi connects by USB serial to an Arduino Uno that runs the motors, the watchdog and the E-stop. The robot now starts answering in about 1 second.",
           "sides": [
             {
               "label": "Then",
-              "title": "Everything on the Pi",
+              "title": "Nearly everything on the Pi",
               "machines": [
                 {
-                  "name": "Raspberry Pi 5",
+                  "name": "Raspberry Pi 5, 4 GB",
                   "jobs": [
-                    "Listening to the microphone",
-                    "Turning speech into text",
-                    "Working out the answer",
-                    "Turning the answer into speech",
-                    "Camera",
-                    "Driving the motors"
+                    "Vosk wake word, always listening",
+                    "Whisper (base.en) on the CPU",
+                    "bge-small search over the manuals",
+                    "Piper, started for each reply",
+                    "Drive scripts, run over SSH"
+                  ]
+                },
+                {
+                  "name": "Cloud model",
+                  "link": "HTTPS",
+                  "jobs": [
+                    "Reads the manual page, writes the answer"
                   ]
                 }
               ],
@@ -228,9 +235,9 @@
                 {
                   "name": "Mac, the brain",
                   "jobs": [
-                    "Whisper speech-to-text",
-                    "Claude tool loop",
-                    "Piper text-to-speech",
+                    "Whisper (small.en)",
+                    "Claude tool loop, streaming",
+                    "Piper, kept loaded",
                     "Job memory, dashboard"
                   ]
                 },
@@ -259,7 +266,8 @@
           ]
         },
         "after": [
-          "Moving the work is most of the gain, but not all of it. The reply is also streamed. TorQ starts speaking the first sentence while Claude is still writing the second, so the wait you feel is the time to the first sentence and not the time to the whole answer."
+          "Moving the work is most of the gain, but not all of it. The reply is also streamed. TorQ starts speaking the first sentence while Claude is still writing the second, so the wait you feel is the time to the first sentence and not the time to the whole answer.",
+          "The rewrite is faster, but it does not yet do everything the first version did. The wake word and the manual search with page numbers have not been carried across. Both are under \"What is next\"."
         ]
       },
       {
@@ -694,14 +702,14 @@
         "label": "Next",
         "title": "What is next",
         "body": [
-          "None of this section is built yet. TorQ answers from the model's own knowledge and is prompted to hedge. Cited service-manual lookup is what will replace that hedge with a page you can read.",
+          "None of this section is in the current software yet. Two parts of it, the wake word and manual lookup with page numbers, worked in the first version and need to be brought across. TorQ now answers from the model's own knowledge and is prompted to hedge. Cited service-manual lookup is what will replace that hedge with a page you can read.",
           "The design: service-manual PDFs will be ingested on the laptop into per-page images and embeddings. Pages will be retrieved locally on the robot, and the page itself will be shown next to any answer. Online, Claude will answer from the retrieved pages using the API's native citations, which return the page number as a structured field. Offline, the robot will fall back to a spec table extracted at ingest time.",
           "The governing rule will be that TorQ never shows a number without showing where it came from, so a wrong answer is visible instead of silent. The design docs are docs/CONCEPT.md and docs/LLM.md in the repo."
         ],
         "cards": [
           {
             "title": "Cited manual lookup",
-            "meta": "Designed, not built",
+            "meta": "In the first version, not yet in the rewrite",
             "body": "Retrieval over ingested service manuals, with the cited page shown beside every answer."
           },
           {
@@ -716,7 +724,7 @@
           },
           {
             "title": "Wake word",
-            "meta": "Designed, not built",
+            "meta": "In the first version, not yet in the rewrite",
             "body": "\"Hey TorQ\" will replace push-to-talk."
           },
           {
