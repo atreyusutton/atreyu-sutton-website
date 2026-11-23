@@ -20,6 +20,8 @@ export interface Media {
   width: number
   height: number
   caption?: string
+  /** A small copy of the same frame, for thumbnail rows. */
+  thumb?: string
 }
 
 export interface IntakeQuestion {
@@ -146,6 +148,45 @@ export interface CaseStudyFlow {
 export interface CaseStudyCode {
   file: string
   text: string
+  /** Callouts tied to a line of `text`, counted from 1. Turns on line numbers. */
+  notes?: { line: number; text: string }[]
+}
+
+/** One computer in a before and after diagram, with the jobs it runs. */
+export interface CompareMachine {
+  name: string
+  /** Printed on the connector leading into this machine from the one above. */
+  link?: string
+  jobs: string[]
+}
+
+export interface CompareSide {
+  label: string
+  title: string
+  machines: CompareMachine[]
+  result: { value: string; label: string }
+}
+
+/** Two arrangements of the same system, drawn side by side. */
+export interface CaseStudyCompare {
+  /** One sentence describing the whole diagram, for screen readers. */
+  summary: string
+  sides: CompareSide[]
+}
+
+export interface DialogueTurn {
+  speaker: 'person' | 'robot'
+  name: string
+  text: string[]
+  /** What the system did to produce this turn, in order. */
+  trace?: { label: string; detail: string }[]
+}
+
+/** A real exchange, with the work behind each answer shown beside it. */
+export interface CaseStudyDialogue {
+  summary: string
+  turns: DialogueTurn[]
+  note?: string
 }
 
 export interface CaseStudyStat {
@@ -166,6 +207,8 @@ export interface CaseStudyCard {
 export interface CaseStudyVideo {
   src: string
   poster?: string
+  /** A small still for thumbnail rows. */
+  thumb?: string
   caption?: string
 }
 
@@ -176,6 +219,8 @@ export interface CaseStudySection {
   /** One sentence set apart from the prose. Use once per page at most. */
   callout?: string
   flow?: CaseStudyFlow
+  compare?: CaseStudyCompare
+  dialogue?: CaseStudyDialogue
   table?: ProposalTable
   images?: Media[]
   /** `two` and `three` set images side by side. Default is one per row. */
@@ -199,6 +244,36 @@ export interface CaseStudy {
   sections: CaseStudySection[]
 }
 
+export interface DeckColumn {
+  title: string
+  meta?: string
+  items: string[]
+}
+
+/** One slide. Text sits beside the image or clip when there is one. */
+export interface DeckSlide {
+  kicker?: string
+  title: string
+  body?: string[]
+  bullets?: string[]
+  columns?: DeckColumn[]
+  stats?: CaseStudyStat[]
+  image?: Media
+  video?: CaseStudyVideo
+  /** Links shown under the text, such as the repository. */
+  links?: { label: string; href: string }[]
+  /** Rough time to spend, as m:ss. Shown with the speaker notes. */
+  time?: string
+  /** Speaker notes. Hidden until asked for. */
+  notes?: string[]
+}
+
+export interface Deck {
+  title: string
+  duration?: string
+  slides: DeckSlide[]
+}
+
 export interface Project {
   slug: string
   title: string
@@ -218,8 +293,10 @@ export interface Project {
   specs: Record<string, string>
   hero: Media | null
   gallery: Media[]
-  /** Short clips, shown with the gallery under the hero. */
+  /** Short clips, shown with the gallery. */
   clips?: CaseStudyVideo[]
+  /** `intro` puts the photographs and clips in one viewer under the title and tags. Default is a hero above the title. */
+  mediaPlacement?: 'top' | 'intro'
   video: { src: string; poster: string } | null
   links: { label: string; href: string }[]
   /** The live site, when the project is one. Shown on the card and the page. */
@@ -229,6 +306,8 @@ export interface Project {
   imagePrompt?: string
   /** Up to three short facts shown on the card. */
   chips?: string[]
+  /** A slide deck for presenting the project, served at /projects/<slug>/slides/. */
+  deck?: Deck
   /** The long form write-up for a finished project. */
   caseStudy?: CaseStudy
   /** Present only on projects argued for rather than reported on. */

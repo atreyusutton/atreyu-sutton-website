@@ -18,6 +18,7 @@ import {
   ProposalSections,
 } from '@/components/Proposal'
 import { ProjectMedia } from '@/components/ProjectMedia'
+import { Gallery } from '@/components/Gallery'
 import { Section } from '@/components/Section'
 import { CaseStudySections } from '@/components/CaseStudy'
 
@@ -58,6 +59,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const broke = answerFor(project, 'broke')
   const differently = answerFor(project, 'differently')
   const gallery = describedImages(project.gallery)
+  const mediaInIntro = project.mediaPlacement === 'intro'
 
   const specs = {
     Lane: LANE_LABELS[project.lane],
@@ -75,7 +77,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <article>
-      {project.hero ? (
+      {project.hero && !mediaInIntro ? (
         <div className="mx-auto max-w-[var(--page-max)] px-5 pt-8 md:px-8 md:pt-10">
           <figure className="mx-auto w-fit">
             {isGenerated(project.hero) ? <GeneratedNotice /> : null}
@@ -97,7 +99,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       ) : null}
 
-      <ProjectMedia images={gallery} clips={project.clips ?? []} />
+      {mediaInIntro ? null : <ProjectMedia images={gallery} clips={project.clips ?? []} />}
 
       <div className="mx-auto max-w-[var(--page-max)] px-5 py-12 md:px-8 md:py-16">
         <div className="grid gap-6 md:grid-cols-[var(--rail)_1fr] md:gap-10">
@@ -140,6 +142,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     </li>
                   ))}
                 </ul>
+                {mediaInIntro ? (
+                  <div className="mt-8">
+                    <Gallery
+                      images={
+                        project.hero && !gallery.some((image) => image.src === project.hero?.src)
+                          ? [project.hero, ...gallery]
+                          : gallery
+                      }
+                      clips={project.clips ?? []}
+                    />
+                  </div>
+                ) : null}
                 {project.caseStudy.stats && project.caseStudy.stats.length > 0 ? (
                   <div className="mt-8">
                     <dl className="grid max-w-[52rem] grid-cols-2 gap-x-8 gap-y-6 border-y border-rule py-5 sm:grid-cols-4">
@@ -161,6 +175,36 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   ))}
                 </div>
               </>
+            ) : null}
+
+            {project.deck ? (
+              <ul className="mt-8 flex flex-wrap gap-3">
+                <li>
+                  <Link
+                    href={`/projects/${project.slug}/slides/`}
+                    className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 hover:border-accent hover:text-accent"
+                  >
+                    <span className="label !text-inherit">Slides</span>
+                    <span>
+                      Open the presentation
+                      {project.deck.duration ? `, ${project.deck.duration.toLowerCase()}` : ''}
+                    </span>
+                  </Link>
+                </li>
+                {project.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 hover:border-accent hover:text-accent"
+                    >
+                      <span className="label !text-inherit">Link</span>
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             ) : null}
 
             {project.proposal?.origin ? (
