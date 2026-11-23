@@ -244,6 +244,34 @@ export interface CaseStudy {
   sections: CaseStudySection[]
 }
 
+export interface DeckColumn {
+  title: string
+  meta?: string
+  items: string[]
+}
+
+/** One slide. Text sits beside the image or clip when there is one. */
+export interface DeckSlide {
+  kicker?: string
+  title: string
+  body?: string[]
+  bullets?: string[]
+  columns?: DeckColumn[]
+  stats?: CaseStudyStat[]
+  image?: Media
+  video?: CaseStudyVideo
+  /** Rough time to spend, as m:ss. Shown with the speaker notes. */
+  time?: string
+  /** Speaker notes. Hidden until asked for. */
+  notes?: string[]
+}
+
+export interface Deck {
+  title: string
+  duration?: string
+  slides: DeckSlide[]
+}
+
 export interface Project {
   slug: string
   title: string
@@ -276,6 +304,8 @@ export interface Project {
   imagePrompt?: string
   /** Up to three short facts shown on the card. */
   chips?: string[]
+  /** A slide deck for presenting the project, served at /projects/<slug>/slides/. */
+  deck?: Deck
   /** The long form write-up for a finished project. */
   caseStudy?: CaseStudy
   /** Present only on projects argued for rather than reported on. */

@@ -177,6 +177,21 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </>
             ) : null}
 
+            {project.deck ? (
+              <p className="mt-8">
+                <Link
+                  href={`/projects/${project.slug}/slides/`}
+                  className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 hover:border-accent hover:text-accent"
+                >
+                  <span className="label !text-inherit">Slides</span>
+                  <span>
+                    Open the presentation
+                    {project.deck.duration ? `, ${project.deck.duration.toLowerCase()}` : ''}
+                  </span>
+                </Link>
+              </p>
+            ) : null}
+
             {project.proposal?.origin ? (
               <ProposalOriginBlock origin={project.proposal.origin} />
             ) : null}

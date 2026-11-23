@@ -1497,5 +1497,390 @@
       "poster": "/torq/clips/clip-4177.jpg",
       "caption": "On a table with its camera feed on the laptop, before the enclosure went on."
     }
-  ]
+  ],
+  "deck": {
+    "title": "TorQ: final presentation",
+    "duration": "About 10 minutes",
+    "slides": [
+      {
+        "kicker": "Final presentation",
+        "title": "TorQ",
+        "body": [
+          "A tracked garage robot that answers car-repair questions out loud.",
+          "Diya, Spatika, Zach and Atreyu"
+        ],
+        "image": {
+          "src": "/torq/action/torq-garage.jpg",
+          "alt": "TorQ on a garage floor in front of a lifted grey 1988 Toyota 4Runner, with red tool chests along the wall behind",
+          "width": 2000,
+          "height": 1500
+        },
+        "time": "0:30",
+        "notes": [
+          "Introduce the four of us.",
+          "One line: you ask it a question while you are working on a car, and it answers through a speaker.",
+          "Say what the talk covers: where the idea came from, the first version, the rewrite, and what is left."
+        ]
+      },
+      {
+        "kicker": "Process",
+        "title": "We started with a different robot",
+        "body": [
+          "The project began as a robot that collects and composts trash. We dropped it for reasons we could state."
+        ],
+        "bullets": [
+          "Hot composting needs roughly a cubic yard of material to hold its own heat. A small robot cannot carry that.",
+          "One compost cycle takes 4 to 8 weeks, which leaves almost no room to iterate.",
+          "Collection depends on grasping, which is where hobby robots usually fail."
+        ],
+        "time": "0:45",
+        "notes": [
+          "This is the pivot. Keep it short: three reasons, each one a constraint we could not design around.",
+          "Transition: so we asked what problem we actually have."
+        ]
+      },
+      {
+        "kicker": "The idea",
+        "title": "A problem we actually have",
+        "body": [
+          "Your hands are on a wrench and you need a number. TorQ sits on the garage floor, listens, and answers."
+        ],
+        "bullets": [
+          "The hard part is knowing things, not grasping things.",
+          "The feedback loop is about one second, not weeks.",
+          "A half-finished TorQ is still a useful rolling screen."
+        ],
+        "image": {
+          "src": "/torq/action/torq-under.jpg",
+          "alt": "TorQ parked under the front of the lifted 4Runner, its webcam tilted up toward the front suspension",
+          "width": 1500,
+          "height": 2000
+        },
+        "time": "0:40",
+        "notes": [
+          "Each bullet answers one of the three compost problems from the last slide.",
+          "Mention the truck: the 1988 4Runner in the photos is the car it was built around."
+        ]
+      },
+      {
+        "kicker": "The robot",
+        "title": "What we built",
+        "bullets": [
+          "Ask a question out loud and it answers through a speaker.",
+          "It remembers which vehicle you are working on and keeps job notes.",
+          "You can drive it from a browser dashboard and see its camera.",
+          "Stopping the motors is handled in firmware, not by the AI."
+        ],
+        "image": {
+          "src": "/torq/torq-front-right.jpg",
+          "alt": "TorQ from the front right against a white background: a matte black printed box body on two rubber tracks, with a webcam on a hinged arm above the lid and a wide slot across the upper front",
+          "width": 2000,
+          "height": 1500
+        },
+        "time": "0:35",
+        "notes": [
+          "Point out the parts on the photo: tracks, webcam on the arm, speaker behind the front grille.",
+          "Raspberry Pi 5 and an Arduino inside, two 12 volt gearmotors, a 3S battery pack."
+        ]
+      },
+      {
+        "kicker": "Team",
+        "title": "Four people, three kinds of work",
+        "columns": [
+          {
+            "title": "Diya and Spatika",
+            "meta": "First version of the software",
+            "items": [
+              "Wake word",
+              "Speech recognition",
+              "Search over the service manuals",
+              "Spoken answers, all on the Raspberry Pi"
+            ]
+          },
+          {
+            "title": "Zach",
+            "meta": "Enclosure",
+            "items": [
+              "Designed and built the whole body",
+              "Printed in PLA",
+              "Everything in black on the outside is his"
+            ]
+          },
+          {
+            "title": "Atreyu",
+            "meta": "Hardware and current code",
+            "items": [
+              "Electronics and wiring",
+              "Drive firmware",
+              "The rewrite into a body and a brain"
+            ]
+          }
+        ],
+        "time": "0:30",
+        "notes": [
+          "Give each person their credit by name.",
+          "The next slides follow the same order: first version, then the rewrite, then the enclosure."
+        ]
+      },
+      {
+        "kicker": "First version",
+        "title": "It worked, and it did a lot",
+        "body": [
+          "You said \"Hey TorQ\", asked a question, and it searched the service manuals and answered out loud with the page it came from."
+        ],
+        "columns": [
+          {
+            "title": "Raspberry Pi 5, 4 GB",
+            "meta": "Nearly everything",
+            "items": [
+              "Vosk wake word, always listening",
+              "Whisper on the CPU",
+              "Embedding search over the manuals",
+              "Piper started fresh for each reply"
+            ]
+          },
+          {
+            "title": "Cloud model",
+            "meta": "The one thing off the board",
+            "items": [
+              "Reads the manual page",
+              "Writes the answer"
+            ]
+          }
+        ],
+        "stats": [
+          {
+            "value": "about 90 s",
+            "label": "for a response"
+          }
+        ],
+        "time": "0:50",
+        "notes": [
+          "Diya and Spatika's version proved the idea. Be clear that it had features the rewrite does not have yet.",
+          "Why it was slow: every model ran on one small board. Piper took about 3 seconds just to start, and a larger wake word model was killed for running out of memory.",
+          "The 90 seconds is what we saw, not a logged measurement.",
+          "90 seconds is too long to stand there holding a wrench."
+        ]
+      },
+      {
+        "kicker": "The rewrite",
+        "title": "What actually has to be on the robot?",
+        "body": [
+          "Very little. So the work moved to where it runs best."
+        ],
+        "columns": [
+          {
+            "title": "Mac, the brain",
+            "meta": "Slow and expensive work",
+            "items": [
+              "Whisper speech-to-text",
+              "Claude tool loop",
+              "Piper text-to-speech",
+              "Job memory and dashboard"
+            ]
+          },
+          {
+            "title": "Raspberry Pi 5, the body",
+            "meta": "Anything that touches hardware",
+            "items": [
+              "Microphone and speaker",
+              "Camera stream",
+              "Motor commands and speed clamps"
+            ]
+          },
+          {
+            "title": "Arduino",
+            "meta": "Anything that must never fail",
+            "items": [
+              "Motor drive",
+              "300 ms watchdog",
+              "Latched E-stop"
+            ]
+          }
+        ],
+        "time": "0:50",
+        "notes": [
+          "The Mac and the Pi talk over a WebSocket on the same network. The Pi talks to the Arduino over USB serial.",
+          "The rule: slow work goes up to the laptop, safety goes down to the Arduino.",
+          "Piper is now loaded once instead of started for each reply."
+        ]
+      },
+      {
+        "kicker": "How it answers",
+        "title": "One question, start to finish",
+        "bullets": [
+          "Hold T and talk. The Pi sends the audio to the laptop.",
+          "Whisper transcribes it.",
+          "A router picks the model: Claude Haiku for everyday questions, Claude Sonnet for diagnosis.",
+          "Claude can call four tools: get vehicle info, set vehicle, save note, stop.",
+          "The reply is cut into sentences, and each one is spoken as soon as it is ready."
+        ],
+        "time": "0:50",
+        "notes": [
+          "Diagnostic questions are the ones with words like why, noise, leak or misfire.",
+          "Every tool input is checked in code before anything runs. A bad input goes back to the model as an error.",
+          "The loop is written directly against the Anthropic SDK, with no agent framework."
+        ]
+      },
+      {
+        "kicker": "Result",
+        "title": "Talking before it has finished thinking",
+        "body": [
+          "TorQ speaks the first sentence while Claude is still writing the second. The wait you feel is the time to the first sentence, not the whole answer."
+        ],
+        "stats": [
+          {
+            "value": "90 s to 1 s",
+            "label": "wait before it starts answering, first version to now"
+          },
+          {
+            "value": "20",
+            "label": "integration tests, all passing"
+          }
+        ],
+        "time": "0:40",
+        "notes": [
+          "Two things produced the gain: moving the models off the Pi, and streaming the reply sentence by sentence.",
+          "About 1 second is Claude Haiku to first spoken words on the current build.",
+          "The tests run the real brain and body code against a simulated Arduino."
+        ]
+      },
+      {
+        "kicker": "Safety",
+        "title": "The model can stop the robot. It cannot drive it.",
+        "columns": [
+          {
+            "title": "Firmware",
+            "meta": "Arduino",
+            "items": [
+              "Motors stop if a drive command is not repeated within 300 ms",
+              "Latched E-stop",
+              "Overcurrent cutoff"
+            ]
+          },
+          {
+            "title": "Body",
+            "meta": "Raspberry Pi",
+            "items": [
+              "Speed clamps",
+              "Command timeout"
+            ]
+          },
+          {
+            "title": "Brain and dashboard",
+            "meta": "Laptop and browser",
+            "items": [
+              "Hold to drive",
+              "Closing the tab stops the robot",
+              "E-stop locks out driving until reset"
+            ]
+          }
+        ],
+        "time": "0:40",
+        "notes": [
+          "A runaway robot breaks ankles, so stopping is handled in three independent layers.",
+          "The lower layers do not trust the layers above them. The model's only motor tool is stop."
+        ]
+      },
+      {
+        "kicker": "Enclosure",
+        "title": "The body Zach built",
+        "bullets": [
+          "Designed and built by Zach, printed in PLA.",
+          "It turned a deck of exposed boards and wiring into something you can put on a garage floor.",
+          "The front panel comes off to reach the Raspberry Pi and the Arduino.",
+          "The webcam sits on a hinged arm above the lid."
+        ],
+        "image": {
+          "src": "/torq/torq-open.jpg",
+          "alt": "TorQ from the front with the lower front panel removed, showing the Raspberry Pi 5 with its cooling fan, the Arduino under it, and red, black and blue wiring inside the body",
+          "width": 2000,
+          "height": 1500
+        },
+        "time": "0:35",
+        "notes": [
+          "Zach can speak to this one.",
+          "Point out the Pi with its fan and the Arduino with the motor shield under it."
+        ]
+      },
+      {
+        "kicker": "Demo",
+        "title": "In the garage",
+        "video": {
+          "src": "/torq/action/bellhousing.mp4",
+          "poster": "/torq/action/bellhousing.jpg",
+          "caption": "Driving under the 4Runner with the camera feed on the laptop, then asked for the bellhousing bolt torque. Filmed demo: the spoken answer is scripted for the camera."
+        },
+        "time": "1:20",
+        "notes": [
+          "Play the clip. It runs about 70 seconds.",
+          "It shows TorQ driving under the 4Runner with its camera feed on the laptop, then a spoken question and answer.",
+          "Say it plainly: the spoken answer in this clip was scripted for filming."
+        ]
+      },
+      {
+        "kicker": "Process",
+        "title": "What went wrong on the bench",
+        "bullets": [
+          "The left track ran slower than the right. The current-sense pins showed the left motor drawing about 1.5 to 2 times the current, and stalling at 30% power.",
+          "That pointed at mechanical drag, not software. The cause was a stripped gearbox in the left motor.",
+          "Loud replies made the USB speaker brown out and reset on battery power.",
+          "The fix is a software volume cap, re-applied before every reply."
+        ],
+        "time": "0:45",
+        "notes": [
+          "The lesson in the first one: measure before you blame the code.",
+          "The speaker resets showed up in the kernel log as USB disconnects."
+        ]
+      },
+      {
+        "kicker": "Next",
+        "title": "What is next",
+        "columns": [
+          {
+            "title": "Bring across from the first version",
+            "items": [
+              "\"Hey TorQ\" wake word, to replace push-to-talk",
+              "Service manual lookup, with the cited page shown beside the answer"
+            ]
+          },
+          {
+            "title": "Designed, not built",
+            "items": [
+              "A photo tool, so you can ask \"is this belt cracked?\"",
+              "Drive tools for Claude, clamped on the Pi",
+              "Status LEDs"
+            ]
+          }
+        ],
+        "body": [
+          "The rule we want: TorQ never shows a number without showing where it came from."
+        ],
+        "time": "0:40",
+        "notes": [
+          "Be straight about it: the rewrite is faster but does not yet do everything the first version did.",
+          "Today TorQ answers from the model's own knowledge and is prompted to hedge and point to the manual. A wrong torque spec strips a thread or loses a wheel, so cited lookup matters."
+        ]
+      },
+      {
+        "kicker": "Close",
+        "title": "Build one that solves a problem you have",
+        "body": [
+          "\"Don't build a robot that solves a problem you'd have to research. Build one that solves a problem you have.\"",
+          "Questions?"
+        ],
+        "image": {
+          "src": "/torq/action/torq-low.jpg",
+          "alt": "A low view of TorQ on the concrete floor with the 4Runner's chrome bumper and front tire close behind it",
+          "width": 1500,
+          "height": 2000
+        },
+        "time": "0:20",
+        "notes": [
+          "Thank Diya, Spatika and Zach.",
+          "The full write-up, photos and the other two clips are on the project page."
+        ]
+      }
+    ]
+  }
 }
