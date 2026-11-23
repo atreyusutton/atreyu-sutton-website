@@ -146,6 +146,45 @@ export interface CaseStudyFlow {
 export interface CaseStudyCode {
   file: string
   text: string
+  /** Callouts tied to a line of `text`, counted from 1. Turns on line numbers. */
+  notes?: { line: number; text: string }[]
+}
+
+/** One computer in a before and after diagram, with the jobs it runs. */
+export interface CompareMachine {
+  name: string
+  /** Printed on the connector leading into this machine from the one above. */
+  link?: string
+  jobs: string[]
+}
+
+export interface CompareSide {
+  label: string
+  title: string
+  machines: CompareMachine[]
+  result: { value: string; label: string }
+}
+
+/** Two arrangements of the same system, drawn side by side. */
+export interface CaseStudyCompare {
+  /** One sentence describing the whole diagram, for screen readers. */
+  summary: string
+  sides: CompareSide[]
+}
+
+export interface DialogueTurn {
+  speaker: 'person' | 'robot'
+  name: string
+  text: string[]
+  /** What the system did to produce this turn, in order. */
+  trace?: { label: string; detail: string }[]
+}
+
+/** A real exchange, with the work behind each answer shown beside it. */
+export interface CaseStudyDialogue {
+  summary: string
+  turns: DialogueTurn[]
+  note?: string
 }
 
 export interface CaseStudyStat {
@@ -176,6 +215,8 @@ export interface CaseStudySection {
   /** One sentence set apart from the prose. Use once per page at most. */
   callout?: string
   flow?: CaseStudyFlow
+  compare?: CaseStudyCompare
+  dialogue?: CaseStudyDialogue
   table?: ProposalTable
   images?: Media[]
   /** `two` and `three` set images side by side. Default is one per row. */

@@ -2,6 +2,8 @@ import Image from 'next/image'
 import type {
   CaseStudyCard,
   CaseStudyCode,
+  CaseStudyCompare,
+  CaseStudyDialogue,
   CaseStudyVideo,
   ProposalTable,
   CaseStudyFlow,
@@ -234,6 +236,9 @@ function Pending({ items }: { items: string[] }) {
 }
 
 function Code({ code }: { code: CaseStudyCode }) {
+  const notes = code.notes ?? []
+  const noteAt = new Map(notes.map((note, i) => [note.line, i + 1]))
+
   return (
     <figure className="mt-8 max-w-[60rem]">
       <figcaption className="label mb-2 [overflow-wrap:anywhere]">{code.file}</figcaption>
@@ -242,8 +247,122 @@ function Code({ code }: { code: CaseStudyCode }) {
         tabIndex={0}
         className="num overflow-x-auto border border-rule bg-ground-sunken p-4 text-[0.8rem] leading-relaxed"
       >
-        <code>{code.text}</code>
+        {notes.length === 0 ? (
+          <code>{code.text}</code>
+        ) : (
+          <code className="block min-w-fit">
+            {code.text.split('\n').map((line, i) => {
+              const mark = noteAt.get(i + 1)
+              return (
+                <span
+                  key={i}
+                  className={`block border-l-2 pl-3 ${mark ? 'border-accent bg-ground-raised' : 'border-transparent'}`}
+                >
+                  <span aria-hidden="true" className="inline-block w-6 select-none text-accent">
+                    {mark ?? ''}
+                  </span>
+                  {line}
+                  {'\n'}
+                </span>
+              )
+            })}
+          </code>
+        )}
       </pre>
+      {notes.length > 0 ? (
+        <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+          {notes.map((note, i) => (
+            <li key={note.line} className="flex gap-3 text-sm text-ink-muted">
+              <span className="label !text-accent">{i + 1}</span>
+              <span>{note.text}</span>
+            </li>
+          ))}
+        </ol>
+      ) : null}
+    </figure>
+  )
+}
+
+/** Two arrangements of one system, side by side, each ending in its result. */
+function Compare({ compare }: { compare: CaseStudyCompare }) {
+  return (
+    <figure className="mt-8 max-w-[60rem]">
+      <figcaption className="sr-only">{compare.summary}</figcaption>
+      <div className="grid gap-6 md:grid-cols-2">
+        {compare.sides.map((side) => (
+          <div key={side.label} className="flex flex-col border border-rule p-4">
+            <p className="label">{side.label}</p>
+            <p className="mt-1 font-[family-name:var(--font-display)] text-xl">{side.title}</p>
+
+            <ol className="mt-4 flex-1">
+              {side.machines.map((machine, i) => (
+                <li key={machine.name}>
+                  {i > 0 ? (
+                    <p className="label py-2 text-center" aria-hidden="true">
+                      ↑↓{machine.link ? ` ${machine.link}` : ''}
+                    </p>
+                  ) : null}
+                  {machine.link ? <p className="sr-only">Connected by {machine.link}:</p> : null}
+                  <div className="border border-rule-strong bg-ground-raised p-4">
+                    <p className="font-[family-name:var(--font-display)] text-lg">{machine.name}</p>
+                    <ul className="num mt-2 grid gap-1 text-sm text-ink-muted">
+                      {machine.jobs.map((job) => (
+                        <li key={job}>{job}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <p className="mt-4 border-t border-rule pt-4">
+              <span className="num block text-3xl">{side.result.value}</span>
+              <span className="label mt-1 block">{side.result.label}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </figure>
+  )
+}
+
+/** A conversation, with the trace of what produced each answer set under it. */
+function Dialogue({ dialogue }: { dialogue: CaseStudyDialogue }) {
+  return (
+    <figure className="mt-8 max-w-[52rem]">
+      <figcaption className="sr-only">{dialogue.summary}</figcaption>
+      <ol className="grid gap-4">
+        {dialogue.turns.map((turn, i) => (
+          <li
+            key={i}
+            className={
+              turn.speaker === 'person'
+                ? 'border-l-2 border-accent pl-4 sm:ml-[20%]'
+                : 'border border-rule-strong bg-ground-raised p-4 sm:mr-[10%]'
+            }
+          >
+            <p className="label">{turn.name}</p>
+            <div className={turn.speaker === 'person' ? 'mt-1 text-lg' : 'mt-2'}>
+              {turn.text.map((paragraph, p) => (
+                <p key={p} className={p > 0 ? 'mt-3' : ''}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            {turn.trace && turn.trace.length > 0 ? (
+              <dl className="num mt-4 grid gap-x-4 gap-y-1 border-t border-rule pt-3 text-[0.8rem] sm:grid-cols-[6rem_1fr]">
+                {turn.trace.map((step, t) => (
+                  <div key={t} className="contents">
+                    <dt className="text-accent">{step.label}</dt>
+                    <dd className="text-ink-muted [overflow-wrap:anywhere]">{step.detail}</dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+      {dialogue.note ? <p className="label mt-3">{dialogue.note}</p> : null}
     </figure>
   )
 }
@@ -254,6 +373,8 @@ function Block({ section }: { section: CaseStudySection }) {
       {section.body ? <Prose paragraphs={section.body} /> : null}
       {section.callout ? <Callout text={section.callout} /> : null}
       {section.flow ? <Flow flow={section.flow} /> : null}
+      {section.compare ? <Compare compare={section.compare} /> : null}
+      {section.dialogue ? <Dialogue dialogue={section.dialogue} /> : null}
       {section.table ? <DataTable table={section.table} /> : null}
       {section.images ? <Shots images={section.images} layout={section.imageLayout ?? 'one'} /> : null}
       {section.video ? <Clip video={section.video} /> : null}
