@@ -178,18 +178,33 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             ) : null}
 
             {project.deck ? (
-              <p className="mt-8">
-                <Link
-                  href={`/projects/${project.slug}/slides/`}
-                  className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 hover:border-accent hover:text-accent"
-                >
-                  <span className="label !text-inherit">Slides</span>
-                  <span>
-                    Open the presentation
-                    {project.deck.duration ? `, ${project.deck.duration.toLowerCase()}` : ''}
-                  </span>
-                </Link>
-              </p>
+              <ul className="mt-8 flex flex-wrap gap-3">
+                <li>
+                  <Link
+                    href={`/projects/${project.slug}/slides/`}
+                    className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 hover:border-accent hover:text-accent"
+                  >
+                    <span className="label !text-inherit">Slides</span>
+                    <span>
+                      Open the presentation
+                      {project.deck.duration ? `, ${project.deck.duration.toLowerCase()}` : ''}
+                    </span>
+                  </Link>
+                </li>
+                {project.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 hover:border-accent hover:text-accent"
+                    >
+                      <span className="label !text-inherit">Link</span>
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             ) : null}
 
             {project.proposal?.origin ? (

@@ -260,6 +260,8 @@ export interface DeckSlide {
   stats?: CaseStudyStat[]
   image?: Media
   video?: CaseStudyVideo
+  /** Links shown under the text, such as the repository. */
+  links?: { label: string; href: string }[]
   /** Rough time to spend, as m:ss. Shown with the speaker notes. */
   time?: string
   /** Speaker notes. Hidden until asked for. */

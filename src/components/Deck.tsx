@@ -69,6 +69,23 @@ function SlideText({ slide, first }: { slide: DeckSlide; first: boolean }) {
           ))}
         </dl>
       ) : null}
+
+      {slide.links ? (
+        <ul className="mt-7 flex flex-wrap gap-3">
+          {slide.links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="num inline-block border border-rule-strong px-4 py-2.5 text-[clamp(0.9rem,1.2vw,1.1rem)] hover:border-accent hover:text-accent"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   )
 }
@@ -166,7 +183,8 @@ export function Deck({ deck, backHref, backLabel }: { deck: DeckContent; backHre
   const slide = deck.slides[index]
   const hasMedia = Boolean(slide.image || slide.video)
   const textOnly = !hasMedia
-  const mediaOnly = hasMedia && !slide.body && !slide.bullets && !slide.columns && !slide.stats
+  const mediaOnly =
+    hasMedia && !slide.body && !slide.bullets && !slide.columns && !slide.stats && !slide.links
 
   return (
     <div ref={frame} className="fixed inset-0 z-50 flex flex-col bg-ground text-ink">

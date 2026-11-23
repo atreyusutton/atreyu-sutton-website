@@ -149,8 +149,8 @@
   "video": null,
   "links": [
     {
-      "label": "Code on GitHub (feat/voice branch)",
-      "href": "https://github.com/atreyusutton/TorQ/tree/feat/voice"
+      "label": "Code on GitHub",
+      "href": "https://github.com/atreyusutton/TorQ"
     }
   ],
   "intake": [
@@ -838,7 +838,7 @@
           "Tests": "20 integration tests, all passing",
           "Code": "About 3,200 lines across Python, firmware and the dashboard",
           "Deploy": "The body service and camera stream start on boot under systemd, and one script deploys from the laptop",
-          "Repo": "github.com/atreyusutton/TorQ. The application code is on the feat/voice branch"
+          "Repo": "github.com/atreyusutton/TorQ"
         }
       }
     ]
@@ -1520,6 +1520,12 @@
           "Introduce the four of us.",
           "One line: you ask it a question while you are working on a car, and it answers through a speaker.",
           "Say what the talk covers: where the idea came from, the first version, the rewrite, and what is left."
+        ],
+        "links": [
+          {
+            "label": "github.com/atreyusutton/TorQ",
+            "href": "https://github.com/atreyusutton/TorQ"
+          }
         ]
       },
       {
@@ -1878,7 +1884,18 @@
         "time": "0:20",
         "notes": [
           "Thank Diya, Spatika and Zach.",
-          "The full write-up, photos and the other two clips are on the project page."
+          "The full write-up, photos and the other two clips are on the project page.",
+          "The code is public on GitHub, with a README that covers the same ground."
+        ],
+        "links": [
+          {
+            "label": "github.com/atreyusutton/TorQ",
+            "href": "https://github.com/atreyusutton/TorQ"
+          },
+          {
+            "label": "atreyusutton.com/projects/torq",
+            "href": "https://atreyusutton.com/projects/torq/"
+          }
         ]
       }
     ]
