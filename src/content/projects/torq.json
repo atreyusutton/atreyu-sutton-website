@@ -30,6 +30,54 @@
   },
   "gallery": [
     {
+      "src": "/torq/action/torq-garage.jpg",
+      "thumb": "/torq/thumbs/torq-garage.jpg",
+      "alt": "TorQ on a garage floor in front of a lifted grey 1988 Toyota 4Runner, with red tool chests along the wall behind",
+      "width": 2000,
+      "height": 1500,
+      "caption": "In the garage with the 1988 4Runner it was built to help with."
+    },
+    {
+      "src": "/torq/action/torq-under.jpg",
+      "thumb": "/torq/thumbs/torq-under.jpg",
+      "alt": "TorQ parked under the front of the lifted 4Runner, its webcam tilted up toward the front suspension",
+      "width": 1500,
+      "height": 2000,
+      "caption": "Under the front end with the camera pointed up at the suspension."
+    },
+    {
+      "src": "/torq/action/torq-low.jpg",
+      "thumb": "/torq/thumbs/torq-low.jpg",
+      "alt": "A low view of TorQ on the concrete floor with the 4Runner's chrome bumper and front tire close behind it",
+      "width": 1500,
+      "height": 2000,
+      "caption": "Floor level, in front of the 4Runner."
+    },
+    {
+      "src": "/torq/action/torq-hood.jpg",
+      "thumb": "/torq/thumbs/torq-hood.jpg",
+      "alt": "TorQ on the floor in front of the 4Runner with the hood open",
+      "width": 1500,
+      "height": 2000,
+      "caption": "Hood up."
+    },
+    {
+      "src": "/torq/action/torq-harness.jpg",
+      "thumb": "/torq/thumbs/torq-harness.jpg",
+      "alt": "TorQ on a workbench surrounded by a loose automotive wiring harness, with a heat gun, electrical tape and wire cutters beside it",
+      "width": 1500,
+      "height": 2000,
+      "caption": "On the bench with a wiring harness."
+    },
+    {
+      "src": "/torq/torq-front-right.jpg",
+      "thumb": "/torq/thumbs/torq-front-right.jpg",
+      "alt": "TorQ from the front right against a white background: a matte black printed box body on two rubber tracks, with a webcam on a hinged arm above the lid and a wide slot across the upper front",
+      "width": 2000,
+      "height": 1500,
+      "caption": "Front right."
+    },
+    {
       "src": "/torq/torq-front.jpg",
       "thumb": "/torq/thumbs/torq-front.jpg",
       "alt": "TorQ from the front: black body between two tracks, a speaker grille panel across the lower front, a slot above it, and the webcam on its arm looking straight ahead",
@@ -76,6 +124,26 @@
       "width": 2000,
       "height": 1500,
       "caption": "Rear right."
+    }
+  ],
+  "clips": [
+    {
+      "src": "/torq/action/bellhousing.mp4",
+      "poster": "/torq/action/bellhousing.jpg",
+      "thumb": "/torq/thumbs/clip-bellhousing.jpg",
+      "caption": "Driving under the 4Runner with the camera feed on the laptop, then asked for the bellhousing bolt torque. Filmed demo: the spoken answer is scripted for the camera."
+    },
+    {
+      "src": "/torq/action/lug-nuts.mp4",
+      "poster": "/torq/action/lug-nuts.jpg",
+      "thumb": "/torq/thumbs/clip-lug-nuts.jpg",
+      "caption": "Asked for the lug nut torque beside the wheel. Filmed demo: the spoken answer is scripted for the camera."
+    },
+    {
+      "src": "/torq/action/wiring.mp4",
+      "poster": "/torq/action/wiring.jpg",
+      "thumb": "/torq/thumbs/clip-wiring.jpg",
+      "caption": "Asked to identify a sensor on a harness and give its pinout. Filmed demo: the spoken answer is scripted for the camera."
     }
   ],
   "video": null,

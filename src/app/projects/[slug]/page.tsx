@@ -142,6 +142,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     </li>
                   ))}
                 </ul>
+                {mediaInIntro ? (
+                  <div className="mt-8">
+                    <Gallery
+                      images={
+                        project.hero && !gallery.some((image) => image.src === project.hero?.src)
+                          ? [project.hero, ...gallery]
+                          : gallery
+                      }
+                      clips={project.clips ?? []}
+                    />
+                  </div>
+                ) : null}
                 {project.caseStudy.stats && project.caseStudy.stats.length > 0 ? (
                   <div className="mt-8">
                     <dl className="grid max-w-[52rem] grid-cols-2 gap-x-8 gap-y-6 border-y border-rule py-5 sm:grid-cols-4">
@@ -163,12 +175,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   ))}
                 </div>
               </>
-            ) : null}
-
-            {mediaInIntro ? (
-              <div className="mt-10">
-                <Gallery images={project.hero ? [project.hero, ...gallery] : gallery} />
-              </div>
             ) : null}
 
             {project.proposal?.origin ? (

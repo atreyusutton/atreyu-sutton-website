@@ -207,6 +207,8 @@ export interface CaseStudyCard {
 export interface CaseStudyVideo {
   src: string
   poster?: string
+  /** A small still for thumbnail rows. */
+  thumb?: string
   caption?: string
 }
 
@@ -261,9 +263,9 @@ export interface Project {
   specs: Record<string, string>
   hero: Media | null
   gallery: Media[]
-  /** Short clips, shown with the gallery under the hero. */
+  /** Short clips, shown with the gallery. */
   clips?: CaseStudyVideo[]
-  /** `intro` moves the photographs under the title and intro, as one viewer. Default is a hero above the title. */
+  /** `intro` puts the photographs and clips in one viewer under the title and tags. Default is a hero above the title. */
   mediaPlacement?: 'top' | 'intro'
   video: { src: string; poster: string } | null
   links: { label: string; href: string }[]
