@@ -22,43 +22,60 @@
   },
   "hero": {
     "src": "/torq/torq-front-right.jpg",
+    "thumb": "/torq/thumbs/torq-front-right.jpg",
     "alt": "TorQ from the front right against a white background: a matte black printed box body on two rubber tracks, with a webcam on a hinged arm above the lid and a wide slot across the upper front",
-    "width": 1600,
-    "height": 1200
+    "width": 2000,
+    "height": 1500,
+    "caption": "Front right."
   },
   "gallery": [
     {
+      "src": "/torq/torq-front.jpg",
+      "thumb": "/torq/thumbs/torq-front.jpg",
+      "alt": "TorQ from the front: black body between two tracks, a speaker grille panel across the lower front, a slot above it, and the webcam on its arm looking straight ahead",
+      "width": 2000,
+      "height": 1500,
+      "caption": "Front. The speaker sits behind the grille panel."
+    },
+    {
       "src": "/torq/torq-open.jpg",
+      "thumb": "/torq/thumbs/torq-open.jpg",
       "alt": "TorQ from the front with the lower front panel removed, showing the Raspberry Pi 5 with its cooling fan, the Arduino under it, and red, black and blue wiring inside the body",
-      "width": 1600,
-      "height": 1200,
+      "width": 2000,
+      "height": 1500,
       "caption": "Front panel off: the Raspberry Pi 5 and the Arduino with its motor shield."
     },
     {
-      "src": "/torq/torq-rear.jpg",
-      "alt": "TorQ from the rear left: a curved printed back panel with a raised logo, a yellow battery connector on red and black leads coming out of the side, and the left track in the foreground",
-      "width": 1600,
-      "height": 1200,
-      "caption": "Rear. The battery lead comes out at the back for charging."
+      "src": "/torq/torq-front-left.jpg",
+      "thumb": "/torq/thumbs/torq-front-left.jpg",
+      "alt": "TorQ from the front left: the grille panel and upper slot on the front face, the ribbed left side of the body, and the left track in the foreground",
+      "width": 2000,
+      "height": 1500,
+      "caption": "Front left."
     },
     {
       "src": "/torq/torq-side.jpg",
+      "thumb": "/torq/thumbs/torq-side.jpg",
       "alt": "TorQ in side profile: the track with its drive wheels and idlers below, the ribbed side of the body above, and the webcam arm folded up over the lid",
-      "width": 1600,
-      "height": 1200,
+      "width": 2000,
+      "height": 1500,
       "caption": "Side profile."
-    }
-  ],
-  "clips": [
-    {
-      "src": "/torq/clips/clip-3713.mp4",
-      "poster": "/torq/clips/clip-3713.jpg",
-      "caption": "Driving on a cutting mat in the lab, before the enclosure went on."
     },
     {
-      "src": "/torq/clips/clip-4177.mp4",
-      "poster": "/torq/clips/clip-4177.jpg",
-      "caption": "On a table with its camera feed on the laptop, before the enclosure went on."
+      "src": "/torq/torq-rear.jpg",
+      "thumb": "/torq/thumbs/torq-rear.jpg",
+      "alt": "TorQ from the rear left: a curved printed back panel with a raised logo, a yellow battery connector on red and black leads coming out of the side, and the left track in the foreground",
+      "width": 2000,
+      "height": 1500,
+      "caption": "Rear left. The battery lead comes out at the back for charging."
+    },
+    {
+      "src": "/torq/torq-rear-right.jpg",
+      "thumb": "/torq/thumbs/torq-rear-right.jpg",
+      "alt": "TorQ from the rear right: the curved back panel with its raised logo, the battery lead hanging below it, the ribbed right side of the body and the right track in the foreground",
+      "width": 2000,
+      "height": 1500,
+      "caption": "Rear right."
     }
   ],
   "video": null,
@@ -645,31 +662,35 @@
         "images": [
           {
             "src": "/torq/torq-front.jpg",
+            "thumb": "/torq/thumbs/torq-front.jpg",
             "alt": "TorQ from the front: black body between two tracks, a speaker grille panel across the lower front, a slot above it, and the webcam on its arm looking straight ahead",
-            "width": 1600,
-            "height": 1200,
+            "width": 2000,
+            "height": 1500,
             "caption": "Front. The speaker sits behind the grille panel."
           },
           {
             "src": "/torq/torq-open.jpg",
+            "thumb": "/torq/thumbs/torq-open.jpg",
             "alt": "TorQ from the front with the lower front panel removed, showing the Raspberry Pi 5 with its cooling fan, the Arduino under it, and red, black and blue wiring inside the body",
-            "width": 1600,
-            "height": 1200,
+            "width": 2000,
+            "height": 1500,
             "caption": "Front panel off: the Raspberry Pi 5 and the Arduino with its motor shield."
           },
           {
             "src": "/torq/torq-rear.jpg",
+            "thumb": "/torq/thumbs/torq-rear.jpg",
             "alt": "TorQ from the rear left: a curved printed back panel with a raised logo, a yellow battery connector on red and black leads coming out of the side, and the left track in the foreground",
-            "width": 1600,
-            "height": 1200,
-            "caption": "Rear. The battery lead comes out at the back for charging."
+            "width": 2000,
+            "height": 1500,
+            "caption": "Rear left. The battery lead comes out at the back for charging."
           },
           {
-            "src": "/torq/torq-top.jpg",
-            "alt": "TorQ from above the front left corner, showing the flat lid, the webcam folded down onto it and the tracks either side",
-            "width": 1600,
-            "height": 1200,
-            "caption": "From above, with the camera folded down."
+            "src": "/torq/torq-rear-right.jpg",
+            "thumb": "/torq/thumbs/torq-rear-right.jpg",
+            "alt": "TorQ from the rear right: the curved back panel with its raised logo, the battery lead hanging below it, the ribbed right side of the body and the right track in the foreground",
+            "width": 2000,
+            "height": 1500,
+            "caption": "Rear right."
           }
         ]
       },
@@ -1395,5 +1416,18 @@
     "Streaming tool-use loop",
     "20 integration tests",
     "300 ms firmware watchdog"
+  ],
+  "mediaPlacement": "intro",
+  "clipsArchived": [
+    {
+      "src": "/torq/clips/clip-3713.mp4",
+      "poster": "/torq/clips/clip-3713.jpg",
+      "caption": "Driving on a cutting mat in the lab, before the enclosure went on."
+    },
+    {
+      "src": "/torq/clips/clip-4177.mp4",
+      "poster": "/torq/clips/clip-4177.jpg",
+      "caption": "On a table with its camera feed on the laptop, before the enclosure went on."
+    }
   ]
 }

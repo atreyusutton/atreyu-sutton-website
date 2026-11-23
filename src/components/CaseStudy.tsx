@@ -9,9 +9,9 @@ import type {
   CaseStudyFlow,
   CaseStudySection,
   FlowStage,
-  Media,
 } from '@/content/types'
 import { Section } from './Section'
+import { Shots } from './Shots'
 import { SpecTable } from './SpecTable'
 
 function Prose({ paragraphs }: { paragraphs: string[] }) {
@@ -97,32 +97,6 @@ function Flow({ flow }: { flow: CaseStudyFlow }) {
         ))}
       </ol>
     </figure>
-  )
-}
-
-const SHOT_GRID = {
-  one: 'max-w-[60rem]',
-  two: 'sm:grid-cols-2',
-  three: 'sm:grid-cols-2 lg:grid-cols-3',
-}
-
-function Shots({ images, layout }: { images: Media[]; layout: 'one' | 'two' | 'three' }) {
-  return (
-    <div className={`mt-8 grid gap-6 ${SHOT_GRID[layout]}`}>
-      {images.map((image) => (
-        <figure key={image.src}>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
-            sizes={layout === 'one' ? '(max-width: 1024px) 100vw, 60rem' : '(max-width: 640px) 100vw, 45vw'}
-            className="w-full border border-rule"
-          />
-          {image.caption ? <figcaption className="label mt-2">{image.caption}</figcaption> : null}
-        </figure>
-      ))}
-    </div>
   )
 }
 

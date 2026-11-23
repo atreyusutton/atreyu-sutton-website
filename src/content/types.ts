@@ -20,6 +20,8 @@ export interface Media {
   width: number
   height: number
   caption?: string
+  /** A small copy of the same frame, for thumbnail rows. */
+  thumb?: string
 }
 
 export interface IntakeQuestion {
@@ -261,6 +263,8 @@ export interface Project {
   gallery: Media[]
   /** Short clips, shown with the gallery under the hero. */
   clips?: CaseStudyVideo[]
+  /** `intro` moves the photographs under the title and intro, as one viewer. Default is a hero above the title. */
+  mediaPlacement?: 'top' | 'intro'
   video: { src: string; poster: string } | null
   links: { label: string; href: string }[]
   /** The live site, when the project is one. Shown on the card and the page. */

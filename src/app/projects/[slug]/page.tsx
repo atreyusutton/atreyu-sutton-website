@@ -18,6 +18,7 @@ import {
   ProposalSections,
 } from '@/components/Proposal'
 import { ProjectMedia } from '@/components/ProjectMedia'
+import { Gallery } from '@/components/Gallery'
 import { Section } from '@/components/Section'
 import { CaseStudySections } from '@/components/CaseStudy'
 
@@ -58,6 +59,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const broke = answerFor(project, 'broke')
   const differently = answerFor(project, 'differently')
   const gallery = describedImages(project.gallery)
+  const mediaInIntro = project.mediaPlacement === 'intro'
 
   const specs = {
     Lane: LANE_LABELS[project.lane],
@@ -75,7 +77,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <article>
-      {project.hero ? (
+      {project.hero && !mediaInIntro ? (
         <div className="mx-auto max-w-[var(--page-max)] px-5 pt-8 md:px-8 md:pt-10">
           <figure className="mx-auto w-fit">
             {isGenerated(project.hero) ? <GeneratedNotice /> : null}
@@ -97,7 +99,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </div>
       ) : null}
 
-      <ProjectMedia images={gallery} clips={project.clips ?? []} />
+      {mediaInIntro ? null : <ProjectMedia images={gallery} clips={project.clips ?? []} />}
 
       <div className="mx-auto max-w-[var(--page-max)] px-5 py-12 md:px-8 md:py-16">
         <div className="grid gap-6 md:grid-cols-[var(--rail)_1fr] md:gap-10">
@@ -161,6 +163,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   ))}
                 </div>
               </>
+            ) : null}
+
+            {mediaInIntro ? (
+              <div className="mt-10">
+                <Gallery images={project.hero ? [project.hero, ...gallery] : gallery} />
+              </div>
             ) : null}
 
             {project.proposal?.origin ? (
