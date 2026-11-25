@@ -18,6 +18,7 @@ import {
   ProposalSections,
 } from '@/components/Proposal'
 import { ProjectMedia } from '@/components/ProjectMedia'
+import { LiveSiteLink } from '@/components/LiveSiteLink'
 import { Gallery } from '@/components/Gallery'
 import { Section } from '@/components/Section'
 import { CaseStudySections } from '@/components/CaseStudy'
@@ -110,15 +111,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {project.site ? (
               <p className="mt-8">
-                <a
-                  href={project.site.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex max-w-full flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 text-lg hover:border-accent hover:text-accent"
-                >
-                  <span className="label !text-inherit">Live site</span>
-                  <span className="num [overflow-wrap:anywhere]">{project.site.label}</span>
-                </a>
+                <LiveSiteLink site={project.site} size="page" />
               </p>
             ) : null}
 

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { LANE_LABELS, type Project } from '@/content/types'
 import { GeneratedNotice, isGenerated } from './GeneratedNotice'
+import { LiveSiteLink } from './LiveSiteLink'
 
 /**
  * One photograph, the name, one line, a lane tag and a number if there is a
@@ -71,15 +72,7 @@ export function ProjectCard({ project }: { project: Project }) {
       {/* Sits above the card-wide link so it stays clickable on its own. */}
       {project.site ? (
         <p className="relative z-10 mt-5">
-          <a
-            href={project.site.href}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex max-w-full flex-wrap items-baseline gap-x-3 gap-y-1 border border-rule-strong px-4 py-2.5 text-base hover:border-accent hover:text-accent"
-          >
-            <span className="label !text-inherit">Live site</span>
-            <span className="num [overflow-wrap:anywhere]">{project.site.label}</span>
-          </a>
+          <LiveSiteLink site={project.site} size="card" />
         </p>
       ) : null}
     </article>
