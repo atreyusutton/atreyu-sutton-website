@@ -3,7 +3,7 @@
   "title": "Digital Record Player",
   "lane": "hardware",
   "tier": "featured",
-  "order": 8,
+  "order": 5,
   "published": true,
   "featured": true,
   "status": "in-progress",
@@ -62,16 +62,6 @@
     }
   ],
   "clips": [
-    {
-      "src": "/digital-record-player/photos/clip-1057.mp4",
-      "poster": "/digital-record-player/photos/clip-1057.jpg",
-      "caption": "The cover art turning in the platter. Filmed on the device."
-    },
-    {
-      "src": "/digital-record-player/photos/clip-1058.mp4",
-      "poster": "/digital-record-player/photos/clip-1058.jpg",
-      "caption": "A different cover, from above. Filmed on the device."
-    },
     {
       "src": "/digital-record-player/photos/clip-1059.mp4",
       "poster": "/digital-record-player/photos/clip-1059.jpg",
@@ -188,7 +178,7 @@
     "intro": [
       "I took apart a 1byone vinyl turntable and rebuilt it as a self-contained Spotify player. A Raspberry Pi 4 inside the chassis shows up as a Spotify Connect device. A 4 inch round display sits where the record label would be and shows the current album art turning at 33 1/3 RPM, while the original platter motor spins underneath it.",
       "A 3.5 inch touchscreen runs a control UI I wrote. Two rotary encoders give physical volume and navigation knobs. Audio goes out through a Focusrite Scarlett Solo to studio monitors.",
-      "There is no machine learning in this project. It is an embedded systems and full-stack build, and it is here for the engineering underneath it. The photos and clips at the top of this page are of the real device. The interface screenshots further down are renders with demo data."
+      "There is no machine learning in this project. It is an embedded systems and full-stack build, and it is here for the engineering underneath it. The photos and clip at the top of this page are of the real device. The interface screenshots further down are renders with demo data."
     ],
     "sections": [
       {
