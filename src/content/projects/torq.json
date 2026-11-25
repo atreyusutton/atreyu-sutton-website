@@ -3,7 +3,7 @@
   "title": "TorQ",
   "lane": "hardware",
   "tier": "featured",
-  "order": 5,
+  "order": 1,
   "published": true,
   "featured": true,
   "status": "running",
@@ -128,12 +128,6 @@
   ],
   "clips": [
     {
-      "src": "/torq/action/bellhousing.mp4",
-      "poster": "/torq/action/bellhousing.jpg",
-      "thumb": "/torq/thumbs/clip-bellhousing.jpg",
-      "caption": "Driving under the 4Runner with the camera feed on the laptop, then asked for the bellhousing bolt torque. Filmed demo: the spoken answer is scripted for the camera."
-    },
-    {
       "src": "/torq/action/lug-nuts.mp4",
       "poster": "/torq/action/lug-nuts.jpg",
       "thumb": "/torq/thumbs/clip-lug-nuts.jpg",
@@ -144,6 +138,12 @@
       "poster": "/torq/action/wiring.jpg",
       "thumb": "/torq/thumbs/clip-wiring.jpg",
       "caption": "Asked to identify a sensor on a harness and give its pinout. Filmed demo: the spoken answer is scripted for the camera."
+    },
+    {
+      "src": "/torq/action/bellhousing.mp4",
+      "poster": "/torq/action/bellhousing.jpg",
+      "thumb": "/torq/thumbs/clip-bellhousing.jpg",
+      "caption": "Driving under the 4Runner with the camera feed on the laptop, then asked for the bellhousing bolt torque. Filmed demo: the spoken answer is scripted for the camera."
     }
   ],
   "video": null,
